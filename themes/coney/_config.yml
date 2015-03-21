@@ -78,7 +78,7 @@ jiathis:
 
 ####Baidu Analytics
 baidu_analytics:
-  enable: true
+  enable: false
   id: 391982416296a0d54221f59fe35250d4 # your baidu analytics id
 
 ####Baidu Share
@@ -93,12 +93,12 @@ theme_color:
     footer: "#ddd"
  ####Baidu search 
 baidu_search:
-  enable: true
+  enable: false
   id: 
   site: http://zhannei.baidu.com/cse/search  #your can change your site instead the default site
 
 google_analytics:
-  enable: true
+  enable: false
   id:   ## e.g. UA-55273525-1 your google analytics ID.
   site: ## e.g. gengbiao.me your google analytics site or set the value as auto.
 ## You MUST upgrade to Universal Analytics first!
