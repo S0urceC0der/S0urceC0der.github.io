@@ -46,6 +46,8 @@ tags:
 
 `git checkout source`： 检出source分支
 
+`git checkout [file]`：回滚某个文件
+
 `git fetch origin`：升级仓库
 
 `git push origin source`或者`git push origin source:source`：将本地source分支推送到origin仓库的source分支中
