@@ -53,6 +53,10 @@ tags:
 
 * Visual Assist X: 不解释
 
+注：Visual Assist X最新版无法直接搜索到VC6的安装路径，需要在注册表中`HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\App Paths\msdev.exe`指定实际路径。这有可能是绿色版导致的。
+
+参考http://tunps.com/newest-vax-support-on-vc-6
+
 * VsVim: 我是VIM党
 
 * Disable Mouse Wheel Zoom: 禁用滚轮缩放代码
