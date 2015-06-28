@@ -7,13 +7,13 @@
   <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8" />
 <meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88" />
   
-    <title>Node开发 | S0urceC0der</title>
+    <title>KaliLinux使用心得 | S0urceC0der</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="S0urceC0der">
     
-    <meta name="description" content="本文的主要内容：使用Node Coffee-script开发一个网站
-Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式命名后存入到Mongodb中，例如user重命名为表users，具体的命名方法可以参考Mongoose在创建Model时对Collection">
+    <meta name="description" content="Kali LinuxKali是一个专门用来进行安全审计（渗透测试）的操作系统，是著名的Backtrack的后继者，由同一组开发人员开发的。Kali基于Debian系统，加入了大量的安全工具。
+基本配置安装Linux Brew允许使用PPA库参考网页Kali Linux add PPA reposit">
     
     
     
@@ -66,15 +66,15 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/12/12/Node-Development/" title="Node开发" itemprop="url">Node开发</a>
+      <a href="/2015/04/12/KaliLinux/" title="KaliLinux使用心得" itemprop="url">KaliLinux使用心得</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="S0urceC0der">S0urceC0der</a>
     </p>
   <p class="article-time">
-    <time datetime="2014-12-12T07:26:22.000Z" itemprop="datePublished">Dec 12 2014</time>
-    更新日期:<time datetime="2015-02-13T13:52:35.000Z" itemprop="dateModified">Feb 13 2015</time>
+    <time datetime="2015-04-12T11:33:10.000Z" itemprop="datePublished">Apr 12 2015</time>
+    更新日期:<time datetime="2015-04-19T15:53:03.000Z" itemprop="dateModified">Apr 19 2015</time>
     
   </p>
 </header>
@@ -83,23 +83,28 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Mongoose"><span class="toc-number">1.</span> <span class="toc-text">Mongoose</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Kali_Linux"><span class="toc-number">1.</span> <span class="toc-text">Kali Linux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本配置"><span class="toc-number">2.</span> <span class="toc-text">基本配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Linux_Brew"><span class="toc-number">2.1.</span> <span class="toc-text">安装Linux Brew</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#允许使用PPA库"><span class="toc-number">2.2.</span> <span class="toc-text">允许使用PPA库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些常用软件"><span class="toc-number">3.</span> <span class="toc-text">一些常用软件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Zsh、Terminator"><span class="toc-number">3.1.</span> <span class="toc-text">安装Zsh、Terminator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装VMware"><span class="toc-number">3.2.</span> <span class="toc-text">安装VMware</span></a></li></ol></li></ol>
 		</div>
 		
-		<p>本文的主要内容：使用Node Coffee-script开发一个网站</p>
-<h4 id="Mongoose">Mongoose</h4><p>注意，Mongoose会对输入的Collection名字自动添加复数形式命名后存入到Mongodb中，例如user重命名为表users，具体的命名方法可以参考<a href="http://aiilive.blog.51cto.com/1925756/1405203" target="_blank" rel="external">Mongoose在创建Model时对Collection的命名策略</a></p>
-<p>解决方法是在创建Model的时候传入第三个参数作为实际的表名</p>
-<p>在查询中，还发现在查询大量数据的时候会出现<code>Error: parseError occured</code>的错误提示，相关的错误可以参看<a href="https://stackoverflow.com/questions/21767673/mongodb-parseerror-when-using-limit-and-sort" target="_blank" rel="external">MongoDB parseError when using limit and sort</a>，大意是缺少索引，但是我明明已经添加了相关的索引的，不知道如何去解决，故改用Mongodb试下</p>
+		<h2 id="Kali_Linux">Kali Linux</h2><p>Kali是一个专门用来进行安全审计（渗透测试）的操作系统，是著名的Backtrack的后继者，由同一组开发人员开发的。Kali基于Debian系统，加入了大量的安全工具。</p>
+<h2 id="基本配置">基本配置</h2><h3 id="安装Linux_Brew">安装Linux Brew</h3><h3 id="允许使用PPA库">允许使用PPA库</h3><p>参考网页<a href="http://www.blackmoreops.com/2014/02/21/kali-linux-add-ppa-repository-add-apt-repository/" target="_blank" rel="external">Kali Linux add PPA repository add-apt-repository</a></p>
+<h2 id="一些常用软件">一些常用软件</h2><h3 id="安装Zsh、Terminator">安装Zsh、Terminator</h3><p>用于替换原有的bash、Gnome Terminal。</p>
+<h3 id="安装VMware">安装VMware</h3><p>Vmware Workstation的驱动对于不同的Linux内核版本都要进行一定的patch才能正常编译。基本上通过搜索能够获取最新需要修改的地方，然后重新打包后编译即可。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Linux/">Linux</a>
+  </div>
 
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2014/12/12/Node-Development/" data-title="Node开发 | S0urceC0der" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2015/04/12/KaliLinux/" data-title="KaliLinux使用心得 | S0urceC0der" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -109,18 +114,18 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/01/03/Url-Leak/" title="网址泄漏">
+ <a href="/2015/04/20/Target/" title="个人学习目标">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  网址泄漏</span>
+  个人学习目标</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2014/12/07/Node-Start/"  title="Node使用心得">
+<a href="/2015/03/21/Cmder/"  title="Cmder">
  <strong>NEXT:</strong><br/> 
- <span>Node使用心得
+ <span>Cmder
 </span>
 </a>
 </div>
@@ -129,7 +134,7 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 
 	
 <section class="comment">
-	<div class="ds-thread" data-title="Node开发" data-thread-key="Node-Development" data-author-key="S0urceC0der" data-url="http://yoursite.com/post/Node-Development"></div>
+	<div class="ds-thread" data-title="KaliLinux使用心得" data-thread-key="KaliLinux" data-author-key="S0urceC0der" data-url="http://yoursite.com/post/KaliLinux"></div>
 </section>
 
 </div>  
@@ -137,7 +142,7 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Mongoose"><span class="toc-number">1.</span> <span class="toc-text">Mongoose</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Kali_Linux"><span class="toc-number">1.</span> <span class="toc-text">Kali Linux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本配置"><span class="toc-number">2.</span> <span class="toc-text">基本配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Linux_Brew"><span class="toc-number">2.1.</span> <span class="toc-text">安装Linux Brew</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#允许使用PPA库"><span class="toc-number">2.2.</span> <span class="toc-text">允许使用PPA库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些常用软件"><span class="toc-number">3.</span> <span class="toc-text">一些常用软件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Zsh、Terminator"><span class="toc-number">3.1.</span> <span class="toc-text">安装Zsh、Terminator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装VMware"><span class="toc-number">3.2.</span> <span class="toc-text">安装VMware</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">

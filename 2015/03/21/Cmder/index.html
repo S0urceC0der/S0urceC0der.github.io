@@ -7,13 +7,22 @@
   <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8" />
 <meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88" />
   
-    <title>Node开发 | S0urceC0der</title>
+    <title>Cmder | S0urceC0der</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="S0urceC0der">
     
-    <meta name="description" content="本文的主要内容：使用Node Coffee-script开发一个网站
-Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式命名后存入到Mongodb中，例如user重命名为表users，具体的命名方法可以参考Mongoose在创建Model时对Collection">
+    <meta name="description" content="Cmder简介Cmder是一款Windows下面的终端模拟器，有了它终于能够抛弃默认的垃圾cmd界面了！
+
+特点个人很简单的使用了下，觉得有以下优点：
+
+可自定义字体，配色非常好看。
+
+路径补全有所提高。
+
+
+使用配置乱码ls的乱码主要是参数问题，修改文件cmder/config/aliases：
+">
     
     
     
@@ -66,15 +75,15 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/12/12/Node-Development/" title="Node开发" itemprop="url">Node开发</a>
+      <a href="/2015/03/21/Cmder/" title="Cmder" itemprop="url">Cmder</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="S0urceC0der">S0urceC0der</a>
     </p>
   <p class="article-time">
-    <time datetime="2014-12-12T07:26:22.000Z" itemprop="datePublished">Dec 12 2014</time>
-    更新日期:<time datetime="2015-02-13T13:52:35.000Z" itemprop="dateModified">Feb 13 2015</time>
+    <time datetime="2015-03-21T07:34:12.000Z" itemprop="datePublished">Mar 21 2015</time>
+    更新日期:<time datetime="2015-06-13T09:59:38.000Z" itemprop="dateModified">Jun 13 2015</time>
     
   </p>
 </header>
@@ -83,13 +92,39 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Mongoose"><span class="toc-number">1.</span> <span class="toc-text">Mongoose</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cmder简介"><span class="toc-number">1.</span> <span class="toc-text">Cmder简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特点"><span class="toc-number">1.1.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用配置"><span class="toc-number">2.</span> <span class="toc-text">使用配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#乱码"><span class="toc-number">2.1.</span> <span class="toc-text">乱码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中文重叠"><span class="toc-number">2.2.</span> <span class="toc-text">中文重叠</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#右键打开Cmder"><span class="toc-number">2.3.</span> <span class="toc-text">右键打开Cmder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#退格后错位"><span class="toc-number">2.4.</span> <span class="toc-text">退格后错位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不足"><span class="toc-number">3.</span> <span class="toc-text">不足</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后"><span class="toc-number">4.</span> <span class="toc-text">最后</span></a></li></ol>
 		</div>
 		
-		<p>本文的主要内容：使用Node Coffee-script开发一个网站</p>
-<h4 id="Mongoose">Mongoose</h4><p>注意，Mongoose会对输入的Collection名字自动添加复数形式命名后存入到Mongodb中，例如user重命名为表users，具体的命名方法可以参考<a href="http://aiilive.blog.51cto.com/1925756/1405203" target="_blank" rel="external">Mongoose在创建Model时对Collection的命名策略</a></p>
-<p>解决方法是在创建Model的时候传入第三个参数作为实际的表名</p>
-<p>在查询中，还发现在查询大量数据的时候会出现<code>Error: parseError occured</code>的错误提示，相关的错误可以参看<a href="https://stackoverflow.com/questions/21767673/mongodb-parseerror-when-using-limit-and-sort" target="_blank" rel="external">MongoDB parseError when using limit and sort</a>，大意是缺少索引，但是我明明已经添加了相关的索引的，不知道如何去解决，故改用Mongodb试下</p>
+		<h2 id="Cmder简介">Cmder简介</h2><p>Cmder是一款Windows下面的终端模拟器，有了它终于能够抛弃默认的垃圾cmd界面了！</p>
+<p><img src="/img/cmder.png" alt="Cmder"></p>
+<h3 id="特点">特点</h3><p>个人很简单的使用了下，觉得有以下优点：</p>
+<ol>
+<li><p>可自定义字体，配色非常好看。</p>
+</li>
+<li><p>路径补全有所提高。</p>
+</li>
+</ol>
+<h2 id="使用配置">使用配置</h2><h3 id="乱码">乱码</h3><p>ls的乱码主要是参数问题，修改文件cmder/config/aliases：</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">l=<span class="keyword">ls</span> --show-<span class="keyword">control</span>-chars</span><br><span class="line">la=<span class="keyword">ls</span> -aF --show-<span class="keyword">control</span>-chars</span><br><span class="line">ll=<span class="keyword">ls</span> -alF --show-<span class="keyword">control</span>-chars</span><br><span class="line"><span class="keyword">ls</span>=<span class="keyword">ls</span> --show-<span class="keyword">control</span>-chars -F</span><br></pre></td></tr></table></figure>
+<h3 id="中文重叠">中文重叠</h3><p>在设置中，取消<code>Main console font</code>下的Monospace勾，这样中文字符（占用两个英文字符空间）就得到的了足够的空间了。</p>
+<h3 id="右键打开Cmder">右键打开Cmder</h3><p>以管理员权限运行，输入命令<code>.\cmder.exe /REGISTER ALL</code>，在任意目录下右击就会出现<code>Cmder Here</code>，可以打开并默认切换到该目录。</p>
+<h3 id="退格后错位">退格后错位</h3><blockquote>
+<p><a href="https://www.v2ex.com/member/lgh" target="_blank" rel="external">lgh</a>:<br>cmder 功能强大，但是反应较慢，经常卡住半天才反应；默认的命令提示符 λ 还会导致在用 TAB 还是 BACKSPACE 之后字符错位（自己改配置换成 $ 后就不会）。<br>现在干脆直接用 ConEmu 了。<br>来源：<a href="https://www.v2ex.com/t/155058" target="_blank" rel="external">https://www.v2ex.com/t/155058</a></p>
+</blockquote>
+<p>lgh针对问题1提出解决方法是修改提示符为$。修改方法是</p>
+<p>打开文件config/prompt.lua，将第二行中的λ修改为Linux下常用的$</p>
+<h2 id="不足">不足</h2><p>当然，可能这些问题只是因为我没有找到对应的解决方法。</p>
+<ol>
+<li><p><del>有时候会出现无法删除第一个字符的情况（实际已经删除了）。</del></p>
+</li>
+<li><p>路径补全还是没有达到zsh的效果。</p>
+</li>
+<li><p>没有快速进入某个目录的功能。</p>
+</li>
+<li><p>Cmder1.2开始需要VS<strong>2015</strong>运行库支持（丧心病狂！）</p>
+</li>
+</ol>
+<h2 id="最后">最后</h2><p>现在只是刚开始使用，很多功能还是在摸索中，如果有更多的体会，会继续更新。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -99,7 +134,7 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2014/12/12/Node-Development/" data-title="Node开发 | S0urceC0der" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2015/03/21/Cmder/" data-title="Cmder | S0urceC0der" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -109,18 +144,18 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/01/03/Url-Leak/" title="网址泄漏">
+ <a href="/2015/04/12/KaliLinux/" title="KaliLinux使用心得">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  网址泄漏</span>
+  KaliLinux使用心得</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2014/12/07/Node-Start/"  title="Node使用心得">
+<a href="/2015/03/15/Mactype/"  title="使用Mactype渲染字体">
  <strong>NEXT:</strong><br/> 
- <span>Node使用心得
+ <span>使用Mactype渲染字体
 </span>
 </a>
 </div>
@@ -129,7 +164,7 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 
 	
 <section class="comment">
-	<div class="ds-thread" data-title="Node开发" data-thread-key="Node-Development" data-author-key="S0urceC0der" data-url="http://yoursite.com/post/Node-Development"></div>
+	<div class="ds-thread" data-title="Cmder" data-thread-key="Cmder" data-author-key="S0urceC0der" data-url="http://yoursite.com/post/Cmder"></div>
 </section>
 
 </div>  
@@ -137,7 +172,7 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Mongoose"><span class="toc-number">1.</span> <span class="toc-text">Mongoose</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cmder简介"><span class="toc-number">1.</span> <span class="toc-text">Cmder简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特点"><span class="toc-number">1.1.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用配置"><span class="toc-number">2.</span> <span class="toc-text">使用配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#乱码"><span class="toc-number">2.1.</span> <span class="toc-text">乱码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中文重叠"><span class="toc-number">2.2.</span> <span class="toc-text">中文重叠</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#右键打开Cmder"><span class="toc-number">2.3.</span> <span class="toc-text">右键打开Cmder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#退格后错位"><span class="toc-number">2.4.</span> <span class="toc-text">退格后错位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不足"><span class="toc-number">3.</span> <span class="toc-text">不足</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后"><span class="toc-number">4.</span> <span class="toc-text">最后</span></a></li></ol>
   </div>
 
 <div id="asidepart">

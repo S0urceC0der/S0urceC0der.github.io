@@ -7,13 +7,18 @@
   <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8" />
 <meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88" />
   
-    <title>Node开发 | S0urceC0der</title>
+    <title>Cuckoo代码学习一 | S0urceC0der</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="S0urceC0der">
     
-    <meta name="description" content="本文的主要内容：使用Node Coffee-script开发一个网站
-Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式命名后存入到Mongodb中，例如user重命名为表users，具体的命名方法可以参考Mongoose在创建Model时对Collection">
+    <meta name="description" content="虚拟机监控部分Agent
+主要功能：
+使用SimpleXMLRPCServer建立一个服务器监听Cuckoo发送的数据。
+dll注入
+使用了远程DLL注入技术，
+参考文档远程DLL注入技术
+监控">
     
     
     
@@ -66,15 +71,15 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/12/12/Node-Development/" title="Node开发" itemprop="url">Node开发</a>
+      <a href="/2015/06/13/Cuckoo-1/" title="Cuckoo代码学习一" itemprop="url">Cuckoo代码学习一</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="S0urceC0der">S0urceC0der</a>
     </p>
   <p class="article-time">
-    <time datetime="2014-12-12T07:26:22.000Z" itemprop="datePublished">Dec 12 2014</time>
-    更新日期:<time datetime="2015-02-13T13:52:35.000Z" itemprop="dateModified">Feb 13 2015</time>
+    <time datetime="2015-06-13T12:18:40.000Z" itemprop="datePublished">Jun 13 2015</time>
+    更新日期:<time datetime="2015-06-13T12:52:19.000Z" itemprop="dateModified">Jun 13 2015</time>
     
   </p>
 </header>
@@ -83,13 +88,16 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Mongoose"><span class="toc-number">1.</span> <span class="toc-text">Mongoose</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟机监控部分"><span class="toc-number">1.</span> <span class="toc-text">虚拟机监控部分</span></a></li></ol>
 		</div>
 		
-		<p>本文的主要内容：使用Node Coffee-script开发一个网站</p>
-<h4 id="Mongoose">Mongoose</h4><p>注意，Mongoose会对输入的Collection名字自动添加复数形式命名后存入到Mongodb中，例如user重命名为表users，具体的命名方法可以参考<a href="http://aiilive.blog.51cto.com/1925756/1405203" target="_blank" rel="external">Mongoose在创建Model时对Collection的命名策略</a></p>
-<p>解决方法是在创建Model的时候传入第三个参数作为实际的表名</p>
-<p>在查询中，还发现在查询大量数据的时候会出现<code>Error: parseError occured</code>的错误提示，相关的错误可以参看<a href="https://stackoverflow.com/questions/21767673/mongodb-parseerror-when-using-limit-and-sort" target="_blank" rel="external">MongoDB parseError when using limit and sort</a>，大意是缺少索引，但是我明明已经添加了相关的索引的，不知道如何去解决，故改用Mongodb试下</p>
+		<h2 id="虚拟机监控部分">虚拟机监控部分</h2><p>Agent</p>
+<p>主要功能：</p>
+<p>使用SimpleXMLRPCServer建立一个服务器监听Cuckoo发送的数据。</p>
+<p>dll注入</p>
+<p>使用了远程DLL注入技术，</p>
+<p>参考文档<a href="http://www.programlife.net/remote-thread-dll-injection.html" target="_blank" rel="external">远程DLL注入技术</a></p>
+<p>监控</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -99,7 +107,7 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2014/12/12/Node-Development/" data-title="Node开发 | S0urceC0der" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2015/06/13/Cuckoo-1/" data-title="Cuckoo代码学习一 | S0urceC0der" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -108,19 +116,11 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/01/03/Url-Leak/" title="网址泄漏">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  网址泄漏</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2014/12/07/Node-Start/"  title="Node使用心得">
+<a href="/2015/05/24/Common/"  title="个人通用设置">
  <strong>NEXT:</strong><br/> 
- <span>Node使用心得
+ <span>个人通用设置
 </span>
 </a>
 </div>
@@ -129,7 +129,7 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 
 	
 <section class="comment">
-	<div class="ds-thread" data-title="Node开发" data-thread-key="Node-Development" data-author-key="S0urceC0der" data-url="http://yoursite.com/post/Node-Development"></div>
+	<div class="ds-thread" data-title="Cuckoo代码学习一" data-thread-key="Cuckoo-1" data-author-key="S0urceC0der" data-url="http://yoursite.com/post/Cuckoo-1"></div>
 </section>
 
 </div>  
@@ -137,7 +137,7 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Mongoose"><span class="toc-number">1.</span> <span class="toc-text">Mongoose</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟机监控部分"><span class="toc-number">1.</span> <span class="toc-text">虚拟机监控部分</span></a></li></ol>
   </div>
 
 <div id="asidepart">

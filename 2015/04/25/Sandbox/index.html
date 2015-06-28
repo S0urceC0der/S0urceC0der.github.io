@@ -7,13 +7,16 @@
   <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8" />
 <meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88" />
   
-    <title>Node开发 | S0urceC0der</title>
+    <title>搭建沙盒测试环境 | S0urceC0der</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="S0urceC0der">
     
-    <meta name="description" content="本文的主要内容：使用Node Coffee-script开发一个网站
-Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式命名后存入到Mongodb中，例如user重命名为表users，具体的命名方法可以参考Mongoose在创建Model时对Collection">
+    <meta name="description" content="Cuckoo是一款用于自动化分析的沙箱软件,
+安装过程主要目标是搭建Cuckoo沙箱环境
+安装VirtualBox需要手动添加Virtualbox源。
+安装ssdeep安装YaraYara默认没有编译对cuckoo和magic的支持。
+Yara安装cuckoo支持时，需要Jansson库，但是Deb">
     
     
     
@@ -66,15 +69,15 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/12/12/Node-Development/" title="Node开发" itemprop="url">Node开发</a>
+      <a href="/2015/04/25/Sandbox/" title="搭建沙盒测试环境" itemprop="url">搭建沙盒测试环境</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="S0urceC0der">S0urceC0der</a>
     </p>
   <p class="article-time">
-    <time datetime="2014-12-12T07:26:22.000Z" itemprop="datePublished">Dec 12 2014</time>
-    更新日期:<time datetime="2015-02-13T13:52:35.000Z" itemprop="dateModified">Feb 13 2015</time>
+    <time datetime="2015-04-25T08:34:13.000Z" itemprop="datePublished">Apr 25 2015</time>
+    更新日期:<time datetime="2015-06-13T09:59:38.000Z" itemprop="dateModified">Jun 13 2015</time>
     
   </p>
 </header>
@@ -83,13 +86,20 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Mongoose"><span class="toc-number">1.</span> <span class="toc-text">Mongoose</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装过程"><span class="toc-number">1.</span> <span class="toc-text">安装过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装VirtualBox"><span class="toc-number">1.1.</span> <span class="toc-text">安装VirtualBox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装ssdeep"><span class="toc-number">1.2.</span> <span class="toc-text">安装ssdeep</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Yara"><span class="toc-number">1.3.</span> <span class="toc-text">安装Yara</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Volatility"><span class="toc-number">1.4.</span> <span class="toc-text">Volatility</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装cuckoo"><span class="toc-number">1.5.</span> <span class="toc-text">安装cuckoo</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟机"><span class="toc-number">2.1.</span> <span class="toc-text">虚拟机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">3.</span> <span class="toc-text">使用</span></a></li></ol>
 		</div>
 		
-		<p>本文的主要内容：使用Node Coffee-script开发一个网站</p>
-<h4 id="Mongoose">Mongoose</h4><p>注意，Mongoose会对输入的Collection名字自动添加复数形式命名后存入到Mongodb中，例如user重命名为表users，具体的命名方法可以参考<a href="http://aiilive.blog.51cto.com/1925756/1405203" target="_blank" rel="external">Mongoose在创建Model时对Collection的命名策略</a></p>
-<p>解决方法是在创建Model的时候传入第三个参数作为实际的表名</p>
-<p>在查询中，还发现在查询大量数据的时候会出现<code>Error: parseError occured</code>的错误提示，相关的错误可以参看<a href="https://stackoverflow.com/questions/21767673/mongodb-parseerror-when-using-limit-and-sort" target="_blank" rel="external">MongoDB parseError when using limit and sort</a>，大意是缺少索引，但是我明明已经添加了相关的索引的，不知道如何去解决，故改用Mongodb试下</p>
+		<p>Cuckoo是一款用于自动化分析的沙箱软件,</p>
+<h2 id="安装过程">安装过程</h2><p>主要目标是搭建Cuckoo沙箱环境</p>
+<h3 id="安装VirtualBox">安装VirtualBox</h3><p>需要手动添加Virtualbox源。</p>
+<h3 id="安装ssdeep">安装ssdeep</h3><h3 id="安装Yara">安装Yara</h3><p>Yara默认没有编译对cuckoo和magic的支持。</p>
+<p>Yara安装cuckoo支持时，需要Jansson库，但是Debian库中的libjansson-dev版本比较旧，需要手动下载最新版。</p>
+<p>安装yara-python库。</p>
+<h3 id="Volatility">Volatility</h3><p>对于Kali Linux可以直接安装，也可以手工安装。</p>
+<h3 id="安装cuckoo">安装cuckoo</h3><p><code>git clone git@github.com:cuckoobox/cuckoo.git</code></p>
+<h2 id="配置">配置</h2><h3 id="虚拟机">虚拟机</h3><p>取消防火墙，安装python环境</p>
+<p>后台运行client.py接收参数传递</p>
+<h2 id="使用">使用</h2><p>-d参数可以显示更多的内容。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -99,7 +109,7 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2014/12/12/Node-Development/" data-title="Node开发 | S0urceC0der" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2015/04/25/Sandbox/" data-title="搭建沙盒测试环境 | S0urceC0der" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -109,18 +119,18 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/01/03/Url-Leak/" title="网址泄漏">
+ <a href="/2015/05/24/Common/" title="个人通用设置">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  网址泄漏</span>
+  个人通用设置</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2014/12/07/Node-Start/"  title="Node使用心得">
+<a href="/2015/04/20/Target/"  title="个人学习目标">
  <strong>NEXT:</strong><br/> 
- <span>Node使用心得
+ <span>个人学习目标
 </span>
 </a>
 </div>
@@ -129,7 +139,7 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 
 	
 <section class="comment">
-	<div class="ds-thread" data-title="Node开发" data-thread-key="Node-Development" data-author-key="S0urceC0der" data-url="http://yoursite.com/post/Node-Development"></div>
+	<div class="ds-thread" data-title="搭建沙盒测试环境" data-thread-key="Sandbox" data-author-key="S0urceC0der" data-url="http://yoursite.com/post/Sandbox"></div>
 </section>
 
 </div>  
@@ -137,7 +147,7 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Mongoose"><span class="toc-number">1.</span> <span class="toc-text">Mongoose</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装过程"><span class="toc-number">1.</span> <span class="toc-text">安装过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装VirtualBox"><span class="toc-number">1.1.</span> <span class="toc-text">安装VirtualBox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装ssdeep"><span class="toc-number">1.2.</span> <span class="toc-text">安装ssdeep</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Yara"><span class="toc-number">1.3.</span> <span class="toc-text">安装Yara</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Volatility"><span class="toc-number">1.4.</span> <span class="toc-text">Volatility</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装cuckoo"><span class="toc-number">1.5.</span> <span class="toc-text">安装cuckoo</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟机"><span class="toc-number">2.1.</span> <span class="toc-text">虚拟机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">3.</span> <span class="toc-text">使用</span></a></li></ol>
   </div>
 
 <div id="asidepart">
