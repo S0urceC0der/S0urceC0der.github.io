@@ -47,7 +47,7 @@ Scrap">
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
   <body>
@@ -111,19 +111,19 @@ Scrap">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Scrapy_u7B80_u4ECB"><span class="toc-number">1.</span> <span class="toc-text">Scrapy简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Scrapy_u6846_u67B6"><span class="toc-number">1.1.</span> <span class="toc-text">Scrapy框架</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scrapy_u6539_u8FDB"><span class="toc-number">2.</span> <span class="toc-text">Scrapy改进</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Html_u89E3_u6790"><span class="toc-number">2.1.</span> <span class="toc-text">Html解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u4F7F_u7528Bloom_u8FC7_u6EE4_u5668"><span class="toc-number">2.2.</span> <span class="toc-text">使用Bloom过滤器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u5229_u7528redis_u6784_u5EFA_u5206_u5E03_u5F0F_u722C_u866B"><span class="toc-number">2.3.</span> <span class="toc-text">利用redis构建分布式爬虫</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Scrapy简介"><span class="toc-number">1.</span> <span class="toc-text">Scrapy简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Scrapy框架"><span class="toc-number">1.1.</span> <span class="toc-text">Scrapy框架</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scrapy改进"><span class="toc-number">2.</span> <span class="toc-text">Scrapy改进</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Html解析"><span class="toc-number">2.1.</span> <span class="toc-text">Html解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用Bloom过滤器"><span class="toc-number">2.2.</span> <span class="toc-text">使用Bloom过滤器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用redis构建分布式爬虫"><span class="toc-number">2.3.</span> <span class="toc-text">利用redis构建分布式爬虫</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h3 id="Scrapy_u7B80_u4ECB"><a href="#Scrapy_u7B80_u4ECB" class="headerlink" title="Scrapy简介"></a>Scrapy简介</h3><p>Scrapy是使用Python编写的一个通用的爬虫框架。</p>
+		<h3 id="Scrapy简介"><a href="#Scrapy简介" class="headerlink" title="Scrapy简介"></a>Scrapy简介</h3><p>Scrapy是使用Python编写的一个通用的爬虫框架。</p>
 <p>基于Twisted的异步编程框架，大幅提高了爬取效率。</p>
 <p>Scrapy想来目前应该是我阅读源代码最多的开源项目了。在这个项目上，我学习到了yeild关键词，各种类的应用，接触到了一直想学习的Twisted框架。</p>
 <p>代码看起来挺简洁的，因此。</p>
 <p>Scrapy 0.24.0版本的包结构有大幅改变，与之前的旧版本完全不兼容。</p>
-<h4 id="Scrapy_u6846_u67B6"><a href="#Scrapy_u6846_u67B6" class="headerlink" title="Scrapy框架"></a>Scrapy框架</h4><p>Scrapy的框架比较难以理解，这跟</p>
-<h3 id="Scrapy_u6539_u8FDB"><a href="#Scrapy_u6539_u8FDB" class="headerlink" title="Scrapy改进"></a>Scrapy改进</h3><h4 id="Html_u89E3_u6790"><a href="#Html_u89E3_u6790" class="headerlink" title="Html解析"></a>Html解析</h4><p>Scrapy提供了lxml的相关解析器。但是使用更好的是BeautifulSoup，虽然解析速度会便慢。</p>
-<h4 id="u4F7F_u7528Bloom_u8FC7_u6EE4_u5668"><a href="#u4F7F_u7528Bloom_u8FC7_u6EE4_u5668" class="headerlink" title="使用Bloom过滤器"></a>使用Bloom过滤器</h4><p>默认的网址过滤器(爬虫中的Visited表)是将一个url映射到MD5实现的。使用场景</p>
-<h4 id="u5229_u7528redis_u6784_u5EFA_u5206_u5E03_u5F0F_u722C_u866B"><a href="#u5229_u7528redis_u6784_u5EFA_u5206_u5E03_u5F0F_u722C_u866B" class="headerlink" title="利用redis构建分布式爬虫"></a>利用redis构建分布式爬虫</h4><p>目前还没有使用过这个技术，但是其实原理非常简单，把爬虫队列存储到Redis的列表中，利用Redis的分布式数据存储功能来实现分布式队列，这样就能够在不大动Scrapy的情况下进行分布式爬取。说句实话这个思路真得很赞！</p>
+<h4 id="Scrapy框架"><a href="#Scrapy框架" class="headerlink" title="Scrapy框架"></a>Scrapy框架</h4><p>Scrapy的框架比较难以理解，这跟</p>
+<h3 id="Scrapy改进"><a href="#Scrapy改进" class="headerlink" title="Scrapy改进"></a>Scrapy改进</h3><h4 id="Html解析"><a href="#Html解析" class="headerlink" title="Html解析"></a>Html解析</h4><p>Scrapy提供了lxml的相关解析器。但是使用更好的是BeautifulSoup，虽然解析速度会便慢。</p>
+<h4 id="使用Bloom过滤器"><a href="#使用Bloom过滤器" class="headerlink" title="使用Bloom过滤器"></a>使用Bloom过滤器</h4><p>默认的网址过滤器(爬虫中的Visited表)是将一个url映射到MD5实现的。使用场景</p>
+<h4 id="利用redis构建分布式爬虫"><a href="#利用redis构建分布式爬虫" class="headerlink" title="利用redis构建分布式爬虫"></a>利用redis构建分布式爬虫</h4><p>目前还没有使用过这个技术，但是其实原理非常简单，把爬虫队列存储到Redis的列表中，利用Redis的分布式数据存储功能来实现分布式队列，这样就能够在不大动Scrapy的情况下进行分布式爬取。说句实话这个思路真得很赞！</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -176,7 +176,7 @@ Scrap">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Scrapy_u7B80_u4ECB"><span class="toc-number">1.</span> <span class="toc-text">Scrapy简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Scrapy_u6846_u67B6"><span class="toc-number">1.1.</span> <span class="toc-text">Scrapy框架</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scrapy_u6539_u8FDB"><span class="toc-number">2.</span> <span class="toc-text">Scrapy改进</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Html_u89E3_u6790"><span class="toc-number">2.1.</span> <span class="toc-text">Html解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u4F7F_u7528Bloom_u8FC7_u6EE4_u5668"><span class="toc-number">2.2.</span> <span class="toc-text">使用Bloom过滤器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u5229_u7528redis_u6784_u5EFA_u5206_u5E03_u5F0F_u722C_u866B"><span class="toc-number">2.3.</span> <span class="toc-text">利用redis构建分布式爬虫</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Scrapy简介"><span class="toc-number">1.</span> <span class="toc-text">Scrapy简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Scrapy框架"><span class="toc-number">1.1.</span> <span class="toc-text">Scrapy框架</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scrapy改进"><span class="toc-number">2.</span> <span class="toc-text">Scrapy改进</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Html解析"><span class="toc-number">2.1.</span> <span class="toc-text">Html解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用Bloom过滤器"><span class="toc-number">2.2.</span> <span class="toc-text">使用Bloom过滤器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用redis构建分布式爬虫"><span class="toc-number">2.3.</span> <span class="toc-text">利用redis构建分布式爬虫</span></a></li></ol></li></ol>
  
   </div>
 
@@ -196,6 +196,14 @@ Scrap">
 		
 			
 				<li><a href="/tags/Linux/" title="Linux">Linux<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Mac/" title="Mac">Mac<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -254,7 +262,7 @@ Scrap">
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
 		
 		<a href="/about" target="_blank" title="S0urceC0der">S0urceC0der</a>
 		

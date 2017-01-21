@@ -4,55 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Cmder | S0urceC0der</title>
+    <title>Mac上配置Android开发环境 | S0urceC0der</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="S0urceC0der">
     
 
     
-    <meta name="description" content="Cmder简介Cmder是一款Windows下面的终端模拟器，有了它终于能够抛弃默认的垃圾cmd界面了！
-
-特点个人很简单的使用了下，觉得有以下优点：
-
-可自定义字体，配色非常好看。
-
-路径补全有所提高。
-
-
-使用配置乱码ls的乱码主要是参数问题，修改文件cmder/config/aliases：
-1234l=ls --show-control-charsla=ls -aF --show-cont">
+    <meta name="description" content="在Mac上配置Android开发环境在Mac上配置Android开发环境，通常是直接下载安装Android Studio并运行其中的配置，有太多的手工操作，需要多次确认。因此我选择使用Homebrew来安装对应的软件。
+Homebrew可以自动安装多个Mac相关软件，以命令行程序为主，而Homebrew Cask包负责安装Mac上的App应用，安装时可以直接搜索，不必去各个网站单独下载，并且可以通">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cmder">
-<meta property="og:url" content="http://yoursite.com/2015/03/21/Cmder/index.html">
+<meta property="og:title" content="Mac上配置Android开发环境">
+<meta property="og:url" content="http://yoursite.com/2017/01/21/Install-Android-with-Homebrew/index.html">
 <meta property="og:site_name" content="S0urceC0der">
-<meta property="og:description" content="Cmder简介Cmder是一款Windows下面的终端模拟器，有了它终于能够抛弃默认的垃圾cmd界面了！
-
-特点个人很简单的使用了下，觉得有以下优点：
-
-可自定义字体，配色非常好看。
-
-路径补全有所提高。
-
-
-使用配置乱码ls的乱码主要是参数问题，修改文件cmder/config/aliases：
-1234l=ls --show-control-charsla=ls -aF --show-cont">
-<meta property="og:image" content="http://yoursite.com/img/cmder.png">
-<meta property="og:updated_time" content="2015-08-02T06:49:35.000Z">
+<meta property="og:description" content="在Mac上配置Android开发环境在Mac上配置Android开发环境，通常是直接下载安装Android Studio并运行其中的配置，有太多的手工操作，需要多次确认。因此我选择使用Homebrew来安装对应的软件。
+Homebrew可以自动安装多个Mac相关软件，以命令行程序为主，而Homebrew Cask包负责安装Mac上的App应用，安装时可以直接搜索，不必去各个网站单独下载，并且可以通">
+<meta property="og:updated_time" content="2017-01-21T15:36:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cmder">
-<meta name="twitter:description" content="Cmder简介Cmder是一款Windows下面的终端模拟器，有了它终于能够抛弃默认的垃圾cmd界面了！
-
-特点个人很简单的使用了下，觉得有以下优点：
-
-可自定义字体，配色非常好看。
-
-路径补全有所提高。
-
-
-使用配置乱码ls的乱码主要是参数问题，修改文件cmder/config/aliases：
-1234l=ls --show-control-charsla=ls -aF --show-cont">
-<meta name="twitter:image" content="http://yoursite.com/img/cmder.png">
+<meta name="twitter:title" content="Mac上配置Android开发环境">
+<meta name="twitter:description" content="在Mac上配置Android开发环境在Mac上配置Android开发环境，通常是直接下载安装Android Studio并运行其中的配置，有太多的手工操作，需要多次确认。因此我选择使用Homebrew来安装对应的软件。
+Homebrew可以自动安装多个Mac相关软件，以命令行程序为主，而Homebrew Cask包负责安装Mac上的App应用，安装时可以直接搜索，不必去各个网站单独下载，并且可以通">
 
     
     <link rel="alternative" href="/atom.xml" title="S0urceC0der" type="application/atom+xml">
@@ -112,14 +83,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/03/21/Cmder/" title="Cmder" itemprop="url">Cmder</a>
+      <a href="/2017/01/21/Install-Android-with-Homebrew/" title="Mac上配置Android开发环境" itemprop="url">Mac上配置Android开发环境</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="S0urceC0der" target="_blank" itemprop="author">S0urceC0der</a>
 		
   <p class="article-time">
-    <time datetime="2015-03-21T07:34:12.000Z" itemprop="datePublished"> 发表于 Mar 21 2015</time>
+    <time datetime="2017-01-21T11:42:02.000Z" itemprop="datePublished"> 发表于 Jan 21 2017</time>
     
   </p>
 </header>
@@ -128,45 +99,29 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cmder简介"><span class="toc-number">1.</span> <span class="toc-text">Cmder简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特点"><span class="toc-number">1.1.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用配置"><span class="toc-number">2.</span> <span class="toc-text">使用配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#乱码"><span class="toc-number">2.1.</span> <span class="toc-text">乱码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中文重叠"><span class="toc-number">2.2.</span> <span class="toc-text">中文重叠</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#右键打开Cmder"><span class="toc-number">2.3.</span> <span class="toc-text">右键打开Cmder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#退格后错位"><span class="toc-number">2.4.</span> <span class="toc-text">退格后错位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不足"><span class="toc-number">3.</span> <span class="toc-text">不足</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后"><span class="toc-number">4.</span> <span class="toc-text">最后</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#在Mac上配置Android开发环境"><span class="toc-number">1.</span> <span class="toc-text">在Mac上配置Android开发环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置基本android开发环境包"><span class="toc-number">1.1.</span> <span class="toc-text">配置基本android开发环境包</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装HAXM"><span class="toc-number">1.1.1.</span> <span class="toc-text">安装HAXM</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Android-Studio"><span class="toc-number">1.2.</span> <span class="toc-text">安装Android Studio</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="Cmder简介"><a href="#Cmder简介" class="headerlink" title="Cmder简介"></a>Cmder简介</h2><p>Cmder是一款Windows下面的终端模拟器，有了它终于能够抛弃默认的垃圾cmd界面了！</p>
-<p><img src="/img/cmder.png" alt="Cmder"></p>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>个人很简单的使用了下，觉得有以下优点：</p>
-<ol>
-<li><p>可自定义字体，配色非常好看。</p>
-</li>
-<li><p>路径补全有所提高。</p>
-</li>
-</ol>
-<h2 id="使用配置"><a href="#使用配置" class="headerlink" title="使用配置"></a>使用配置</h2><h3 id="乱码"><a href="#乱码" class="headerlink" title="乱码"></a>乱码</h3><p>ls的乱码主要是参数问题，修改文件cmder/config/aliases：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">l=ls --show-control-chars</div><div class="line">la=ls -aF --show-control-chars</div><div class="line">ll=ls -alF --show-control-chars</div><div class="line">ls=ls --show-control-chars -F</div></pre></td></tr></table></figure>
-<h3 id="中文重叠"><a href="#中文重叠" class="headerlink" title="中文重叠"></a>中文重叠</h3><p>在设置中，取消<code>Main console font</code>下的Monospace勾，这样中文字符（占用两个英文字符空间）就得到的了足够的空间了。</p>
-<h3 id="右键打开Cmder"><a href="#右键打开Cmder" class="headerlink" title="右键打开Cmder"></a>右键打开Cmder</h3><p>以管理员权限运行，输入命令<code>.\cmder.exe /REGISTER ALL</code>，在任意目录下右击就会出现<code>Cmder Here</code>，可以打开并默认切换到该目录。</p>
-<h3 id="退格后错位"><a href="#退格后错位" class="headerlink" title="退格后错位"></a>退格后错位</h3><blockquote>
-<p><a href="https://www.v2ex.com/member/lgh" target="_blank" rel="external">lgh</a>:<br>cmder 功能强大，但是反应较慢，经常卡住半天才反应；默认的命令提示符 λ 还会导致在用 TAB 还是 BACKSPACE 之后字符错位（自己改配置换成 $ 后就不会）。<br>现在干脆直接用 ConEmu 了。<br>来源：<a href="https://www.v2ex.com/t/155058" target="_blank" rel="external">https://www.v2ex.com/t/155058</a></p>
-</blockquote>
-<p>lgh针对问题1提出解决方法是修改提示符为$。修改方法是</p>
-<p>打开文件config/prompt.lua，将第二行中的λ修改为Linux下常用的$</p>
-<h2 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h2><p>当然，可能这些问题只是因为我没有找到对应的解决方法。</p>
-<ol>
-<li><p><del>有时候会出现无法删除第一个字符的情况（实际已经删除了）。</del></p>
-</li>
-<li><p>路径补全还是没有达到zsh的效果。</p>
-</li>
-<li><p>没有快速进入某个目录的功能。</p>
-</li>
-<li><p>Cmder1.2开始需要VS<strong>2015</strong>运行库支持（丧心病狂！）</p>
-</li>
-</ol>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>现在只是刚开始使用，很多功能还是在摸索中，如果有更多的体会，会继续更新。</p>
+		<h2 id="在Mac上配置Android开发环境"><a href="#在Mac上配置Android开发环境" class="headerlink" title="在Mac上配置Android开发环境"></a>在Mac上配置Android开发环境</h2><p>在Mac上配置Android开发环境，通常是直接下载安装Android Studio并运行其中的配置，有太多的手工操作，需要多次确认。因此我选择使用Homebrew来安装对应的软件。</p>
+<p>Homebrew可以自动安装多个Mac相关软件，以命令行程序为主，而Homebrew Cask包负责安装Mac上的App应用，安装时可以直接搜索，不必去各个网站单独下载，并且可以通过<code>brew upgrade</code>进行统一更新，免去了逐一手动更新的痛苦，目前大部分开发相关的应用都可以直接安装，基本能够达到替换App Store。</p>
+<h3 id="配置基本android开发环境包"><a href="#配置基本android开发环境包" class="headerlink" title="配置基本android开发环境包"></a>配置基本android开发环境包</h3><p>正如上文所述，使用Homebrew进行软件管理的目的，所有软件均不会从官网下载，而只通过命令行安装。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">brew install ant</div><div class="line">brew install maven</div><div class="line">brew install gradle</div><div class="line">brew install android-sdk</div><div class="line">brew install android-ndk</div></pre></td></tr></table></figure>
+<p>允许android命令来安装Android开发环境，关于所需的包，可以参考<a href="https://www.zhihu.com/question/31935836" target="_blank" rel="external">知乎-Android SDk Manager里面到底哪些东西是必须下载的？</a></p>
+<h4 id="安装HAXM"><a href="#安装HAXM" class="headerlink" title="安装HAXM"></a>安装HAXM</h4><p>这是唯一一步需要sudo操作的安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew cask install intel-haxm</div></pre></td></tr></table></figure></p>
+<h3 id="安装Android-Studio"><a href="#安装Android-Studio" class="headerlink" title="安装Android Studio"></a>安装Android Studio</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew cask install android-studio</div></pre></td></tr></table></figure>
+<p>允许Android Studio后，记得配置Android SDK路径为/usr/local/opt/android-sdk</p>
+<p>###</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Mac/">Mac</a><a href="/tags/Android/">Android</a>
+  </div>
 
 </div>
 
@@ -174,7 +129,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/03/21/Cmder/" data-title="Cmder | S0urceC0der" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/01/21/Install-Android-with-Homebrew/" data-title="Mac上配置Android开发环境 | S0urceC0der" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -187,19 +142,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/04/12/KaliLinux/" title="KaliLinux使用心得">
-  <strong>上一篇：</strong><br/>
-  <span>
-  KaliLinux使用心得</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/03/15/Mactype/"  title="使用Mactype渲染字体">
+<a href="/2016/01/10/mirror/"  title="常见软件包的国内镜像">
  <strong>下一篇：</strong><br/> 
- <span>使用Mactype渲染字体
+ <span>常见软件包的国内镜像
 </span>
 </a>
 </div>
@@ -214,7 +161,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cmder简介"><span class="toc-number">1.</span> <span class="toc-text">Cmder简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特点"><span class="toc-number">1.1.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用配置"><span class="toc-number">2.</span> <span class="toc-text">使用配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#乱码"><span class="toc-number">2.1.</span> <span class="toc-text">乱码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中文重叠"><span class="toc-number">2.2.</span> <span class="toc-text">中文重叠</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#右键打开Cmder"><span class="toc-number">2.3.</span> <span class="toc-text">右键打开Cmder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#退格后错位"><span class="toc-number">2.4.</span> <span class="toc-text">退格后错位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不足"><span class="toc-number">3.</span> <span class="toc-text">不足</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后"><span class="toc-number">4.</span> <span class="toc-text">最后</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#在Mac上配置Android开发环境"><span class="toc-number">1.</span> <span class="toc-text">在Mac上配置Android开发环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置基本android开发环境包"><span class="toc-number">1.1.</span> <span class="toc-text">配置基本android开发环境包</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装HAXM"><span class="toc-number">1.1.1.</span> <span class="toc-text">安装HAXM</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Android-Studio"><span class="toc-number">1.2.</span> <span class="toc-text">安装Android Studio</span></a></li></ol></li></ol>
  
   </div>
 

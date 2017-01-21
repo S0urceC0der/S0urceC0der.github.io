@@ -11,15 +11,12 @@
     
 
     
-    <meta name="description">
-<meta property="og:type" content="website">
+    <meta property="og:type" content="website">
 <meta property="og:title" content="S0urceC0der">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="S0urceC0der">
-<meta property="og:description">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="S0urceC0der">
-<meta name="twitter:description">
 
     
     <link rel="alternative" href="/atom.xml" title="S0urceC0der" type="application/atom+xml">
@@ -31,7 +28,7 @@
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
   <body>
@@ -81,6 +78,69 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/01/21/Install-Android-with-Homebrew/" title="Mac上配置Android开发环境" itemprop="url">Mac上配置Android开发环境</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="S0urceC0der" target="_blank" itemprop="author">S0urceC0der</a>
+		
+  <p class="article-time">
+    <time datetime="2017-01-21T11:42:02.000Z" itemprop="datePublished"> 发表于 Jan 21 2017</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="在Mac上配置Android开发环境"><a href="#在Mac上配置Android开发环境" class="headerlink" title="在Mac上配置Android开发环境"></a>在Mac上配置Android开发环境</h2><p>在Mac上配置Android开发环境，通常是直接下载安装Android Studio并运行其中的配置，有太多的手工操作，需要多次确认。因此我选择使用Homebrew来安装对应的软件。</p>
+<p>Homebrew可以自动安装多个Mac相关软件，以命令行程序为主，而Homebrew Cask包负责安装Mac上的App应用，安装时可以直接搜索，不必去各个网站单独下载，并且可以通过<code>brew upgrade</code>进行统一更新，免去了逐一手动更新的痛苦，目前大部分开发相关的应用都可以直接安装，基本能够达到替换App Store。</p>
+<h3 id="配置基本android开发环境包"><a href="#配置基本android开发环境包" class="headerlink" title="配置基本android开发环境包"></a>配置基本android开发环境包</h3><p>正如上文所述，使用Homebrew进行软件管理的目的，所有软件均不会从官网下载，而只通过命令行安装。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">brew install ant</div><div class="line">brew install maven</div><div class="line">brew install gradle</div><div class="line">brew install android-sdk</div><div class="line">brew install android-ndk</div></pre></td></tr></table></figure>
+<p>允许android命令来安装Android开发环境，关于所需的包，可以参考<a href="https://www.zhihu.com/question/31935836" target="_blank" rel="external">知乎-Android SDk Manager里面到底哪些东西是必须下载的？</a></p>
+<h4 id="安装HAXM"><a href="#安装HAXM" class="headerlink" title="安装HAXM"></a>安装HAXM</h4><p>这是唯一一步需要sudo操作的安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew cask install intel-haxm</div></pre></td></tr></table></figure></p>
+<h3 id="安装Android-Studio"><a href="#安装Android-Studio" class="headerlink" title="安装Android Studio"></a>安装Android Studio</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew cask install android-studio</div></pre></td></tr></table></figure>
+<p>允许Android Studio后，记得配置Android SDK路径为/usr/local/opt/android-sdk</p>
+<p>###</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Mac/">Mac</a><a href="/tags/Android/">Android</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/01/10/mirror/" title="常见软件包的国内镜像" itemprop="url">常见软件包的国内镜像</a>
   </h1>
   <p class="article-author">By
@@ -95,19 +155,24 @@
     <div class="article-content">
         
         <p>在Linux/Mac上经常要使用各种软件库来下载资源，但是这些资源链接经常被墙，或者速度较慢，因此需要改用国内的镜像站点来加快速度。</p>
-<h3 id="u5E38_u89C1_u5F00_u6E90_u955C_u50CF_u7AD9_u70B9"><a href="#u5E38_u89C1_u5F00_u6E90_u955C_u50CF_u7AD9_u70B9" class="headerlink" title="常见开源镜像站点"></a>常见开源镜像站点</h3><p>这些站点包含常见各种的Linux软件源。</p>
+<h3 id="常见开源镜像站点"><a href="#常见开源镜像站点" class="headerlink" title="常见开源镜像站点"></a>常见开源镜像站点</h3><p>这些站点包含常见各种的Linux软件源。</p>
 <p><a href="https://mirrors.ustc.edu.cn/" target="_blank" rel="external">中国科技大学开源镜像</a><br><a href="http://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="external">清华大学开源镜像</a><br><a href="http://mirrors.aliyun.com/" target="_blank" rel="external">阿里云开源镜像</a></p>
-<p>其中中国科技大学使用的是https，因此在大多数情况下推荐使用</p>
-<h3 id="u5177_u4F53_u4E00_u4E9B_u63A8_u8350_u914D_u7F6E"><a href="#u5177_u4F53_u4E00_u4E9B_u63A8_u8350_u914D_u7F6E" class="headerlink" title="具体一些推荐配置"></a>具体一些推荐配置</h3><h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p>网上大多推荐豆瓣的源，但是豆瓣的源仍然是http协议，新版pip会提示警告，所以还是换成科大源吧（除非是低版本Linux不支持https链接）。此外，使用阿里源还遇到过几次同步不及时的问题。</p>
+<p>其中中国科技大学使用的是https，因此在大多数情况下推荐使用（2016年底科大源曾长期处于不稳定状态，目前已经恢复），阿里云镜像适合阿里云的服务器使用，可以免流量且速度快。</p>
+<h3 id="具体一些推荐配置"><a href="#具体一些推荐配置" class="headerlink" title="具体一些推荐配置"></a>具体一些推荐配置</h3><h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p>网上大多推荐豆瓣的源，但是豆瓣的源仍然是http协议，新版pip会提示警告，所以还是换成科大源吧（除非是低版本Linux不支持https链接）。此外，使用阿里源还遇到过几次同步不及时的问题。</p>
 <h4 id="node"><a href="#node" class="headerlink" title="node"></a>node</h4><p>推荐使用阿里源，主要是提供额外的cnpm命令，可以方便的安装。</p>
+<h4 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h4><p>淘宝的Ruby镜像已经改由Ruby-China维护，所以请使用<a href="https://gems.ruby-china.org/" target="_blank" rel="external">Ruby-China的镜像</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/</div><div class="line">$ gem sources -l</div><div class="line">https://gems.ruby-china.org</div><div class="line"># 确保只有 gems.ruby-china.org</div></pre></td></tr></table></figure>
+<h4 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h4><p>使用腾讯Bugly镜像，<a href="http://android-mirror.bugly.qq.com:8080/include/usage.html" target="_blank" rel="external">将Android SDK Manager的代理设置为android-mirror.bugly.qq.com:8080</a></p>
 <h4 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a>homebrew</h4><p>homebrew自身内容是放在github上的，如果更新速度慢，可以换成<a href="http://mirrors.tuna.tsinghua.edu.cn/help/#homebrew" target="_blank" rel="external">清华的镜像</a>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/local&#10;$ git remote set-url origin git://mirrors.tuna.tsinghua.edu.cn/homebrew.git</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd /usr/local</div><div class="line">$ git remote set-url origin git://mirrors.tuna.tsinghua.edu.cn/homebrew.git</div></pre></td></tr></table></figure>
 <p>homebrew-science或者homebrew-python也可以参考其页面进行修改。不过如果不是处于极其艰难的情况，不建议改这个，因为无法确保各个的软件包的hash未被篡改。</p>
 <p>homebrew大多数的软件源都是在homebrew.bintray.com上的，速度同样非常慢，<a href="http://ban.ninja/" target="_blank" rel="external">有人</a>也做了份国内镜像。</p>
 <p>设置环境变量:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export HOMEBREW_BOTTLE_DOMAIN=http://7xkcej.dl1.z0.glb.clouddn.com</span><br></pre></td></tr></table></figure>
-<h4 id="pyenv"><a href="#pyenv" class="headerlink" title="pyenv"></a>pyenv</h4><p>同样设置环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PYTHON_BUILD_MIRROR_URL=&#34;http://pyenv.qiniudn.com/pythons/&#34;</span><br></pre></td></tr></table></figure></p>
-<h4 id="u6CE8_u610F_u4E8B_u9879"><a href="#u6CE8_u610F_u4E8B_u9879" class="headerlink" title="注意事项"></a>注意事项</h4><p>对于这些第三方源，并不能完全保重其安全性，所以会存在一定的风险下载到经过篡改的软件包。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export HOMEBREW_BOTTLE_DOMAIN=http://7xkcej.dl1.z0.glb.clouddn.com</div></pre></td></tr></table></figure>
+<h4 id="Docker-Hub"><a href="#Docker-Hub" class="headerlink" title="Docker Hub"></a>Docker Hub</h4><p>国内基本斗士要注册的，科大源有个反向代理，因为Docker配置比较麻烦，请具体参考<a href="https://lug.ustc.edu.cn/wiki/mirrors/help/docker" target="_blank" rel="external">Docker镜像使用帮助</a></p>
+<h4 id="pyenv"><a href="#pyenv" class="headerlink" title="pyenv"></a>pyenv</h4><p>同样设置环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PYTHON_BUILD_MIRROR_URL=&quot;http://pyenv.qiniudn.com/pythons/&quot;</div></pre></td></tr></table></figure></p>
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>对于这些第三方源，并不能完全保重其安全性，所以会存在一定的风险下载到经过篡改的软件包。</p>
+<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><p>2017.01.21 更新多条源记录</p>
 
         
         
@@ -162,7 +227,7 @@
 </header>
     <div class="article-content">
         
-        <h2 id="u865A_u62DF_u673A_u76D1_u63A7_u90E8_u5206"><a href="#u865A_u62DF_u673A_u76D1_u63A7_u90E8_u5206" class="headerlink" title="虚拟机监控部分"></a>虚拟机监控部分</h2><p>Agent</p>
+        <h2 id="虚拟机监控部分"><a href="#虚拟机监控部分" class="headerlink" title="虚拟机监控部分"></a>虚拟机监控部分</h2><p>Agent</p>
 <p>主要功能：</p>
 <p>使用SimpleXMLRPCServer建立一个服务器监听Cuckoo发送的数据。</p>
 <p>dll注入</p>
@@ -218,15 +283,15 @@
 </header>
     <div class="article-content">
         
-        <h2 id="u7CFB_u7EDF_u57FA_u7840_u8BBE_u7F6E"><a href="#u7CFB_u7EDF_u57FA_u7840_u8BBE_u7F6E" class="headerlink" title="系统基础设置"></a>系统基础设置</h2><h3 id="u5B57_u4F53"><a href="#u5B57_u4F53" class="headerlink" title="字体"></a>字体</h3><p>利用MacType渲染字体，一直比较喜欢使用系统默认的雅黑字体，有人对雅黑字体进行了修改，将其和Consolas结合优化。作者时RobertLee，原文链接是<a href="http://www.cnblogs.com/RobertLee/archive/2006/12/25/602646.html" target="_blank" rel="external">雅黑-Consolas混合字体，2008年5月22日更新~</a>，貌似很少有贴作者信息的。</p>
-<h2 id="u5E38_u7528_u8F6F_u4EF6"><a href="#u5E38_u7528_u8F6F_u4EF6" class="headerlink" title="常用软件"></a>常用软件</h2><h3 id="Total_Commander"><a href="#Total_Commander" class="headerlink" title="Total Commander"></a>Total Commander</h3><p>文件夹命名使用”数字+中文拼音首字母+中文描述”，Ctrl+Q快速预览文件</p>
-<h3 id="CCleaner"><a href="#CCleaner" class="headerlink" title="CCleaner"></a>CCleaner</h3><h3 id="Altrun/ALMRun"><a href="#Altrun/ALMRun" class="headerlink" title="Altrun/ALMRun"></a>Altrun/ALMRun</h3><p>快速启动软件，前者好长时间没有更新了，可以使用后者替代</p>
+        <h2 id="系统基础设置"><a href="#系统基础设置" class="headerlink" title="系统基础设置"></a>系统基础设置</h2><h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><p>利用MacType渲染字体，一直比较喜欢使用系统默认的雅黑字体，有人对雅黑字体进行了修改，将其和Consolas结合优化。作者时RobertLee，原文链接是<a href="http://www.cnblogs.com/RobertLee/archive/2006/12/25/602646.html" target="_blank" rel="external">雅黑-Consolas混合字体，2008年5月22日更新~</a>，貌似很少有贴作者信息的。</p>
+<h2 id="常用软件"><a href="#常用软件" class="headerlink" title="常用软件"></a>常用软件</h2><h3 id="Total-Commander"><a href="#Total-Commander" class="headerlink" title="Total Commander"></a>Total Commander</h3><p>文件夹命名使用”数字+中文拼音首字母+中文描述”，Ctrl+Q快速预览文件</p>
+<h3 id="CCleaner"><a href="#CCleaner" class="headerlink" title="CCleaner"></a>CCleaner</h3><h3 id="Altrun-ALMRun"><a href="#Altrun-ALMRun" class="headerlink" title="Altrun/ALMRun"></a>Altrun/ALMRun</h3><p>快速启动软件，前者好长时间没有更新了，可以使用后者替代</p>
 <h3 id="Everything"><a href="#Everything" class="headerlink" title="Everything"></a>Everything</h3><p>不解释</p>
 <h3 id="KeyTweak"><a href="#KeyTweak" class="headerlink" title="KeyTweak"></a>KeyTweak</h3><p>用于将CapsLock键和右Ctrl键交换，将Ctrl键放到更加容易接触到的位置。</p>
-<h2 id="u7F16_u8F91_u5DE5_u5177"><a href="#u7F16_u8F91_u5DE5_u5177" class="headerlink" title="编辑工具"></a>编辑工具</h2><h3 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h3><p>使用spf-13配置，比较方便，虽然同时也会有很多坑，需要自己慢慢修改。但是插件无法后台运行，因此速度比较慢。</p>
-<h3 id="Notepad++"><a href="#Notepad++" class="headerlink" title="Notepad++"></a>Notepad++</h3><p>用于替代记事本的轻量级编辑器</p>
-<h3 id="Sublime_Text"><a href="#Sublime_Text" class="headerlink" title="Sublime Text"></a>Sublime Text</h3><p>有Vim模式，运行速度相对VIM快，但是编码比较头疼，在Windows下面我会用来替代Vim</p>
-<h2 id="u7F16_u7A0B_u5DE5_u5177"><a href="#u7F16_u7A0B_u5DE5_u5177" class="headerlink" title="编程工具"></a>编程工具</h2><h3 id="Visual_Studio_2013"><a href="#Visual_Studio_2013" class="headerlink" title="Visual Studio 2013"></a>Visual Studio 2013</h3><p>基本设置：选择深色主题，开启多处理器编译，开启行号</p>
+<h2 id="编辑工具"><a href="#编辑工具" class="headerlink" title="编辑工具"></a>编辑工具</h2><h3 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h3><p>使用spf-13配置，比较方便，虽然同时也会有很多坑，需要自己慢慢修改。但是插件无法后台运行，因此速度比较慢。</p>
+<h3 id="Notepad"><a href="#Notepad" class="headerlink" title="Notepad++"></a>Notepad++</h3><p>用于替代记事本的轻量级编辑器</p>
+<h3 id="Sublime-Text"><a href="#Sublime-Text" class="headerlink" title="Sublime Text"></a>Sublime Text</h3><p>有Vim模式，运行速度相对VIM快，但是编码比较头疼，在Windows下面我会用来替代Vim</p>
+<h2 id="编程工具"><a href="#编程工具" class="headerlink" title="编程工具"></a>编程工具</h2><h3 id="Visual-Studio-2013"><a href="#Visual-Studio-2013" class="headerlink" title="Visual Studio 2013"></a>Visual Studio 2013</h3><p>基本设置：选择深色主题，开启多处理器编译，开启行号</p>
 <p>常用插件：</p>
 <ul>
 <li>Visual Assist X: 不解释</li>
@@ -241,7 +306,7 @@
 <li><p>TroutZoom: 固定代码缩放比率</p>
 </li>
 </ul>
-<h3 id="Eclipse_u8BBE_u7F6E"><a href="#Eclipse_u8BBE_u7F6E" class="headerlink" title="Eclipse设置"></a>Eclipse设置</h3><p>基本设置：开启行号</p>
+<h3 id="Eclipse设置"><a href="#Eclipse设置" class="headerlink" title="Eclipse设置"></a>Eclipse设置</h3><p>基本设置：开启行号</p>
 <p>常用插件：</p>
 <ul>
 <li><p>Eclipse Color Theme: 配色很重要</p>
@@ -301,7 +366,7 @@
         <p>Cuckoo是一款用于自动化分析恶意样本的沙箱软件。相比其他沙箱软件，Cuckoo具备强大的监控功能，能够自动将程序提交到指定的虚拟机中，并依据格式运行，同时会Hook相关的函数接口，记录下的重要的函数调用、网络访问。Cuckoo基于Python编写，通过在此基础上进行修改，可以避免重复开发，增加所需要的特殊功能。</p>
 <p>网站<a href="https://malwr.com/可以认为是一个在线版的Cuckoo，国内也样相关的在线样本行为分析网站[火眼](https://fireeye.ijinshan.com/)和[文件B超](https://www.b-chao.com)，个人怀疑他们也是在Cuckoo的基础上进行修改的。" target="_blank" rel="external">https://malwr.com/可以认为是一个在线版的Cuckoo，国内也样相关的在线样本行为分析网站[火眼](https://fireeye.ijinshan.com/)和[文件B超](https://www.b-chao.com)，个人怀疑他们也是在Cuckoo的基础上进行修改的。</a></p>
 <p>本文的主要内容是在Linux系统上安装Cuckoo。</p>
-<h2 id="u5B89_u88C5_u8FC7_u7A0B"><a href="#u5B89_u88C5_u8FC7_u7A0B" class="headerlink" title="安装过程"></a>安装过程</h2><h3 id="1-__u57FA_u672C_u8FD0_u884C_u73AF_u5883"><a href="#1-__u57FA_u672C_u8FD0_u884C_u73AF_u5883" class="headerlink" title="1. 基本运行环境"></a>1. 基本运行环境</h3><ul>
+<h2 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h2><h3 id="1-基本运行环境"><a href="#1-基本运行环境" class="headerlink" title="1. 基本运行环境"></a>1. 基本运行环境</h3><ul>
 <li>Python</li>
 </ul>
 <p>安装Python并根据requirements.txt中的列表直接安装所需要的python模块。</p>
@@ -313,17 +378,17 @@
 <li>各个虚拟机的接口库</li>
 </ul>
 <p>KVM、XenServer的API接口</p>
-<h3 id="2-__u529F_u80FD_u8F6F_u4EF6"><a href="#2-__u529F_u80FD_u8F6F_u4EF6" class="headerlink" title="2. 功能软件"></a>2. 功能软件</h3><h4 id="u5B89_u88C5Yara"><a href="#u5B89_u88C5Yara" class="headerlink" title="安装Yara"></a>安装Yara</h4><p>Yara是一款用于识别和分类恶意样本的开源工具，可以理解为是一款特征匹配工具。</p>
+<h3 id="2-功能软件"><a href="#2-功能软件" class="headerlink" title="2. 功能软件"></a>2. 功能软件</h3><h4 id="安装Yara"><a href="#安装Yara" class="headerlink" title="安装Yara"></a>安装Yara</h4><p>Yara是一款用于识别和分类恶意样本的开源工具，可以理解为是一款特征匹配工具。</p>
 <p>Yara默认没有编译对cuckoo和magic的支持，在编译时需要加上<code>./configure --enable-cuckoo --enable-magic</code>选项。</p>
 <p>安装yara-python库，使得cuckoo能够调用yara。</p>
-<h4 id="u5B89_u88C5ssdeep"><a href="#u5B89_u88C5ssdeep" class="headerlink" title="安装ssdeep"></a>安装ssdeep</h4><p>ssdeep能够计算一个文件的模糊哈希代码，通过计算不同样本之间的ssdeep差值，可以判断两个样本是否相近。</p>
+<h4 id="安装ssdeep"><a href="#安装ssdeep" class="headerlink" title="安装ssdeep"></a>安装ssdeep</h4><p>ssdeep能够计算一个文件的模糊哈希代码，通过计算不同样本之间的ssdeep差值，可以判断两个样本是否相近。</p>
 <h4 id="Tcpdump"><a href="#Tcpdump" class="headerlink" title="Tcpdump"></a>Tcpdump</h4><p>用于截获数据。</p>
-<h4 id="u5B89_u88C5cuckoo"><a href="#u5B89_u88C5cuckoo" class="headerlink" title="安装cuckoo"></a>安装cuckoo</h4><p>cuckoo居然没有在ArchLinux的软件包中，这是很神奇的一件事，所以必须手动Github下载，并且手动更新。</p>
+<h4 id="安装cuckoo"><a href="#安装cuckoo" class="headerlink" title="安装cuckoo"></a>安装cuckoo</h4><p>cuckoo居然没有在ArchLinux的软件包中，这是很神奇的一件事，所以必须手动Github下载，并且手动更新。</p>
 <p><code>git clone git@github.com:cuckoobox/cuckoo.git</code></p>
-<h3 id="3-__u53EF_u9009_u8F6F_u4EF6"><a href="#3-__u53EF_u9009_u8F6F_u4EF6" class="headerlink" title="3. 可选软件"></a>3. 可选软件</h3><h3 id="Volatility"><a href="#Volatility" class="headerlink" title="Volatility"></a>Volatility</h3><p>这是一款分析内存dumps的工具。</p>
-<h3 id="4-__u5B89_u88C5_u865A_u62DF_u673A"><a href="#4-__u5B89_u88C5_u865A_u62DF_u673A" class="headerlink" title="4. 安装虚拟机"></a>4. 安装虚拟机</h3><p>Cuckoo支持多种虚拟机，官方推荐使用的是VirutalBox虚拟机（应该是因为开源的缘故），其他的还支持VMware、XenServer、ESX、KVM等虚拟机（参考modules/machinery目录），个人处于使用惯性，选择了使用VMware。</p>
+<h3 id="3-可选软件"><a href="#3-可选软件" class="headerlink" title="3. 可选软件"></a>3. 可选软件</h3><h3 id="Volatility"><a href="#Volatility" class="headerlink" title="Volatility"></a>Volatility</h3><p>这是一款分析内存dumps的工具。</p>
+<h3 id="4-安装虚拟机"><a href="#4-安装虚拟机" class="headerlink" title="4. 安装虚拟机"></a>4. 安装虚拟机</h3><p>Cuckoo支持多种虚拟机，官方推荐使用的是VirutalBox虚拟机（应该是因为开源的缘故），其他的还支持VMware、XenServer、ESX、KVM等虚拟机（参考modules/machinery目录），个人处于使用惯性，选择了使用VMware。</p>
 <p>虚拟机内安装基本操作系统，取消防火墙，并安装Python运行环境，然后运行agent/agent.py，使得虚拟机处于等待接收参数和处理任务状态，并对此状态保存快照。</p>
-<h2 id="u914D_u7F6E"><a href="#u914D_u7F6E" class="headerlink" title="配置"></a>配置</h2><h4 id="cuckoo-conf"><a href="#cuckoo-conf" class="headerlink" title="cuckoo.conf"></a>cuckoo.conf</h4><p>[cuckoo]machinery: 虚拟机类型，可以填virutalbox，vmware等</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h4 id="cuckoo-conf"><a href="#cuckoo-conf" class="headerlink" title="cuckoo.conf"></a>cuckoo.conf</h4><p>[cuckoo]machinery: 虚拟机类型，可以填virutalbox，vmware等</p>
 <p>[resultserver]ip port: 存储结果的服务器IP，可以直接填写本机（物理机）</p>
 <p>[database]connection: 数据库连接，不填可以直接使用SQLite数据库</p>
 <h4 id="auxiliary-conf"><a href="#auxiliary-conf" class="headerlink" title="auxiliary.conf"></a>auxiliary.conf</h4><p>主要用于监控网卡数据相关配置</p>
@@ -336,9 +401,9 @@
 <h4 id="processing-conf"><a href="#processing-conf" class="headerlink" title="processing.conf"></a>processing.conf</h4><p>处理样本时需要使用各种附加模块，我禁用了Virustotal。此外，如果自己添加了模块，则需要在这个文件中启用</p>
 <h4 id="memory-conf"><a href="#memory-conf" class="headerlink" title="memory.conf"></a>memory.conf</h4><p>用于Volatility处理模块，需要首先在processing.conf启用memory模块才行。</p>
 <h4 id="reporting-conf"><a href="#reporting-conf" class="headerlink" title="reporting.conf"></a>reporting.conf</h4><p>配置报告服务器，我修改了mongodb字段，使其将数据存储到了MongoDB中</p>
-<h2 id="u8FD0_u884C"><a href="#u8FD0_u884C" class="headerlink" title="运行"></a>运行</h2><h3 id="u542F_u52A8cuckoo"><a href="#u542F_u52A8cuckoo" class="headerlink" title="启动cuckoo"></a>启动cuckoo</h3><p><code>python2 cuckoo.py</code></p>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><h3 id="启动cuckoo"><a href="#启动cuckoo" class="headerlink" title="启动cuckoo"></a>启动cuckoo</h3><p><code>python2 cuckoo.py</code></p>
 <p>如果失败，可以使用-d参数，输出更多的内容用于调试确认错误信息。</p>
-<h3 id="u63D0_u4EA4_u6587_u4EF6_u5206_u6790"><a href="#u63D0_u4EA4_u6587_u4EF6_u5206_u6790" class="headerlink" title="提交文件分析"></a>提交文件分析</h3><p><code>python2 utils/submit.py [文件路径] --url [网址]</code></p>
+<h3 id="提交文件分析"><a href="#提交文件分析" class="headerlink" title="提交文件分析"></a>提交文件分析</h3><p><code>python2 utils/submit.py [文件路径] --url [网址]</code></p>
 
         
         
@@ -389,7 +454,7 @@
     <div class="article-content">
         
         <p>部门老大让我们定下自己的年度目标，以此使大家在一段时间都能够有所收获而不至于碌碌无为。作为新人，我的年度目标自然时是以学习为主，主要是读书、写博客，提高个人时间管理。</p>
-<h2 id="SMART_u539F_u5219"><a href="#SMART_u539F_u5219" class="headerlink" title="SMART原则"></a>SMART原则</h2><p>SMART原则是制定（考核）目标时常用的黄金原则，老大在会议上也提到了。</p>
+<h2 id="SMART原则"><a href="#SMART原则" class="headerlink" title="SMART原则"></a>SMART原则</h2><p>SMART原则是制定（考核）目标时常用的黄金原则，老大在会议上也提到了。</p>
 <ol>
 <li>Specific明确性</li>
 </ol>
@@ -410,8 +475,8 @@
 <li>Time-bound时间截至期限</li>
 </ol>
 <p>有明确的截至日期，其实这和原则2有部分重复</p>
-<h2 id="u4E2A_u4EBA_u5E74_u5EA6_u76EE_u6807"><a href="#u4E2A_u4EBA_u5E74_u5EA6_u76EE_u6807" class="headerlink" title="个人年度目标"></a>个人年度目标</h2><p>鉴于自己的严重拖延症及极差的执行力，尽量把目标定低一些，以便达到。</p>
-<h3 id="u603B_u76EE_u6807"><a href="#u603B_u76EE_u6807" class="headerlink" title="总目标"></a>总目标</h3><ol>
+<h2 id="个人年度目标"><a href="#个人年度目标" class="headerlink" title="个人年度目标"></a>个人年度目标</h2><p>鉴于自己的严重拖延症及极差的执行力，尽量把目标定低一些，以便达到。</p>
+<h3 id="总目标"><a href="#总目标" class="headerlink" title="总目标"></a>总目标</h3><ol>
 <li><p>技术类书籍平均每天3页，一周20页，两个月写一篇读书笔记。</p>
 </li>
 <li><p>一周一篇博客。</p>
@@ -419,7 +484,7 @@
 <li><p>每天利用Evernote记录自己做的事情，并尝试总结改进。</p>
 </li>
 </ol>
-<h3 id="4_u6708_u4EFD_u76EE_u6807"><a href="#4_u6708_u4EFD_u76EE_u6807" class="headerlink" title="4月份目标"></a>4月份目标</h3><ol>
+<h3 id="4月份目标"><a href="#4月份目标" class="headerlink" title="4月份目标"></a>4月份目标</h3><ol>
 <li><p>即日起（19日）至月底月度完毕《Effictive C++》前两个章节。</p>
 </li>
 <li><p>整理现有的博客内容，写博客一篇。</p>
@@ -474,10 +539,10 @@
 </header>
     <div class="article-content">
         
-        <h2 id="Kali_Linux"><a href="#Kali_Linux" class="headerlink" title="Kali Linux"></a>Kali Linux</h2><p>Kali是一个专门用来进行安全审计（渗透测试）的操作系统，是著名的Backtrack的后继者，由同一组开发人员开发的。Kali基于Debian系统，加入了大量的安全工具。</p>
-<h2 id="u57FA_u672C_u914D_u7F6E"><a href="#u57FA_u672C_u914D_u7F6E" class="headerlink" title="基本配置"></a>基本配置</h2><h3 id="u5B89_u88C5Linux_Brew"><a href="#u5B89_u88C5Linux_Brew" class="headerlink" title="安装Linux Brew"></a>安装Linux Brew</h3><h3 id="u5141_u8BB8_u4F7F_u7528PPA_u5E93"><a href="#u5141_u8BB8_u4F7F_u7528PPA_u5E93" class="headerlink" title="允许使用PPA库"></a>允许使用PPA库</h3><p>参考网页<a href="http://www.blackmoreops.com/2014/02/21/kali-linux-add-ppa-repository-add-apt-repository/" target="_blank" rel="external">Kali Linux add PPA repository add-apt-repository</a></p>
-<h2 id="u4E00_u4E9B_u5E38_u7528_u8F6F_u4EF6"><a href="#u4E00_u4E9B_u5E38_u7528_u8F6F_u4EF6" class="headerlink" title="一些常用软件"></a>一些常用软件</h2><h3 id="u5B89_u88C5Zsh_u3001Terminator"><a href="#u5B89_u88C5Zsh_u3001Terminator" class="headerlink" title="安装Zsh、Terminator"></a>安装Zsh、Terminator</h3><p>用于替换原有的bash、Gnome Terminal。</p>
-<h3 id="u5B89_u88C5VMware"><a href="#u5B89_u88C5VMware" class="headerlink" title="安装VMware"></a>安装VMware</h3><p>Vmware Workstation的驱动对于不同的Linux内核版本都要进行一定的patch才能正常编译。基本上通过搜索能够获取最新需要修改的地方，然后重新打包后编译即可。</p>
+        <h2 id="Kali-Linux"><a href="#Kali-Linux" class="headerlink" title="Kali Linux"></a>Kali Linux</h2><p>Kali是一个专门用来进行安全审计（渗透测试）的操作系统，是著名的Backtrack的后继者，由同一组开发人员开发的。Kali基于Debian系统，加入了大量的安全工具。</p>
+<h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><h3 id="安装Linux-Brew"><a href="#安装Linux-Brew" class="headerlink" title="安装Linux Brew"></a>安装Linux Brew</h3><h3 id="允许使用PPA库"><a href="#允许使用PPA库" class="headerlink" title="允许使用PPA库"></a>允许使用PPA库</h3><p>参考网页<a href="http://www.blackmoreops.com/2014/02/21/kali-linux-add-ppa-repository-add-apt-repository/" target="_blank" rel="external">Kali Linux add PPA repository add-apt-repository</a></p>
+<h2 id="一些常用软件"><a href="#一些常用软件" class="headerlink" title="一些常用软件"></a>一些常用软件</h2><h3 id="安装Zsh、Terminator"><a href="#安装Zsh、Terminator" class="headerlink" title="安装Zsh、Terminator"></a>安装Zsh、Terminator</h3><p>用于替换原有的bash、Gnome Terminal。</p>
+<h3 id="安装VMware"><a href="#安装VMware" class="headerlink" title="安装VMware"></a>安装VMware</h3><p>Vmware Workstation的驱动对于不同的Linux内核版本都要进行一定的patch才能正常编译。基本上通过搜索能够获取最新需要修改的地方，然后重新打包后编译即可。</p>
 
         
         
@@ -532,25 +597,25 @@
 </header>
     <div class="article-content">
         
-        <h2 id="Cmder_u7B80_u4ECB"><a href="#Cmder_u7B80_u4ECB" class="headerlink" title="Cmder简介"></a>Cmder简介</h2><p>Cmder是一款Windows下面的终端模拟器，有了它终于能够抛弃默认的垃圾cmd界面了！</p>
+        <h2 id="Cmder简介"><a href="#Cmder简介" class="headerlink" title="Cmder简介"></a>Cmder简介</h2><p>Cmder是一款Windows下面的终端模拟器，有了它终于能够抛弃默认的垃圾cmd界面了！</p>
 <p><img src="/img/cmder.png" alt="Cmder"></p>
-<h3 id="u7279_u70B9"><a href="#u7279_u70B9" class="headerlink" title="特点"></a>特点</h3><p>个人很简单的使用了下，觉得有以下优点：</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>个人很简单的使用了下，觉得有以下优点：</p>
 <ol>
 <li><p>可自定义字体，配色非常好看。</p>
 </li>
 <li><p>路径补全有所提高。</p>
 </li>
 </ol>
-<h2 id="u4F7F_u7528_u914D_u7F6E"><a href="#u4F7F_u7528_u914D_u7F6E" class="headerlink" title="使用配置"></a>使用配置</h2><h3 id="u4E71_u7801"><a href="#u4E71_u7801" class="headerlink" title="乱码"></a>乱码</h3><p>ls的乱码主要是参数问题，修改文件cmder/config/aliases：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">l=ls --show-control-chars&#10;la=ls -aF --show-control-chars&#10;ll=ls -alF --show-control-chars&#10;ls=ls --show-control-chars -F</span><br></pre></td></tr></table></figure>
-<h3 id="u4E2D_u6587_u91CD_u53E0"><a href="#u4E2D_u6587_u91CD_u53E0" class="headerlink" title="中文重叠"></a>中文重叠</h3><p>在设置中，取消<code>Main console font</code>下的Monospace勾，这样中文字符（占用两个英文字符空间）就得到的了足够的空间了。</p>
-<h3 id="u53F3_u952E_u6253_u5F00Cmder"><a href="#u53F3_u952E_u6253_u5F00Cmder" class="headerlink" title="右键打开Cmder"></a>右键打开Cmder</h3><p>以管理员权限运行，输入命令<code>.\cmder.exe /REGISTER ALL</code>，在任意目录下右击就会出现<code>Cmder Here</code>，可以打开并默认切换到该目录。</p>
-<h3 id="u9000_u683C_u540E_u9519_u4F4D"><a href="#u9000_u683C_u540E_u9519_u4F4D" class="headerlink" title="退格后错位"></a>退格后错位</h3><blockquote>
+<h2 id="使用配置"><a href="#使用配置" class="headerlink" title="使用配置"></a>使用配置</h2><h3 id="乱码"><a href="#乱码" class="headerlink" title="乱码"></a>乱码</h3><p>ls的乱码主要是参数问题，修改文件cmder/config/aliases：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">l=ls --show-control-chars</div><div class="line">la=ls -aF --show-control-chars</div><div class="line">ll=ls -alF --show-control-chars</div><div class="line">ls=ls --show-control-chars -F</div></pre></td></tr></table></figure>
+<h3 id="中文重叠"><a href="#中文重叠" class="headerlink" title="中文重叠"></a>中文重叠</h3><p>在设置中，取消<code>Main console font</code>下的Monospace勾，这样中文字符（占用两个英文字符空间）就得到的了足够的空间了。</p>
+<h3 id="右键打开Cmder"><a href="#右键打开Cmder" class="headerlink" title="右键打开Cmder"></a>右键打开Cmder</h3><p>以管理员权限运行，输入命令<code>.\cmder.exe /REGISTER ALL</code>，在任意目录下右击就会出现<code>Cmder Here</code>，可以打开并默认切换到该目录。</p>
+<h3 id="退格后错位"><a href="#退格后错位" class="headerlink" title="退格后错位"></a>退格后错位</h3><blockquote>
 <p><a href="https://www.v2ex.com/member/lgh" target="_blank" rel="external">lgh</a>:<br>cmder 功能强大，但是反应较慢，经常卡住半天才反应；默认的命令提示符 λ 还会导致在用 TAB 还是 BACKSPACE 之后字符错位（自己改配置换成 $ 后就不会）。<br>现在干脆直接用 ConEmu 了。<br>来源：<a href="https://www.v2ex.com/t/155058" target="_blank" rel="external">https://www.v2ex.com/t/155058</a></p>
 </blockquote>
 <p>lgh针对问题1提出解决方法是修改提示符为$。修改方法是</p>
 <p>打开文件config/prompt.lua，将第二行中的λ修改为Linux下常用的$</p>
-<h2 id="u4E0D_u8DB3"><a href="#u4E0D_u8DB3" class="headerlink" title="不足"></a>不足</h2><p>当然，可能这些问题只是因为我没有找到对应的解决方法。</p>
+<h2 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h2><p>当然，可能这些问题只是因为我没有找到对应的解决方法。</p>
 <ol>
 <li><p><del>有时候会出现无法删除第一个字符的情况（实际已经删除了）。</del></p>
 </li>
@@ -561,7 +626,7 @@
 <li><p>Cmder1.2开始需要VS<strong>2015</strong>运行库支持（丧心病狂！）</p>
 </li>
 </ol>
-<h2 id="u6700_u540E"><a href="#u6700_u540E" class="headerlink" title="最后"></a>最后</h2><p>现在只是刚开始使用，很多功能还是在摸索中，如果有更多的体会，会继续更新。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>现在只是刚开始使用，很多功能还是在摸索中，如果有更多的体会，会继续更新。</p>
 
         
         
@@ -613,9 +678,9 @@
         
         <p>Mactype是在Windows下实现类似Mac下字体渲染效果的程序。长期以来，我一直都使用这个软件替代系统自带的ClearType渲染功能。渲染得到的字体相当不错。</p>
 <p>但是，</p>
-<h2 id="u5B57_u4F53"><a href="#u5B57_u4F53" class="headerlink" title="字体"></a>字体</h2><p>Windows下面自带的雅黑字体效果还是挺不错的，但是还是建议使用其他修改过的字体。字体可以去<a href="http://bbs.themex.net/forumdisplay.php?f=90" target="_blank" rel="external">极限社区</a>下载。该论坛也是重要的讨论字体修改和Mactype的网站。</p>
+<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p>Windows下面自带的雅黑字体效果还是挺不错的，但是还是建议使用其他修改过的字体。字体可以去<a href="http://bbs.themex.net/forumdisplay.php?f=90" target="_blank" rel="external">极限社区</a>下载。该论坛也是重要的讨论字体修改和Mactype的网站。</p>
 <p>之前用的比较多的是XHei，貌似现在出了新的字体，以后下载看下效果。</p>
-<h2 id="u7A0B_u5E8F_u4F18_u5316"><a href="#u7A0B_u5E8F_u4F18_u5316" class="headerlink" title="程序优化"></a>程序优化</h2><h3 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h3><p>Firefox默认开启的硬件加速，因此无法直接使用Mactype字体渲染。关于具体的设置，参考文档<a href="https://github.com/renkun-ken/MacType.Source" target="_blank" rel="external">MacType.Source</a></p>
+<h2 id="程序优化"><a href="#程序优化" class="headerlink" title="程序优化"></a>程序优化</h2><h3 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h3><p>Firefox默认开启的硬件加速，因此无法直接使用Mactype字体渲染。关于具体的设置，参考文档<a href="https://github.com/renkun-ken/MacType.Source" target="_blank" rel="external">MacType.Source</a></p>
 <p>打开<code>about:config</code>，修改设置如下</p>
 <table>
 <thead>
@@ -720,14 +785,14 @@
 </header>
     <div class="article-content">
         
-        <h3 id="u8D77"><a href="#u8D77" class="headerlink" title="起"></a>起</h3><p>人生中第一台Macbook pro，终于在发完年终奖后、回家过年前到手了。</p>
+        <h3 id="起"><a href="#起" class="headerlink" title="起"></a>起</h3><p>人生中第一台Macbook pro，终于在发完年终奖后、回家过年前到手了。</p>
 <p>是从苹果团买的，感觉顺丰陆运速度还算快。</p>
 <p>装在之前的电脑包里面，就显得电脑包得空间太大，需要买个内胆包才行。</p>
-<h3 id="u7528"><a href="#u7528" class="headerlink" title="用"></a>用</h3><p>首先要学习的是触摸板手势，有了这个真心不想用鼠标了，总算能够完全使用键盘（且算触摸板为键盘的一部分吧）</p>
+<h3 id="用"><a href="#用" class="headerlink" title="用"></a>用</h3><p>首先要学习的是触摸板手势，有了这个真心不想用鼠标了，总算能够完全使用键盘（且算触摸板为键盘的一部分吧）</p>
 <p>键盘使用起来按键声音还好，比较清脆舒服，虽然键程不长，但是感觉还行吧。的确有必要换个外置键盘。</p>
 <p>字体看的真是舒服，终于不用在Win/Linux下面费尽心思的调整字体了。</p>
-<h3 id="u8F6F_u4EF6"><a href="#u8F6F_u4EF6" class="headerlink" title="软件"></a>软件</h3><p>一大堆软件都不会用。</p>
-<h4 id="u5E38_u7528_u8F6F_u4EF6"><a href="#u5E38_u7528_u8F6F_u4EF6" class="headerlink" title="常用软件"></a>常用软件</h4><p>登陆AppStore，进免费排行榜，下载了QQ、搜狗输入<strong>板</strong>，其中搜狗输入<strong>板</strong>的功能是通过里面的入口安装搜狗输入法。<br>安装Xcode，虽然目前一次都没有打开过。<br>首先安装Homebrew，幸好最近在折腾Linuxbrew，很多操作都是一样的</p>
+<h3 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h3><p>一大堆软件都不会用。</p>
+<h4 id="常用软件"><a href="#常用软件" class="headerlink" title="常用软件"></a>常用软件</h4><p>登陆AppStore，进免费排行榜，下载了QQ、搜狗输入<strong>板</strong>，其中搜狗输入<strong>板</strong>的功能是通过里面的入口安装搜狗输入法。<br>安装Xcode，虽然目前一次都没有打开过。<br>首先安装Homebrew，幸好最近在折腾Linuxbrew，很多操作都是一样的</p>
 <p>对于使用Homebrew安装的系统软件，如数据库等，根据提示，相关启动方法如下</p>
 <p><code>To have launchd start mongodb at login:
     ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
@@ -740,64 +805,6 @@ Or, if you don’t want/need launchctl, you can just run:
     redis-server /usr/local/etc/redis.conf</code></p>
 <h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><p>具体参考Mactalk的这篇文章<a href="http://macshuo.com/?p=676" target="_blank" rel="external">终极shell</a></p>
 <p>另外，在使用zsh的agnoster主题时，需要额外下载增强的字体，并在终端选择使用。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/01/25/Scrapy/" title="Scrapy" itemprop="url">Scrapy</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="S0urceC0der" target="_blank" itemprop="author">S0urceC0der</a>
-		
-  <p class="article-time">
-    <time datetime="2015-01-25T09:16:25.000Z" itemprop="datePublished"> 发表于 Jan 25 2015</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="Scrapy_u7B80_u4ECB"><a href="#Scrapy_u7B80_u4ECB" class="headerlink" title="Scrapy简介"></a>Scrapy简介</h3><p>Scrapy是使用Python编写的一个通用的爬虫框架。</p>
-<p>基于Twisted的异步编程框架，大幅提高了爬取效率。</p>
-<p>Scrapy想来目前应该是我阅读源代码最多的开源项目了。在这个项目上，我学习到了yeild关键词，各种类的应用，接触到了一直想学习的Twisted框架。</p>
-<p>代码看起来挺简洁的，因此。</p>
-<p>Scrapy 0.24.0版本的包结构有大幅改变，与之前的旧版本完全不兼容。</p>
-<h4 id="Scrapy_u6846_u67B6"><a href="#Scrapy_u6846_u67B6" class="headerlink" title="Scrapy框架"></a>Scrapy框架</h4><p>Scrapy的框架比较难以理解，这跟</p>
-<h3 id="Scrapy_u6539_u8FDB"><a href="#Scrapy_u6539_u8FDB" class="headerlink" title="Scrapy改进"></a>Scrapy改进</h3><h4 id="Html_u89E3_u6790"><a href="#Html_u89E3_u6790" class="headerlink" title="Html解析"></a>Html解析</h4><p>Scrapy提供了lxml的相关解析器。但是使用更好的是BeautifulSoup，虽然解析速度会便慢。</p>
-<h4 id="u4F7F_u7528Bloom_u8FC7_u6EE4_u5668"><a href="#u4F7F_u7528Bloom_u8FC7_u6EE4_u5668" class="headerlink" title="使用Bloom过滤器"></a>使用Bloom过滤器</h4><p>默认的网址过滤器(爬虫中的Visited表)是将一个url映射到MD5实现的。使用场景</p>
-<h4 id="u5229_u7528redis_u6784_u5EFA_u5206_u5E03_u5F0F_u722C_u866B"><a href="#u5229_u7528redis_u6784_u5EFA_u5206_u5E03_u5F0F_u722C_u866B" class="headerlink" title="利用redis构建分布式爬虫"></a>利用redis构建分布式爬虫</h4><p>目前还没有使用过这个技术，但是其实原理非常简单，把爬虫队列存储到Redis的列表中，利用Redis的分布式数据存储功能来实现分布式队列，这样就能够在不大动Scrapy的情况下进行分布式爬取。说句实话这个思路真得很赞！</p>
 
         
         
@@ -852,6 +859,14 @@ Or, if you don’t want/need launchctl, you can just run:
 		
 			
 				<li><a href="/tags/Linux/" title="Linux">Linux<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Mac/" title="Mac">Mac<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -910,7 +925,7 @@ Or, if you don’t want/need launchctl, you can just run:
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
 		
 		<a href="/about" target="_blank" title="S0urceC0der">S0urceC0der</a>
 		
