@@ -105,15 +105,15 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#字体"><span class="toc-number">1.</span> <span class="toc-text">字体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序优化"><span class="toc-number">2.</span> <span class="toc-text">程序优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Firefox"><span class="toc-number">2.1.</span> <span class="toc-text">Firefox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VisualStudio"><span class="toc-number">2.2.</span> <span class="toc-text">VisualStudio</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B57_u4F53"><span class="toc-number">1.</span> <span class="toc-text">字体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u7A0B_u5E8F_u4F18_u5316"><span class="toc-number">2.</span> <span class="toc-text">程序优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Firefox"><span class="toc-number">2.1.</span> <span class="toc-text">Firefox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VisualStudio"><span class="toc-number">2.2.</span> <span class="toc-text">VisualStudio</span></a></li></ol></li></ol>
 		
 		</div>
 		
 		<p>Mactype是在Windows下实现类似Mac下字体渲染效果的程序。长期以来，我一直都使用这个软件替代系统自带的ClearType渲染功能。渲染得到的字体相当不错。</p>
 <p>但是，</p>
-<h2 id="字体">字体</h2><p>Windows下面自带的雅黑字体效果还是挺不错的，但是还是建议使用其他修改过的字体。字体可以去<a href="http://bbs.themex.net/forumdisplay.php?f=90" target="_blank" rel="external">极限社区</a>下载。该论坛也是重要的讨论字体修改和Mactype的网站。</p>
+<h2 id="u5B57_u4F53"><a href="#u5B57_u4F53" class="headerlink" title="字体"></a>字体</h2><p>Windows下面自带的雅黑字体效果还是挺不错的，但是还是建议使用其他修改过的字体。字体可以去<a href="http://bbs.themex.net/forumdisplay.php?f=90" target="_blank" rel="external">极限社区</a>下载。该论坛也是重要的讨论字体修改和Mactype的网站。</p>
 <p>之前用的比较多的是XHei，貌似现在出了新的字体，以后下载看下效果。</p>
-<h2 id="程序优化">程序优化</h2><h3 id="Firefox">Firefox</h3><p>Firefox默认开启的硬件加速，因此无法直接使用Mactype字体渲染。关于具体的设置，参考文档<a href="https://github.com/renkun-ken/MacType.Source" target="_blank" rel="external">MacType.Source</a></p>
+<h2 id="u7A0B_u5E8F_u4F18_u5316"><a href="#u7A0B_u5E8F_u4F18_u5316" class="headerlink" title="程序优化"></a>程序优化</h2><h3 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h3><p>Firefox默认开启的硬件加速，因此无法直接使用Mactype字体渲染。关于具体的设置，参考文档<a href="https://github.com/renkun-ken/MacType.Source" target="_blank" rel="external">MacType.Source</a></p>
 <p>打开<code>about:config</code>，修改设置如下</p>
 <table>
 <thead>
@@ -165,7 +165,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="VisualStudio">VisualStudio</h3><p>与Firefox一样，同样使用了硬件加速，而且偏偏没有任何设置。</p>
+<h3 id="VisualStudio"><a href="#VisualStudio" class="headerlink" title="VisualStudio"></a>VisualStudio</h3><p>与Firefox一样，同样使用了硬件加速，而且偏偏没有任何设置。</p>
 <p>在<a href="http://www.zhihu.com/question/24251313" target="_blank" rel="external">VS 怎么使用 MacType 的字体渲染？</a>中提出了解决方案：对于ClearType设置为Smoothing的字体，且Visualstudio在显示比例不为100%时可以直接通过Mactype进行渲染。</p>
 <p>所以需要使用这样特别制作的字体，从<a href="http://tieba.baidu.com/p/3366845989" target="_blank" rel="external">自制FantasqueSansMono字体+VS缩放插件,完美解决VS2013+Mactype</a>下载特别制作过的字体FantasqueSansMono字体。</p>
 <p>但是默认VS都会在新开一个窗口的时候重置缩放比例，因此需要使用插件让VS保持显示比较为99%。插件可以参考帖子<a href="https://stackoverflow.com/questions/4771750/visual-studio-2010-default-zoom-level" target="_blank" rel="external">Visual Studio 2010 default zoom level</a>，固定了显示比例之后，防止不小心按了<code>Ctrl+滚轮</code>而改变了缩放，可以安装插件<a href="https://visualstudiogallery.msdn.microsoft.com/d088791c-150a-4834-8f28-462696a82bb8" target="_blank" rel="external">Disable Mouse Wheel Zoom</a>，装上了这几个插件，基本可以欣赏漂亮的字体渲染了。</p>
@@ -221,7 +221,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#字体"><span class="toc-number">1.</span> <span class="toc-text">字体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序优化"><span class="toc-number">2.</span> <span class="toc-text">程序优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Firefox"><span class="toc-number">2.1.</span> <span class="toc-text">Firefox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VisualStudio"><span class="toc-number">2.2.</span> <span class="toc-text">VisualStudio</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B57_u4F53"><span class="toc-number">1.</span> <span class="toc-text">字体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u7A0B_u5E8F_u4F18_u5316"><span class="toc-number">2.</span> <span class="toc-text">程序优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Firefox"><span class="toc-number">2.1.</span> <span class="toc-text">Firefox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VisualStudio"><span class="toc-number">2.2.</span> <span class="toc-text">VisualStudio</span></a></li></ol></li></ol>
  
   </div>
 

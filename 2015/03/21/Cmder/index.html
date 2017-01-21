@@ -127,29 +127,29 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cmder简介"><span class="toc-number">1.</span> <span class="toc-text">Cmder简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特点"><span class="toc-number">1.1.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用配置"><span class="toc-number">2.</span> <span class="toc-text">使用配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#乱码"><span class="toc-number">2.1.</span> <span class="toc-text">乱码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中文重叠"><span class="toc-number">2.2.</span> <span class="toc-text">中文重叠</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#右键打开Cmder"><span class="toc-number">2.3.</span> <span class="toc-text">右键打开Cmder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#退格后错位"><span class="toc-number">2.4.</span> <span class="toc-text">退格后错位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不足"><span class="toc-number">3.</span> <span class="toc-text">不足</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后"><span class="toc-number">4.</span> <span class="toc-text">最后</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cmder_u7B80_u4ECB"><span class="toc-number">1.</span> <span class="toc-text">Cmder简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u7279_u70B9"><span class="toc-number">1.1.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u4F7F_u7528_u914D_u7F6E"><span class="toc-number">2.</span> <span class="toc-text">使用配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E71_u7801"><span class="toc-number">2.1.</span> <span class="toc-text">乱码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E2D_u6587_u91CD_u53E0"><span class="toc-number">2.2.</span> <span class="toc-text">中文重叠</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u53F3_u952E_u6253_u5F00Cmder"><span class="toc-number">2.3.</span> <span class="toc-text">右键打开Cmder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u9000_u683C_u540E_u9519_u4F4D"><span class="toc-number">2.4.</span> <span class="toc-text">退格后错位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E0D_u8DB3"><span class="toc-number">3.</span> <span class="toc-text">不足</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u6700_u540E"><span class="toc-number">4.</span> <span class="toc-text">最后</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="Cmder简介">Cmder简介</h2><p>Cmder是一款Windows下面的终端模拟器，有了它终于能够抛弃默认的垃圾cmd界面了！</p>
+		<h2 id="Cmder_u7B80_u4ECB"><a href="#Cmder_u7B80_u4ECB" class="headerlink" title="Cmder简介"></a>Cmder简介</h2><p>Cmder是一款Windows下面的终端模拟器，有了它终于能够抛弃默认的垃圾cmd界面了！</p>
 <p><img src="/img/cmder.png" alt="Cmder"></p>
-<h3 id="特点">特点</h3><p>个人很简单的使用了下，觉得有以下优点：</p>
+<h3 id="u7279_u70B9"><a href="#u7279_u70B9" class="headerlink" title="特点"></a>特点</h3><p>个人很简单的使用了下，觉得有以下优点：</p>
 <ol>
 <li><p>可自定义字体，配色非常好看。</p>
 </li>
 <li><p>路径补全有所提高。</p>
 </li>
 </ol>
-<h2 id="使用配置">使用配置</h2><h3 id="乱码">乱码</h3><p>ls的乱码主要是参数问题，修改文件cmder/config/aliases：</p>
+<h2 id="u4F7F_u7528_u914D_u7F6E"><a href="#u4F7F_u7528_u914D_u7F6E" class="headerlink" title="使用配置"></a>使用配置</h2><h3 id="u4E71_u7801"><a href="#u4E71_u7801" class="headerlink" title="乱码"></a>乱码</h3><p>ls的乱码主要是参数问题，修改文件cmder/config/aliases：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">l=ls --show-control-chars&#10;la=ls -aF --show-control-chars&#10;ll=ls -alF --show-control-chars&#10;ls=ls --show-control-chars -F</span><br></pre></td></tr></table></figure>
-<h3 id="中文重叠">中文重叠</h3><p>在设置中，取消<code>Main console font</code>下的Monospace勾，这样中文字符（占用两个英文字符空间）就得到的了足够的空间了。</p>
-<h3 id="右键打开Cmder">右键打开Cmder</h3><p>以管理员权限运行，输入命令<code>.\cmder.exe /REGISTER ALL</code>，在任意目录下右击就会出现<code>Cmder Here</code>，可以打开并默认切换到该目录。</p>
-<h3 id="退格后错位">退格后错位</h3><blockquote>
+<h3 id="u4E2D_u6587_u91CD_u53E0"><a href="#u4E2D_u6587_u91CD_u53E0" class="headerlink" title="中文重叠"></a>中文重叠</h3><p>在设置中，取消<code>Main console font</code>下的Monospace勾，这样中文字符（占用两个英文字符空间）就得到的了足够的空间了。</p>
+<h3 id="u53F3_u952E_u6253_u5F00Cmder"><a href="#u53F3_u952E_u6253_u5F00Cmder" class="headerlink" title="右键打开Cmder"></a>右键打开Cmder</h3><p>以管理员权限运行，输入命令<code>.\cmder.exe /REGISTER ALL</code>，在任意目录下右击就会出现<code>Cmder Here</code>，可以打开并默认切换到该目录。</p>
+<h3 id="u9000_u683C_u540E_u9519_u4F4D"><a href="#u9000_u683C_u540E_u9519_u4F4D" class="headerlink" title="退格后错位"></a>退格后错位</h3><blockquote>
 <p><a href="https://www.v2ex.com/member/lgh" target="_blank" rel="external">lgh</a>:<br>cmder 功能强大，但是反应较慢，经常卡住半天才反应；默认的命令提示符 λ 还会导致在用 TAB 还是 BACKSPACE 之后字符错位（自己改配置换成 $ 后就不会）。<br>现在干脆直接用 ConEmu 了。<br>来源：<a href="https://www.v2ex.com/t/155058" target="_blank" rel="external">https://www.v2ex.com/t/155058</a></p>
 </blockquote>
 <p>lgh针对问题1提出解决方法是修改提示符为$。修改方法是</p>
 <p>打开文件config/prompt.lua，将第二行中的λ修改为Linux下常用的$</p>
-<h2 id="不足">不足</h2><p>当然，可能这些问题只是因为我没有找到对应的解决方法。</p>
+<h2 id="u4E0D_u8DB3"><a href="#u4E0D_u8DB3" class="headerlink" title="不足"></a>不足</h2><p>当然，可能这些问题只是因为我没有找到对应的解决方法。</p>
 <ol>
 <li><p><del>有时候会出现无法删除第一个字符的情况（实际已经删除了）。</del></p>
 </li>
@@ -160,7 +160,7 @@
 <li><p>Cmder1.2开始需要VS<strong>2015</strong>运行库支持（丧心病狂！）</p>
 </li>
 </ol>
-<h2 id="最后">最后</h2><p>现在只是刚开始使用，很多功能还是在摸索中，如果有更多的体会，会继续更新。</p>
+<h2 id="u6700_u540E"><a href="#u6700_u540E" class="headerlink" title="最后"></a>最后</h2><p>现在只是刚开始使用，很多功能还是在摸索中，如果有更多的体会，会继续更新。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -213,7 +213,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cmder简介"><span class="toc-number">1.</span> <span class="toc-text">Cmder简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特点"><span class="toc-number">1.1.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用配置"><span class="toc-number">2.</span> <span class="toc-text">使用配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#乱码"><span class="toc-number">2.1.</span> <span class="toc-text">乱码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中文重叠"><span class="toc-number">2.2.</span> <span class="toc-text">中文重叠</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#右键打开Cmder"><span class="toc-number">2.3.</span> <span class="toc-text">右键打开Cmder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#退格后错位"><span class="toc-number">2.4.</span> <span class="toc-text">退格后错位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不足"><span class="toc-number">3.</span> <span class="toc-text">不足</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后"><span class="toc-number">4.</span> <span class="toc-text">最后</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cmder_u7B80_u4ECB"><span class="toc-number">1.</span> <span class="toc-text">Cmder简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u7279_u70B9"><span class="toc-number">1.1.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u4F7F_u7528_u914D_u7F6E"><span class="toc-number">2.</span> <span class="toc-text">使用配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E71_u7801"><span class="toc-number">2.1.</span> <span class="toc-text">乱码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E2D_u6587_u91CD_u53E0"><span class="toc-number">2.2.</span> <span class="toc-text">中文重叠</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u53F3_u952E_u6253_u5F00Cmder"><span class="toc-number">2.3.</span> <span class="toc-text">右键打开Cmder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u9000_u683C_u540E_u9519_u4F4D"><span class="toc-number">2.4.</span> <span class="toc-text">退格后错位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E0D_u8DB3"><span class="toc-number">3.</span> <span class="toc-text">不足</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u6700_u540E"><span class="toc-number">4.</span> <span class="toc-text">最后</span></a></li></ol>
  
   </div>
 

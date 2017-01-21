@@ -98,7 +98,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#其他的话"><span class="toc-number">1.</span> <span class="toc-text">其他的话</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Vmware_Workstation中的其他问题"><span class="toc-number">2.</span> <span class="toc-text">安装Vmware Workstation中的其他问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#无/etc/init-d目录"><span class="toc-number">2.0.1.</span> <span class="toc-text">无/etc/init.d目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编译模块时出错"><span class="toc-number">2.0.2.</span> <span class="toc-text">编译模块时出错</span></a></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5176_u4ED6_u7684_u8BDD"><span class="toc-number">1.</span> <span class="toc-text">其他的话</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5Vmware_Workstation_u4E2D_u7684_u5176_u4ED6_u95EE_u9898"><span class="toc-number">2.</span> <span class="toc-text">安装Vmware Workstation中的其他问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u65E0/etc/init-d_u76EE_u5F55"><span class="toc-number">2.0.1.</span> <span class="toc-text">无/etc/init.d目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u7F16_u8BD1_u6A21_u5757_u65F6_u51FA_u9519"><span class="toc-number">2.0.2.</span> <span class="toc-text">编译模块时出错</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
@@ -109,11 +109,11 @@
 <p>仔细观察<a href="https://my.vmware.com/group/vmware/details?downloadGroup=WKST-1004-LX&amp;productId=362&amp;rPId=7049#errorCheckDiv" target="_blank" rel="external">官网下载页面内容</a>，发现真实文件名（内部版本号）在官网上就有，据此构造出实际的10.0.4的下载地址为：</p>
 <p><a href="http://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-10.0.4-2249910.i386.bundle" target="_blank" rel="external">http://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-10.0.4-2249910</a></p>
 <p><img src="/img/vmware-list.png" alt="Vmware List"></p>
-<h2 id="其他的话">其他的话</h2><p>这也不是我第一次干这种事了，基本情况就是下载网址A被大家所知道，但是下载网址B需要通过一定权限才能获取的，然后最关键的是，网址A能够推理出网址B，通常情况下网址里面包含了固定的信息，例如日期，可以直接修改得到。当然，如果有一点随机字符串，就没法获得了。</p>
+<h2 id="u5176_u4ED6_u7684_u8BDD"><a href="#u5176_u4ED6_u7684_u8BDD" class="headerlink" title="其他的话"></a>其他的话</h2><p>这也不是我第一次干这种事了，基本情况就是下载网址A被大家所知道，但是下载网址B需要通过一定权限才能获取的，然后最关键的是，网址A能够推理出网址B，通常情况下网址里面包含了固定的信息，例如日期，可以直接修改得到。当然，如果有一点随机字符串，就没法获得了。</p>
 <p>这个问题相信以前国内的各种下载站都会有过，不过现在应该好多了，但是很多公司自己的软件或者付费下载可能仍然存在这样的问题。如果能够获得一个网址，例如试用版软件或者免费资源，就能够进一步推导出其他资源的网址，当然前提是文件名能够直接从网页上获取到。</p>
-<h2 id="安装Vmware_Workstation中的其他问题">安装Vmware Workstation中的其他问题</h2><p>参考了很多<a href="https://wiki.archlinux.org/index.php/Vmware" target="_blank" rel="external">Wiki</a>上的内容</p>
-<h4 id="无/etc/init-d目录">无/etc/init.d目录</h4><p>Archlinux的启动改为systemctl，因此不再有/etc/init.d目录，解决方法是直接忽略错误，然后手工写一个service文件就行了。</p>
-<h4 id="编译模块时出错">编译模块时出错</h4><ol>
+<h2 id="u5B89_u88C5Vmware_Workstation_u4E2D_u7684_u5176_u4ED6_u95EE_u9898"><a href="#u5B89_u88C5Vmware_Workstation_u4E2D_u7684_u5176_u4ED6_u95EE_u9898" class="headerlink" title="安装Vmware Workstation中的其他问题"></a>安装Vmware Workstation中的其他问题</h2><p>参考了很多<a href="https://wiki.archlinux.org/index.php/Vmware" target="_blank" rel="external">Wiki</a>上的内容</p>
+<h4 id="u65E0/etc/init-d_u76EE_u5F55"><a href="#u65E0/etc/init-d_u76EE_u5F55" class="headerlink" title="无/etc/init.d目录"></a>无/etc/init.d目录</h4><p>Archlinux的启动改为systemctl，因此不再有/etc/init.d目录，解决方法是直接忽略错误，然后手工写一个service文件就行了。</p>
+<h4 id="u7F16_u8BD1_u6A21_u5757_u65F6_u51FA_u9519"><a href="#u7F16_u8BD1_u6A21_u5757_u65F6_u51FA_u9519" class="headerlink" title="编译模块时出错"></a>编译模块时出错</h4><ol>
 <li>缺少header.h</li>
 </ol>
 <p>查看日志，发现是缺少linux头文件中的header.h，利用locate命令查找到对应的version.h文件，然后创建软链接</p>
@@ -175,7 +175,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#其他的话"><span class="toc-number">1.</span> <span class="toc-text">其他的话</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Vmware_Workstation中的其他问题"><span class="toc-number">2.</span> <span class="toc-text">安装Vmware Workstation中的其他问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#无/etc/init-d目录"><span class="toc-number">2.0.1.</span> <span class="toc-text">无/etc/init.d目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编译模块时出错"><span class="toc-number">2.0.2.</span> <span class="toc-text">编译模块时出错</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5176_u4ED6_u7684_u8BDD"><span class="toc-number">1.</span> <span class="toc-text">其他的话</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5Vmware_Workstation_u4E2D_u7684_u5176_u4ED6_u95EE_u9898"><span class="toc-number">2.</span> <span class="toc-text">安装Vmware Workstation中的其他问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u65E0/etc/init-d_u76EE_u5F55"><span class="toc-number">2.0.1.</span> <span class="toc-text">无/etc/init.d目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u7F16_u8BD1_u6A21_u5757_u65F6_u51FA_u9519"><span class="toc-number">2.0.2.</span> <span class="toc-text">编译模块时出错</span></a></li></ol></li></ol></li></ol>
  
   </div>
 

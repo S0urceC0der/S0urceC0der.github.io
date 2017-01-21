@@ -110,7 +110,7 @@ Mongoose注意，Mongoose会对输入的Collection名字自动添加复数形式
 		</div>
 		
 		<p>本文的主要内容：使用Node Coffee-script开发一个网站</p>
-<h4 id="Mongoose">Mongoose</h4><p>注意，Mongoose会对输入的Collection名字自动添加复数形式命名后存入到Mongodb中，例如user重命名为表users，具体的命名方法可以参考<a href="http://aiilive.blog.51cto.com/1925756/1405203" target="_blank" rel="external">Mongoose在创建Model时对Collection的命名策略</a></p>
+<h4 id="Mongoose"><a href="#Mongoose" class="headerlink" title="Mongoose"></a>Mongoose</h4><p>注意，Mongoose会对输入的Collection名字自动添加复数形式命名后存入到Mongodb中，例如user重命名为表users，具体的命名方法可以参考<a href="http://aiilive.blog.51cto.com/1925756/1405203" target="_blank" rel="external">Mongoose在创建Model时对Collection的命名策略</a></p>
 <p>解决方法是在创建Model的时候传入第三个参数作为实际的表名</p>
 <p>在查询中，还发现在查询大量数据的时候会出现<code>Error: parseError occured</code>的错误提示，相关的错误可以参看<a href="https://stackoverflow.com/questions/21767673/mongodb-parseerror-when-using-limit-and-sort" target="_blank" rel="external">MongoDB parseError when using limit and sort</a>，大意是缺少索引，但是我明明已经添加了相关的索引的，不知道如何去解决，故改用Mongodb试下</p>
   
