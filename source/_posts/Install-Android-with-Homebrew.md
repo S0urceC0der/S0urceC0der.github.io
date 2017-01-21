@@ -1,5 +1,6 @@
+title: Mac上配置Android开发环境
 date: 2017-01-21 19:42:02
-tags:
+tags: [Mac, Android]
 ---
 
 ## 在Mac上配置Android开发环境
