@@ -8,11 +8,11 @@ subtitle:
 description:
 author: S0urceC0der
 email: S0urc3C0d3r@gmail.com
-language: zh-CN
+language: zh-Hans
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://S0urceC0der.github.io/
 root: /
 permalink: :year/:month/:day/:title/
 tag_dir: tags
@@ -87,7 +87,7 @@ disqus_shortname: s0urcec0der-github-io
 # Extensions
 ## Plugins: https://github.com/hexojs/hexo/wiki/Plugins
 ## Themes: https://github.com/hexojs/hexo/wiki/Themes
-theme: jacman
+theme: next
 exclude_generator:
 
 # Deployment
