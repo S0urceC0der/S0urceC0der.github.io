@@ -3,10 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "3.4.3"
+    "version": "3.4.4"
+  },
+  "scripts": {
+    "server": "hexo s --config source/_data/next.yml",
+    "gen": "hexo clean --config source/_data/next.yml && hexo g --config source/_data/next.yml",
+    "deploy": "hexo deploy --config source/_data/next.yml"
   },
   "dependencies": {
-    "hexo": "^3.4.3",
+    "hexo": "^3.4.4",
     "hexo-deployer-git": "^0.3.1",
     "hexo-generator-archive": "^0.1.5",
     "hexo-generator-category": "^0.1.2",
@@ -15,8 +20,8 @@
     "hexo-generator-sitemap": "^1.2.0",
     "hexo-generator-tag": "^0.2.0",
     "hexo-renderer-ejs": "^0.3.1",
-    "hexo-renderer-marked": "^0.3.0",
+    "hexo-renderer-marked": "^0.3.2",
     "hexo-renderer-stylus": "^0.3.3",
-    "hexo-server": "^0.2.2"
+    "hexo-server": "^0.3.1"
   }
 }
