@@ -1,6 +1,6 @@
 title: Firefox57新版试用
 date: 2017-11-26 17:18:30
-tags:
+tags: ["Web"]
 ---
 
 # 浏览器使用历史

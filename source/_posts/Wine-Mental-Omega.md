@@ -1,7 +1,7 @@
 
 title:  Mac下Wine运行心灵终结Mental Omega 3.3
 date: 2017-10-21 17:53:12
-tags:
+tags: ["Mac", "Linux"]
 ---
 
 ---

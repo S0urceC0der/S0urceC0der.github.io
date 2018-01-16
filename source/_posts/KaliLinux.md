@@ -1,6 +1,6 @@
 title: "KaliLinux使用心得"
 date: 2015-04-12 19:33:10
-tags: [Linux]
+tags: ["Linux"]
 ---
 
 ## Kali Linux

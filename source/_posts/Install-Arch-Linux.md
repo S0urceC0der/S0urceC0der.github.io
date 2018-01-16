@@ -1,6 +1,6 @@
 title: Arch Linux安装教程
 date: 2014-11-22 22:29:33
-tags:
+tags: ["Linux"]
 ---
 
 ## 缘起

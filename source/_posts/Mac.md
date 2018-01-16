@@ -1,6 +1,6 @@
 title: Mac
 date: 2015-02-15 13:03:43
-tags:
+tags: ["Mac"]
 ---
 
 ### 起

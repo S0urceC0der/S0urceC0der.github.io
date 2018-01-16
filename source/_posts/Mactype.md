@@ -1,6 +1,6 @@
 title: 使用Mactype渲染字体
 date: 2015-03-15 13:27:48
-tags:
+tags: ["Windows"]
 ---
 
 Mactype是在Windows下实现类似Mac下字体渲染效果的程序。长期以来，我一直都使用这个软件替代系统自带的ClearType渲染功能。渲染得到的字体相当不错。

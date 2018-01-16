@@ -1,6 +1,6 @@
 title: 常见软件包的国内镜像
 date: 2016-01-10 23:45:19
-tags: Linux
+tags: ["Linux"]
 ---
 
 

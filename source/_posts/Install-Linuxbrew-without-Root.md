@@ -1,7 +1,7 @@
 
 title:  在无Root权限系统中安装Linuxbrew
 date: 2016-01-12 02:37:25
-tags:
+tags: ["Linux"]
 ---
 
 ---

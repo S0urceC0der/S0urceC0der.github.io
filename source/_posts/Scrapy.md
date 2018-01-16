@@ -1,6 +1,6 @@
 title: Scrapy
 date: 2015-01-25 17:16:25
-tags:
+tags: ["Web"]
 ---
 
 ### Scrapy简介
