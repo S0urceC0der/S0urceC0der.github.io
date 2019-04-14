@@ -1,0 +1,66 @@
+digraph level1_stack{
+    graph [
+        rankdir = "LR"
+    ];
+    edge [
+    ];
+    subgraph stack_0 {
+        style=filled;
+        color=lightgrey;
+        "s0_stack" [
+            label = "<esp>0xbffffcb8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | <ebp> 0xbffffcbb ebp"
+            shape = "record"
+            labeljust = "l"
+        ];
+        "s0_esp" [
+            label = "esp"
+            shape = "plaintext"
+        ];
+        "s0_esp" -> "s0_stack":esp
+    };
+
+    subgraph stack_1 {
+        style=filled;
+        color=lightgrey;
+        "s1_stack" [
+            label = "
+                <esp> 0xbffffc2c &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+                0xbffffc30 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||...||
+                0xbffffcb0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+                0xbffffcb4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+                0xbffffcb8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+                <ebp> 0xbffffcbb ebp"
+            shape = "record"
+            labeljust = "l"
+        ];
+        "s1_esp" [
+            label = "esp"
+            shape = "plaintext"
+        ];
+        "s1_esp" -> "s1_stack":esp
+    };
+
+    subgraph stack_2 {
+        style=filled;
+        color=lightgrey;
+        "s2_stack" [
+            label = "
+                <esp> 0xbffffc20 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+                0xbffffc24 &nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;|
+                0xbffffc28 buf|
+                0xbffffc2c 256|
+                0xbffffc30 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||...||
+                0xbffffcb0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+                0xbffffcb4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+                0xbffffcb8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+                <ebp> 0xbffffcbb ebp"
+            shape = "record"
+            labeljust = "l"
+        ];
+        "s2_esp" [
+            label = "esp"
+            shape = "plaintext"
+        ]
+        "s2_esp" -> "s2_stack":esp
+    };
+}

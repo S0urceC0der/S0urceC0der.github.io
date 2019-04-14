@@ -1,987 +1,2350 @@
+<!DOCTYPE html>
 
- <!DOCTYPE HTML>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
+
+
+
+
+
+
+
+
+
+
+
   
-    <title>S0urceC0der</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="S0urceC0der">
-    
 
-    
-    <meta property="og:type" content="website">
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg?v=7.1.0" color="#222">
+
+
+  <link rel="manifest" href="/img/favicon/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.1.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta property="og:type" content="website">
 <meta property="og:title" content="S0urceC0der">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://S0urceC0der.github.io/index.html">
 <meta property="og:site_name" content="S0urceC0der">
+<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="S0urceC0der">
 
-    
-    <link rel="alternative" href="/atom.xml" title="S0urceC0der" type="application/atom+xml">
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/jacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css">
+
+
+  <link rel="alternate" href="/atom.xml" title="S0urceC0der" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://S0urceC0der.github.io/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>S0urceC0der</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
 
-  <body>
-    <header>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">S0urceC0der</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
       
-<div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/s0.png" alt="S0urceC0der" title="S0urceC0der"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="S0urceC0der">S0urceC0der</a></h1>
-				<h2 class="blog-motto"></h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">Home</a></li>
-					
-						<li><a href="/archives">Archives</a></li>
-					
-						<li><a href="/about">About</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:yoursite.com">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
+        
+        
+        
+          
+          <li class="menu-item menu-item-home menu-item-active">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
 </div>
     </header>
-    <div id="container">
-      <div id="main">
 
-   
     
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
     
-      <a href="/2017/01/21/Install-Android-with-Homebrew/" title="Mac上配置Android开发环境" itemprop="url">Mac上配置Android开发环境</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="S0urceC0der" target="_blank" itemprop="author">S0urceC0der</a>
-		
-  <p class="article-time">
-    <time datetime="2017-01-21T11:42:02.000Z" itemprop="datePublished"> 发表于 Jan 21 2017</time>
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2018/02/25/Install-Mactex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/s0.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
     
-  </p>
-</header>
-    <div class="article-content">
+      <header class="post-header">
+
         
-        <h2 id="在Mac上配置Android开发环境"><a href="#在Mac上配置Android开发环境" class="headerlink" title="在Mac上配置Android开发环境"></a>在Mac上配置Android开发环境</h2><p>在Mac上配置Android开发环境，通常是直接下载安装Android Studio并运行其中的配置，有太多的手工操作，需要多次确认。因此我选择使用Homebrew来安装对应的软件。</p>
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/02/25/Install-Mactex/" class="post-title-link" itemprop="url">在Mac上配置Mactex</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-02-25 22:14:39 / 修改时间：22:45:03" itemprop="dateCreated datePublished" datetime="2018-02-25T22:14:39+08:00">2018-02-25</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2018/02/25/Install-Mactex/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/25/Install-Mactex/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Mactex"><a href="#Mactex" class="headerlink" title="Mactex"></a>Mactex</h1><p>Mac下使用Latex推荐使用的是Mactex</p>
+<p>安装命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install mactex</span><br></pre></td></tr></table></figure>
+<p>其中mactex软件包大小达到了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install basictex</span><br></pre></td></tr></table></figure>
+<p>当然，即使安装了mactex，有时候仍然存在部分依赖的包会不存在，此时需要使用tlgmgr来进行下载软件包</p>
+<p>首先更新tlgmgr</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tlmgr update --self</span><br></pre></td></tr></table></figure>
+<p>然后更新软件包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tlmgr update --all</span><br></pre></td></tr></table></figure>
+<p>为了加快下载速度，可以配置国内的镜像，例如<a href="https://mirrors.tuna.tsinghua.edu.cn/help/CTAN/" target="_blank" rel="noopener">清华的镜像</a>，但是主要需要将里面的https地址更改为http。</p>
+<p>如果出现错误</p>
+<blockquote>
+<p>! LaTeX Error: File `nth.sty’ not found.</p>
+<p>Type X to quit or <return> to proceed,<br>or enter new name. (Default extension: sty)</return></p>
+</blockquote>
+<p>则可以针对文件名安装对应的包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tlmgr install nth</span><br></pre></td></tr></table></figure>
+<h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><p>tlgmgr 如果使用https的镜像时，会发生错误，错误信息如下，但是</p>
+<blockquote>
+<h1 id="tlmgr-update-–self-–repository-https-mirrors-ustc-edu-cn-CTAN-systems-texlive-tlnet"><a href="#tlmgr-update-–self-–repository-https-mirrors-ustc-edu-cn-CTAN-systems-texlive-tlnet" class="headerlink" title="tlmgr update –self –repository https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/"></a>tlmgr update –self –repository <a href="https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/</a></h1><p> /Library/TeX/texbin/tlmgr: open tlpdb(<a href="https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet//tlpkg/texlive.tlpdb" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet//tlpkg/texlive.tlpdb</a>) failed: Inappropriate ioctl for device at /usr/local/texlive/2017basic/tlpkg/TeXLive/TLPDB.pm line 362.</p>
+</blockquote>
+<p>暂时可以通过将https修改为http的方法绕过</p>
+<p>有些软件包名字并不一致，例如nth.sty，通过<a href="https://tex.stackexchange.com/questions/135402/package-nth-is-in-ctan-but-tlmgr-doesnt-find-it" target="_blank" rel="noopener">搜索</a>可以得知包含该文件的包名为gen­misc，可以首先在ctan上搜索，然后找到对应的包名</p>
+<h1 id="卸载Mactex"><a href="#卸载Mactex" class="headerlink" title="卸载Mactex"></a>卸载Mactex</h1><p>Mactex不同版本会安装到不同的目录下，不会覆盖，会占用比较多的空间，有时候需要删除旧版本。可以受限参考<a href="https://www.tug.org/mactex/uninstalling.html" target="_blank" rel="noopener">官网的卸载教程</a>，但是个人删除经验如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /Library/TeX/Distributions/TeXLive-2017-Basic.texdist</span><br><span class="line">sudo rm -rf /Library/TeX/Distributions/.FactoryDefaults/TeXLive-2017-Basic</span><br><span class="line">sudo rm -rf /usr/local/texlive/2017basic</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2018/01/28/Website/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/s0.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/01/28/Website/" class="post-title-link" itemprop="url">域名注册经历</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-28 17:13:50 / 修改时间：21:56:13" itemprop="dateCreated datePublished" datetime="2018-01-28T17:13:50+08:00">2018-01-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2018/01/28/Website/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/01/28/Website/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="注册域名"><a href="#注册域名" class="headerlink" title="注册域名"></a>注册域名</h2><p>首先要挑选一个域名后缀，然后从域名比价网站<a href="https://www.domcomp.com/" target="_blank" rel="noopener">domcomp</a>挑选一个合适的供应商进行注册。一般站点首次购买较为便宜，但是续费就有点贵，可以在到期前转移到续费便宜的站点再进行续费。此外，挑选的时候我特意选择了一家免费赠送隐私保护功能的供应商，但是即时这样仍然建议使用假的地址，配置Google Voice 作为联系方式，并单独注册一个邮箱接受相关信息。Whois信息现在已经被用于追踪用户的重要信息，因此一定要进行保密。</p>
+<h2 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h2><p>目前国内的域名解析都需要实名认证，因此选择CloudFlare进行解析，具体的修改流程比较简单，注册后按照提示输入域名，然后再返回域名供应商修改对应的解析服务器到CloudFlare，一旦CloudFlare确认后就能够直接进行修改了。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2017/12/03/Graphviz/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/s0.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/12/03/Graphviz/" class="post-title-link" itemprop="url">使用 Graphviz 来画图</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-12-03 20:27:45" itemprop="dateCreated datePublished" datetime="2017-12-03T20:27:45+08:00">2017-12-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-13 14:11:15" itemprop="dateModified" datetime="2019-04-13T14:11:15+08:00">2019-04-13</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2017/12/03/Graphviz/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/03/Graphviz/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Graphviz-简介"><a href="#Graphviz-简介" class="headerlink" title="Graphviz 简介"></a>Graphviz 简介</h1><p>符合程序员的以代码生成一切事物的思想，并且类似 HTML ，只定义结构，样式则可以通过第三方工具来进行美化。</p>
+<p>例如 <a href="https://jeasonstudio.github.io/oxygen-demo/" target="_blank" rel="noopener">oxygen</a> 就是一个可以通过 Graphviz 代码来生成手绘风格图表的网站。</p>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p><code>Node</code> 就是图的一个结点</p>
+<p><code>Edge</code> 连接两个结点之前</p>
+<p><code>Graph</code> </p>
+<h1 id="工具教程"><a href="#工具教程" class="headerlink" title="工具教程"></a>工具教程</h1><p>用过 NodeJS 的都了解，有一个 <code>supervisor</code> 命令能够监听目录，一旦发现文件发生改变后自动重启程序。发现 <code>dot</code> 命令并不存在自动监听生成图片的功能，因此改造了下，安装第三方工具 nodemon 来实现文件监听</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://graphviz.gitlab.io/_pages/pdf/dotguide.pdf" target="_blank" rel="noopener">Guide</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2017/11/26/Firefox57/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/s0.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/11/26/Firefox57/" class="post-title-link" itemprop="url">Firefox57新版试用</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-11-26 17:18:30" itemprop="dateCreated datePublished" datetime="2017-11-26T17:18:30+08:00">2017-11-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-01-16 21:58:40" itemprop="dateModified" datetime="2018-01-16T21:58:40+08:00">2018-01-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2017/11/26/Firefox57/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/26/Firefox57/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="浏览器使用历史"><a href="#浏览器使用历史" class="headerlink" title="浏览器使用历史"></a>浏览器使用历史</h1><h2 id="早期试用"><a href="#早期试用" class="headerlink" title="早期试用"></a>早期试用</h2><p>记得最早使用的浏览器是傲游，后来短暂使用了一段时间的搜狗之后就一直改用Firefox，即使Chrome出来后，短暂使用过，但是后面还是继续选择使用Firefox。</p>
+<p>Firefox给我的第一印象就是丰富的插件，相比早期的IE和国内一众基于IE内核的浏览器，插件功能更加强大，特别是那会惊为天人的Adblock Plus让我摆脱了页面上各种眼花缭乱的广告。而另外一个插件Downthem All则让我在大多数情况下不需要启动迅雷来多线程下载一个本来就不会花费太多下载时间的文件链接，尤其。</p>
+<h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><p>虽然后来出现了速度更加快的Chrome，但是一开始的某些插件（例如Adblock）并不完善，并且处于对隐私方面的考虑，仍然坚持使用Firefox。</p>
+<p>Chrome也在不停的进步，各种功能不断完善，所以目前我主要会在调试网页的时候试用Chrome。</p>
+<h2 id="Firefox缺点"><a href="#Firefox缺点" class="headerlink" title="Firefox缺点"></a>Firefox缺点</h2><p>目前使用的感觉主要是实在是太慢了，标签一多经常性的会出现卡死。在Windows下仍然是32位，所以都会单独下载第三方编译版本（例如pcxfirefox），而在Linux/Mac下使用时，则要经常性的重启下。</p>
+<p>为了应对Chrome的竞争，近两年来Firefox的采取了更加激进的更新策略，但是随之而来的却是每个版本一旦更新，一些插件就会失效，特别是Autoproxy这个插件，一度让我想放弃Firefox。而近期，则完全抛弃了原有的插件支持，引入了基于WebExtension的插件，增加了插件的通用性，提高了安全性。</p>
+<h1 id="Firefox-57试用体验"><a href="#Firefox-57试用体验" class="headerlink" title="Firefox 57试用体验"></a>Firefox 57试用体验</h1><p>第一次装上Firefox57后，的确觉得其速度变快很多，但是仔细观察下来，更多的感觉快是显示在了页面加载到完成渲染的过程中，</p>
+<h2 id="新版附加组件列表"><a href="#新版附加组件列表" class="headerlink" title="新版附加组件列表"></a>新版附加组件列表</h2><p>因为大量的插件不再可用，所有需要重新选择浏览器插件，这是我在Firefox 57上所使用的新版插件列表，基本能够满足我的日常需求。</p>
+<h3 id="Evernote-Web-Clipper"><a href="#Evernote-Web-Clipper" class="headerlink" title="Evernote Web Clipper"></a>Evernote Web Clipper</h3><h3 id="Greasemonkey"><a href="#Greasemonkey" class="headerlink" title="Greasemonkey"></a>Greasemonkey</h3><p>虽然有人推荐试用Tampermonkey替代，但是目前为止Greasemonkey对于我仍然能够满足需求。</p>
+<h3 id="HTTPS-Everywhere"><a href="#HTTPS-Everywhere" class="headerlink" title="HTTPS Everywhere"></a>HTTPS Everywhere</h3><p>自动跳转到该网站的HTTPS版本，随着HTTPS的不断普及，相信这个插件会逐渐失去其功能。</p>
+<h3 id="LastPass"><a href="#LastPass" class="headerlink" title="LastPass"></a>LastPass</h3><p>密码管理，类似的还有其他几款管理软件。</p>
+<h3 id="Proxy-SwitchyMmega"><a href="#Proxy-SwitchyMmega" class="headerlink" title="Proxy SwitchyMmega"></a>Proxy SwitchyMmega</h3><p>以前的代理插件AutoProxy及后续的第三方更改版本基本每次Firefox一升级就要死一大片然后重新找，现在这个插件是Chrome上的对应移植版本，不用再担心一升级就失效了。目前试用国产中仍然感觉有一些bug。</p>
+<h3 id="uBlock-Origin"><a href="#uBlock-Origin" class="headerlink" title="uBlock Origin"></a>uBlock Origin</h3><p>新一代的广告过滤插件，对于Adblock Plus有着较大的优势。目前Adblock Plus已经堕落了，在社区内引起了几次争论，使得大家都对其持怀疑态度。</p>
+<h3 id="uMatrix"><a href="#uMatrix" class="headerlink" title="uMatrix"></a>uMatrix</h3><p>用于屏蔽网页无关脚本，可以辅助屏蔽第三方追踪脚本，是NoScript的替代品。</p>
+<h3 id="Vimium"><a href="#Vimium" class="headerlink" title="Vimium"></a>Vimium</h3><p>Vim快捷键插件，但是比原来的Vimperator权限小了很多，页面加载完成后才有效果。</p>
+<h3 id="Open-Tabs-Next-to-Current"><a href="#Open-Tabs-Next-to-Current" class="headerlink" title="Open Tabs Next to Current"></a>Open Tabs Next to Current</h3><p>新版插件功能不再有对标签外观和标签位置的更改能力，为此这个插件好像使用了一种方法绕过了限制，能够紧接当前标签新建一个新标签，此外在设置里面可以针对从当前页面打开的链接的标签位置进行配置。</p>
+<blockquote>
+<p>  about:config 设置browser.tabs.insertRelatedAfterCurrent 为true</p>
+</blockquote>
+<h2 id="缺少的插件"><a href="#缺少的插件" class="headerlink" title="缺少的插件"></a>缺少的插件</h2><h3 id="Down-Them-All"><a href="#Down-Them-All" class="headerlink" title="Down Them All"></a>Down Them All</h3><p>不再有类似的多线程轻量级下载工具，需要自己额外配置第三方下载软件。</p>
+<h2 id="Firefox57不足"><a href="#Firefox57不足" class="headerlink" title="Firefox57不足"></a>Firefox57不足</h2><p>目前的问题主要如下：</p>
+<ol>
+<li><p>Firefox57的SwitchyOmega会经常性的出现菜单显示不正常，参考[<a href="https://github.com/FelisCatus/SwitchyOmega/issues/1315]" target="_blank" rel="noopener">https://github.com/FelisCatus/SwitchyOmega/issues/1315]</a></p>
+</li>
+<li><p>在Mac下，Firefox57经常性的会出现高CPU占用情况，然后风扇狂转，最终我更换成了Firefox Nightly。</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2017/11/22/ROP-part1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/s0.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/11/22/ROP-part1/" class="post-title-link" itemprop="url">从0开始学习Linux ROP利用-part1</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-11-22 21:19:23" itemprop="dateCreated datePublished" datetime="2017-11-22T21:19:23+08:00">2017-11-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-13 21:39:02" itemprop="dateModified" datetime="2019-04-13T21:39:02+08:00">2019-04-13</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2017/11/22/ROP-part1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/22/ROP-part1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><p>ROP(Return-oriented programming) 是一种通过覆盖堆栈 (Stack) 内容来实现控制返回地址实现执行自定义代码的漏洞利用手段。目前比较流行的教程是蒸米写的Linux ROP系列，本文以此为基础，综合其他文章来详细的讲解Linux ROP利用国产。</p>
+<h1 id="构造虚拟机环境"><a href="#构造虚拟机环境" class="headerlink" title="构造虚拟机环境"></a>构造虚拟机环境</h1><p>测试过程中需要x86/x64两个环境的Linux系统，因此一般物理机测试起来比较麻烦，可以通过安装虚拟机来构造对应的测试环境。这里我使用 VirtualBox 来安装不同的测试环境，此外我选择基于 Alpine Linux 搭建测试环境，原因是 Alpine Linux 的镜像相对比较小，而且里面是基于 musl libc 实现了系统调用，意味着网上教程中的很多地方需要自己进行针对性的修改，这也是一个挑战。</p>
+<h2 id="虚拟机网络配置"><a href="#虚拟机网络配置" class="headerlink" title="虚拟机网络配置"></a>虚拟机网络配置</h2><p>为了方便测试，我选择使用 SSH 连接 Linux 主机执行命令，而不是从 VirtualBox 的界面，无法快捷的复制粘贴内外内容。使用 SSH 时需要有一个条件是物理机主动连接到虚拟机，但是默认的虚拟机环境采用 NAT 模式，虚拟机能够访问外网但是物理机无法访问虚拟机，这时可以额外添加一个 Host Only 网络来连接虚拟机。</p>
+<h2 id="Alpine-Linux-基础环境搭建"><a href="#Alpine-Linux-基础环境搭建" class="headerlink" title="Alpine Linux 基础环境搭建"></a>Alpine Linux 基础环境搭建</h2><p>需要手动安装 gcc 和 libc-dev 库提供基础编译环境，安装 gdb 提供调试功能。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apk add libc-dev gcc gdb</span><br></pre></td></tr></table></figure>
+<h1 id="静态分析代码"><a href="#静态分析代码" class="headerlink" title="静态分析代码"></a>静态分析代码</h1><h2 id="反汇编程序"><a href="#反汇编程序" class="headerlink" title="反汇编程序"></a>反汇编程序</h2><p>为了方便反汇编，可以将 gdb 的语法设置默认为 AT&amp;T 语法改为 Intel 语法，具体方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;set disassembly-flavor intel&quot; &gt; ~/.gdbinit</span><br></pre></td></tr></table></figure>
+<p>使用 <code>gdb level1</code> 来加载程序，然后调用 <code>disas vulnerable_function</code> 来反汇编存在漏洞的函数。输入 <code>layout asm</code> 分屏显示汇编代码，</p>
+<ul>
+<li><code>ni/ns</code> 汇编指令集 <code>step into</code> </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">0x00001220 &lt;+0&gt;:	    push   ebp</span><br><span class="line">0x00001221 &lt;+1&gt;:	    mov    ebp,esp</span><br><span class="line">0x00001223 &lt;+3&gt;:	    push   ebx</span><br><span class="line">0x00001224 &lt;+4&gt;:	    sub    esp,0x84</span><br><span class="line"></span><br><span class="line">0x0000122a &lt;+10&gt;:	call   0x1218 &lt;__x86.get_pc_thunk.ax&gt;</span><br><span class="line">0x0000122f &lt;+15&gt;:	add    eax,0x2d99</span><br><span class="line">0x00001234 &lt;+20&gt;:	sub    esp,0x4</span><br><span class="line"></span><br><span class="line">0x00001237 &lt;+23&gt;:	push   0x100             // 256</span><br><span class="line">0x0000123c &lt;+28&gt;:	lea    edx,[ebp-0x88]    // -+</span><br><span class="line">0x00001242 &lt;+34&gt;:	push   edx               // -+--  ebp-0x88为buf地址</span><br><span class="line">0x00001243 &lt;+35&gt;:	push   0x0               // STDIN_FILENO</span><br><span class="line">0x00001245 &lt;+37&gt;:	mov    ebx,eax</span><br><span class="line">0x00001247 &lt;+39&gt;:	call   0x1040 &lt;read@plt&gt; // 调用read函数</span><br><span class="line"></span><br><span class="line">0x0000124c &lt;+44&gt;:	add    esp,0x10</span><br><span class="line">0x0000124f &lt;+47&gt;:	nop</span><br><span class="line">0x00001250 &lt;+48&gt;:	mov    ebx,DWORD PTR [ebp-0x4]</span><br><span class="line">0x00001253 &lt;+51&gt;:	leave                    // mov esp,ebp; pop ebp;</span><br><span class="line">0x00001254 &lt;+52&gt;:	ret                      // pop eip; jump eip;</span><br><span class="line"></span><br><span class="line">-----------------------</span><br><span class="line"></span><br><span class="line">0x0000126f &lt;+26&gt;:	call   0x1220 &lt;vulnerable_function&gt; // push eip; jump XX;</span><br></pre></td></tr></table></figure>
+<div><div class="graphviz">digraph level1_stack{<br>    graph [<br>        rankdir = “LR”<br>    ];<br>    edge [<br>    ];<br>    subgraph stack_0 {<br>        style=filled;<br>        color=lightgrey;<br>        “s0_stack” [<br>            label = “<esp>0xbffffcb8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | <ebp> 0xbffffcbb ebp”<br>            shape = “record”<br>            labeljust = “l”<br>        ];<br>        “s0_esp” [<br>            label = “esp”<br>            shape = “plaintext”<br>        ];<br>        “s0_esp” -&gt; “s0_stack”:esp<br>    };<br>}</ebp></esp></div></div>
+
+<p>汇编代码中有一个函数 <code>__x86.get_pc_thunk.ax</code> 的调用，在此可以暂时忽略这段代码，与 EOP 利用无关，没有任何影响。关于这个函数的详细解释，参考 <a href="https://cloud.tencent.com/developer/ask/91473" target="_blank" rel="noopener">《什么是__i686.get_pc_thunk.bx？我们为什么需要调用这个？》</a> 一文。</p>
+<h2 id="堆栈分析"><a href="#堆栈分析" class="headerlink" title="堆栈分析"></a>堆栈分析</h2><p>下面先从理论上对堆栈情况分析一下。</p>
+<h1 id="参考文章列表"><a href="#参考文章列表" class="headerlink" title="参考文章列表"></a>参考文章列表</h1><p><a href="https://segmentfault.com/a/1190000012756506" target="_blank" rel="noopener">VirtualBox虚拟机和Mac或Win主机之间网络相互通信</a></p>
+<p><a href="https://github.com/zhengmin1989/MyArticles/tree/master/%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E5%AD%A6ROP" target="_blank" rel="noopener">一步一步学ROP</a></p>
+<p><a href="http://www.anquan.us/static/drops/tips-6597.html" target="_blank" rel="noopener">http://www.anquan.us/static/drops/tips-6597.html</a></p>
+<p><a href="https://ketansingh.net/Introduction-to-Return-Oriented-Programming-ROP/" target="_blank" rel="noopener">Introduction to Return Oriented Programming (ROP)</a></p>
+<p><a href="https://www.cnblogs.com/pannengzhi/p/exploit-the-stack.html" target="_blank" rel="noopener">栈溢出漏洞的利用和缓解</a></p>
+<p><a href="https://www.freebuf.com/vuls/179724.html" target="_blank" rel="noopener">StackOverFlow之Ret2ShellCode详解</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2017/10/21/Wine-Mental-Omega/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/s0.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/10/21/Wine-Mental-Omega/" class="post-title-link" itemprop="url">Mac下Wine运行心灵终结Mental Omega 3.3</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-10-21 17:53:12" itemprop="dateCreated datePublished" datetime="2017-10-21T17:53:12+08:00">2017-10-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-01-16 22:00:42" itemprop="dateModified" datetime="2018-01-16T22:00:42+08:00">2018-01-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2017/10/21/Wine-Mental-Omega/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/10/21/Wine-Mental-Omega/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h1 id="Mac下Wine运行心灵终结Mental-Omega-3-3"><a href="#Mac下Wine运行心灵终结Mental-Omega-3-3" class="headerlink" title="Mac下Wine运行心灵终结Mental Omega 3.3"></a>Mac下Wine运行心灵终结Mental Omega 3.3</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>红色警戒(Command &amp; Conquer: Red Alert 2)是经典的游戏，心灵终结是基于尤里的复仇的一个Mod，被称为”几乎完美的尤里的复仇”，2016年底该Mod发布3.3版本。相比原版的红警，阵营间的兵种区分更大，兵种相克更加合理，增加了多种对战模式，玩起来更加有意思。</p>
+<h2 id="安装Wine"><a href="#安装Wine" class="headerlink" title="安装Wine"></a>安装Wine</h2><p>Wine可以在Linux/Mac平台下模拟执行Window程序</p>
+<p>请安装开发版本的Wine以便获得更好的兼容性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install wine --devel</span><br></pre></td></tr></table></figure>
+<h2 id="安装Mental-Omega-3-3"><a href="#安装Mental-Omega-3-3" class="headerlink" title="安装Mental Omega 3.3"></a>安装Mental Omega 3.3</h2><p>请安装3.3.2版本，最早的MentalOmega 3.3.0版本的clientxna.exe无法正常启动，需要后续更新才行，该问题可以参考(<a href="https://github.com/CnCNet/xna-cncnet-client/issues/29" target="_blank" rel="noopener">https://github.com/CnCNet/xna-cncnet-client/issues/29</a>)</p>
+<p>选择一个心灵终结的懒人包，解压之后运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">winetricks xna40</span><br></pre></td></tr></table></figure>
+<p>会自动安装依赖.net40和xna40，安装完毕后如果直接运行<code>wine MentalOmegaClient.exe</code>仍然会提示缺少.NET组件，但是可以通过<code>wine Resources/clientxna.exe</code>来开启程序绕过检查。</p>
+<p><img src="/img/wine-MentalOmega.png" alt="Wine"></p>
+<h2 id="其他优化"><a href="#其他优化" class="headerlink" title="其他优化"></a>其他优化</h2><p>关于Wine的字体优化，可以参考<a href="https://www.lulinux.com/archives/362" target="_blank" rel="noopener">WINE界面与字体美化全攻略，及我的常用WINE程序截图展示</a></p>
+<h2 id="目前遇到的Bug"><a href="#目前遇到的Bug" class="headerlink" title="目前遇到的Bug"></a>目前遇到的Bug</h2><ul>
+<li>1.会经常性的在命令行窗口弹出错误信息：</li>
+</ul>
+<blockquote>
+<p> winedevice.exe(18227,0xb0004000) malloc: *** error for object 0x40203bb2: pointer being freed was not allocated</p>
+</blockquote>
+<ul>
+<li>2.在长时间运行红警后，会出现闪退现象</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2017/10/02/Crack-M3U8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/s0.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/10/02/Crack-M3U8/" class="post-title-link" itemprop="url">破解某网站m3u8视频资源</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-10-02 10:37:29" itemprop="dateCreated datePublished" datetime="2017-10-02T10:37:29+08:00">2017-10-02</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-01-16 21:57:13" itemprop="dateModified" datetime="2018-01-16T21:57:13+08:00">2018-01-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2017/10/02/Crack-M3U8/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/10/02/Crack-M3U8/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h1 id="破解某网站m3u8视频资源"><a href="#破解某网站m3u8视频资源" class="headerlink" title="破解某网站m3u8视频资源"></a>破解某网站m3u8视频资源</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>某个视频教学网站资源即将超过有效期，因此尝试将网页上的视频下载到本地。</p>
+<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><h3 id="1-登录验证"><a href="#1-登录验证" class="headerlink" title="1. 登录验证"></a>1. 登录验证</h3><p>这部分非常简单，模拟提交登录表单，并及时保存对应的Cookie即可</p>
+<h3 id="2-视频播放流程"><a href="#2-视频播放流程" class="headerlink" title="2. 视频播放流程"></a>2. 视频播放流程</h3><p>这个网页上使用了一个Flash播放器，然后通过该Flash文件读取m3u8文件进行播放。</p>
+<p>HTTP Live Streaming（HLS）是苹果公司(Apple Inc.)实现的基于HTTP的流媒体传输协议，m3u8，是HTTP Live Streaming直播的索引文件。该文件包含了这个视频的一系列视频分片，Flash播放器或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#EXTM3U</span><br><span class="line">#EXT-X-VERSION:3</span><br><span class="line">#EXT-X-MEDIA-SEQUENCE:0</span><br><span class="line">#EXT-X-ALLOW-CACHE:YES</span><br><span class="line">#EXT-X-TARGETDURATION:11</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0xe532855feb3e18366b8e7ea0c11f3116</span><br><span class="line">#EXTINF:10.066667,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg0</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0x48586a2ac8397fbce9565480259c1b94</span><br><span class="line">#EXTINF:10.000000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg1</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0x928f18982f6ee1a7e36cfa8f36979c3a</span><br><span class="line">#EXTINF:10.000000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg2</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0x6651941d56de8af0c7d4bee9ae33a8de</span><br><span class="line">#EXTINF:10.000000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg3</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0x90df003d61ba2ef9413fdaf521cfce15</span><br><span class="line">#EXTINF:10.000000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg4</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0xc7773183806b8d3d7e44811076ed5b66</span><br><span class="line">#EXTINF:2.200000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg5</span><br><span class="line">#EXT-X-ENDLIST</span><br></pre></td></tr></table></figure>
+<p>m3u8内容如上所示，解析时一般是根据<code>EXT-X-KEY</code>中的<code>METHOD</code>的加密方法和<code>URI</code>链接下载密钥内容，最终结合<code>IV</code>解密后续的分片url。</p>
+<h3 id="3-变种"><a href="#3-变种" class="headerlink" title="3. 变种"></a>3. 变种</h3><p>上述是正常的播放过程，但是对该网站解析时却失败了，解密出来的结果却不是正常的视频，多次尝试后，唯一的剩下的可能性便是这个Flash播放器采用了变种HLS协议。</p>
+<p>使用<a href="https://www.free-decompiler.com/flash/download/" target="_blank" rel="noopener">ffdec</a>打开下载得到的Flash播放文件，阅读其中的代码，果然并非标准的HLS协议。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2017/01/21/Install-Android-with-Homebrew/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/s0.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/01/21/Install-Android-with-Homebrew/" class="post-title-link" itemprop="url">Mac上配置Android开发环境</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-01-21 19:42:02" itemprop="dateCreated datePublished" datetime="2017-01-21T19:42:02+08:00">2017-01-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-01-16 21:58:56" itemprop="dateModified" datetime="2018-01-16T21:58:56+08:00">2018-01-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2017/01/21/Install-Android-with-Homebrew/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/21/Install-Android-with-Homebrew/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="在Mac上配置Android开发环境"><a href="#在Mac上配置Android开发环境" class="headerlink" title="在Mac上配置Android开发环境"></a>在Mac上配置Android开发环境</h2><p>在Mac上配置Android开发环境，通常是直接下载安装Android Studio并运行其中的配置，有太多的手工操作，需要多次确认。因此我选择使用Homebrew来安装对应的软件。</p>
 <p>Homebrew可以自动安装多个Mac相关软件，以命令行程序为主，而Homebrew Cask包负责安装Mac上的App应用，安装时可以直接搜索，不必去各个网站单独下载，并且可以通过<code>brew upgrade</code>进行统一更新，免去了逐一手动更新的痛苦，目前大部分开发相关的应用都可以直接安装，基本能够达到替换App Store。</p>
 <h3 id="配置基本android开发环境包"><a href="#配置基本android开发环境包" class="headerlink" title="配置基本android开发环境包"></a>配置基本android开发环境包</h3><p>正如上文所述，使用Homebrew进行软件管理的目的，所有软件均不会从官网下载，而只通过命令行安装。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">brew install ant</div><div class="line">brew install maven</div><div class="line">brew install gradle</div><div class="line">brew install android-sdk</div><div class="line">brew install android-ndk</div></pre></td></tr></table></figure>
-<p>允许android命令来安装Android开发环境，关于所需的包，可以参考<a href="https://www.zhihu.com/question/31935836" target="_blank" rel="external">知乎-Android SDk Manager里面到底哪些东西是必须下载的？</a></p>
-<h4 id="安装HAXM"><a href="#安装HAXM" class="headerlink" title="安装HAXM"></a>安装HAXM</h4><p>这是唯一一步需要sudo操作的安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew cask install intel-haxm</div></pre></td></tr></table></figure></p>
-<h3 id="安装Android-Studio"><a href="#安装Android-Studio" class="headerlink" title="安装Android Studio"></a>安装Android Studio</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew cask install android-studio</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">brew install ant</span><br><span class="line">brew install maven</span><br><span class="line">brew install gradle</span><br><span class="line">brew install android-sdk</span><br><span class="line">brew install android-ndk</span><br></pre></td></tr></table></figure>
+<p>允许android命令来安装Android开发环境，关于所需的包，可以参考<a href="https://www.zhihu.com/question/31935836" target="_blank" rel="noopener">知乎-Android SDk Manager里面到底哪些东西是必须下载的？</a></p>
+<h4 id="安装HAXM"><a href="#安装HAXM" class="headerlink" title="安装HAXM"></a>安装HAXM</h4><p>这是唯一一步需要sudo操作的安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install intel-haxm</span><br></pre></td></tr></table></figure></p>
+<h3 id="安装Android-Studio"><a href="#安装Android-Studio" class="headerlink" title="安装Android Studio"></a>安装Android Studio</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install android-studio</span><br></pre></td></tr></table></figure>
 <p>允许Android Studio后，记得配置Android SDK路径为/usr/local/opt/android-sdk</p>
 <p>###</p>
 
-        
-        
-        <p class="article-more-link">
           
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Mac/">Mac</a><a href="/tags/Android/">Android</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/01/10/mirror/" title="常见软件包的国内镜像" itemprop="url">常见软件包的国内镜像</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="S0urceC0der" target="_blank" itemprop="author">S0urceC0der</a>
-		
-  <p class="article-time">
-    <time datetime="2016-01-10T15:45:19.000Z" itemprop="datePublished"> 发表于 Jan 10 2016</time>
-    
-  </p>
-</header>
-    <div class="article-content">
         
-        <p>在Linux/Mac上经常要使用各种软件库来下载资源，但是这些资源链接经常被墙，或者速度较慢，因此需要改用国内的镜像站点来加快速度。</p>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2016/01/12/Install-Linuxbrew-without-Root/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/s0.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2016/01/12/Install-Linuxbrew-without-Root/" class="post-title-link" itemprop="url">在无Root权限系统中安装Linuxbrew</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-01-12 02:37:25" itemprop="dateCreated datePublished" datetime="2016-01-12T02:37:25+08:00">2016-01-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-01-16 21:59:12" itemprop="dateModified" datetime="2018-01-16T21:59:12+08:00">2018-01-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2016/01/12/Install-Linuxbrew-without-Root/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/12/Install-Linuxbrew-without-Root/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h1 id="在无Root权限系统中安装Linuxbrew"><a href="#在无Root权限系统中安装Linuxbrew" class="headerlink" title="在无Root权限系统中安装Linuxbrew"></a>在无Root权限系统中安装Linuxbrew</h1><h2 id="Linuxbrew"><a href="#Linuxbrew" class="headerlink" title="Linuxbrew"></a>Linuxbrew</h2><p>Homebrew是Mac系统下著名的软件安装管理系统，其特点是不需要root权限即可编译安装Linux下的各种软件，通过修改路径来优先使用安装的软件包。而Linuxbrew则是其Linux移植版本，同样可以在不需要root权限的情况下，在.linuxbrew下完整建立一个运行环境，并在环境变量里面优先使用。</p>
+<p>因为目前我使用的一个系统是Centos5.4版本，无root权限，gcc、python等版本均非常旧，而且无法自由安装软件提供工作效率，所以选择Linuxbrew来安装需要的软件。但是实际上整个安装过程也是非常艰难的。</p>
+<h2 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h2><p>虽然Linuxbrew号称不需要root权限，但是实际安装的时候还是需要满足一定的条件，目前主要条件如下：</p>
+<blockquote>
+<ul>
+<li>Ruby 1.8.6 or newer</li>
+<li>GCC 4.2 or newer</li>
+<li>Linux 2.6.16 or newer</li>
+<li>64-bit x86 or 32-bit ARM platform</li>
+</ul>
+</blockquote>
+<p>可惜现有的系统不满足前两个条件，意味着需要在没有root权限下实现这亮点。</p>
+<h3 id="Ruby依赖"><a href="#Ruby依赖" class="headerlink" title="Ruby依赖"></a>Ruby依赖</h3><p>Linuxbrew是基于ruby的，而Centos5.7的ruby版本是1.8.5，仅仅相差了一个小版本号，却无法运行。因为没有root权限，所以选择采用<a href="https://rvm.io/" target="_blank" rel="noopener">rvm</a>升级安装ruby。</p>
+<p>默认rvm是编译安装的，但是显然当前版本没有安装必要的devel包，所以是无法编译成功的，看到安装过程中会首先去搜索precompiled binary，猜测可能有不需要编译的ruby版本提供，经过一番搜索，果然是可以的，运行<code>rvm list remote</code>可以看到支持当前系统的ruby预编译版本，就选择了一个最低版本ruby-1.9.3-p551，但是很不幸，应该是网络问题无法直接下载，需要手动从<a href="https://rvm_io.global.ssl.fastly.net/binaries/centos/5/x86_64/" target="_blank" rel="noopener">下载链接</a>进行下载。</p>
+<p>对于下载的包，运行<code>rvm mount -r ruby-1.9.3-p551.tar.bz2 --binary</code>加载，会自动把包内的文件释放出来，此时会提醒运行缺少libyaml，但是发现好像并不会引起其他问题。</p>
+<h3 id="Git依赖"><a href="#Git依赖" class="headerlink" title="Git依赖"></a>Git依赖</h3><p>坑爹的是git也没有安装，第一想法当然是直接释放git的rpm包，但是运行的时候一直有错误提醒：</p>
+<blockquote>
+<p>   $ git clone <a href="https://github.com/nvie/gitflow.git" target="_blank" rel="noopener">https://github.com/nvie/gitflow.git</a><br>   Cloning into gitflow…<br>   fatal: Unable to find remote helper for ‘https’</p>
+</blockquote>
+<p>后得知是缺乏libcurl相关库，但是最初并不知道，因此选择重新编译git，官网提示需要如下库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install curl-devel expat-devel gettext-devel openssl-devel perl-devel zlib-devel</span><br></pre></td></tr></table></figure>
+<p>自然是按照对应的依赖，然后下载解压对应的包，增加到include路径中，然后进行编译，但是事实证明这个过程非常艰难，最终没有编译成功，有兴趣的同学可以尝试下看看。</p>
+<p>幸运的从网上找到了一个<a href="http://vault.centos.org/5.4/os/x86_64/CentOS/" target="_blank" rel="noopener">Centos rpm包库</a>，然后根据需要的包名选择下载，s使用命令<code>rpm2cpio *.rpm | cpio -div</code>释放rpm包文件到了本地的~/usr目录下，并确认这些文件及so能够正常在环境变量里面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:~/usr/bin</span><br><span class="line">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/usr/lib</span><br><span class="line">export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/usr/include</span><br><span class="line">export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/usr/include</span><br></pre></td></tr></table></figure>
+<p>随后编译git，并放入~/usr/bin下，能够正常运行git。</p>
+<h3 id="Standalone模式安装Linuxbrew"><a href="#Standalone模式安装Linuxbrew" class="headerlink" title="Standalone模式安装Linuxbrew"></a>Standalone模式安装Linuxbrew</h3><p>在Standalone模式下，Linuxbrew会搭建一个完全脱离现有系统的编译环境和运行环境，运行Linuxbrew的软件时不再依赖系统原有的的编译器和库。</p>
+<p>虽然说是Standalone模式，仍然需要一个编译器来首先编译出一个gcc，但是CentOS5.4的默认gcc版本过旧，必须要求最低4.4版本才行。依然尝试下载对应的rpm包，然后需要注意的是，这些包可能存在依赖，所以需要运行命令<code>rpm -Uvh --test *.rpm</code>来查看是否已经安装，否则仍然需要手动安装。我正是因为libstdc++44-devel-4.4.0没有安装导致耽误了两天的时间。具体的包如下：</p>
+<blockquote>
+<p>   libstdc++44-devel-4.4.0 gcc44-4.4.0 gcc44-gfortran-4.4.0 gcc44-c++-4.4.0</p>
+</blockquote>
+<p>安装glibc的时候，官方指南有一句提示：</p>
+<blockquote>
+<p>   before this, you may want to <code>brew edit glibc</code> to produce compatibility for your particular kernel, for example:<br>   “–enable-version=2.6.18”</p>
+</blockquote>
+<p>我并未搞懂<code>--enable-version</code>参数的作用，只是在查找glibc编译选项时，看到需要开启对应内核的支持<code>--enable-kernel=</code></p>
+<p>剩下的安装过程可以参考<a href="https://github.com/Homebrew/linuxbrew/wiki/Standalone-Installation" target="_blank" rel="noopener">官方指南</a>，大体流程就是先编译出gcc，再编译glibc，然后重新编译依赖这个glibc的gcc，完成整个编译工具链，最终安装基础的软件包，安装ruby、git替换原有的库。</p>
+<p>此外安装Git的依赖选项homebrew/dupes/tcl-tk过程中还有有一个小意外，参考(<a href="https://github.com/Homebrew/linuxbrew/issues/369" target="_blank" rel="noopener">https://github.com/Homebrew/linuxbrew/issues/369</a>) ，<code>brew install tcl-tk --without-tk</code></p>
+<p>最后ruby安装的时候报错，就先凑合着用rvm吧，可能后面再过一阵子fixbug就好了</p>
+<h2 id="其他小问题"><a href="#其他小问题" class="headerlink" title="其他小问题"></a>其他小问题</h2><ol>
+<li>旧版git会遇到各种HTTPS的问题，例如提示git 证书问题</li>
+</ol>
+<p>git config –global http.sslVerify false</p>
+<ol start="2">
+<li>安装时候提示tmp目录问题</li>
+</ol>
+<blockquote>
+<p>  Error: parent directory is world writable, FileUtils#remove_entry_secure does not work; &gt;    abort: “/tmp/homebrew20160101-27874-8ry2dn” (parent directory mode 40777)</p>
+</blockquote>
+<p>参考链接 (<a href="https://github.com/Homebrew/homebrew/issues/39475" target="_blank" rel="noopener">https://github.com/Homebrew/homebrew/issues/39475</a>) 设置<code>export HOMEBREW_TEMP=~/.tmp/</code>，或者修改文件<code>~/.linuxbrew/Library/Homebrew/config.rb</code>内的temp内容</p>
+<ol start="3">
+<li>下载问题</li>
+</ol>
+<p>下载不稳定，所以经常无法下载，可以手动下载然后把文件放到<code>~/.cache/Homebrew</code>下，如果没有正常识别出缓存的话，可以本地搭个简单的http服务器（<code>python -m SimpleHTTPServer</code>)，然后<code>brew edit package</code>去修改下载链接</p>
+<h3 id="使用zsh"><a href="#使用zsh" class="headerlink" title="使用zsh"></a>使用zsh</h3><p>安装zsh后，自动安装oh-my-zsh会出现检测不到zsh的问题（当然是因为不在默认的shell路径中了），需要手动下载这个安装脚本，并且设置其中的<code>CHECK_ZSH_INSTALLED</code>为1。因为没有权限切换默认的shell，所以基本是不能用zsh的，不过有个曲线救国的方法，就是安装tmux并且让tmux启动时自动调用zsh，以后每次启动tmux就启动调用zsh。设置方法为在文件<code>.tmux.conf</code>中写入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set-option -g default-shell ~/.linuxbrew/bin/zsh</span><br></pre></td></tr></table></figure>
+<h2 id="后续更新记录"><a href="#后续更新记录" class="headerlink" title="后续更新记录"></a>后续更新记录</h2><h3 id="Linuxbrew更新情况"><a href="#Linuxbrew更新情况" class="headerlink" title="Linuxbrew更新情况"></a>Linuxbrew更新情况</h3><p>2016年四月Homebrew和Linuxbrew都进行了目录结构的更改，将原有的包分割成了brew和Homebrew-core两个包，需要进行重新调整。</p>
+<h3 id="新的安装方法"><a href="#新的安装方法" class="headerlink" title="新的安装方法"></a>新的安装方法</h3><p>最新的Homebrew已经不再需要上述如此复杂的方法了，可以参考最新的安装方法(<a href="https://github.com/Linuxbrew/brew/wiki/CentOS6" target="_blank" rel="noopener">https://github.com/Linuxbrew/brew/wiki/CentOS6</a>) ，通过<code>HOMEBREW_NO_AUTO_UPDATE=1 HOMEBREW_BUILD_FROM_SOURCE=1 brew install gcc --without-glibc</code> 进行安装编译，但是其他的依赖安装仍然需要同样的方法进行设置。</p>
+<h3 id="不在支持CentOS5旧版本"><a href="#不在支持CentOS5旧版本" class="headerlink" title="不在支持CentOS5旧版本"></a>不在支持CentOS5旧版本</h3><p>最新的glibc-2.23要求linux内核至少为2.6.16，因此最新的Linuxbrew已经无法安装再CentOS5的旧版本。如果硬要安装，个人感觉可以搜索homebrew-core的glibc为2.19历史版本覆盖最新的homebrew-core来进行安装，但是我因为gmp编译问题，并未安装成功。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>为了能够在自由安装软件也是醉了，折腾了好久，不过安装完毕后，也是非常舒服的。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2016/01/10/mirror/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/s0.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2016/01/10/mirror/" class="post-title-link" itemprop="url">常见软件包的国内镜像</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-01-10 23:45:19" itemprop="dateCreated datePublished" datetime="2016-01-10T23:45:19+08:00">2016-01-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-01-16 21:59:51" itemprop="dateModified" datetime="2018-01-16T21:59:51+08:00">2018-01-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2016/01/10/mirror/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/10/mirror/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在Linux/Mac上经常要使用各种软件库来下载资源，但是这些资源链接经常被墙，或者速度较慢，因此需要改用国内的镜像站点来加快速度。</p>
 <h3 id="常见开源镜像站点"><a href="#常见开源镜像站点" class="headerlink" title="常见开源镜像站点"></a>常见开源镜像站点</h3><p>这些站点包含常见各种的Linux软件源。</p>
-<p><a href="https://mirrors.ustc.edu.cn/" target="_blank" rel="external">中国科技大学开源镜像</a><br><a href="http://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="external">清华大学开源镜像</a><br><a href="http://mirrors.aliyun.com/" target="_blank" rel="external">阿里云开源镜像</a></p>
+<p><a href="https://mirrors.ustc.edu.cn/" target="_blank" rel="noopener">中国科技大学开源镜像</a><br><a href="http://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener">清华大学开源镜像</a><br><a href="http://mirrors.aliyun.com/" target="_blank" rel="noopener">阿里云开源镜像</a></p>
 <p>其中中国科技大学使用的是https，因此在大多数情况下推荐使用（2016年底科大源曾长期处于不稳定状态，目前已经恢复），阿里云镜像适合阿里云的服务器使用，可以免流量且速度快。</p>
 <h3 id="具体一些推荐配置"><a href="#具体一些推荐配置" class="headerlink" title="具体一些推荐配置"></a>具体一些推荐配置</h3><h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p>网上大多推荐豆瓣的源，但是豆瓣的源仍然是http协议，新版pip会提示警告，所以还是换成科大源吧（除非是低版本Linux不支持https链接）。此外，使用阿里源还遇到过几次同步不及时的问题。</p>
 <h4 id="node"><a href="#node" class="headerlink" title="node"></a>node</h4><p>推荐使用阿里源，主要是提供额外的cnpm命令，可以方便的安装。</p>
-<h4 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h4><p>淘宝的Ruby镜像已经改由Ruby-China维护，所以请使用<a href="https://gems.ruby-china.org/" target="_blank" rel="external">Ruby-China的镜像</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/</div><div class="line">$ gem sources -l</div><div class="line">https://gems.ruby-china.org</div><div class="line"># 确保只有 gems.ruby-china.org</div></pre></td></tr></table></figure>
-<h4 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h4><p>使用腾讯Bugly镜像，<a href="http://android-mirror.bugly.qq.com:8080/include/usage.html" target="_blank" rel="external">将Android SDK Manager的代理设置为android-mirror.bugly.qq.com:8080</a></p>
-<h4 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a>homebrew</h4><p>homebrew自身内容是放在github上的，如果更新速度慢，可以换成<a href="http://mirrors.tuna.tsinghua.edu.cn/help/#homebrew" target="_blank" rel="external">清华的镜像</a>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd /usr/local</div><div class="line">$ git remote set-url origin git://mirrors.tuna.tsinghua.edu.cn/homebrew.git</div></pre></td></tr></table></figure>
+<h4 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h4><p>淘宝的Ruby镜像已经改由Ruby-China维护，所以请使用<a href="https://gems.ruby-china.org/" target="_blank" rel="noopener">Ruby-China的镜像</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/</span><br><span class="line">$ gem sources -l</span><br><span class="line">https://gems.ruby-china.org</span><br><span class="line"># 确保只有 gems.ruby-china.org</span><br></pre></td></tr></table></figure>
+<h4 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h4><p>使用腾讯Bugly镜像，<a href="http://android-mirror.bugly.qq.com:8080/include/usage.html" target="_blank" rel="noopener">将Android SDK Manager的代理设置为android-mirror.bugly.qq.com:8080</a></p>
+<h4 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a>homebrew</h4><p>homebrew自身内容是放在github上的，如果更新速度慢，可以换成<a href="http://mirrors.tuna.tsinghua.edu.cn/help/#homebrew" target="_blank" rel="noopener">清华的镜像</a>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/local</span><br><span class="line">$ git remote set-url origin git://mirrors.tuna.tsinghua.edu.cn/homebrew.git</span><br></pre></td></tr></table></figure>
 <p>homebrew-science或者homebrew-python也可以参考其页面进行修改。不过如果不是处于极其艰难的情况，不建议改这个，因为无法确保各个的软件包的hash未被篡改。</p>
-<p>homebrew大多数的软件源都是在homebrew.bintray.com上的，速度同样非常慢，<a href="http://ban.ninja/" target="_blank" rel="external">有人</a>也做了份国内镜像。</p>
+<p>homebrew大多数的软件源都是在homebrew.bintray.com上的，速度同样非常慢，<a href="http://ban.ninja/" target="_blank" rel="noopener">有人</a>也做了份国内镜像。</p>
 <p>设置环境变量:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export HOMEBREW_BOTTLE_DOMAIN=http://7xkcej.dl1.z0.glb.clouddn.com</div></pre></td></tr></table></figure>
-<h4 id="Docker-Hub"><a href="#Docker-Hub" class="headerlink" title="Docker Hub"></a>Docker Hub</h4><p>国内基本斗士要注册的，科大源有个反向代理，因为Docker配置比较麻烦，请具体参考<a href="https://lug.ustc.edu.cn/wiki/mirrors/help/docker" target="_blank" rel="external">Docker镜像使用帮助</a></p>
-<h4 id="pyenv"><a href="#pyenv" class="headerlink" title="pyenv"></a>pyenv</h4><p>同样设置环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PYTHON_BUILD_MIRROR_URL=&quot;http://pyenv.qiniudn.com/pythons/&quot;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export HOMEBREW_BOTTLE_DOMAIN=http://7xkcej.dl1.z0.glb.clouddn.com</span><br></pre></td></tr></table></figure>
+<h4 id="Docker-Hub"><a href="#Docker-Hub" class="headerlink" title="Docker Hub"></a>Docker Hub</h4><p>国内基本斗士要注册的，科大源有个反向代理，因为Docker配置比较麻烦，请具体参考<a href="https://lug.ustc.edu.cn/wiki/mirrors/help/docker" target="_blank" rel="noopener">Docker镜像使用帮助</a></p>
+<h4 id="pyenv"><a href="#pyenv" class="headerlink" title="pyenv"></a>pyenv</h4><p>同样设置环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PYTHON_BUILD_MIRROR_URL=&quot;http://pyenv.qiniudn.com/pythons/&quot;</span><br></pre></td></tr></table></figure></p>
 <h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>对于这些第三方源，并不能完全保重其安全性，所以会存在一定的风险下载到经过篡改的软件包。</p>
 <h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><p>2017.01.21 更新多条源记录</p>
 
-        
-        
-        <p class="article-more-link">
           
-       </p>
+        
+      
     </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
 
+    
 
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Linux/">Linux</a>
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/06/13/Cuckoo-1/" title="Cuckoo代码学习一" itemprop="url">Cuckoo代码学习一</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="S0urceC0der" target="_blank" itemprop="author">S0urceC0der</a>
-		
-  <p class="article-time">
-    <time datetime="2015-06-13T12:18:40.000Z" itemprop="datePublished"> 发表于 Jun 13 2015</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="虚拟机监控部分"><a href="#虚拟机监控部分" class="headerlink" title="虚拟机监控部分"></a>虚拟机监控部分</h2><p>Agent</p>
-<p>主要功能：</p>
-<p>使用SimpleXMLRPCServer建立一个服务器监听Cuckoo发送的数据。</p>
-<p>dll注入</p>
-<p>使用了远程DLL注入技术，</p>
-<p>参考文档<a href="http://www.programlife.net/remote-thread-dll-injection.html" target="_blank" rel="external">远程DLL注入技术</a></p>
-<p>监控</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/24/Common/" title="个人通用设置" itemprop="url">个人通用设置</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="S0urceC0der" target="_blank" itemprop="author">S0urceC0der</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-24T10:17:25.000Z" itemprop="datePublished"> 发表于 May 24 2015</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="系统基础设置"><a href="#系统基础设置" class="headerlink" title="系统基础设置"></a>系统基础设置</h2><h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><p>利用MacType渲染字体，一直比较喜欢使用系统默认的雅黑字体，有人对雅黑字体进行了修改，将其和Consolas结合优化。作者时RobertLee，原文链接是<a href="http://www.cnblogs.com/RobertLee/archive/2006/12/25/602646.html" target="_blank" rel="external">雅黑-Consolas混合字体，2008年5月22日更新~</a>，貌似很少有贴作者信息的。</p>
-<h2 id="常用软件"><a href="#常用软件" class="headerlink" title="常用软件"></a>常用软件</h2><h3 id="Total-Commander"><a href="#Total-Commander" class="headerlink" title="Total Commander"></a>Total Commander</h3><p>文件夹命名使用”数字+中文拼音首字母+中文描述”，Ctrl+Q快速预览文件</p>
-<h3 id="CCleaner"><a href="#CCleaner" class="headerlink" title="CCleaner"></a>CCleaner</h3><h3 id="Altrun-ALMRun"><a href="#Altrun-ALMRun" class="headerlink" title="Altrun/ALMRun"></a>Altrun/ALMRun</h3><p>快速启动软件，前者好长时间没有更新了，可以使用后者替代</p>
-<h3 id="Everything"><a href="#Everything" class="headerlink" title="Everything"></a>Everything</h3><p>不解释</p>
-<h3 id="KeyTweak"><a href="#KeyTweak" class="headerlink" title="KeyTweak"></a>KeyTweak</h3><p>用于将CapsLock键和右Ctrl键交换，将Ctrl键放到更加容易接触到的位置。</p>
-<h2 id="编辑工具"><a href="#编辑工具" class="headerlink" title="编辑工具"></a>编辑工具</h2><h3 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h3><p>使用spf-13配置，比较方便，虽然同时也会有很多坑，需要自己慢慢修改。但是插件无法后台运行，因此速度比较慢。</p>
-<h3 id="Notepad"><a href="#Notepad" class="headerlink" title="Notepad++"></a>Notepad++</h3><p>用于替代记事本的轻量级编辑器</p>
-<h3 id="Sublime-Text"><a href="#Sublime-Text" class="headerlink" title="Sublime Text"></a>Sublime Text</h3><p>有Vim模式，运行速度相对VIM快，但是编码比较头疼，在Windows下面我会用来替代Vim</p>
-<h2 id="编程工具"><a href="#编程工具" class="headerlink" title="编程工具"></a>编程工具</h2><h3 id="Visual-Studio-2013"><a href="#Visual-Studio-2013" class="headerlink" title="Visual Studio 2013"></a>Visual Studio 2013</h3><p>基本设置：选择深色主题，开启多处理器编译，开启行号</p>
-<p>常用插件：</p>
-<ul>
-<li>Visual Assist X: 不解释</li>
-</ul>
-<p>注：Visual Assist X最新版无法直接搜索到VC6的安装路径，需要在注册表中<code>HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\App Paths\msdev.exe</code>指定实际路径。这有可能是绿色版导致的。</p>
-<p>参考<a href="http://tunps.com/newest-vax-support-on-vc-6" target="_blank" rel="external">http://tunps.com/newest-vax-support-on-vc-6</a></p>
-<ul>
-<li><p>VsVim: 我是VIM党</p>
-</li>
-<li><p>Disable Mouse Wheel Zoom: 禁用滚轮缩放代码</p>
-</li>
-<li><p>TroutZoom: 固定代码缩放比率</p>
-</li>
-</ul>
-<h3 id="Eclipse设置"><a href="#Eclipse设置" class="headerlink" title="Eclipse设置"></a>Eclipse设置</h3><p>基本设置：开启行号</p>
-<p>常用插件：</p>
-<ul>
-<li><p>Eclipse Color Theme: 配色很重要</p>
-</li>
-<li><p>viPlugin: 我是Vim党</p>
-</li>
-</ul>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/25/Sandbox/" title="搭建Cuckoo沙盒测试环境" itemprop="url">搭建Cuckoo沙盒测试环境</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="S0urceC0der" target="_blank" itemprop="author">S0urceC0der</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-25T08:34:13.000Z" itemprop="datePublished"> 发表于 Apr 25 2015</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Cuckoo是一款用于自动化分析恶意样本的沙箱软件。相比其他沙箱软件，Cuckoo具备强大的监控功能，能够自动将程序提交到指定的虚拟机中，并依据格式运行，同时会Hook相关的函数接口，记录下的重要的函数调用、网络访问。Cuckoo基于Python编写，通过在此基础上进行修改，可以避免重复开发，增加所需要的特殊功能。</p>
-<p>网站<a href="https://malwr.com/可以认为是一个在线版的Cuckoo，国内也样相关的在线样本行为分析网站[火眼](https://fireeye.ijinshan.com/)和[文件B超](https://www.b-chao.com)，个人怀疑他们也是在Cuckoo的基础上进行修改的。" target="_blank" rel="external">https://malwr.com/可以认为是一个在线版的Cuckoo，国内也样相关的在线样本行为分析网站[火眼](https://fireeye.ijinshan.com/)和[文件B超](https://www.b-chao.com)，个人怀疑他们也是在Cuckoo的基础上进行修改的。</a></p>
-<p>本文的主要内容是在Linux系统上安装Cuckoo。</p>
-<h2 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h2><h3 id="1-基本运行环境"><a href="#1-基本运行环境" class="headerlink" title="1. 基本运行环境"></a>1. 基本运行环境</h3><ul>
-<li>Python</li>
-</ul>
-<p>安装Python并根据requirements.txt中的列表直接安装所需要的python模块。</p>
-<ul>
-<li>MongoDB</li>
-</ul>
-<p>如果想使用基于Django的网页接口，则需要安装MongoDB</p>
-<ul>
-<li>各个虚拟机的接口库</li>
-</ul>
-<p>KVM、XenServer的API接口</p>
-<h3 id="2-功能软件"><a href="#2-功能软件" class="headerlink" title="2. 功能软件"></a>2. 功能软件</h3><h4 id="安装Yara"><a href="#安装Yara" class="headerlink" title="安装Yara"></a>安装Yara</h4><p>Yara是一款用于识别和分类恶意样本的开源工具，可以理解为是一款特征匹配工具。</p>
-<p>Yara默认没有编译对cuckoo和magic的支持，在编译时需要加上<code>./configure --enable-cuckoo --enable-magic</code>选项。</p>
-<p>安装yara-python库，使得cuckoo能够调用yara。</p>
-<h4 id="安装ssdeep"><a href="#安装ssdeep" class="headerlink" title="安装ssdeep"></a>安装ssdeep</h4><p>ssdeep能够计算一个文件的模糊哈希代码，通过计算不同样本之间的ssdeep差值，可以判断两个样本是否相近。</p>
-<h4 id="Tcpdump"><a href="#Tcpdump" class="headerlink" title="Tcpdump"></a>Tcpdump</h4><p>用于截获数据。</p>
-<h4 id="安装cuckoo"><a href="#安装cuckoo" class="headerlink" title="安装cuckoo"></a>安装cuckoo</h4><p>cuckoo居然没有在ArchLinux的软件包中，这是很神奇的一件事，所以必须手动Github下载，并且手动更新。</p>
-<p><code>git clone git@github.com:cuckoobox/cuckoo.git</code></p>
-<h3 id="3-可选软件"><a href="#3-可选软件" class="headerlink" title="3. 可选软件"></a>3. 可选软件</h3><h3 id="Volatility"><a href="#Volatility" class="headerlink" title="Volatility"></a>Volatility</h3><p>这是一款分析内存dumps的工具。</p>
-<h3 id="4-安装虚拟机"><a href="#4-安装虚拟机" class="headerlink" title="4. 安装虚拟机"></a>4. 安装虚拟机</h3><p>Cuckoo支持多种虚拟机，官方推荐使用的是VirutalBox虚拟机（应该是因为开源的缘故），其他的还支持VMware、XenServer、ESX、KVM等虚拟机（参考modules/machinery目录），个人处于使用惯性，选择了使用VMware。</p>
-<p>虚拟机内安装基本操作系统，取消防火墙，并安装Python运行环境，然后运行agent/agent.py，使得虚拟机处于等待接收参数和处理任务状态，并对此状态保存快照。</p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h4 id="cuckoo-conf"><a href="#cuckoo-conf" class="headerlink" title="cuckoo.conf"></a>cuckoo.conf</h4><p>[cuckoo]machinery: 虚拟机类型，可以填virutalbox，vmware等</p>
-<p>[resultserver]ip port: 存储结果的服务器IP，可以直接填写本机（物理机）</p>
-<p>[database]connection: 数据库连接，不填可以直接使用SQLite数据库</p>
-<h4 id="auxiliary-conf"><a href="#auxiliary-conf" class="headerlink" title="auxiliary.conf"></a>auxiliary.conf</h4><p>主要用于监控网卡数据相关配置</p>
-<p>[sniffer]interface: 改为和虚拟机共用的网卡</p>
-<h4 id="vmware-conf"><a href="#vmware-conf" class="headerlink" title="vmware.conf"></a>vmware.conf</h4><p>具体的虚拟机设置，本例中使用vmware.conf</p>
-<p>machines: 具体的虚拟机配置，必须与下面的字段名称一致</p>
-<p>vmx_path: 表示虚拟机vmx文件的路径</p>
-<p>snapshot: 快照名称</p>
-<p>ip: 虚拟机IP地址</p>
-<h4 id="processing-conf"><a href="#processing-conf" class="headerlink" title="processing.conf"></a>processing.conf</h4><p>处理样本时需要使用各种附加模块，我禁用了Virustotal。此外，如果自己添加了模块，则需要在这个文件中启用</p>
-<h4 id="memory-conf"><a href="#memory-conf" class="headerlink" title="memory.conf"></a>memory.conf</h4><p>用于Volatility处理模块，需要首先在processing.conf启用memory模块才行。</p>
-<h4 id="reporting-conf"><a href="#reporting-conf" class="headerlink" title="reporting.conf"></a>reporting.conf</h4><p>配置报告服务器，我修改了mongodb字段，使其将数据存储到了MongoDB中</p>
-<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><h3 id="启动cuckoo"><a href="#启动cuckoo" class="headerlink" title="启动cuckoo"></a>启动cuckoo</h3><p><code>python2 cuckoo.py</code></p>
-<p>如果失败，可以使用-d参数，输出更多的内容用于调试确认错误信息。</p>
-<h3 id="提交文件分析"><a href="#提交文件分析" class="headerlink" title="提交文件分析"></a>提交文件分析</h3><p><code>python2 utils/submit.py [文件路径] --url [网址]</code></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/20/Target/" title="个人学习目标" itemprop="url">个人学习目标</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="S0urceC0der" target="_blank" itemprop="author">S0urceC0der</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-19T16:00:37.000Z" itemprop="datePublished"> 发表于 Apr 20 2015</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>部门老大让我们定下自己的年度目标，以此使大家在一段时间都能够有所收获而不至于碌碌无为。作为新人，我的年度目标自然时是以学习为主，主要是读书、写博客，提高个人时间管理。</p>
-<h2 id="SMART原则"><a href="#SMART原则" class="headerlink" title="SMART原则"></a>SMART原则</h2><p>SMART原则是制定（考核）目标时常用的黄金原则，老大在会议上也提到了。</p>
-<ol>
-<li>Specific明确性</li>
-</ol>
-<p>目标是具体无歧义，对于团队而言则是一致的。</p>
-<ol>
-<li>Measuable可衡量性</li>
-</ol>
-<p>有简单明显的指标衡量完成进度及效果</p>
-<ol>
-<li>Attainable可达到的</li>
-</ol>
-<p>目标不宜过于难，以免位居不前。</p>
-<ol>
-<li>Relevant相关性</li>
-</ol>
-<p>目标之间有相关性，这条对于此次目标制定用处不大。</p>
-<ol>
-<li>Time-bound时间截至期限</li>
-</ol>
-<p>有明确的截至日期，其实这和原则2有部分重复</p>
-<h2 id="个人年度目标"><a href="#个人年度目标" class="headerlink" title="个人年度目标"></a>个人年度目标</h2><p>鉴于自己的严重拖延症及极差的执行力，尽量把目标定低一些，以便达到。</p>
-<h3 id="总目标"><a href="#总目标" class="headerlink" title="总目标"></a>总目标</h3><ol>
-<li><p>技术类书籍平均每天3页，一周20页，两个月写一篇读书笔记。</p>
-</li>
-<li><p>一周一篇博客。</p>
-</li>
-<li><p>每天利用Evernote记录自己做的事情，并尝试总结改进。</p>
-</li>
-</ol>
-<h3 id="4月份目标"><a href="#4月份目标" class="headerlink" title="4月份目标"></a>4月份目标</h3><ol>
-<li><p>即日起（19日）至月底月度完毕《Effictive C++》前两个章节。</p>
-</li>
-<li><p>整理现有的博客内容，写博客一篇。</p>
-</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/12/KaliLinux/" title="KaliLinux使用心得" itemprop="url">KaliLinux使用心得</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="S0urceC0der" target="_blank" itemprop="author">S0urceC0der</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-12T11:33:10.000Z" itemprop="datePublished"> 发表于 Apr 12 2015</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="Kali-Linux"><a href="#Kali-Linux" class="headerlink" title="Kali Linux"></a>Kali Linux</h2><p>Kali是一个专门用来进行安全审计（渗透测试）的操作系统，是著名的Backtrack的后继者，由同一组开发人员开发的。Kali基于Debian系统，加入了大量的安全工具。</p>
-<h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><h3 id="安装Linux-Brew"><a href="#安装Linux-Brew" class="headerlink" title="安装Linux Brew"></a>安装Linux Brew</h3><h3 id="允许使用PPA库"><a href="#允许使用PPA库" class="headerlink" title="允许使用PPA库"></a>允许使用PPA库</h3><p>参考网页<a href="http://www.blackmoreops.com/2014/02/21/kali-linux-add-ppa-repository-add-apt-repository/" target="_blank" rel="external">Kali Linux add PPA repository add-apt-repository</a></p>
-<h2 id="一些常用软件"><a href="#一些常用软件" class="headerlink" title="一些常用软件"></a>一些常用软件</h2><h3 id="安装Zsh、Terminator"><a href="#安装Zsh、Terminator" class="headerlink" title="安装Zsh、Terminator"></a>安装Zsh、Terminator</h3><p>用于替换原有的bash、Gnome Terminal。</p>
-<h3 id="安装VMware"><a href="#安装VMware" class="headerlink" title="安装VMware"></a>安装VMware</h3><p>Vmware Workstation的驱动对于不同的Linux内核版本都要进行一定的patch才能正常编译。基本上通过搜索能够获取最新需要修改的地方，然后重新打包后编译即可。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
   
-  <span></span> <a href="/tags/Linux/">Linux</a>
-  </div>
-
-</div>
-
+  
+  
+  </article>
 
 
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
     
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/03/21/Cmder/" title="Cmder" itemprop="url">Cmder</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="S0urceC0der" target="_blank" itemprop="author">S0urceC0der</a>
-		
-  <p class="article-time">
-    <time datetime="2015-03-21T07:34:12.000Z" itemprop="datePublished"> 发表于 Mar 21 2015</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="Cmder简介"><a href="#Cmder简介" class="headerlink" title="Cmder简介"></a>Cmder简介</h2><p>Cmder是一款Windows下面的终端模拟器，有了它终于能够抛弃默认的垃圾cmd界面了！</p>
-<p><img src="/img/cmder.png" alt="Cmder"></p>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>个人很简单的使用了下，觉得有以下优点：</p>
-<ol>
-<li><p>可自定义字体，配色非常好看。</p>
-</li>
-<li><p>路径补全有所提高。</p>
-</li>
-</ol>
-<h2 id="使用配置"><a href="#使用配置" class="headerlink" title="使用配置"></a>使用配置</h2><h3 id="乱码"><a href="#乱码" class="headerlink" title="乱码"></a>乱码</h3><p>ls的乱码主要是参数问题，修改文件cmder/config/aliases：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">l=ls --show-control-chars</div><div class="line">la=ls -aF --show-control-chars</div><div class="line">ll=ls -alF --show-control-chars</div><div class="line">ls=ls --show-control-chars -F</div></pre></td></tr></table></figure>
-<h3 id="中文重叠"><a href="#中文重叠" class="headerlink" title="中文重叠"></a>中文重叠</h3><p>在设置中，取消<code>Main console font</code>下的Monospace勾，这样中文字符（占用两个英文字符空间）就得到的了足够的空间了。</p>
-<h3 id="右键打开Cmder"><a href="#右键打开Cmder" class="headerlink" title="右键打开Cmder"></a>右键打开Cmder</h3><p>以管理员权限运行，输入命令<code>.\cmder.exe /REGISTER ALL</code>，在任意目录下右击就会出现<code>Cmder Here</code>，可以打开并默认切换到该目录。</p>
-<h3 id="退格后错位"><a href="#退格后错位" class="headerlink" title="退格后错位"></a>退格后错位</h3><blockquote>
-<p><a href="https://www.v2ex.com/member/lgh" target="_blank" rel="external">lgh</a>:<br>cmder 功能强大，但是反应较慢，经常卡住半天才反应；默认的命令提示符 λ 还会导致在用 TAB 还是 BACKSPACE 之后字符错位（自己改配置换成 $ 后就不会）。<br>现在干脆直接用 ConEmu 了。<br>来源：<a href="https://www.v2ex.com/t/155058" target="_blank" rel="external">https://www.v2ex.com/t/155058</a></p>
-</blockquote>
-<p>lgh针对问题1提出解决方法是修改提示符为$。修改方法是</p>
-<p>打开文件config/prompt.lua，将第二行中的λ修改为Linux下常用的$</p>
-<h2 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h2><p>当然，可能这些问题只是因为我没有找到对应的解决方法。</p>
-<ol>
-<li><p><del>有时候会出现无法删除第一个字符的情况（实际已经删除了）。</del></p>
-</li>
-<li><p>路径补全还是没有达到zsh的效果。</p>
-</li>
-<li><p>没有快速进入某个目录的功能。</p>
-</li>
-<li><p>Cmder1.2开始需要VS<strong>2015</strong>运行库支持（丧心病狂！）</p>
-</li>
-</ol>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>现在只是刚开始使用，很多功能还是在摸索中，如果有更多的体会，会继续更新。</p>
+  </section>
 
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/03/15/Mactype/" title="使用Mactype渲染字体" itemprop="url">使用Mactype渲染字体</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="S0urceC0der" target="_blank" itemprop="author">S0urceC0der</a>
-		
-  <p class="article-time">
-    <time datetime="2015-03-15T05:27:48.000Z" itemprop="datePublished"> 发表于 Mar 15 2015</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Mactype是在Windows下实现类似Mac下字体渲染效果的程序。长期以来，我一直都使用这个软件替代系统自带的ClearType渲染功能。渲染得到的字体相当不错。</p>
-<p>但是，</p>
-<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p>Windows下面自带的雅黑字体效果还是挺不错的，但是还是建议使用其他修改过的字体。字体可以去<a href="http://bbs.themex.net/forumdisplay.php?f=90" target="_blank" rel="external">极限社区</a>下载。该论坛也是重要的讨论字体修改和Mactype的网站。</p>
-<p>之前用的比较多的是XHei，貌似现在出了新的字体，以后下载看下效果。</p>
-<h2 id="程序优化"><a href="#程序优化" class="headerlink" title="程序优化"></a>程序优化</h2><h3 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h3><p>Firefox默认开启的硬件加速，因此无法直接使用Mactype字体渲染。关于具体的设置，参考文档<a href="https://github.com/renkun-ken/MacType.Source" target="_blank" rel="external">MacType.Source</a></p>
-<p>打开<code>about:config</code>，修改设置如下</p>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>gfx.direct2d.disabled</td>
-<td>true</td>
-</tr>
-<tr>
-<td>gfx.font_loader.delay</td>
-<td>-1</td>
-</tr>
-<tr>
-<td>gfx.font_rendering.cleartype.always_use_for_content;true</td>
-<td>true</td>
-</tr>
-<tr>
-<td>gfx.font_rendering.cleartype_params.cleartype_level</td>
-<td>100</td>
-</tr>
-<tr>
-<td>gfx.font_rendering.cleartype_params.enhanced_contrast</td>
-<td>100</td>
-</tr>
-<tr>
-<td>gfx.font_rendering.cleartype_params.gamma</td>
-<td>1400</td>
-</tr>
-<tr>
-<td>gfx.font_rendering.cleartype_params.pixel_structure</td>
-<td>1</td>
-</tr>
-<tr>
-<td>gfx.font_rendering.cleartype_params.rendering_mode</td>
-<td>5</td>
-</tr>
-<tr>
-<td>gfx.font_rendering.fallback.always_use_cmaps</td>
-<td>true</td>
-</tr>
-<tr>
-<td>gfx.use_text_smoothing_setting</td>
-<td>true</td>
-</tr>
-</tbody>
-</table>
-<h3 id="VisualStudio"><a href="#VisualStudio" class="headerlink" title="VisualStudio"></a>VisualStudio</h3><p>与Firefox一样，同样使用了硬件加速，而且偏偏没有任何设置。</p>
-<p>在<a href="http://www.zhihu.com/question/24251313" target="_blank" rel="external">VS 怎么使用 MacType 的字体渲染？</a>中提出了解决方案：对于ClearType设置为Smoothing的字体，且Visualstudio在显示比例不为100%时可以直接通过Mactype进行渲染。</p>
-<p>所以需要使用这样特别制作的字体，从<a href="http://tieba.baidu.com/p/3366845989" target="_blank" rel="external">自制FantasqueSansMono字体+VS缩放插件,完美解决VS2013+Mactype</a>下载特别制作过的字体FantasqueSansMono字体。</p>
-<p>但是默认VS都会在新开一个窗口的时候重置缩放比例，因此需要使用插件让VS保持显示比较为99%。插件可以参考帖子<a href="https://stackoverflow.com/questions/4771750/visual-studio-2010-default-zoom-level" target="_blank" rel="external">Visual Studio 2010 default zoom level</a>，固定了显示比例之后，防止不小心按了<code>Ctrl+滚轮</code>而改变了缩放，可以安装插件<a href="https://visualstudiogallery.msdn.microsoft.com/d088791c-150a-4834-8f28-462696a82bb8" target="_blank" rel="external">Disable Mouse Wheel Zoom</a>，装上了这几个插件，基本可以欣赏漂亮的字体渲染了。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/02/15/Mac/" title="Mac" itemprop="url">Mac</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="S0urceC0der" target="_blank" itemprop="author">S0urceC0der</a>
-		
-  <p class="article-time">
-    <time datetime="2015-02-15T05:03:43.000Z" itemprop="datePublished"> 发表于 Feb 15 2015</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="起"><a href="#起" class="headerlink" title="起"></a>起</h3><p>人生中第一台Macbook pro，终于在发完年终奖后、回家过年前到手了。</p>
-<p>是从苹果团买的，感觉顺丰陆运速度还算快。</p>
-<p>装在之前的电脑包里面，就显得电脑包得空间太大，需要买个内胆包才行。</p>
-<h3 id="用"><a href="#用" class="headerlink" title="用"></a>用</h3><p>首先要学习的是触摸板手势，有了这个真心不想用鼠标了，总算能够完全使用键盘（且算触摸板为键盘的一部分吧）</p>
-<p>键盘使用起来按键声音还好，比较清脆舒服，虽然键程不长，但是感觉还行吧。的确有必要换个外置键盘。</p>
-<p>字体看的真是舒服，终于不用在Win/Linux下面费尽心思的调整字体了。</p>
-<h3 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h3><p>一大堆软件都不会用。</p>
-<h4 id="常用软件"><a href="#常用软件" class="headerlink" title="常用软件"></a>常用软件</h4><p>登陆AppStore，进免费排行榜，下载了QQ、搜狗输入<strong>板</strong>，其中搜狗输入<strong>板</strong>的功能是通过里面的入口安装搜狗输入法。<br>安装Xcode，虽然目前一次都没有打开过。<br>首先安装Homebrew，幸好最近在折腾Linuxbrew，很多操作都是一样的</p>
-<p>对于使用Homebrew安装的系统软件，如数据库等，根据提示，相关启动方法如下</p>
-<p><code>To have launchd start mongodb at login:
-    ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
-    ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
-Then to load mongodb now:
-    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
-    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
-Or, if you don’t want/need launchctl, you can just run:
-    mongod --config /usr/local/etc/mongod.conf
-    redis-server /usr/local/etc/redis.conf</code></p>
-<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><p>具体参考Mactalk的这篇文章<a href="http://macshuo.com/?p=676" target="_blank" rel="external">终极shell</a></p>
-<p>另外，在使用zsh的agnoster主题时，需要额外下载增强的字体，并在终端选择使用。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-  <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
-</div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
 
 
-  
+          </div>
+          
 
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Mac/" title="Mac">Mac<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
-			
-		
-		</ul>
-</div>
-
-
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
+        </div>
         
-    </ul>
-</div>
-
+          
   
-
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-  <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
-</div>
-
-
-</aside>
-</div>
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p>  <br/>
-			Stay hungry, Stay Foolish</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	</div>
-			
-		
+  </div>
 
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
-		
-		<a href="/about" target="_blank" title="S0urceC0der">S0urceC0der</a>
-		
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/img/s0.png" alt="S0urceC0der">
+            
+              <p class="site-author-name" itemprop="name">S0urceC0der</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/S0urceC0der" title="GitHub &rarr; https://github.com/S0urceC0der" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
   
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else{
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
+
+
         
-    }
-  });
-});
-</script>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">S0urceC0der</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.0</div>
+
+
+
+
+        
 
 
 
@@ -990,57 +2353,149 @@ $(document).ready(function(){
 
 
 
+        
+      </div>
+    </footer>
 
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
   }
-}); 
 </script>
 
 
 
-<!-- Analytics Begin -->
 
 
 
 
 
-<!-- Analytics End -->
-
-<!-- Totop Begin -->
-
-	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
-	</div>
-	<script src="/js/totop.js"></script>
-
-<!-- Totop End -->
-
-<!-- MathJax Begin -->
-<!-- mathjax config similar to math.stackexchange -->
 
 
-<!-- MathJax End -->
 
-<!-- Tiny_search Begin -->
 
-<!-- Tiny_search End -->
 
-  </body>
- </html>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+  
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+  <script id="dsq-count-scr" src="https://s0urcec0der-github-io.disqus.com/count.js" async></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
