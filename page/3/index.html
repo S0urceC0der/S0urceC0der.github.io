@@ -313,7 +313,6 @@
   
 
 
-
 </div>
     </header>
 
@@ -327,6 +326,194 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2015/01/03/Url-Leak/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/s0.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2015/01/03/Url-Leak/" class="post-title-link" itemprop="url">网址泄漏</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-01-03 14:37:26" itemprop="dateCreated datePublished" datetime="2015-01-03T14:37:26+08:00">2015-01-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-01-16 22:00:33" itemprop="dateModified" datetime="2018-01-16T22:00:33+08:00">2018-01-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2015/01/03/Url-Leak/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/01/03/Url-Leak/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这个题目起的有点意思。起因很简单，在元旦假期里面突然想折腾一下ArchLinux，装一个Vmware，结果去官网，发现我的Vmware帐号提示处于下载资格审核中，没法直接通过官网下载，而偏偏Vmware Workstation for Linux的下载非常少，或者版本不是最新的（最新的11没有32位版，其他的也普遍是8、9等），后来终于找到一个比较新的<a href="http://www.cnblogs.com/zc520/p/3302629.html" target="_blank" rel="noopener">下载地址</a>（10.0.0），里面提供了10.0.0的官网下载链接：</p>
+<p><img src="/img/vmware-lock.png" alt="Vmware Account Locked"></p>
+<p><a href="http://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-10.0.0-1295980.i386.bundle" target="_blank" rel="noopener">http://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-10.0.0-1295980.i386.bundle</a></p>
+<p>虽然离最新可用32位版10.0.4稍微差点，但仍然是可用的。不过仔细观察这个链接，中间不包含任何随机字符串，因此怀疑可以构造出10.0.4的下载地址。在这个链接中最关键的就是bundle的文件名：VMware-Workstation-Full-10.0.0-1295980.i386.bundle，于是便想直接修改为VMware-Workstation-Full-10.0.4-1295980.i386.bundle，显然这种做法是错误的，因为文件名中含有一个内部版本号1295980，因此必须找到这个内部版本号才能够构造出实际的10.0.4下载地址。</p>
+<p>仔细观察<a href="https://my.vmware.com/group/vmware/details?downloadGroup=WKST-1004-LX&amp;productId=362&amp;rPId=7049#errorCheckDiv" target="_blank" rel="noopener">官网下载页面内容</a>，发现真实文件名（内部版本号）在官网上就有，据此构造出实际的10.0.4的下载地址为：</p>
+<p><a href="http://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-10.0.4-2249910.i386.bundle" target="_blank" rel="noopener">http://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-10.0.4-2249910</a></p>
+<p><img src="/img/vmware-list.png" alt="Vmware List"></p>
+<h2 id="其他的话"><a href="#其他的话" class="headerlink" title="其他的话"></a>其他的话</h2><p>这也不是我第一次干这种事了，基本情况就是下载网址A被大家所知道，但是下载网址B需要通过一定权限才能获取的，然后最关键的是，网址A能够推理出网址B，通常情况下网址里面包含了固定的信息，例如日期，可以直接修改得到。当然，如果有一点随机字符串，就没法获得了。</p>
+<p>这个问题相信以前国内的各种下载站都会有过，不过现在应该好多了，但是很多公司自己的软件或者付费下载可能仍然存在这样的问题。如果能够获得一个网址，例如试用版软件或者免费资源，就能够进一步推导出其他资源的网址，当然前提是文件名能够直接从网页上获取到。</p>
+<h2 id="安装Vmware-Workstation中的其他问题"><a href="#安装Vmware-Workstation中的其他问题" class="headerlink" title="安装Vmware Workstation中的其他问题"></a>安装Vmware Workstation中的其他问题</h2><p>参考了很多<a href="https://wiki.archlinux.org/index.php/Vmware" target="_blank" rel="noopener">Wiki</a>上的内容</p>
+<h4 id="无-etc-init-d目录"><a href="#无-etc-init-d目录" class="headerlink" title="无/etc/init.d目录"></a>无/etc/init.d目录</h4><p>Archlinux的启动改为systemctl，因此不再有/etc/init.d目录，解决方法是直接忽略错误，然后手工写一个service文件就行了。</p>
+<h4 id="编译模块时出错"><a href="#编译模块时出错" class="headerlink" title="编译模块时出错"></a>编译模块时出错</h4><ol>
+<li>缺少header.h</li>
+</ol>
+<p>查看日志，发现是缺少linux头文件中的header.h，利用locate命令查找到对应的version.h文件，然后创建软链接</p>
+<p><code>sudo ln /usr/include/linux/version.h /lib/modules/3.17.6-1-ARCH/build/include/linux/version.h</code></p>
+<ol start="2">
+<li>打补丁</li>
+</ol>
+<p>解决了header.h之后，发现还是编译不通过，这下就傻眼了（本事不济搞不定啊！），不过通过搜索后，发现其实Arch Wiki上都写明了，安装软件<a href="https://aur.archlinux.org/packages/vmware-patch/" target="_blank" rel="noopener">vmware-patch</a>就行了，一看这个软件，就已经为10.0.4更新过了，<strong>又让我对Arch产生了进一步的好感，无所不能啊！</strong></p>
+<p>总结就是，有问题，搜<strong>Arch Linux英文Wiki！</strong></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1153,7 +1340,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1250,7 +1437,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -1262,7 +1449,7 @@
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
 
 
 
@@ -1270,7 +1457,7 @@
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a></div>
 
 
 
@@ -1322,6 +1509,14 @@
 
 
 
+
+  
+    
+    
+      
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
 
 
 
@@ -1427,6 +1622,28 @@
   
 
   
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/viz.js@1.8.2/viz.js"></script>
+  <script>
+    String.prototype.replaceAll = function(search, replacement) {
+      var target = this;
+      return target.split(search).join(replacement);
+    };
+
+    let vizObjects = document.querySelectorAll('.graphviz')
+
+    for (let item of vizObjects) {
+      let svg = undefined
+      try {
+        svg = Viz(item.textContent.replaceAll('â€“', '--'), 'svg')
+      } catch(e) {
+        svg = `<pre class="error">${e}</pre>`
+      }
+      item.outerHTML = svg
+    }
+  </script>
+
 
 </body>
 </html>

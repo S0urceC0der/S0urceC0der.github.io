@@ -317,7 +317,6 @@
   
 
 
-
 </div>
     </header>
 
@@ -503,6 +502,30 @@
     
 
     
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>S0urceC0der</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://S0urceC0der.github.io/2015/05/24/Common/" title="个人通用设置">http://S0urceC0der.github.io/2015/05/24/Common/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
@@ -611,7 +634,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -725,7 +748,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -737,7 +760,7 @@
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
 
 
 
@@ -745,7 +768,7 @@
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a></div>
 
 
 
@@ -797,6 +820,14 @@
 
 
 
+
+  
+    
+    
+      
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
 
 
 
@@ -925,6 +956,28 @@
   
 
   
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/viz.js@1.8.2/viz.js"></script>
+  <script>
+    String.prototype.replaceAll = function(search, replacement) {
+      var target = this;
+      return target.split(search).join(replacement);
+    };
+
+    let vizObjects = document.querySelectorAll('.graphviz')
+
+    for (let item of vizObjects) {
+      let svg = undefined
+      try {
+        svg = Viz(item.textContent.replaceAll('â€“', '--'), 'svg')
+      } catch(e) {
+        svg = `<pre class="error">${e}</pre>`
+      }
+      item.outerHTML = svg
+    }
+  </script>
+
 
 </body>
 </html>

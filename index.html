@@ -313,7 +313,6 @@
   
 
 
-
 </div>
     </header>
 
@@ -327,6 +326,187 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2018/12/21/Clean-macbook/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/s0.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/12/21/Clean-macbook/" class="post-title-link" itemprop="url">清理 Macbook 磁盘空间</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-21 21:44:23" itemprop="dateCreated datePublished" datetime="2018-12-21T21:44:23+08:00">2018-12-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-31 22:48:24" itemprop="dateModified" datetime="2019-05-31T22:48:24+08:00">2019-05-31</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2018/12/21/Clean-macbook/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/21/Clean-macbook/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="清理-Macbook-磁盘空间"><a href="#清理-Macbook-磁盘空间" class="headerlink" title="清理 Macbook 磁盘空间"></a>清理 Macbook 磁盘空间</h1><p>因为当初买的是丐版 Macbook，因此经常面临磁盘空间告警的情况，所以</p>
+<h2 id="查看目录大小"><a href="#查看目录大小" class="headerlink" title="查看目录大小"></a>查看目录大小</h2><p>推荐使用 OmniDiskSweeper，<code>brew cask install omnidisksweeper</code>。打开后点击当前磁盘，进入后等待一段时间就能看到各个目录的占用空间大小，也可以逐一点进去看到子目录的大小。</p>
+<h2 id="Homebrew-的清理"><a href="#Homebrew-的清理" class="headerlink" title="Homebrew 的清理"></a>Homebrew 的清理</h2><p>平时更新 Homebrew 时，及时进行 cleanup 操作，或者直接使用命令 <code>brew update &amp;&amp; brew upgrade &amp;&amp; brew cleanup</code>，这样就能够及时清理掉旧的软件版本。</p>
+<p>此外，随着使用时间的增长，Homebrew 的 git 文件夹也会变的越来越大，因此可以通过 <code>git gc</code> 指令来整理 git 文件夹。这个原理是平时每次更新 git 都会下载各种更新文件，而这些文件会在磁盘保存为一种称作松散对象 (loose object) 格式，通过运行 <code>gc</code> 指令，git 会将这些平时零散存储的文件对象打包至一个叫 packfile 的二进制文件以节省空间并提高效率。如果时间长了，则有可能缩减几十万个文件。</p>
+<p><img src="/img/cleanmac.png" alt="清理 Homebrew 的效果"></p>
+<p>为了能够自动清理，我编写了如下的脚本，以后定期执行即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">cd &quot;$(brew --repo)&quot; &amp;&amp; git gc --prune=now</span><br><span class="line"></span><br><span class="line">root=&quot;$(brew --repo)/Library/Taps/homebrew/&quot;</span><br><span class="line"></span><br><span class="line">echo $root</span><br><span class="line">for d in `ls $root`</span><br><span class="line">do</span><br><span class="line">    echo &quot; clean $root$d ...&quot;</span><br><span class="line">    cd $root$d &amp;&amp; git gc --prune=now</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">root=&quot;$(brew --repo)/Library/Taps/caskroom/&quot;</span><br><span class="line">echo $root</span><br><span class="line">for d in `ls $root`</span><br><span class="line">do</span><br><span class="line">    echo &quot; clean $root$d ...&quot;</span><br><span class="line">    cd $root$d &amp;&amp; git gc --prune=now</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<h2 id="Xcode-清理"><a href="#Xcode-清理" class="headerlink" title="Xcode 清理"></a>Xcode 清理</h2><p>Xcode 会下载大量的文件，但是过了一段时间后，仍然会有旧版本设备的支持，所以需要清理如下文件夹：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">~/Library/Developer/Xcode/DerivedData</span><br><span class="line">~/Library/Developer/Xcode/Archives</span><br><span class="line">~/Library/Developer/Xcode/iOS DeviceSupport</span><br><span class="line">~/Library/Developer/Xcode/watchOS DeviceSupport</span><br><span class="line">~/Library/Developer/CoreSimulator</span><br></pre></td></tr></table></figure>
+<h2 id="MongoDB-清理"><a href="#MongoDB-清理" class="headerlink" title="MongoDB 清理"></a>MongoDB 清理</h2><p>长久未使用 MongoDB，发现随着版本升级，对应的数据库文件没有升级，因此已经无法正常使用了，而 journal 日志则占用了将近 1G 空间，因此不得不先对数据库文件进行升级。通过 MongoDB 的启动日志可以知道，需要先从 3.4 升级到 3.6 再升级到 4.0。具体的脚本内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">brew install mongodb@3.4</span><br><span class="line">brew services start mongodb@3.4</span><br><span class="line">/usr/local/opt/mongodb@3.4/bin/mongo</span><br><span class="line">&gt; db.adminCommand( &#123; setFeatureCompatibilityVersion: &quot;3.4&quot; &#125; )</span><br><span class="line">brew uninstall mongodb@3.4</span><br><span class="line"></span><br><span class="line">// 安装 MongoDB 3.6</span><br><span class="line">brew services start mongodb@3.6</span><br><span class="line">/usr/local/opt/mongodb@3.6/bin/mongo</span><br><span class="line">&gt; db.adminCommand( &#123; setFeatureCompatibilityVersion: &quot;3.6&quot; &#125; )</span><br><span class="line">brew services stop mongodb@3.6</span><br><span class="line">brew uninstall mongodb@3.6</span><br><span class="line"></span><br><span class="line">// 安装 MongoDB 4</span><br><span class="line">brew install mongodb</span><br><span class="line">brew services start mongodb</span><br></pre></td></tr></table></figure>
+<p>升级完毕后，发现存储引擎仍然为 MMAPV1，需要升级为 wiredTiger，因此我在导出数据库后，删除数据库文件夹后又重装了 MongoDB 再导入数据，数据库占用空间也瞬时缩减了一大半。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mongodump --out mongodb</span><br><span class="line">brew uninstall mongodb</span><br><span class="line">rm -rf /usr/local/var/mongodb</span><br><span class="line">brew install mongodb</span><br><span class="line">brew services start mongodb</span><br><span class="line">mongorestore mongodb</span><br></pre></td></tr></table></figure>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p><a href="https://www.jianshu.com/p/7231b509c279" target="_blank" rel="noopener">为什么你的 Git 仓库变得如此臃肿</a><br><a href="https://stackoverflow.com/questions/29930198/can-i-delete-data-from-ios-devicesupport/29931912" target="_blank" rel="noopener">Can I delete data from iOS DeviceSupport?</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -388,12 +568,24 @@
                 
               
 
-              <time title="创建时间：2018-02-25 22:14:39 / 修改时间：22:45:03" itemprop="dateCreated datePublished" datetime="2018-02-25T22:14:39+08:00">2018-02-25</time>
+              <time title="创建时间：2018-02-25 22:14:39" itemprop="dateCreated datePublished" datetime="2018-02-25T22:14:39+08:00">2018-02-25</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-14 11:50:12" itemprop="dateModified" datetime="2019-04-14T11:50:12+08:00">2019-04-14</time>
               
             
           </span>
@@ -462,7 +654,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tlmgr install nth</span><br></pre></td></tr></table></figure>
 <h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><p>tlgmgr 如果使用https的镜像时，会发生错误，错误信息如下，但是</p>
 <blockquote>
-<h1 id="tlmgr-update-–self-–repository-https-mirrors-ustc-edu-cn-CTAN-systems-texlive-tlnet"><a href="#tlmgr-update-–self-–repository-https-mirrors-ustc-edu-cn-CTAN-systems-texlive-tlnet" class="headerlink" title="tlmgr update –self –repository https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/"></a>tlmgr update –self –repository <a href="https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/</a></h1><p> /Library/TeX/texbin/tlmgr: open tlpdb(<a href="https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet//tlpkg/texlive.tlpdb" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet//tlpkg/texlive.tlpdb</a>) failed: Inappropriate ioctl for device at /usr/local/texlive/2017basic/tlpkg/TeXLive/TLPDB.pm line 362.</p>
+<p> tlmgr update –self –repository <a href="https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/</a><br> /Library/TeX/texbin/tlmgr: open tlpdb(<a href="https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet//tlpkg/texlive.tlpdb" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet//tlpkg/texlive.tlpdb</a>) failed: Inappropriate ioctl for device at /usr/local/texlive/2017basic/tlpkg/TeXLive/TLPDB.pm line 362.</p>
 </blockquote>
 <p>暂时可以通过将https修改为http的方法绕过</p>
 <p>有些软件包名字并不一致，例如nth.sty，通过<a href="https://tex.stackexchange.com/questions/135402/package-nth-is-in-ctan-but-tlmgr-doesnt-find-it" target="_blank" rel="noopener">搜索</a>可以得知包含该文件的包名为gen­misc，可以首先在ctan上搜索，然后找到对应的包名</p>
@@ -742,7 +934,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-13 14:11:15" itemprop="dateModified" datetime="2019-04-13T14:11:15+08:00">2019-04-13</time>
+                <time title="修改时间：2019-04-24 22:41:40" itemprop="dateModified" datetime="2019-04-24T22:41:40+08:00">2019-04-24</time>
               
             
           </span>
@@ -793,10 +985,12 @@
           
             <h1 id="Graphviz-简介"><a href="#Graphviz-简介" class="headerlink" title="Graphviz 简介"></a>Graphviz 简介</h1><p>符合程序员的以代码生成一切事物的思想，并且类似 HTML ，只定义结构，样式则可以通过第三方工具来进行美化。</p>
 <p>例如 <a href="https://jeasonstudio.github.io/oxygen-demo/" target="_blank" rel="noopener">oxygen</a> 就是一个可以通过 Graphviz 代码来生成手绘风格图表的网站。</p>
-<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p><code>Node</code> 就是图的一个结点</p>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p><code>Node</code> 就是图的一个结点。</p>
 <p><code>Edge</code> 连接两个结点之前</p>
-<p><code>Graph</code> </p>
-<h1 id="工具教程"><a href="#工具教程" class="headerlink" title="工具教程"></a>工具教程</h1><p>用过 NodeJS 的都了解，有一个 <code>supervisor</code> 命令能够监听目录，一旦发现文件发生改变后自动重启程序。发现 <code>dot</code> 命令并不存在自动监听生成图片的功能，因此改造了下，安装第三方工具 nodemon 来实现文件监听</p>
+<p><code>Graph</code> 定义了整个图片</p>
+<h1 id="工具教程"><a href="#工具教程" class="headerlink" title="工具教程"></a>工具教程</h1><p>用过 NodeJS 的都了解，有一个 <code>supervisor</code> 命令能够监听目录，一旦发现文件发生改变后自动重启程序。发现 <code>dot</code> 命令并不存在自动监听生成图片的功能，因此改造了下，安装第三方工具 nodemon 来实现文件监听。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g nodemon</span><br></pre></td></tr></table></figure>
+<p>然后运行命令 <code>nodemon -e .gv -x &quot;dot -Tpng -o test.png stack.gv&quot;</code> ，便实现了 nodemon 监听指定后缀名的功能，然后执行指定的命令。可惜的是暂时没有找到将发生文件变化的文件名作为变量传入到命令中的方法。</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://graphviz.gitlab.io/_pages/pdf/dotguide.pdf" target="_blank" rel="noopener">Guide</a></p>
 
           
@@ -1110,7 +1304,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-13 21:39:02" itemprop="dateModified" datetime="2019-04-13T21:39:02+08:00">2019-04-13</time>
+                <time title="修改时间：2019-05-18 22:48:19" itemprop="dateModified" datetime="2019-05-18T22:48:19+08:00">2019-05-18</time>
               
             
           </span>
@@ -1166,21 +1360,42 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apk add libc-dev gcc gdb</span><br></pre></td></tr></table></figure>
 <h1 id="静态分析代码"><a href="#静态分析代码" class="headerlink" title="静态分析代码"></a>静态分析代码</h1><h2 id="反汇编程序"><a href="#反汇编程序" class="headerlink" title="反汇编程序"></a>反汇编程序</h2><p>为了方便反汇编，可以将 gdb 的语法设置默认为 AT&amp;T 语法改为 Intel 语法，具体方法如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;set disassembly-flavor intel&quot; &gt; ~/.gdbinit</span><br></pre></td></tr></table></figure>
-<p>使用 <code>gdb level1</code> 来加载程序，然后调用 <code>disas vulnerable_function</code> 来反汇编存在漏洞的函数。输入 <code>layout asm</code> 分屏显示汇编代码，</p>
-<ul>
-<li><code>ni/ns</code> 汇编指令集 <code>step into</code> </li>
+<h2 id="GDB-指令简介"><a href="#GDB-指令简介" class="headerlink" title="GDB 指令简介"></a>GDB 指令简介</h2><ul>
+<li><p><code>b[reak] &lt;行号|函数名|代码地址&gt;</code> 下断点</p>
+</li>
+<li><p><code>r[un]</code> 运行代码</p>
+</li>
+<li><p><code>c[continue]</code> 继续运行</p>
+</li>
+<li><p><code>s/n</code> Step into 单步跟踪进入/Step Over 单步跟踪</p>
+</li>
+<li><p><code>si/ni</code> 汇编指令集 <code>s/n</code> </p>
+</li>
+<li><p><code>p [varialbe/register]</code> 打印变量/寄存器</p>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">0x00001220 &lt;+0&gt;:	    push   ebp</span><br><span class="line">0x00001221 &lt;+1&gt;:	    mov    ebp,esp</span><br><span class="line">0x00001223 &lt;+3&gt;:	    push   ebx</span><br><span class="line">0x00001224 &lt;+4&gt;:	    sub    esp,0x84</span><br><span class="line"></span><br><span class="line">0x0000122a &lt;+10&gt;:	call   0x1218 &lt;__x86.get_pc_thunk.ax&gt;</span><br><span class="line">0x0000122f &lt;+15&gt;:	add    eax,0x2d99</span><br><span class="line">0x00001234 &lt;+20&gt;:	sub    esp,0x4</span><br><span class="line"></span><br><span class="line">0x00001237 &lt;+23&gt;:	push   0x100             // 256</span><br><span class="line">0x0000123c &lt;+28&gt;:	lea    edx,[ebp-0x88]    // -+</span><br><span class="line">0x00001242 &lt;+34&gt;:	push   edx               // -+--  ebp-0x88为buf地址</span><br><span class="line">0x00001243 &lt;+35&gt;:	push   0x0               // STDIN_FILENO</span><br><span class="line">0x00001245 &lt;+37&gt;:	mov    ebx,eax</span><br><span class="line">0x00001247 &lt;+39&gt;:	call   0x1040 &lt;read@plt&gt; // 调用read函数</span><br><span class="line"></span><br><span class="line">0x0000124c &lt;+44&gt;:	add    esp,0x10</span><br><span class="line">0x0000124f &lt;+47&gt;:	nop</span><br><span class="line">0x00001250 &lt;+48&gt;:	mov    ebx,DWORD PTR [ebp-0x4]</span><br><span class="line">0x00001253 &lt;+51&gt;:	leave                    // mov esp,ebp; pop ebp;</span><br><span class="line">0x00001254 &lt;+52&gt;:	ret                      // pop eip; jump eip;</span><br><span class="line"></span><br><span class="line">-----------------------</span><br><span class="line"></span><br><span class="line">0x0000126f &lt;+26&gt;:	call   0x1220 &lt;vulnerable_function&gt; // push eip; jump XX;</span><br></pre></td></tr></table></figure>
-<div><div class="graphviz">digraph level1_stack{<br>    graph [<br>        rankdir = “LR”<br>    ];<br>    edge [<br>    ];<br>    subgraph stack_0 {<br>        style=filled;<br>        color=lightgrey;<br>        “s0_stack” [<br>            label = “<esp>0xbffffcb8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | <ebp> 0xbffffcbb ebp”<br>            shape = “record”<br>            labeljust = “l”<br>        ];<br>        “s0_esp” [<br>            label = “esp”<br>            shape = “plaintext”<br>        ];<br>        “s0_esp” -&gt; “s0_stack”:esp<br>    };<br>}</ebp></esp></div></div>
-
+<h2 id="Debug-教程"><a href="#Debug-教程" class="headerlink" title="Debug 教程"></a>Debug 教程</h2><p>使用 <code>gdb level1</code> 来加载程序，然后调用 <code>disas vulnerable_function</code> 来反汇编存在漏洞的函数。输入 <code>layout asm</code> 分屏显示汇编代码， <code>b  vulnerable_function</code> 下断点，然后 <code>r</code> 开始运行程序，<code>p $eip</code> 打印当前 EIP 寄存器地址。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">0x00001220 &lt;+0&gt;:	    push   ebp</span><br><span class="line">0x00001221 &lt;+1&gt;:	    mov    ebp,esp</span><br><span class="line">0x00001223 &lt;+3&gt;:	    push   ebx</span><br><span class="line">0x00001224 &lt;+4&gt;:	    sub    esp,0x84</span><br><span class="line"></span><br><span class="line">0x0000122a &lt;+10&gt;:	call   0x1218 &lt;__x86.get_pc_thunk.ax&gt;</span><br><span class="line">0x0000122f &lt;+15&gt;:	add    eax,0x2d99</span><br><span class="line">0x00001234 &lt;+20&gt;:	sub    esp,0x4          // &lt;----a</span><br><span class="line"></span><br><span class="line">0x00001237 &lt;+23&gt;:	push   0x100             // 256</span><br><span class="line">0x0000123c &lt;+28&gt;:	lea    edx,[ebp-0x88]    // -+</span><br><span class="line">0x00001242 &lt;+34&gt;:	push   edx               // -+--  ebp-0x88为buf地址</span><br><span class="line">0x00001243 &lt;+35&gt;:	push   0x0               // STDIN_FILENO</span><br><span class="line">0x00001245 &lt;+37&gt;:	mov    ebx,eax</span><br><span class="line">0x00001247 &lt;+39&gt;:	call   0x1040 &lt;read@plt&gt; // 调用read函数</span><br><span class="line"></span><br><span class="line">0x0000124c &lt;+44&gt;:	add    esp,0x10</span><br><span class="line">0x0000124f &lt;+47&gt;:	nop</span><br><span class="line">0x00001250 &lt;+48&gt;:	mov    ebx,DWORD PTR [ebp-0x4]</span><br><span class="line">0x00001253 &lt;+51&gt;:	leave                    // mov esp,ebp; pop ebp;</span><br><span class="line">0x00001254 &lt;+52&gt;:	ret                      // pop eip; jump eip;</span><br><span class="line"></span><br><span class="line">-----------------------</span><br><span class="line"></span><br><span class="line">0x0000126f &lt;+26&gt;:	call   0x1220 &lt;vulnerable_function&gt; // push eip; jump XX;</span><br></pre></td></tr></table></figure>
 <p>汇编代码中有一个函数 <code>__x86.get_pc_thunk.ax</code> 的调用，在此可以暂时忽略这段代码，与 EOP 利用无关，没有任何影响。关于这个函数的详细解释，参考 <a href="https://cloud.tencent.com/developer/ask/91473" target="_blank" rel="noopener">《什么是__i686.get_pc_thunk.bx？我们为什么需要调用这个？》</a> 一文。</p>
-<h2 id="堆栈分析"><a href="#堆栈分析" class="headerlink" title="堆栈分析"></a>堆栈分析</h2><p>下面先从理论上对堆栈情况分析一下。</p>
+<h2 id="堆栈分析"><a href="#堆栈分析" class="headerlink" title="堆栈分析"></a>堆栈分析</h2><p>下面先从理论上对堆栈情况分析一下。首先要注意的是，esp 指针是指向栈顶，即当前已经使用的空间。执行汇编指令到 a 处，堆栈如下：</p>
+<p><img src="/img/eop_stack_1.png" alt="初始堆栈"></p>
+<p>通过<code>si</code>和<code>ni</code>指令执行到read函数之前，此时的堆栈如下图2：</p>
+<p><img src="/img/eop_stack_2.png" alt="调用read函数前的堆栈"></p>
+<p>通过调试发现此时堆栈中有两个空位 0xbffffcb0 和 0xbffffc2c，猜测可能是多余的代码导致的。调用完 read 函数，输入内容后，进行堆栈平衡，此时堆栈变成下图：</p>
+<p><img src="/img/eop_stack_3.png" alt="调用read函数后的堆栈"></p>
+<p>调用指令 <code>x /8cb 0xbffffc30</code>  可以显示出输入的前 8 个字符。继续往下执行，这时候会返回，会调用 <code>leave</code> 指令再次堆栈平衡，释放函数中的临时变量，并恢复原有函数栈帧的 esp 。最后执行 <code>ret</code> 指令，至此整个执行流完毕。</p>
+<h2 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h2><p>很明显，read 函数没有对输入的内容校验长度，导致可以输入超长字符串，利用字符串覆盖 eip(0xbffffcbc) ，则我们就可以控制这个函数的返回地址，实现漏洞利用。通过计算可以得到 0xbffffcbc - 0xbffffc30 = 0x8c，即使用 0x8c + 0x04 长度的字符串覆盖，最后的四字节就可以覆盖成功。对比原文中提供的通过脚本获取覆盖长度脚本，可以发现与我们分析的一致。</p>
+<h2 id="生成-Shellcode"><a href="#生成-Shellcode" class="headerlink" title="生成 Shellcode"></a>生成 Shellcode</h2><p>这里我们使用 Metasploit 生成所需要的 Shellcode。具体做法如下，进入 msfconsole，使用 <code>show payloads</code> 可以看到所有支持的 payload。然后 <code>use linux/x86/exec</code> 来选用当前环境的 payload ，输入 <code>info</code> 查看当前 payload 的参数，用 <code>set CMD /bin/s</code> 来生成执行 <code>sh</code> 的 shellcode，最后使用 <code>generate</code> 命令来生成</p>
+<h2 id="Alpine-安装-pwntool"><a href="#Alpine-安装-pwntool" class="headerlink" title="Alpine 安装 pwntool"></a>Alpine 安装 pwntool</h2><p>需要安装一系列软件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apk add --no-cache -X https://mirrors.tuna.tsinghua.edu.cn/alpine/edge/community/ capstone-dev</span><br><span class="line">apk add python3 python3-dev alpine-sdk libffi-dev openssl-dev</span><br></pre></td></tr></table></figure>
 <h1 id="参考文章列表"><a href="#参考文章列表" class="headerlink" title="参考文章列表"></a>参考文章列表</h1><p><a href="https://segmentfault.com/a/1190000012756506" target="_blank" rel="noopener">VirtualBox虚拟机和Mac或Win主机之间网络相互通信</a></p>
+<p><a href="http://drops.2xss.cc/?chamd5#!/drops/595.%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E5%AD%A6ROP%E4%B9%8Blinux_x86%E7%AF%87" target="_blank" rel="noopener">http://drops.2xss.cc/?chamd5#!/drops/595.%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E5%AD%A6ROP%E4%B9%8Blinux_x86%E7%AF%87</a></p>
 <p><a href="https://github.com/zhengmin1989/MyArticles/tree/master/%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E5%AD%A6ROP" target="_blank" rel="noopener">一步一步学ROP</a></p>
 <p><a href="http://www.anquan.us/static/drops/tips-6597.html" target="_blank" rel="noopener">http://www.anquan.us/static/drops/tips-6597.html</a></p>
 <p><a href="https://ketansingh.net/Introduction-to-Return-Oriented-Programming-ROP/" target="_blank" rel="noopener">Introduction to Return Oriented Programming (ROP)</a></p>
 <p><a href="https://www.cnblogs.com/pannengzhi/p/exploit-the-stack.html" target="_blank" rel="noopener">栈溢出漏洞的利用和缓解</a></p>
 <p><a href="https://www.freebuf.com/vuls/179724.html" target="_blank" rel="noopener">StackOverFlow之Ret2ShellCode详解</a></p>
+<p><a href="https://www.jianshu.com/p/b7896e9afeb7" target="_blank" rel="noopener">常用GDB指令</a></p>
 
           
         
@@ -1988,192 +2203,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2016/01/10/mirror/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="S0urceC0der">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/img/s0.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="S0urceC0der">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2016/01/10/mirror/" class="post-title-link" itemprop="url">常见软件包的国内镜像</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2016-01-10 23:45:19" itemprop="dateCreated datePublished" datetime="2016-01-10T23:45:19+08:00">2016-01-10</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-01-16 21:59:51" itemprop="dateModified" datetime="2018-01-16T21:59:51+08:00">2018-01-16</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2016/01/10/mirror/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/10/mirror/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在Linux/Mac上经常要使用各种软件库来下载资源，但是这些资源链接经常被墙，或者速度较慢，因此需要改用国内的镜像站点来加快速度。</p>
-<h3 id="常见开源镜像站点"><a href="#常见开源镜像站点" class="headerlink" title="常见开源镜像站点"></a>常见开源镜像站点</h3><p>这些站点包含常见各种的Linux软件源。</p>
-<p><a href="https://mirrors.ustc.edu.cn/" target="_blank" rel="noopener">中国科技大学开源镜像</a><br><a href="http://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener">清华大学开源镜像</a><br><a href="http://mirrors.aliyun.com/" target="_blank" rel="noopener">阿里云开源镜像</a></p>
-<p>其中中国科技大学使用的是https，因此在大多数情况下推荐使用（2016年底科大源曾长期处于不稳定状态，目前已经恢复），阿里云镜像适合阿里云的服务器使用，可以免流量且速度快。</p>
-<h3 id="具体一些推荐配置"><a href="#具体一些推荐配置" class="headerlink" title="具体一些推荐配置"></a>具体一些推荐配置</h3><h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p>网上大多推荐豆瓣的源，但是豆瓣的源仍然是http协议，新版pip会提示警告，所以还是换成科大源吧（除非是低版本Linux不支持https链接）。此外，使用阿里源还遇到过几次同步不及时的问题。</p>
-<h4 id="node"><a href="#node" class="headerlink" title="node"></a>node</h4><p>推荐使用阿里源，主要是提供额外的cnpm命令，可以方便的安装。</p>
-<h4 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h4><p>淘宝的Ruby镜像已经改由Ruby-China维护，所以请使用<a href="https://gems.ruby-china.org/" target="_blank" rel="noopener">Ruby-China的镜像</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/</span><br><span class="line">$ gem sources -l</span><br><span class="line">https://gems.ruby-china.org</span><br><span class="line"># 确保只有 gems.ruby-china.org</span><br></pre></td></tr></table></figure>
-<h4 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h4><p>使用腾讯Bugly镜像，<a href="http://android-mirror.bugly.qq.com:8080/include/usage.html" target="_blank" rel="noopener">将Android SDK Manager的代理设置为android-mirror.bugly.qq.com:8080</a></p>
-<h4 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a>homebrew</h4><p>homebrew自身内容是放在github上的，如果更新速度慢，可以换成<a href="http://mirrors.tuna.tsinghua.edu.cn/help/#homebrew" target="_blank" rel="noopener">清华的镜像</a>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/local</span><br><span class="line">$ git remote set-url origin git://mirrors.tuna.tsinghua.edu.cn/homebrew.git</span><br></pre></td></tr></table></figure>
-<p>homebrew-science或者homebrew-python也可以参考其页面进行修改。不过如果不是处于极其艰难的情况，不建议改这个，因为无法确保各个的软件包的hash未被篡改。</p>
-<p>homebrew大多数的软件源都是在homebrew.bintray.com上的，速度同样非常慢，<a href="http://ban.ninja/" target="_blank" rel="noopener">有人</a>也做了份国内镜像。</p>
-<p>设置环境变量:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export HOMEBREW_BOTTLE_DOMAIN=http://7xkcej.dl1.z0.glb.clouddn.com</span><br></pre></td></tr></table></figure>
-<h4 id="Docker-Hub"><a href="#Docker-Hub" class="headerlink" title="Docker Hub"></a>Docker Hub</h4><p>国内基本斗士要注册的，科大源有个反向代理，因为Docker配置比较麻烦，请具体参考<a href="https://lug.ustc.edu.cn/wiki/mirrors/help/docker" target="_blank" rel="noopener">Docker镜像使用帮助</a></p>
-<h4 id="pyenv"><a href="#pyenv" class="headerlink" title="pyenv"></a>pyenv</h4><p>同样设置环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PYTHON_BUILD_MIRROR_URL=&quot;http://pyenv.qiniudn.com/pythons/&quot;</span><br></pre></td></tr></table></figure></p>
-<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>对于这些第三方源，并不能完全保重其安全性，所以会存在一定的风险下载到经过篡改的软件包。</p>
-<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><p>2017.01.21 更新多条源记录</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2222,7 +2251,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2319,7 +2348,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -2331,7 +2360,7 @@
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
 
 
 
@@ -2339,7 +2368,7 @@
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a></div>
 
 
 
@@ -2391,6 +2420,14 @@
 
 
 
+
+  
+    
+    
+      
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
 
 
 
@@ -2496,6 +2533,28 @@
   
 
   
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/viz.js@1.8.2/viz.js"></script>
+  <script>
+    String.prototype.replaceAll = function(search, replacement) {
+      var target = this;
+      return target.split(search).join(replacement);
+    };
+
+    let vizObjects = document.querySelectorAll('.graphviz')
+
+    for (let item of vizObjects) {
+      let svg = undefined
+      try {
+        svg = Viz(item.textContent.replaceAll('â€“', '--'), 'svg')
+      } catch(e) {
+        svg = `<pre class="error">${e}</pre>`
+      }
+      item.outerHTML = svg
+    }
+  </script>
+
 
 </body>
 </html>
