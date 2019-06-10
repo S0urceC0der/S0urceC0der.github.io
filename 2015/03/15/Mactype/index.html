@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg?v=7.1.2" color="#222">
+
+
+  <link rel="manifest" href="/img/favicon/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.1.2',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Mactype是在Windows下实现类似Mac下字体渲染效果的程序。长期以来，我一直都使用这个软件替代系统自带的ClearType渲染功能。渲染得到的字体相当不错。 但是， 字体Windows下面自带的雅黑字体效果还是挺不错的，但是还是建议使用其他修改过的字体。字体可以去极限社区下载。该论坛也是重要的讨论字体修改和Mactype的网站。 之前用的比较多的是XHei，貌似现在出了新的字体，以后下载">
+<meta name="keywords" content="Windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Mactype渲染字体">
+<meta property="og:url" content="http://S0urceC0der.github.io/2015/03/15/Mactype/index.html">
+<meta property="og:site_name" content="S0urceC0der">
+<meta property="og:description" content="Mactype是在Windows下实现类似Mac下字体渲染效果的程序。长期以来，我一直都使用这个软件替代系统自带的ClearType渲染功能。渲染得到的字体相当不错。 但是， 字体Windows下面自带的雅黑字体效果还是挺不错的，但是还是建议使用其他修改过的字体。字体可以去极限社区下载。该论坛也是重要的讨论字体修改和Mactype的网站。 之前用的比较多的是XHei，貌似现在出了新的字体，以后下载">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-01-16T13:59:42.027Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Mactype渲染字体">
+<meta name="twitter:description" content="Mactype是在Windows下实现类似Mac下字体渲染效果的程序。长期以来，我一直都使用这个软件替代系统自带的ClearType渲染功能。渲染得到的字体相当不错。 但是， 字体Windows下面自带的雅黑字体效果还是挺不错的，但是还是建议使用其他修改过的字体。字体可以去极限社区下载。该论坛也是重要的讨论字体修改和Mactype的网站。 之前用的比较多的是XHei，貌似现在出了新的字体，以后下载">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="S0urceC0der" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://S0urceC0der.github.io/2015/03/15/Mactype/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>使用Mactype渲染字体 | S0urceC0der</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">S0urceC0der</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2015/03/15/Mactype/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/s0.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">使用Mactype渲染字体
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-03-15 13:27:48" itemprop="dateCreated datePublished" datetime="2015-03-15T13:27:48+08:00">2015-03-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-01-16 21:59:42" itemprop="dateModified" datetime="2018-01-16T21:59:42+08:00">2018-01-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2015/03/15/Mactype/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/03/15/Mactype/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Mactype是在Windows下实现类似Mac下字体渲染效果的程序。长期以来，我一直都使用这个软件替代系统自带的ClearType渲染功能。渲染得到的字体相当不错。</p>
+<p>但是，</p>
+<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p>Windows下面自带的雅黑字体效果还是挺不错的，但是还是建议使用其他修改过的字体。字体可以去<a href="http://bbs.themex.net/forumdisplay.php?f=90" target="_blank" rel="noopener">极限社区</a>下载。该论坛也是重要的讨论字体修改和Mactype的网站。</p>
+<p>之前用的比较多的是XHei，貌似现在出了新的字体，以后下载看下效果。</p>
+<h2 id="程序优化"><a href="#程序优化" class="headerlink" title="程序优化"></a>程序优化</h2><h3 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h3><p>Firefox默认开启的硬件加速，因此无法直接使用Mactype字体渲染。关于具体的设置，参考文档<a href="https://github.com/renkun-ken/MacType.Source" target="_blank" rel="noopener">MacType.Source</a></p>
+<p>打开<code>about:config</code>，修改设置如下</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gfx.direct2d.disabled</td>
+<td>true</td>
+</tr>
+<tr>
+<td>gfx.font_loader.delay</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>gfx.font_rendering.cleartype.always_use_for_content;true</td>
+<td>true</td>
+</tr>
+<tr>
+<td>gfx.font_rendering.cleartype_params.cleartype_level</td>
+<td>100</td>
+</tr>
+<tr>
+<td>gfx.font_rendering.cleartype_params.enhanced_contrast</td>
+<td>100</td>
+</tr>
+<tr>
+<td>gfx.font_rendering.cleartype_params.gamma</td>
+<td>1400</td>
+</tr>
+<tr>
+<td>gfx.font_rendering.cleartype_params.pixel_structure</td>
+<td>1</td>
+</tr>
+<tr>
+<td>gfx.font_rendering.cleartype_params.rendering_mode</td>
+<td>5</td>
+</tr>
+<tr>
+<td>gfx.font_rendering.fallback.always_use_cmaps</td>
+<td>true</td>
+</tr>
+<tr>
+<td>gfx.use_text_smoothing_setting</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<h3 id="VisualStudio"><a href="#VisualStudio" class="headerlink" title="VisualStudio"></a>VisualStudio</h3><p>与Firefox一样，同样使用了硬件加速，而且偏偏没有任何设置。</p>
+<p>在<a href="http://www.zhihu.com/question/24251313" target="_blank" rel="noopener">VS 怎么使用 MacType 的字体渲染？</a>中提出了解决方案：对于ClearType设置为Smoothing的字体，且Visualstudio在显示比例不为100%时可以直接通过Mactype进行渲染。</p>
+<p>所以需要使用这样特别制作的字体，从<a href="http://tieba.baidu.com/p/3366845989" target="_blank" rel="noopener">自制FantasqueSansMono字体+VS缩放插件,完美解决VS2013+Mactype</a>下载特别制作过的字体FantasqueSansMono字体。</p>
+<p>但是默认VS都会在新开一个窗口的时候重置缩放比例，因此需要使用插件让VS保持显示比较为99%。插件可以参考帖子<a href="https://stackoverflow.com/questions/4771750/visual-studio-2010-default-zoom-level" target="_blank" rel="noopener">Visual Studio 2010 default zoom level</a>，固定了显示比例之后，防止不小心按了<code>Ctrl+滚轮</code>而改变了缩放，可以安装插件<a href="https://visualstudiogallery.msdn.microsoft.com/d088791c-150a-4834-8f28-462696a82bb8" target="_blank" rel="noopener">Disable Mouse Wheel Zoom</a>，装上了这几个插件，基本可以欣赏漂亮的字体渲染了。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>S0urceC0der</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://S0urceC0der.github.io/2015/03/15/Mactype/" title="使用Mactype渲染字体">http://S0urceC0der.github.io/2015/03/15/Mactype/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Windows/" rel="tag"># Windows</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/02/15/Mac/" rel="next" title="Mac">
+                <i class="fa fa-chevron-left"></i> Mac
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/03/21/Cmder/" rel="prev" title="Cmder">
+                Cmder <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/img/s0.png" alt="S0urceC0der">
+            
+              <p class="site-author-name" itemprop="name">S0urceC0der</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/S0urceC0der" title="GitHub &rarr; https://github.com/S0urceC0der" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字体"><span class="nav-number">1.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序优化"><span class="nav-number">2.</span> <span class="nav-text">程序优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Firefox"><span class="nav-number">2.1.</span> <span class="nav-text">Firefox</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VisualStudio"><span class="nav-number">2.2.</span> <span class="nav-text">VisualStudio</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">S0urceC0der</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://s0urcec0der-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://S0urceC0der.github.io/2015/03/15/Mactype/";
+    this.page.identifier = "2015/03/15/Mactype/";
+    this.page.title = '使用Mactype渲染字体';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://s0urcec0der-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    window.addEventListener('load', loadComments, false);
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg?v=7.1.2" color="#222">
+
+
+  <link rel="manifest" href="/img/favicon/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.1.2',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Cmder简介Cmder是一款Windows下面的终端模拟器，有了它终于能够抛弃默认的垃圾cmd界面了！  特点个人很简单的使用了下，觉得有以下优点：  可自定义字体，配色非常好看。  路径补全有所提高。   使用配置乱码ls的乱码主要是参数问题，修改文件cmder/config/aliases： 1234l=ls --show-control-charsla=ls -aF --show-cont">
+<meta name="keywords" content="Windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cmder">
+<meta property="og:url" content="http://S0urceC0der.github.io/2015/03/21/Cmder/index.html">
+<meta property="og:site_name" content="S0urceC0der">
+<meta property="og:description" content="Cmder简介Cmder是一款Windows下面的终端模拟器，有了它终于能够抛弃默认的垃圾cmd界面了！  特点个人很简单的使用了下，觉得有以下优点：  可自定义字体，配色非常好看。  路径补全有所提高。   使用配置乱码ls的乱码主要是参数问题，修改文件cmder/config/aliases： 1234l=ls --show-control-charsla=ls -aF --show-cont">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://s0urcec0der.github.io/img/cmder.png">
+<meta property="og:updated_time" content="2018-01-16T13:58:21.629Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cmder">
+<meta name="twitter:description" content="Cmder简介Cmder是一款Windows下面的终端模拟器，有了它终于能够抛弃默认的垃圾cmd界面了！  特点个人很简单的使用了下，觉得有以下优点：  可自定义字体，配色非常好看。  路径补全有所提高。   使用配置乱码ls的乱码主要是参数问题，修改文件cmder/config/aliases： 1234l=ls --show-control-charsla=ls -aF --show-cont">
+<meta name="twitter:image" content="http://s0urcec0der.github.io/img/cmder.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="S0urceC0der" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://S0urceC0der.github.io/2015/03/21/Cmder/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Cmder | S0urceC0der</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">S0urceC0der</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2015/03/21/Cmder/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/s0.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Cmder
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-03-21 15:34:12" itemprop="dateCreated datePublished" datetime="2015-03-21T15:34:12+08:00">2015-03-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-01-16 21:58:21" itemprop="dateModified" datetime="2018-01-16T21:58:21+08:00">2018-01-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2015/03/21/Cmder/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/03/21/Cmder/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Cmder简介"><a href="#Cmder简介" class="headerlink" title="Cmder简介"></a>Cmder简介</h2><p>Cmder是一款Windows下面的终端模拟器，有了它终于能够抛弃默认的垃圾cmd界面了！</p>
+<p><img src="/img/cmder.png" alt="Cmder"></p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>个人很简单的使用了下，觉得有以下优点：</p>
+<ol>
+<li><p>可自定义字体，配色非常好看。</p>
+</li>
+<li><p>路径补全有所提高。</p>
+</li>
+</ol>
+<h2 id="使用配置"><a href="#使用配置" class="headerlink" title="使用配置"></a>使用配置</h2><h3 id="乱码"><a href="#乱码" class="headerlink" title="乱码"></a>乱码</h3><p>ls的乱码主要是参数问题，修改文件cmder/config/aliases：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">l=ls --show-control-chars</span><br><span class="line">la=ls -aF --show-control-chars</span><br><span class="line">ll=ls -alF --show-control-chars</span><br><span class="line">ls=ls --show-control-chars -F</span><br></pre></td></tr></table></figure>
+<h3 id="中文重叠"><a href="#中文重叠" class="headerlink" title="中文重叠"></a>中文重叠</h3><p>在设置中，取消<code>Main console font</code>下的Monospace勾，这样中文字符（占用两个英文字符空间）就得到的了足够的空间了。</p>
+<h3 id="右键打开Cmder"><a href="#右键打开Cmder" class="headerlink" title="右键打开Cmder"></a>右键打开Cmder</h3><p>以管理员权限运行，输入命令<code>.\cmder.exe /REGISTER ALL</code>，在任意目录下右击就会出现<code>Cmder Here</code>，可以打开并默认切换到该目录。</p>
+<h3 id="退格后错位"><a href="#退格后错位" class="headerlink" title="退格后错位"></a>退格后错位</h3><blockquote>
+<p><a href="https://www.v2ex.com/member/lgh" target="_blank" rel="noopener">lgh</a>:<br>cmder 功能强大，但是反应较慢，经常卡住半天才反应；默认的命令提示符 λ 还会导致在用 TAB 还是 BACKSPACE 之后字符错位（自己改配置换成 $ 后就不会）。<br>现在干脆直接用 ConEmu 了。<br>来源：<a href="https://www.v2ex.com/t/155058" target="_blank" rel="noopener">https://www.v2ex.com/t/155058</a></p>
+</blockquote>
+<p>lgh针对问题1提出解决方法是修改提示符为$。修改方法是</p>
+<p>打开文件config/prompt.lua，将第二行中的λ修改为Linux下常用的$</p>
+<h2 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h2><p>当然，可能这些问题只是因为我没有找到对应的解决方法。</p>
+<ol>
+<li><p><del>有时候会出现无法删除第一个字符的情况（实际已经删除了）。</del></p>
+</li>
+<li><p>路径补全还是没有达到zsh的效果。</p>
+</li>
+<li><p>没有快速进入某个目录的功能。</p>
+</li>
+<li><p>Cmder1.2开始需要VS<strong>2015</strong>运行库支持（丧心病狂！）</p>
+</li>
+</ol>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>现在只是刚开始使用，很多功能还是在摸索中，如果有更多的体会，会继续更新。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>S0urceC0der</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://S0urceC0der.github.io/2015/03/21/Cmder/" title="Cmder">http://S0urceC0der.github.io/2015/03/21/Cmder/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Windows/" rel="tag"># Windows</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/15/Mactype/" rel="next" title="使用Mactype渲染字体">
+                <i class="fa fa-chevron-left"></i> 使用Mactype渲染字体
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/04/12/KaliLinux/" rel="prev" title="KaliLinux使用心得">
+                KaliLinux使用心得 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/img/s0.png" alt="S0urceC0der">
+            
+              <p class="site-author-name" itemprop="name">S0urceC0der</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/S0urceC0der" title="GitHub &rarr; https://github.com/S0urceC0der" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cmder简介"><span class="nav-number">1.</span> <span class="nav-text">Cmder简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">1.1.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用配置"><span class="nav-number">2.</span> <span class="nav-text">使用配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#乱码"><span class="nav-number">2.1.</span> <span class="nav-text">乱码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中文重叠"><span class="nav-number">2.2.</span> <span class="nav-text">中文重叠</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#右键打开Cmder"><span class="nav-number">2.3.</span> <span class="nav-text">右键打开Cmder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#退格后错位"><span class="nav-number">2.4.</span> <span class="nav-text">退格后错位</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不足"><span class="nav-number">3.</span> <span class="nav-text">不足</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后"><span class="nav-number">4.</span> <span class="nav-text">最后</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">S0urceC0der</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://s0urcec0der-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://S0urceC0der.github.io/2015/03/21/Cmder/";
+    this.page.identifier = "2015/03/21/Cmder/";
+    this.page.title = 'Cmder';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://s0urcec0der-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    window.addEventListener('load', loadComments, false);
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
