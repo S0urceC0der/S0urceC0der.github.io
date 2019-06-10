@@ -52,7 +52,7 @@ sudo tlmgr install nth
 
 tlgmgr 如果使用https的镜像时，会发生错误，错误信息如下，但是
 
->  # tlmgr update --self --repository https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/
+>  tlmgr update --self --repository https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/
 >  /Library/TeX/texbin/tlmgr: open tlpdb(https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet//tlpkg/texlive.tlpdb) failed: Inappropriate ioctl for device at /usr/local/texlive/2017basic/tlpkg/TeXLive/TLPDB.pm line 362.
 
 暂时可以通过将https修改为http的方法绕过
