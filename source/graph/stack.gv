@@ -1,0 +1,102 @@
+digraph level1_stack{
+    graph [
+        rankdir = "LR"
+    ];
+    edge [
+    ];
+    /*
+    subgraph stack_0 {
+        style=filled;
+        color=lightgrey;
+        "s0_stack" [
+            label = "
+                0xbffffcb8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+                <esp> 0xbffffcbc eip|
+                <origin> 0xbffffcc0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|..."
+            shape = "record"
+            labeljust = "l"
+        ];
+        "s0_esp" [
+            label = "esp"
+            shape = "plaintext"
+        ];
+        "s0_origin" [
+            label = "调用前堆栈"
+            shape = "plaintext"
+        ];
+        "s0_origin" -> "s0_stack":origin
+        "s0_esp" -> "s0_stack":esp
+    };
+    */
+    /*
+    subgraph stack_1 {
+        style=filled;
+        color=lightgrey;
+        "s1_stack" [
+            label = "
+                <esp> 0xbffffc2c &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+                0xbffffc30 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||...||
+                0xbffffcb0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+                0xbffffcb4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+                0xbffffcb8 ebp|
+                <ebp> 0xbffffcbb eip|
+                0xbffffcc0"
+            shape = "record"
+            labeljust = "l"
+        ];
+        "s1_esp" [
+            label = "esp"
+            shape = "plaintext"
+        ];
+        "s1_esp" -> "s1_stack":esp
+    };
+
+    subgraph stack_2 {
+        style=filled;
+        color=lightgrey;
+        "s2_stack" [
+            label = "
+                <esp> 0xbffffc20 &nbsp;&nbsp;0&nbsp;&nbsp; |
+                0xbffffc24 ptr&nbsp; |
+                0xbffffc28 256|
+                0xbffffc2c &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+                <buf_0> 0xbffffc30 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||...||
+                <buf_1> 0xbffffcac &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+                0xbffffcb0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+                0xbffffcb4 ebx|
+                <ebp> 0xbffffcb8 ebp|
+                0xbffffcbc eip"
+            shape = "record"
+            labeljust = "l"
+        ];
+        "s2_esp" [
+            label = "esp"
+            shape = "plaintext"
+        ]
+        "s2_esp" -> "s2_stack":esp
+        "s2_stack":buf_0 -> "s2_stack":buf_1 [label="buf[0x80]",arrowhead="none"];
+    };
+    */
+
+    subgraph stack_3 {
+        style=filled;
+        color=lightgrey;
+        "s3_stack" [
+            label = "
+                <buf_0> 0xbffffc30 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||...||
+                <buf_1> 0xbffffcac &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+                0xbffffcb0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+                0xbffffcb4 ebx|
+                <ebp> 0xbffffcb8 ebp|
+                0xbffffcbc eip"
+            shape = "record"
+            labeljust = "l"
+        ];
+        "s3_esp" [
+            label = "esp"
+            shape = "plaintext"
+        ]
+        "s3_esp" -> "s3_stack":buf_0
+        "s3_stack":buf_0 -> "s3_stack":buf_1 [label="buf[0x80]",arrowhead="none"];
+    };
+}

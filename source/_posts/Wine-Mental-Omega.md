@@ -19,7 +19,8 @@ Wine可以在Linux/Mac平台下模拟执行Window程序
 请安装开发版本的Wine以便获得更好的兼容性
 
 ```
-brew install wine --devel
+brew cask install wine-devel
+brew install winetricks
 ```
 
 ## 安装Mental Omega 3.3
@@ -47,3 +48,12 @@ winetricks xna40
 >  winedevice.exe(18227,0xb0004000) malloc: *** error for object 0x40203bb2: pointer being freed was not allocated
 
 - 2.在长时间运行红警后，会出现闪退现象
+
+
+# 更新日志
+
+2019.06.22 更新最新的 Wine 使用情况。
+
+# 参考文档
+
+[【WineHQ】解决UTF8乱码问题](https://blog.csdn.net/wr132/article/details/76093911)
