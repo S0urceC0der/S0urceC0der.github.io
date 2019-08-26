@@ -89,7 +89,7 @@ echo "set disassembly-flavor intel" > ~/.gdbinit
 
 下面先从理论上对堆栈情况分析一下。首先要注意的是，esp 指针是指向栈顶，即当前已经使用的空间。执行汇编指令到 a 处，堆栈如下：
 
-![初始堆栈](/img/yop_stack_1.png)
+![初始堆栈](/img/rop_stack_1.png)
 
 通过`si`和`ni`指令执行到read函数之前，此时的堆栈如下图2：
 
