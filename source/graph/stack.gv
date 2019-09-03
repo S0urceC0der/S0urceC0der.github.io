@@ -78,6 +78,7 @@ digraph level1_stack{
     };
     */
 
+/*
     subgraph stack_3 {
         style=filled;
         color=lightgrey;
@@ -98,5 +99,92 @@ digraph level1_stack{
         ]
         "s3_esp" -> "s3_stack":buf_0
         "s3_stack":buf_0 -> "s3_stack":buf_1 [label="buf[0x80]",arrowhead="none"];
+    };
+    */
+    /*
+    subgraph stack_4 {
+        style=filled;
+        color=lightgrey;
+        "s4_stack" [
+            label = "
+                <esp> 0xbffffc20 &nbsp;&nbsp;0&nbsp;&nbsp; |
+                0xbffffc24 ptr&nbsp; |
+                0xbffffc28 256|
+                0xbffffc2c &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+                <buf_0> 0xbffffc30 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||...||
+                <buf_1> 0xbffffcac &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+                0xbffffcb0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+                0xbffffcb4 ebx|
+                <ebp> 0xbffffcb8 ebp|
+                <eip> 0xbffffcbc eip |
+                <ret> 0xbffffcc0  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+                <bin> 0xbffffcc4  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+                0xbffffcc8  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+            shape = "record"
+            labeljust = "l"
+        ];
+        "s4_esp" [
+            label = "esp"
+            shape = "plaintext"
+        ]
+        "s4_systemaddr" [
+            label = "systemaddr"
+            shape = "plaintext"
+        ]
+        "s4_ret" [
+            label = "ret"
+            shape = "plaintext"
+        ]
+        "s4_bin" [
+            label = "binshaddr"
+            shape = "plaintext"
+        ]
+        "s4_esp" -> "s4_stack":esp
+        "s4_stack":buf_0 -> "s4_stack":buf_1 [label="buf[0x80]",arrowhead="none"];
+        "s4_stack":eip -> "s4_systemaddr"
+        "s4_stack":ret -> "s4_ret"
+        "s4_stack":bin -> "s4_bin"
+    };
+    */
+    subgraph stack_5 {
+        style=filled;
+        color=lightgrey;
+        "s4_stack" [
+            label = "
+                <ebp> 0xbffffcb8 &nbsp; ebp &nbsp;|
+                <eip> 0xbffffcbc &nbsp; eip &nbsp;|
+                <ret> 0xbffffcc0 &nbsp; ret &nbsp;|
+                <args1> 0xbffffcc4  args1 |
+                <args2> 0xbffffcc8  args2 |
+                <args3> 0xbffffccc  args3 |
+                0xbffffcd0  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+            shape = "record"
+            labeljust = "l"
+        ];
+        "s4_write" [
+            label = "write@plt"
+            shape = "plaintext"
+        ]
+        "s4_ret" [
+            label = "vulnerable_function"
+            shape = "plaintext"
+        ]
+        "s4_args1" [
+            label = "STDOUT_FILENO"
+            shape = "plaintext"
+        ]
+        "s4_args2" [
+            label = "write.got"
+            shape = "plaintext"
+        ]
+        "s4_args3" [
+            label = "4"
+            shape = "plaintext"
+        ]
+        "s4_stack":eip -> "s4_write"
+        "s4_stack":ret -> "s4_ret"
+        "s4_stack":args1 -> "s4_args1"
+        "s4_stack":args2 -> "s4_args2"
+        "s4_stack":args3 -> "s4_args3"
     };
 }
