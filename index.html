@@ -15,7 +15,7 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -466,6 +466,7 @@
 </ul>
 <p>唯一要注意的是上述三个不可以同时安装，简单挑选一个即可，在 Mac 上的具体安装步骤如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">brew tap cpbotha/marmaduke-chromium</span><br><span class="line">brew cask install marmaduke-chromium</span><br><span class="line">brew cask install marmaduke-chromium-nosync</span><br><span class="line">brew cask install marmaduke-chromium-ungoogled</span><br></pre></td></tr></table></figure>
+
 <p>至于我的个人选择，本来是想优先选用 marmaduke-chromium-ungoogled，但是因为扩展程序更新不方便，还是退而求其次选择 marmaduke-chromium 吧。</p>
 <h1 id="扩展持续列表"><a href="#扩展持续列表" class="headerlink" title="扩展持续列表"></a>扩展持续列表</h1><p>最后，仍然仿照 Firefox 列出我所使用的扩展列表（按照字母排序）：</p>
 <h2 id="1-cVim"><a href="#1-cVim" class="headerlink" title="1. cVim"></a>1. cVim</h2><p>可以仿照 Vim 的快捷键来进行网页浏览。</p>
@@ -650,12 +651,16 @@
 <p><img src="/img/cleanmac.png" alt="清理 Homebrew 的效果"></p>
 <p>为了能够自动清理，我编写了如下的脚本，以后定期执行即可。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">cd &quot;$(brew --repo)&quot; &amp;&amp; git gc --prune=now</span><br><span class="line"></span><br><span class="line">root=&quot;$(brew --repo)/Library/Taps/homebrew/&quot;</span><br><span class="line"></span><br><span class="line">echo $root</span><br><span class="line">for d in `ls $root`</span><br><span class="line">do</span><br><span class="line">    echo &quot; clean $root$d ...&quot;</span><br><span class="line">    cd $root$d &amp;&amp; git gc --prune=now</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">root=&quot;$(brew --repo)/Library/Taps/caskroom/&quot;</span><br><span class="line">echo $root</span><br><span class="line">for d in `ls $root`</span><br><span class="line">do</span><br><span class="line">    echo &quot; clean $root$d ...&quot;</span><br><span class="line">    cd $root$d &amp;&amp; git gc --prune=now</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
 <h2 id="Xcode-清理"><a href="#Xcode-清理" class="headerlink" title="Xcode 清理"></a>Xcode 清理</h2><p>Xcode 会下载大量的文件，但是过了一段时间后，仍然会有旧版本设备的支持，所以需要清理如下文件夹：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">~/Library/Developer/Xcode/DerivedData</span><br><span class="line">~/Library/Developer/Xcode/Archives</span><br><span class="line">~/Library/Developer/Xcode/iOS DeviceSupport</span><br><span class="line">~/Library/Developer/Xcode/watchOS DeviceSupport</span><br><span class="line">~/Library/Developer/CoreSimulator</span><br></pre></td></tr></table></figure>
+
 <h2 id="MongoDB-清理"><a href="#MongoDB-清理" class="headerlink" title="MongoDB 清理"></a>MongoDB 清理</h2><p>长久未使用 MongoDB，发现随着版本升级，对应的数据库文件没有升级，因此已经无法正常使用了，而 journal 日志则占用了将近 1G 空间，因此不得不先对数据库文件进行升级。通过 MongoDB 的启动日志可以知道，需要先从 3.4 升级到 3.6 再升级到 4.0。具体的脚本内容如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">brew install mongodb@3.4</span><br><span class="line">brew services start mongodb@3.4</span><br><span class="line">/usr/local/opt/mongodb@3.4/bin/mongo</span><br><span class="line">&gt; db.adminCommand( &#123; setFeatureCompatibilityVersion: &quot;3.4&quot; &#125; )</span><br><span class="line">brew uninstall mongodb@3.4</span><br><span class="line"></span><br><span class="line">// 安装 MongoDB 3.6</span><br><span class="line">brew services start mongodb@3.6</span><br><span class="line">/usr/local/opt/mongodb@3.6/bin/mongo</span><br><span class="line">&gt; db.adminCommand( &#123; setFeatureCompatibilityVersion: &quot;3.6&quot; &#125; )</span><br><span class="line">brew services stop mongodb@3.6</span><br><span class="line">brew uninstall mongodb@3.6</span><br><span class="line"></span><br><span class="line">// 安装 MongoDB 4</span><br><span class="line">brew install mongodb</span><br><span class="line">brew services start mongodb</span><br></pre></td></tr></table></figure>
+
 <p>升级完毕后，发现存储引擎仍然为 MMAPV1，需要升级为 wiredTiger，因此我在导出数据库后，删除数据库文件夹后又重装了 MongoDB 再导入数据，数据库占用空间也瞬时缩减了一大半。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mongodump --out mongodb</span><br><span class="line">brew uninstall mongodb</span><br><span class="line">rm -rf /usr/local/var/mongodb</span><br><span class="line">brew install mongodb</span><br><span class="line">brew services start mongodb</span><br><span class="line">mongorestore mongodb</span><br></pre></td></tr></table></figure>
+
 <h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p><a href="https://www.jianshu.com/p/7231b509c279" target="_blank" rel="noopener">为什么你的 Git 仓库变得如此臃肿</a><br><a href="https://stackoverflow.com/questions/29930198/can-i-delete-data-from-ios-devicesupport/29931912" target="_blank" rel="noopener">Can I delete data from iOS DeviceSupport?</a></p>
 
           
@@ -827,13 +832,17 @@
             <h1 id="Mactex"><a href="#Mactex" class="headerlink" title="Mactex"></a>Mactex</h1><p>Mac下使用Latex推荐使用的是Mactex</p>
 <p>安装命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install mactex</span><br></pre></td></tr></table></figure>
+
 <p>其中mactex软件包大小达到了</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install basictex</span><br></pre></td></tr></table></figure>
+
 <p>当然，即使安装了mactex，有时候仍然存在部分依赖的包会不存在，此时需要使用tlgmgr来进行下载软件包</p>
 <p>首先更新tlgmgr</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tlmgr update --self</span><br></pre></td></tr></table></figure>
+
 <p>然后更新软件包</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tlmgr update --all</span><br></pre></td></tr></table></figure>
+
 <p>为了加快下载速度，可以配置国内的镜像，例如<a href="https://mirrors.tuna.tsinghua.edu.cn/help/CTAN/" target="_blank" rel="noopener">清华的镜像</a>，但是主要需要将里面的https地址更改为http。</p>
 <p>如果出现错误</p>
 <blockquote>
@@ -842,6 +851,7 @@
 </blockquote>
 <p>则可以针对文件名安装对应的包</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tlmgr install nth</span><br></pre></td></tr></table></figure>
+
 <h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><p>tlgmgr 如果使用https的镜像时，会发生错误，错误信息如下，但是</p>
 <blockquote>
 <p> tlmgr update –self –repository <a href="https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/</a><br> /Library/TeX/texbin/tlmgr: open tlpdb(<a href="https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet//tlpkg/texlive.tlpdb" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet//tlpkg/texlive.tlpdb</a>) failed: Inappropriate ioctl for device at /usr/local/texlive/2017basic/tlpkg/TeXLive/TLPDB.pm line 362.</p>
@@ -850,6 +860,187 @@
 <p>有些软件包名字并不一致，例如nth.sty，通过<a href="https://tex.stackexchange.com/questions/135402/package-nth-is-in-ctan-but-tlmgr-doesnt-find-it" target="_blank" rel="noopener">搜索</a>可以得知包含该文件的包名为gen­misc，可以首先在ctan上搜索，然后找到对应的包名</p>
 <h1 id="卸载Mactex"><a href="#卸载Mactex" class="headerlink" title="卸载Mactex"></a>卸载Mactex</h1><p>Mactex不同版本会安装到不同的目录下，不会覆盖，会占用比较多的空间，有时候需要删除旧版本。可以受限参考<a href="https://www.tug.org/mactex/uninstalling.html" target="_blank" rel="noopener">官网的卸载教程</a>，但是个人删除经验如下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /Library/TeX/Distributions/TeXLive-2017-Basic.texdist</span><br><span class="line">sudo rm -rf /Library/TeX/Distributions/.FactoryDefaults/TeXLive-2017-Basic</span><br><span class="line">sudo rm -rf /usr/local/texlive/2017basic</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2018/02/12/ROP-part2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/s0.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/02/12/ROP-part2/" class="post-title-link" itemprop="url">从0开始学习Linux ROP利用-part2</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-02-12 20:13:31" itemprop="dateCreated datePublished" datetime="2018-02-12T20:13:31+08:00">2018-02-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-03-09 23:18:23" itemprop="dateModified" datetime="2018-03-09T23:18:23+08:00">2018-03-09</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2018/02/12/ROP-part2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/12/ROP-part2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="ROP攻击-使用-Return-to-libc-绕过-DEP-防护"><a href="#ROP攻击-使用-Return-to-libc-绕过-DEP-防护" class="headerlink" title="ROP攻击: 使用 Return-to-libc 绕过 DEP 防护"></a>ROP攻击: 使用 Return-to-libc 绕过 DEP 防护</h1><h2 id="使用-Ubuntu-cloud-image-构建基本测试环境"><a href="#使用-Ubuntu-cloud-image-构建基本测试环境" class="headerlink" title="使用 Ubuntu cloud image 构建基本测试环境"></a>使用 Ubuntu cloud image 构建基本测试环境</h2><p>这时我遇到了一个坑，发现基于 Alpine Linux 测试始终不通过，因此不得不再次改用了 Ubuntu 进行测试。猜测应该是因为 Alpine Linux 不再基于 glibc，利用方法可能有所改变。</p>
+<p>本来想选择的镜像是 Ubuntu Cloud Image，具体的版本是 Ubuntu xenial 16.04 LTS。Ubuntu Cloud Image 所提供的镜像比较精简，一般大小只有 200MB 多，适合快速下载，同时也提供了 Vmware 的 vmdk 文件下载，比较方便部署，但是具体使用的时候仍然无法支持使用 VirtualBox 启动通过，因此此处仅作一个想法记录下来。具体的安装方法不再叙述，同样给虚拟机分配了两个网卡，以方便联网和联入测试。</p>
+<h2 id="DEP-防护原理"><a href="#DEP-防护原理" class="headerlink" title="DEP 防护原理"></a>DEP 防护原理</h2><p>前一攻击方法使用的是直接将 Shellcode 写到栈然后执行，通过在编译的时候增加 stack-protector 参数，使得程序栈无法直接执行代码来实现防护。</p>
+<h2 id="调用-System-函数的原理"><a href="#调用-System-函数的原理" class="headerlink" title="调用 System 函数的原理"></a>调用 System 函数的原理</h2><p>伪造堆栈调用 system 函数之前所需要的内容，使得 vulnerable_function 返回时的 jump 变成了实际对 system 函数的调用。这边最理想的情况是调用完 system 函数后，如果 system 函数返回，则能够正常返回到 vulnerable_function 之前的返回地址，程序运行不会出现任何异常。</p>
+<p>首先再次回顾下此时的堆栈:</p>
+<p><img src="/img/rop_stack_2.png" alt="调用read函数前的堆栈"></p>
+<p>实际上我们现在能做的是从 0xbffffc30 开始来操纵栈中的数据内容，本来函数是通过 jmp eip 来返回到 main 函数的，但是通过更改 0xbffffcbc 处的地址为 system 函数的地址，使得这个返回变成了跳转入指定的函数调用中，并且此时 0xbffffcc4 处地址作为了改函数的调用参数，而 0xbffffcc0 处则是 system 函数的返回地址，通过修改此处地址的内容，可以确保 system 函数退出时程序不崩溃出现异常。</p>
+<p><img src="/img/rop_stack_4.png" alt="调用 system 函数前的堆栈"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>由此可见，Return to libc 技术，就是在栈区域无法直接执行代码的时候，通过返回到 glibc 中的函数，并传入 glibc 中的参数来执行指定函数。由此也可以看到，这种方法的前提是 glibc 中存在想要执行的函数与对应的参数。</p>
+<h1 id="ROP攻击-绕过-DEP-和-ASLR-保护"><a href="#ROP攻击-绕过-DEP-和-ASLR-保护" class="headerlink" title="ROP攻击: 绕过 DEP 和 ASLR 保护"></a>ROP攻击: 绕过 DEP 和 ASLR 保护</h1><p>增加了 ASLR 保护后，最明显的改变是不再有固定地址的函数。所有系统函数的地址均是未知的，不再能够直接调用到这些函数了。但是对应仍然存在一定的绕过方法。其基本思想是找到（泄露）一个已知函数的实际地址，然后通过这个函数和我们需要执行函数的偏移计算出所需要实际调用的函数地址，那么这个问题就转换为如何找到（泄露）一个已知函数的实际地址了。</p>
+<p>关于 Linux 的 PLT 和 GOT，本来想写一篇相关的文章，但是看到了 <a href="https://blog.csdn.net/linyt" target="_blank" rel="noopener">海枫</a> 写的相关文章之后，顿时觉得完全没有必要了，他已经将相关的知识点讲解的非常清楚。</p>
+<p>这里具体使用的方法是依据程序中的 write@plt 函数泄露了 write 函数的地址，为了达到这个目标，需要在栈上伪造了对 write@plt 函数的调用，栈布局如下图所示，这里面通过 write 将 write.got 中存储 write 函数地址的内容写入到 stdout 中，然后解析返回结果，就成功获取了 write 函数的地址。后续的利用过程则和前文中的 Return-to-libc 一致，这里不再赘述。</p>
+<p><img src="/img/rop_stack_5.png" alt="调用 write 函数前的堆栈"></p>
+<h1 id="参考列表"><a href="#参考列表" class="headerlink" title="参考列表"></a>参考列表</h1><p><a href="https://www.jianshu.com/p/594357dff57e" target="_blank" rel="noopener">压栈， 跳转，执行，返回：从汇编看函数调用</a><br><a href="https://xz.aliyun.com/t/1803" target="_blank" rel="noopener">Linux下pwn从入门到放弃</a><br><a href="https://0x00sec.org/t/exploit-mitigation-techniques-data-execution-prevention-dep/4634" target="_blank" rel="noopener">Exploit Mitigation Techniques - Data Execution Prevention (DEP)</a><br>[<a href="https://www.jianshu.com/p/ef58e6b0ebef?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation]" target="_blank" rel="noopener">https://www.jianshu.com/p/ef58e6b0ebef?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation]</a>(Linux (x86) Exploit 开发系列教程之八 绕过 ASLR – 第三部分)<br><a href="https://introspelliam.github.io/2017/08/03/pwn/got%E3%80%81plt%E8%A1%A8%E4%BB%8B%E7%BB%8D/" target="_blank" rel="noopener">got、plt表介绍</a><br><a href="https://blog.csdn.net/linyt/article/details/51635768" target="_blank" rel="noopener">聊聊Linux动态链接中的PLT和GOT（１）——何谓PLT与GOT</a></p>
+
           
         
       
@@ -1173,12 +1364,32 @@
       
         
           
-            <h1 id="起"><a href="#起" class="headerlink" title="起"></a>起</h1><p>上一篇学习 ROP 的文章中提到原文的 Shellcode 调用失败了，这次就尝试分析下该 Shellcode 看看能不能找出原因。</p>
-<h1 id="Shellcode-反汇编"><a href="#Shellcode-反汇编" class="headerlink" title="Shellcode 反汇编"></a>Shellcode 反汇编</h1><p>拿到一段 Shellcode，第一步就是尝试反汇编，参考文章《使用 Python 将 Shellcode 转换成汇编》文章教程，基于 capstone 使用如下代码即可。</p>
+            <h1 id="0"><a href="#0" class="headerlink" title="0"></a>0</h1><p>上一篇学习 ROP 的文章中提到原文的 Shellcode 调用失败了，这次就尝试分析下该 Shellcode 看看能不能找出原因。</p>
+<h1 id="1-对-Shellcode-反汇编"><a href="#1-对-Shellcode-反汇编" class="headerlink" title="1. 对 Shellcode 反汇编"></a>1. 对 Shellcode 反汇编</h1><p>拿到一段 Shellcode，第一步就是尝试反汇编，参考文章《使用 Python 将 Shellcode 转换成汇编》文章教程，基于 capstone 使用如下代码即可。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python2</span><br><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">from capstone import *</span><br><span class="line"></span><br><span class="line">for code in shellcode:</span><br><span class="line">    md = Cs(CS_ARCH_X86, CS_MODE_32)</span><br><span class="line">    for i in md.disasm(code, 0x00):</span><br><span class="line">        print(&quot;0x%x:\t%s\t%s&quot; %(i.address, i.mnemonic, i.op_str))</span><br></pre></td></tr></table></figure>
+
 <p>从这段源码可以看到，这是利用 capstone 的反汇编功能来实现的，但是需要指定对应汇编的处理器架构和字长信息。</p>
-<h1 id="分析-Shellcode"><a href="#分析-Shellcode" class="headerlink" title="分析 Shellcode"></a>分析 Shellcode</h1><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://bbs.pediy.com/thread-222965.htm" target="_blank" rel="noopener">【Python】使用Python将Shellcode转换成汇编</a></p>
-<p><a href="https://xz.aliyun.com/t/2052" target="_blank" rel="noopener">Linux下shellcode的编写</a></p>
+<h1 id="2-分析-Shellcode-原理"><a href="#2-分析-Shellcode-原理" class="headerlink" title="2. 分析 Shellcode 原理"></a>2. 分析 Shellcode 原理</h1><p>Linu 下 Shellcode 的原理参考<a href="https://xz.aliyun.com/t/2052" target="_blank" rel="noopener">《Linux下shellcode的编写》</a>一文，关键是调用系统调用函数 execve。这个函数的参数如下：</p>
+<ul>
+<li>参数 1：file 文件名</li>
+<li>参数 2：NULL 即 0</li>
+<li>参数 3：NULL 即 0</li>
+</ul>
+<p>实现调用时，需要将系统调用号码 11 放入 eax 中，最终调用<code>int 0x80</code>实现函数调用。</p>
+<h2 id="ROP-教程中的-Shellcode-分析"><a href="#ROP-教程中的-Shellcode-分析" class="headerlink" title="ROP 教程中的 Shellcode 分析"></a>ROP 教程中的 Shellcode 分析</h2><p>下面针对第一次调用失败的 Shellcode 反汇编得到的代码分析下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">0x0:   xor ecx, ecx     \x31\xc9  // 清空 ecx，即 ecx = 0</span><br><span class="line">0x2:   mul ecx          \xf7\xe1  // 貌似是无意义的 ecx清零指令</span><br><span class="line">0x4:   push ecx         \x51      // 压入参数 0</span><br><span class="line">0x5:   push 0x68732f2f  \x68\x2f\x2f\x73\x68  // 压入字符串</span><br><span class="line">0xa:   push 0x6e69622f  \x68\x2f\x62\x69\x6e  // 压入字符串</span><br><span class="line">0xf:   mov ebx, esp     \x89\xe3  // 将字符串的地址传给 ebx</span><br><span class="line">0x11:  mov al, 0xb      \xb0\x0b  // 调用号 0xb == 11</span><br><span class="line">0x13:  int 0x80         \xcd\x80  // 0x80中 断调用系统调用</span><br></pre></td></tr></table></figure>
+
+<p>由此可见，从反汇编角度这段 Shellcode 应该是有问题的，参数没有正常的传入。</p>
+<h2 id="测试-Shellcode"><a href="#测试-Shellcode" class="headerlink" title="测试 Shellcode"></a>测试 Shellcode</h2><p>同样我们可以将这段 Shellcode 拷贝到测试程序中进行测试。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">char shellcode[] = &quot;\x31\xc9\xf7\xe1\x51\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\xb0\x0b\xcd\x80&quot;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int (*ret)() = (int(*)()) shellcode;</span><br><span class="line">    ret();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后使用 <code>gcc -fno-stack-protector -z execstack shellcode.c -o shellcode</code> 进行编译，预期之内，直接报出 <code>Segmentation fault</code> 错误。说明这段 Shellcode 的确是有问题的。</p>
+<p>更换为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">char shellcode[] =  &quot;\x31\xc0\x50\x68\x6e\x2f\x73\x68\x68\x2f\x2f\x62\x69\x89\xe3\x50\x89\xe2\x53\x89\xe1\xb0\x0b\xcd\x80&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>测试正常，该段 Shellcode 可以参考文2来查看详细含义。</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://bbs.pediy.com/thread-222965.htm" target="_blank" rel="noopener">1.【Python】使用Python将Shellcode转换成汇编</a></p>
+<p><a href="https://xz.aliyun.com/t/2052" target="_blank" rel="noopener">2. Linux下shellcode的编写</a></p>
 
           
         
@@ -1353,6 +1564,7 @@
 <p><code>Graph</code> 定义了整个图片</p>
 <h1 id="工具教程"><a href="#工具教程" class="headerlink" title="工具教程"></a>工具教程</h1><p>用过 NodeJS 的都了解，有一个 <code>supervisor</code> 命令能够监听目录，一旦发现文件发生改变后自动重启程序。发现 <code>dot</code> 命令并不存在自动监听生成图片的功能，因此改造了下，安装第三方工具 nodemon 来实现文件监听。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g nodemon</span><br></pre></td></tr></table></figure>
+
 <p>然后运行命令 <code>nodemon -e .gv -x &quot;dot -Tpng -o test.png stack.gv&quot;</code> ，便实现了 nodemon 监听指定后缀名的功能，然后执行指定的命令。可惜的是暂时没有找到将发生文件变化的文件名作为变量传入到命令中的方法。</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://graphviz.gitlab.io/_pages/pdf/dotguide.pdf" target="_blank" rel="noopener">Guide</a></p>
 
@@ -1721,8 +1933,10 @@
 <h2 id="虚拟机网络配置"><a href="#虚拟机网络配置" class="headerlink" title="虚拟机网络配置"></a>虚拟机网络配置</h2><p>为了方便测试，我选择使用 SSH 连接 Linux 主机执行命令，而不是从 VirtualBox 的界面，无法快捷的复制粘贴内外内容。使用 SSH 时需要有一个条件是物理机主动连接到虚拟机，但是默认的虚拟机环境采用 NAT 模式，虚拟机能够访问外网但是物理机无法访问虚拟机，这时可以额外添加一个 Host Only 网络来连接虚拟机。</p>
 <h2 id="Alpine-Linux-基础环境搭建"><a href="#Alpine-Linux-基础环境搭建" class="headerlink" title="Alpine Linux 基础环境搭建"></a>Alpine Linux 基础环境搭建</h2><p>需要手动安装 gcc 和 libc-dev 库提供基础编译环境，安装 gdb 提供调试功能。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apk add libc-dev gcc gdb</span><br></pre></td></tr></table></figure>
+
 <h1 id="静态分析代码"><a href="#静态分析代码" class="headerlink" title="静态分析代码"></a>静态分析代码</h1><h2 id="反汇编程序"><a href="#反汇编程序" class="headerlink" title="反汇编程序"></a>反汇编程序</h2><p>为了方便反汇编，可以将 gdb 的语法设置默认为 AT&amp;T 语法改为 Intel 语法，具体方法如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;set disassembly-flavor intel&quot; &gt; ~/.gdbinit</span><br></pre></td></tr></table></figure>
+
 <h2 id="GDB-指令简介"><a href="#GDB-指令简介" class="headerlink" title="GDB 指令简介"></a>GDB 指令简介</h2><ul>
 <li><p><code>b[reak] &lt;行号|函数名|代码地址&gt;</code> 下断点</p>
 </li>
@@ -1739,9 +1953,10 @@
 </ul>
 <h2 id="Debug-教程"><a href="#Debug-教程" class="headerlink" title="Debug 教程"></a>Debug 教程</h2><p>使用 <code>gdb level1</code> 来加载程序，然后调用 <code>disas vulnerable_function</code> 来反汇编存在漏洞的函数。输入 <code>layout asm</code> 分屏显示汇编代码， <code>b  vulnerable_function</code> 下断点，然后 <code>r</code> 开始运行程序，<code>p $eip</code> 打印当前 EIP 寄存器地址。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">0x00001220 &lt;+0&gt;:	    push   ebp</span><br><span class="line">0x00001221 &lt;+1&gt;:	    mov    ebp,esp</span><br><span class="line">0x00001223 &lt;+3&gt;:	    push   ebx</span><br><span class="line">0x00001224 &lt;+4&gt;:	    sub    esp,0x84</span><br><span class="line"></span><br><span class="line">0x0000122a &lt;+10&gt;:	call   0x1218 &lt;__x86.get_pc_thunk.ax&gt;</span><br><span class="line">0x0000122f &lt;+15&gt;:	add    eax,0x2d99</span><br><span class="line">0x00001234 &lt;+20&gt;:	sub    esp,0x4          // &lt;----a</span><br><span class="line"></span><br><span class="line">0x00001237 &lt;+23&gt;:	push   0x100             // 256</span><br><span class="line">0x0000123c &lt;+28&gt;:	lea    edx,[ebp-0x88]    // -+</span><br><span class="line">0x00001242 &lt;+34&gt;:	push   edx               // -+--  ebp-0x88为buf地址</span><br><span class="line">0x00001243 &lt;+35&gt;:	push   0x0               // STDIN_FILENO</span><br><span class="line">0x00001245 &lt;+37&gt;:	mov    ebx,eax</span><br><span class="line">0x00001247 &lt;+39&gt;:	call   0x1040 &lt;read@plt&gt; // 调用read函数</span><br><span class="line"></span><br><span class="line">0x0000124c &lt;+44&gt;:	add    esp,0x10</span><br><span class="line">0x0000124f &lt;+47&gt;:	nop</span><br><span class="line">0x00001250 &lt;+48&gt;:	mov    ebx,DWORD PTR [ebp-0x4]</span><br><span class="line">0x00001253 &lt;+51&gt;:	leave                    // mov esp,ebp; pop ebp;</span><br><span class="line">0x00001254 &lt;+52&gt;:	ret                      // pop eip; jump eip;</span><br><span class="line"></span><br><span class="line">-----------------------</span><br><span class="line"></span><br><span class="line">0x0000126f &lt;+26&gt;:	call   0x1220 &lt;vulnerable_function&gt; // push eip; jump XX;</span><br></pre></td></tr></table></figure>
+
 <p>汇编代码中有一个函数 <code>__x86.get_pc_thunk.ax</code> 的调用，在此可以暂时忽略这段代码，与 EOP 利用无关，没有任何影响。关于这个函数的详细解释，参考 <a href="https://cloud.tencent.com/developer/ask/91473" target="_blank" rel="noopener">《什么是__i686.get_pc_thunk.bx？我们为什么需要调用这个？》</a> 一文。</p>
 <h2 id="堆栈分析"><a href="#堆栈分析" class="headerlink" title="堆栈分析"></a>堆栈分析</h2><p>下面先从理论上对堆栈情况分析一下。首先要注意的是，esp 指针是指向栈顶，即当前已经使用的空间。执行汇编指令到 a 处，堆栈如下：</p>
-<p><img src="/img/yop_stack_1.png" alt="初始堆栈"></p>
+<p><img src="/img/rop_stack_1.png" alt="初始堆栈"></p>
 <p>通过<code>si</code>和<code>ni</code>指令执行到read函数之前，此时的堆栈如下图2：</p>
 <p><img src="/img/rop_stack_2.png" alt="调用read函数前的堆栈"></p>
 <p>通过调试发现此时堆栈中有两个空位 0xbffffcb0 和 0xbffffc2c，猜测可能是多余的代码导致的。调用完 read 函数，输入内容后，进行堆栈平衡，此时堆栈变成下图：</p>
@@ -1751,6 +1966,7 @@
 <h2 id="生成-Shellcode"><a href="#生成-Shellcode" class="headerlink" title="生成 Shellcode"></a>生成 Shellcode</h2><p>很可惜，使用教程中所提供的 shellcode 时存在问题，进程仍然 crash，不过使用 Metasploit 生成要的 Shellcode 却能够正常执行。生成 Shellcode 的具体做法如下，进入 msfconsole，使用 <code>show payloads</code> 可以看到所有支持的 payload。然后 <code>use linux/x86/exec</code> 来选用当前环境的 payload ，输入 <code>info</code> 查看当前 payload 的参数，用 <code>set CMD /bin/s</code> 来生成执行 <code>sh</code> 的 shellcode，最后使用 <code>generate</code> 命令来生成。</p>
 <h2 id="执行-Shellcode"><a href="#执行-Shellcode" class="headerlink" title="执行 Shellcode"></a>执行 Shellcode</h2><p>最初的想法是在 Alpine 中安装 pwntools 工具本地执行，但是发现安装了一系列软件后，最终因为某个库不支持 x86 环境而安装失败，相关需要安装的库如下，有需要的可以参考下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apk add --no-cache -X https://mirrors.tuna.tsinghua.edu.cn/alpine/edge/community/ capstone-dev</span><br><span class="line">apk add python3 python3-dev alpine-sdk libffi-dev openssl-dev</span><br><span class="line">pip install pwntools</span><br></pre></td></tr></table></figure>
+
 <p>因为 pwntools 安装失败，所以使用 socat 命令来起服务，<code>socat TCP4-LISTEN:5001,fork EXEC:./level1</code>，这里同样要重新寻找对应的返回地址，因此第一次可以输入一个错误的 Shellcode，然后同样使用<code>gdb level1 core.xxxxx</code> 命令来调试 coredump 文件，显示具体的返回地址，再重新修改 shellcode 中的返回内容。</p>
 <p><img src="/img/rop_execute.png" alt="执行成功"></p>
 <h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>虽然这个教程篇幅不长，但是自己复现整个过程却充满了坎坷，断断续续花了两个月的时间，所幸第一次总是艰难的，后续会应该轻松很多吧，加油！</p>
@@ -1879,7 +2095,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-01-16 22:00:42" itemprop="dateModified" datetime="2018-01-16T22:00:42+08:00">2018-01-16</time>
+                <time title="修改时间：2019-06-23 10:54:19" itemprop="dateModified" datetime="2019-06-23T10:54:19+08:00">2019-06-23</time>
               
             
           </span>
@@ -1932,10 +2148,12 @@
 <h1 id="Mac下Wine运行心灵终结Mental-Omega-3-3"><a href="#Mac下Wine运行心灵终结Mental-Omega-3-3" class="headerlink" title="Mac下Wine运行心灵终结Mental Omega 3.3"></a>Mac下Wine运行心灵终结Mental Omega 3.3</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>红色警戒(Command &amp; Conquer: Red Alert 2)是经典的游戏，心灵终结是基于尤里的复仇的一个Mod，被称为”几乎完美的尤里的复仇”，2016年底该Mod发布3.3版本。相比原版的红警，阵营间的兵种区分更大，兵种相克更加合理，增加了多种对战模式，玩起来更加有意思。</p>
 <h2 id="安装Wine"><a href="#安装Wine" class="headerlink" title="安装Wine"></a>安装Wine</h2><p>Wine可以在Linux/Mac平台下模拟执行Window程序</p>
 <p>请安装开发版本的Wine以便获得更好的兼容性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install wine --devel</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew cask install wine-devel</span><br><span class="line">brew install winetricks</span><br></pre></td></tr></table></figure>
+
 <h2 id="安装Mental-Omega-3-3"><a href="#安装Mental-Omega-3-3" class="headerlink" title="安装Mental Omega 3.3"></a>安装Mental Omega 3.3</h2><p>请安装3.3.2版本，最早的MentalOmega 3.3.0版本的clientxna.exe无法正常启动，需要后续更新才行，该问题可以参考(<a href="https://github.com/CnCNet/xna-cncnet-client/issues/29" target="_blank" rel="noopener">https://github.com/CnCNet/xna-cncnet-client/issues/29</a>)</p>
 <p>选择一个心灵终结的懒人包，解压之后运行</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">winetricks xna40</span><br></pre></td></tr></table></figure>
+
 <p>会自动安装依赖.net40和xna40，安装完毕后如果直接运行<code>wine MentalOmegaClient.exe</code>仍然会提示缺少.NET组件，但是可以通过<code>wine Resources/clientxna.exe</code>来开启程序绕过检查。</p>
 <p><img src="/img/wine-MentalOmega.png" alt="Wine"></p>
 <h2 id="其他优化"><a href="#其他优化" class="headerlink" title="其他优化"></a>其他优化</h2><p>关于Wine的字体优化，可以参考<a href="https://www.lulinux.com/archives/362" target="_blank" rel="noopener">WINE界面与字体美化全攻略，及我的常用WINE程序截图展示</a></p>
@@ -1948,182 +2166,8 @@
 <ul>
 <li>2.在长时间运行红警后，会出现闪退现象</li>
 </ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2017/10/02/Crack-M3U8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="S0urceC0der">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/img/s0.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="S0urceC0der">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/10/02/Crack-M3U8/" class="post-title-link" itemprop="url">破解某网站m3u8视频资源</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-10-02 10:37:29" itemprop="dateCreated datePublished" datetime="2017-10-02T10:37:29+08:00">2017-10-02</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-01-16 21:57:13" itemprop="dateModified" datetime="2018-01-16T21:57:13+08:00">2018-01-16</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2017/10/02/Crack-M3U8/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/10/02/Crack-M3U8/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h1 id="破解某网站m3u8视频资源"><a href="#破解某网站m3u8视频资源" class="headerlink" title="破解某网站m3u8视频资源"></a>破解某网站m3u8视频资源</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>某个视频教学网站资源即将超过有效期，因此尝试将网页上的视频下载到本地。</p>
-<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><h3 id="1-登录验证"><a href="#1-登录验证" class="headerlink" title="1. 登录验证"></a>1. 登录验证</h3><p>这部分非常简单，模拟提交登录表单，并及时保存对应的Cookie即可</p>
-<h3 id="2-视频播放流程"><a href="#2-视频播放流程" class="headerlink" title="2. 视频播放流程"></a>2. 视频播放流程</h3><p>这个网页上使用了一个Flash播放器，然后通过该Flash文件读取m3u8文件进行播放。</p>
-<p>HTTP Live Streaming（HLS）是苹果公司(Apple Inc.)实现的基于HTTP的流媒体传输协议，m3u8，是HTTP Live Streaming直播的索引文件。该文件包含了这个视频的一系列视频分片，Flash播放器或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#EXTM3U</span><br><span class="line">#EXT-X-VERSION:3</span><br><span class="line">#EXT-X-MEDIA-SEQUENCE:0</span><br><span class="line">#EXT-X-ALLOW-CACHE:YES</span><br><span class="line">#EXT-X-TARGETDURATION:11</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0xe532855feb3e18366b8e7ea0c11f3116</span><br><span class="line">#EXTINF:10.066667,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg0</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0x48586a2ac8397fbce9565480259c1b94</span><br><span class="line">#EXTINF:10.000000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg1</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0x928f18982f6ee1a7e36cfa8f36979c3a</span><br><span class="line">#EXTINF:10.000000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg2</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0x6651941d56de8af0c7d4bee9ae33a8de</span><br><span class="line">#EXTINF:10.000000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg3</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0x90df003d61ba2ef9413fdaf521cfce15</span><br><span class="line">#EXTINF:10.000000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg4</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0xc7773183806b8d3d7e44811076ed5b66</span><br><span class="line">#EXTINF:2.200000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg5</span><br><span class="line">#EXT-X-ENDLIST</span><br></pre></td></tr></table></figure>
-<p>m3u8内容如上所示，解析时一般是根据<code>EXT-X-KEY</code>中的<code>METHOD</code>的加密方法和<code>URI</code>链接下载密钥内容，最终结合<code>IV</code>解密后续的分片url。</p>
-<h3 id="3-变种"><a href="#3-变种" class="headerlink" title="3. 变种"></a>3. 变种</h3><p>上述是正常的播放过程，但是对该网站解析时却失败了，解密出来的结果却不是正常的视频，多次尝试后，唯一的剩下的可能性便是这个Flash播放器采用了变种HLS协议。</p>
-<p>使用<a href="https://www.free-decompiler.com/flash/download/" target="_blank" rel="noopener">ffdec</a>打开下载得到的Flash播放文件，阅读其中的代码，果然并非标准的HLS协议。</p>
+<h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><p>2019.06.22 更新最新的 Wine 使用情况。</p>
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="https://blog.csdn.net/wr132/article/details/76093911" target="_blank" rel="noopener">【WineHQ】解决UTF8乱码问题</a></p>
 
           
         
@@ -2213,7 +2257,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2383,22 +2427,11 @@
 
 
 
-  
-    
-    
-      
-    
-  
-  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
 
 
 
 
 
-
-
-  
-  
 
 
 
@@ -2414,12 +2447,6 @@
 
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/three/three.min.js"></script>
-
-  
-  <script src="/lib/three/canvas_sphere.min.js"></script>
 
 
   

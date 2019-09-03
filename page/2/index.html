@@ -15,7 +15,7 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -343,6 +343,183 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2017/10/02/Crack-M3U8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/s0.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/10/02/Crack-M3U8/" class="post-title-link" itemprop="url">破解某网站m3u8视频资源</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-10-02 10:37:29" itemprop="dateCreated datePublished" datetime="2017-10-02T10:37:29+08:00">2017-10-02</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-01-16 21:57:13" itemprop="dateModified" datetime="2018-01-16T21:57:13+08:00">2018-01-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2017/10/02/Crack-M3U8/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/10/02/Crack-M3U8/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h1 id="破解某网站m3u8视频资源"><a href="#破解某网站m3u8视频资源" class="headerlink" title="破解某网站m3u8视频资源"></a>破解某网站m3u8视频资源</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>某个视频教学网站资源即将超过有效期，因此尝试将网页上的视频下载到本地。</p>
+<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><h3 id="1-登录验证"><a href="#1-登录验证" class="headerlink" title="1. 登录验证"></a>1. 登录验证</h3><p>这部分非常简单，模拟提交登录表单，并及时保存对应的Cookie即可</p>
+<h3 id="2-视频播放流程"><a href="#2-视频播放流程" class="headerlink" title="2. 视频播放流程"></a>2. 视频播放流程</h3><p>这个网页上使用了一个Flash播放器，然后通过该Flash文件读取m3u8文件进行播放。</p>
+<p>HTTP Live Streaming（HLS）是苹果公司(Apple Inc.)实现的基于HTTP的流媒体传输协议，m3u8，是HTTP Live Streaming直播的索引文件。该文件包含了这个视频的一系列视频分片，Flash播放器或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#EXTM3U</span><br><span class="line">#EXT-X-VERSION:3</span><br><span class="line">#EXT-X-MEDIA-SEQUENCE:0</span><br><span class="line">#EXT-X-ALLOW-CACHE:YES</span><br><span class="line">#EXT-X-TARGETDURATION:11</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0xe532855feb3e18366b8e7ea0c11f3116</span><br><span class="line">#EXTINF:10.066667,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg0</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0x48586a2ac8397fbce9565480259c1b94</span><br><span class="line">#EXTINF:10.000000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg1</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0x928f18982f6ee1a7e36cfa8f36979c3a</span><br><span class="line">#EXTINF:10.000000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg2</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0x6651941d56de8af0c7d4bee9ae33a8de</span><br><span class="line">#EXTINF:10.000000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg3</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0x90df003d61ba2ef9413fdaf521cfce15</span><br><span class="line">#EXTINF:10.000000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg4</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0xc7773183806b8d3d7e44811076ed5b66</span><br><span class="line">#EXTINF:2.200000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg5</span><br><span class="line">#EXT-X-ENDLIST</span><br></pre></td></tr></table></figure>
+
+<p>m3u8内容如上所示，解析时一般是根据<code>EXT-X-KEY</code>中的<code>METHOD</code>的加密方法和<code>URI</code>链接下载密钥内容，最终结合<code>IV</code>解密后续的分片url。</p>
+<h3 id="3-变种"><a href="#3-变种" class="headerlink" title="3. 变种"></a>3. 变种</h3><p>上述是正常的播放过程，但是对该网站解析时却失败了，解密出来的结果却不是正常的视频，多次尝试后，唯一的剩下的可能性便是这个Flash播放器采用了变种HLS协议。</p>
+<p>使用<a href="https://www.free-decompiler.com/flash/download/" target="_blank" rel="noopener">ffdec</a>打开下载得到的Flash播放文件，阅读其中的代码，果然并非标准的HLS协议。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2017/01/21/Install-Android-with-Homebrew/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -458,9 +635,13 @@
 <p>Homebrew可以自动安装多个Mac相关软件，以命令行程序为主，而Homebrew Cask包负责安装Mac上的App应用，安装时可以直接搜索，不必去各个网站单独下载，并且可以通过<code>brew upgrade</code>进行统一更新，免去了逐一手动更新的痛苦，目前大部分开发相关的应用都可以直接安装，基本能够达到替换App Store。</p>
 <h3 id="配置基本android开发环境包"><a href="#配置基本android开发环境包" class="headerlink" title="配置基本android开发环境包"></a>配置基本android开发环境包</h3><p>正如上文所述，使用Homebrew进行软件管理的目的，所有软件均不会从官网下载，而只通过命令行安装。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">brew install ant</span><br><span class="line">brew install maven</span><br><span class="line">brew install gradle</span><br><span class="line">brew install android-sdk</span><br><span class="line">brew install android-ndk</span><br></pre></td></tr></table></figure>
+
 <p>允许android命令来安装Android开发环境，关于所需的包，可以参考<a href="https://www.zhihu.com/question/31935836" target="_blank" rel="noopener">知乎-Android SDk Manager里面到底哪些东西是必须下载的？</a></p>
-<h4 id="安装HAXM"><a href="#安装HAXM" class="headerlink" title="安装HAXM"></a>安装HAXM</h4><p>这是唯一一步需要sudo操作的安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install intel-haxm</span><br></pre></td></tr></table></figure></p>
+<h4 id="安装HAXM"><a href="#安装HAXM" class="headerlink" title="安装HAXM"></a>安装HAXM</h4><p>这是唯一一步需要sudo操作的安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install intel-haxm</span><br></pre></td></tr></table></figure>
+
 <h3 id="安装Android-Studio"><a href="#安装Android-Studio" class="headerlink" title="安装Android Studio"></a>安装Android Studio</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install android-studio</span><br></pre></td></tr></table></figure>
+
 <p>允许Android Studio后，记得配置Android SDK路径为/usr/local/opt/android-sdk</p>
 <p>###</p>
 
@@ -652,9 +833,11 @@
 </blockquote>
 <p>后得知是缺乏libcurl相关库，但是最初并不知道，因此选择重新编译git，官网提示需要如下库</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install curl-devel expat-devel gettext-devel openssl-devel perl-devel zlib-devel</span><br></pre></td></tr></table></figure>
+
 <p>自然是按照对应的依赖，然后下载解压对应的包，增加到include路径中，然后进行编译，但是事实证明这个过程非常艰难，最终没有编译成功，有兴趣的同学可以尝试下看看。</p>
 <p>幸运的从网上找到了一个<a href="http://vault.centos.org/5.4/os/x86_64/CentOS/" target="_blank" rel="noopener">Centos rpm包库</a>，然后根据需要的包名选择下载，s使用命令<code>rpm2cpio *.rpm | cpio -div</code>释放rpm包文件到了本地的~/usr目录下，并确认这些文件及so能够正常在环境变量里面</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:~/usr/bin</span><br><span class="line">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/usr/lib</span><br><span class="line">export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/usr/include</span><br><span class="line">export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/usr/include</span><br></pre></td></tr></table></figure>
+
 <p>随后编译git，并放入~/usr/bin下，能够正常运行git。</p>
 <h3 id="Standalone模式安装Linuxbrew"><a href="#Standalone模式安装Linuxbrew" class="headerlink" title="Standalone模式安装Linuxbrew"></a>Standalone模式安装Linuxbrew</h3><p>在Standalone模式下，Linuxbrew会搭建一个完全脱离现有系统的编译环境和运行环境，运行Linuxbrew的软件时不再依赖系统原有的的编译器和库。</p>
 <p>虽然说是Standalone模式，仍然需要一个编译器来首先编译出一个gcc，但是CentOS5.4的默认gcc版本过旧，必须要求最低4.4版本才行。依然尝试下载对应的rpm包，然后需要注意的是，这些包可能存在依赖，所以需要运行命令<code>rpm -Uvh --test *.rpm</code>来查看是否已经安装，否则仍然需要手动安装。我正是因为libstdc++44-devel-4.4.0没有安装导致耽误了两天的时间。具体的包如下：</p>
@@ -686,6 +869,7 @@
 <p>下载不稳定，所以经常无法下载，可以手动下载然后把文件放到<code>~/.cache/Homebrew</code>下，如果没有正常识别出缓存的话，可以本地搭个简单的http服务器（<code>python -m SimpleHTTPServer</code>)，然后<code>brew edit package</code>去修改下载链接</p>
 <h3 id="使用zsh"><a href="#使用zsh" class="headerlink" title="使用zsh"></a>使用zsh</h3><p>安装zsh后，自动安装oh-my-zsh会出现检测不到zsh的问题（当然是因为不在默认的shell路径中了），需要手动下载这个安装脚本，并且设置其中的<code>CHECK_ZSH_INSTALLED</code>为1。因为没有权限切换默认的shell，所以基本是不能用zsh的，不过有个曲线救国的方法，就是安装tmux并且让tmux启动时自动调用zsh，以后每次启动tmux就启动调用zsh。设置方法为在文件<code>.tmux.conf</code>中写入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set-option -g default-shell ~/.linuxbrew/bin/zsh</span><br></pre></td></tr></table></figure>
+
 <h2 id="后续更新记录"><a href="#后续更新记录" class="headerlink" title="后续更新记录"></a>后续更新记录</h2><h3 id="Linuxbrew更新情况"><a href="#Linuxbrew更新情况" class="headerlink" title="Linuxbrew更新情况"></a>Linuxbrew更新情况</h3><p>2016年四月Homebrew和Linuxbrew都进行了目录结构的更改，将原有的包分割成了brew和Homebrew-core两个包，需要进行重新调整。</p>
 <h3 id="新的安装方法"><a href="#新的安装方法" class="headerlink" title="新的安装方法"></a>新的安装方法</h3><p>最新的Homebrew已经不再需要上述如此复杂的方法了，可以参考最新的安装方法(<a href="https://github.com/Linuxbrew/brew/wiki/CentOS6" target="_blank" rel="noopener">https://github.com/Linuxbrew/brew/wiki/CentOS6</a>) ，通过<code>HOMEBREW_NO_AUTO_UPDATE=1 HOMEBREW_BUILD_FROM_SOURCE=1 brew install gcc --without-glibc</code> 进行安装编译，但是其他的依赖安装仍然需要同样的方法进行设置。</p>
 <h3 id="不在支持CentOS5旧版本"><a href="#不在支持CentOS5旧版本" class="headerlink" title="不在支持CentOS5旧版本"></a>不在支持CentOS5旧版本</h3><p>最新的glibc-2.23要求linux内核至少为2.6.16，因此最新的Linuxbrew已经无法安装再CentOS5的旧版本。如果硬要安装，个人感觉可以搜索homebrew-core的glibc为2.19历史版本覆盖最新的homebrew-core来进行安装，但是我因为gmp编译问题，并未安装成功。</p>
@@ -865,15 +1049,20 @@
 <h4 id="node"><a href="#node" class="headerlink" title="node"></a>node</h4><p>推荐使用阿里源，主要是提供额外的cnpm命令，可以方便的安装。</p>
 <h4 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h4><p>淘宝的Ruby镜像已经改由Ruby-China维护，所以请使用<a href="https://gems.ruby-china.org/" target="_blank" rel="noopener">Ruby-China的镜像</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/</span><br><span class="line">$ gem sources -l</span><br><span class="line">https://gems.ruby-china.org</span><br><span class="line"># 确保只有 gems.ruby-china.org</span><br></pre></td></tr></table></figure>
+
 <h4 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h4><p>使用腾讯Bugly镜像，<a href="http://android-mirror.bugly.qq.com:8080/include/usage.html" target="_blank" rel="noopener">将Android SDK Manager的代理设置为android-mirror.bugly.qq.com:8080</a></p>
 <h4 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a>homebrew</h4><p>homebrew自身内容是放在github上的，如果更新速度慢，可以换成<a href="http://mirrors.tuna.tsinghua.edu.cn/help/#homebrew" target="_blank" rel="noopener">清华的镜像</a>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/local</span><br><span class="line">$ git remote set-url origin git://mirrors.tuna.tsinghua.edu.cn/homebrew.git</span><br></pre></td></tr></table></figure>
+
 <p>homebrew-science或者homebrew-python也可以参考其页面进行修改。不过如果不是处于极其艰难的情况，不建议改这个，因为无法确保各个的软件包的hash未被篡改。</p>
 <p>homebrew大多数的软件源都是在homebrew.bintray.com上的，速度同样非常慢，<a href="http://ban.ninja/" target="_blank" rel="noopener">有人</a>也做了份国内镜像。</p>
 <p>设置环境变量:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export HOMEBREW_BOTTLE_DOMAIN=http://7xkcej.dl1.z0.glb.clouddn.com</span><br></pre></td></tr></table></figure>
+
 <h4 id="Docker-Hub"><a href="#Docker-Hub" class="headerlink" title="Docker Hub"></a>Docker Hub</h4><p>国内基本斗士要注册的，科大源有个反向代理，因为Docker配置比较麻烦，请具体参考<a href="https://lug.ustc.edu.cn/wiki/mirrors/help/docker" target="_blank" rel="noopener">Docker镜像使用帮助</a></p>
-<h4 id="pyenv"><a href="#pyenv" class="headerlink" title="pyenv"></a>pyenv</h4><p>同样设置环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PYTHON_BUILD_MIRROR_URL=&quot;http://pyenv.qiniudn.com/pythons/&quot;</span><br></pre></td></tr></table></figure></p>
+<h4 id="pyenv"><a href="#pyenv" class="headerlink" title="pyenv"></a>pyenv</h4><p>同样设置环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PYTHON_BUILD_MIRROR_URL=&quot;http://pyenv.qiniudn.com/pythons/&quot;</span><br></pre></td></tr></table></figure>
+
 <h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>对于这些第三方源，并不能完全保重其安全性，所以会存在一定的风险下载到经过篡改的软件包。</p>
 <h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><p>2017.01.21 更新多条源记录</p>
 
@@ -2009,6 +2198,7 @@
 </ol>
 <h2 id="使用配置"><a href="#使用配置" class="headerlink" title="使用配置"></a>使用配置</h2><h3 id="乱码"><a href="#乱码" class="headerlink" title="乱码"></a>乱码</h3><p>ls的乱码主要是参数问题，修改文件cmder/config/aliases：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">l=ls --show-control-chars</span><br><span class="line">la=ls -aF --show-control-chars</span><br><span class="line">ll=ls -alF --show-control-chars</span><br><span class="line">ls=ls --show-control-chars -F</span><br></pre></td></tr></table></figure>
+
 <h3 id="中文重叠"><a href="#中文重叠" class="headerlink" title="中文重叠"></a>中文重叠</h3><p>在设置中，取消<code>Main console font</code>下的Monospace勾，这样中文字符（占用两个英文字符空间）就得到的了足够的空间了。</p>
 <h3 id="右键打开Cmder"><a href="#右键打开Cmder" class="headerlink" title="右键打开Cmder"></a>右键打开Cmder</h3><p>以管理员权限运行，输入命令<code>.\cmder.exe /REGISTER ALL</code>，在任意目录下右击就会出现<code>Cmder Here</code>，可以打开并默认切换到该目录。</p>
 <h3 id="退格后错位"><a href="#退格后错位" class="headerlink" title="退格后错位"></a>退格后错位</h3><blockquote>
@@ -2028,233 +2218,6 @@
 </li>
 </ol>
 <h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>现在只是刚开始使用，很多功能还是在摸索中，如果有更多的体会，会继续更新。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2015/03/15/Mactype/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="S0urceC0der">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/img/s0.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="S0urceC0der">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/03/15/Mactype/" class="post-title-link" itemprop="url">使用Mactype渲染字体</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-03-15 13:27:48" itemprop="dateCreated datePublished" datetime="2015-03-15T13:27:48+08:00">2015-03-15</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-01-16 21:59:42" itemprop="dateModified" datetime="2018-01-16T21:59:42+08:00">2018-01-16</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/03/15/Mactype/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/03/15/Mactype/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Mactype是在Windows下实现类似Mac下字体渲染效果的程序。长期以来，我一直都使用这个软件替代系统自带的ClearType渲染功能。渲染得到的字体相当不错。</p>
-<p>但是，</p>
-<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p>Windows下面自带的雅黑字体效果还是挺不错的，但是还是建议使用其他修改过的字体。字体可以去<a href="http://bbs.themex.net/forumdisplay.php?f=90" target="_blank" rel="noopener">极限社区</a>下载。该论坛也是重要的讨论字体修改和Mactype的网站。</p>
-<p>之前用的比较多的是XHei，貌似现在出了新的字体，以后下载看下效果。</p>
-<h2 id="程序优化"><a href="#程序优化" class="headerlink" title="程序优化"></a>程序优化</h2><h3 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h3><p>Firefox默认开启的硬件加速，因此无法直接使用Mactype字体渲染。关于具体的设置，参考文档<a href="https://github.com/renkun-ken/MacType.Source" target="_blank" rel="noopener">MacType.Source</a></p>
-<p>打开<code>about:config</code>，修改设置如下</p>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>gfx.direct2d.disabled</td>
-<td>true</td>
-</tr>
-<tr>
-<td>gfx.font_loader.delay</td>
-<td>-1</td>
-</tr>
-<tr>
-<td>gfx.font_rendering.cleartype.always_use_for_content;true</td>
-<td>true</td>
-</tr>
-<tr>
-<td>gfx.font_rendering.cleartype_params.cleartype_level</td>
-<td>100</td>
-</tr>
-<tr>
-<td>gfx.font_rendering.cleartype_params.enhanced_contrast</td>
-<td>100</td>
-</tr>
-<tr>
-<td>gfx.font_rendering.cleartype_params.gamma</td>
-<td>1400</td>
-</tr>
-<tr>
-<td>gfx.font_rendering.cleartype_params.pixel_structure</td>
-<td>1</td>
-</tr>
-<tr>
-<td>gfx.font_rendering.cleartype_params.rendering_mode</td>
-<td>5</td>
-</tr>
-<tr>
-<td>gfx.font_rendering.fallback.always_use_cmaps</td>
-<td>true</td>
-</tr>
-<tr>
-<td>gfx.use_text_smoothing_setting</td>
-<td>true</td>
-</tr>
-</tbody>
-</table>
-<h3 id="VisualStudio"><a href="#VisualStudio" class="headerlink" title="VisualStudio"></a>VisualStudio</h3><p>与Firefox一样，同样使用了硬件加速，而且偏偏没有任何设置。</p>
-<p>在<a href="http://www.zhihu.com/question/24251313" target="_blank" rel="noopener">VS 怎么使用 MacType 的字体渲染？</a>中提出了解决方案：对于ClearType设置为Smoothing的字体，且Visualstudio在显示比例不为100%时可以直接通过Mactype进行渲染。</p>
-<p>所以需要使用这样特别制作的字体，从<a href="http://tieba.baidu.com/p/3366845989" target="_blank" rel="noopener">自制FantasqueSansMono字体+VS缩放插件,完美解决VS2013+Mactype</a>下载特别制作过的字体FantasqueSansMono字体。</p>
-<p>但是默认VS都会在新开一个窗口的时候重置缩放比例，因此需要使用插件让VS保持显示比较为99%。插件可以参考帖子<a href="https://stackoverflow.com/questions/4771750/visual-studio-2010-default-zoom-level" target="_blank" rel="noopener">Visual Studio 2010 default zoom level</a>，固定了显示比例之后，防止不小心按了<code>Ctrl+滚轮</code>而改变了缩放，可以安装插件<a href="https://visualstudiogallery.msdn.microsoft.com/d088791c-150a-4834-8f28-462696a82bb8" target="_blank" rel="noopener">Disable Mouse Wheel Zoom</a>，装上了这几个插件，基本可以欣赏漂亮的字体渲染了。</p>
 
           
         
@@ -2344,7 +2307,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2514,22 +2477,11 @@
 
 
 
-  
-    
-    
-      
-    
-  
-  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
 
 
 
 
 
-
-
-  
-  
 
 
 
@@ -2545,12 +2497,6 @@
 
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/three/three.min.js"></script>
-
-  
-  <script src="/lib/three/canvas_sphere.min.js"></script>
 
 
   

@@ -100,20 +100,22 @@
 
 
 
-  <meta name="description" content="Mac下Wine运行心灵终结Mental Omega 3.3简介红色警戒(Command &amp;amp; Conquer: Red Alert 2)是经典的游戏，心灵终结是基于尤里的复仇的一个Mod，被称为”几乎完美的尤里的复仇”，2016年底该Mod发布3.3版本。相比原版的红警，阵营间的兵种区分更大，兵种相克更加合理，增加了多种对战模式，玩起来更加有意思。 安装WineWine可以在Linux/">
-<meta name="keywords" content="Mac,Linux">
+  <meta name="description" content="ROP攻击: 使用 Return-to-libc 绕过 DEP 防护使用 Ubuntu cloud image 构建基本测试环境这时我遇到了一个坑，发现基于 Alpine Linux 测试始终不通过，因此不得不再次改用了 Ubuntu 进行测试。猜测应该是因为 Alpine Linux 不再基于 glibc，利用方法可能有所改变。 本来想选择的镜像是 Ubuntu Cloud Image，具体的版">
+<meta name="keywords" content="Linux,Exploit">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac下Wine运行心灵终结Mental Omega 3.3">
-<meta property="og:url" content="http://S0urceC0der.github.io/2017/10/21/Wine-Mental-Omega/index.html">
+<meta property="og:title" content="从0开始学习Linux ROP利用-part2">
+<meta property="og:url" content="http://S0urceC0der.github.io/2018/02/12/ROP-part2/index.html">
 <meta property="og:site_name" content="S0urceC0der">
-<meta property="og:description" content="Mac下Wine运行心灵终结Mental Omega 3.3简介红色警戒(Command &amp;amp; Conquer: Red Alert 2)是经典的游戏，心灵终结是基于尤里的复仇的一个Mod，被称为”几乎完美的尤里的复仇”，2016年底该Mod发布3.3版本。相比原版的红警，阵营间的兵种区分更大，兵种相克更加合理，增加了多种对战模式，玩起来更加有意思。 安装WineWine可以在Linux/">
+<meta property="og:description" content="ROP攻击: 使用 Return-to-libc 绕过 DEP 防护使用 Ubuntu cloud image 构建基本测试环境这时我遇到了一个坑，发现基于 Alpine Linux 测试始终不通过，因此不得不再次改用了 Ubuntu 进行测试。猜测应该是因为 Alpine Linux 不再基于 glibc，利用方法可能有所改变。 本来想选择的镜像是 Ubuntu Cloud Image，具体的版">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://s0urcec0der.github.io/img/wine-MentalOmega.png">
-<meta property="og:updated_time" content="2019-06-23T02:54:19.973Z">
+<meta property="og:image" content="http://s0urcec0der.github.io/img/rop_stack_2.png">
+<meta property="og:image" content="http://s0urcec0der.github.io/img/rop_stack_4.png">
+<meta property="og:image" content="http://s0urcec0der.github.io/img/rop_stack_5.png">
+<meta property="og:updated_time" content="2018-03-09T15:18:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac下Wine运行心灵终结Mental Omega 3.3">
-<meta name="twitter:description" content="Mac下Wine运行心灵终结Mental Omega 3.3简介红色警戒(Command &amp;amp; Conquer: Red Alert 2)是经典的游戏，心灵终结是基于尤里的复仇的一个Mod，被称为”几乎完美的尤里的复仇”，2016年底该Mod发布3.3版本。相比原版的红警，阵营间的兵种区分更大，兵种相克更加合理，增加了多种对战模式，玩起来更加有意思。 安装WineWine可以在Linux/">
-<meta name="twitter:image" content="http://s0urcec0der.github.io/img/wine-MentalOmega.png">
+<meta name="twitter:title" content="从0开始学习Linux ROP利用-part2">
+<meta name="twitter:description" content="ROP攻击: 使用 Return-to-libc 绕过 DEP 防护使用 Ubuntu cloud image 构建基本测试环境这时我遇到了一个坑，发现基于 Alpine Linux 测试始终不通过，因此不得不再次改用了 Ubuntu 进行测试。猜测应该是因为 Alpine Linux 不再基于 glibc，利用方法可能有所改变。 本来想选择的镜像是 Ubuntu Cloud Image，具体的版">
+<meta name="twitter:image" content="http://s0urcec0der.github.io/img/rop_stack_2.png">
 
 
 
@@ -123,7 +125,7 @@
 
   
   
-  <link rel="canonical" href="http://S0urceC0der.github.io/2017/10/21/Wine-Mental-Omega/">
+  <link rel="canonical" href="http://S0urceC0der.github.io/2018/02/12/ROP-part2/">
 
 
 
@@ -133,7 +135,7 @@
   };
 </script>
 
-  <title>Mac下Wine运行心灵终结Mental Omega 3.3 | S0urceC0der</title>
+  <title>从0开始学习Linux ROP利用-part2 | S0urceC0der</title>
   
 
 
@@ -349,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2017/10/21/Wine-Mental-Omega/">
+    <link itemprop="mainEntityOfPage" href="http://S0urceC0der.github.io/2018/02/12/ROP-part2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="S0urceC0der">
@@ -366,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Mac下Wine运行心灵终结Mental Omega 3.3
+          <h1 class="post-title" itemprop="name headline">从0开始学习Linux ROP利用-part2
 
               
             
@@ -392,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2017-10-21 17:53:12" itemprop="dateCreated datePublished" datetime="2017-10-21T17:53:12+08:00">2017-10-21</time>
+              <time title="创建时间：2018-02-12 20:13:31" itemprop="dateCreated datePublished" datetime="2018-02-12T20:13:31+08:00">2018-02-12</time>
             
 
             
@@ -409,7 +411,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-23 10:54:19" itemprop="dateModified" datetime="2019-06-23T10:54:19+08:00">2019-06-23</time>
+                <time title="修改时间：2018-03-09 23:18:23" itemprop="dateModified" datetime="2018-03-09T23:18:23+08:00">2018-03-09</time>
               
             
           </span>
@@ -427,8 +429,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2017/10/21/Wine-Mental-Omega/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/10/21/Wine-Mental-Omega/" itemprop="commentCount"></span>
+                <a href="/2018/02/12/ROP-part2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/12/ROP-part2/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -456,30 +458,20 @@
       
 
       
-        <hr>
-<h1 id="Mac下Wine运行心灵终结Mental-Omega-3-3"><a href="#Mac下Wine运行心灵终结Mental-Omega-3-3" class="headerlink" title="Mac下Wine运行心灵终结Mental Omega 3.3"></a>Mac下Wine运行心灵终结Mental Omega 3.3</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>红色警戒(Command &amp; Conquer: Red Alert 2)是经典的游戏，心灵终结是基于尤里的复仇的一个Mod，被称为”几乎完美的尤里的复仇”，2016年底该Mod发布3.3版本。相比原版的红警，阵营间的兵种区分更大，兵种相克更加合理，增加了多种对战模式，玩起来更加有意思。</p>
-<h2 id="安装Wine"><a href="#安装Wine" class="headerlink" title="安装Wine"></a>安装Wine</h2><p>Wine可以在Linux/Mac平台下模拟执行Window程序</p>
-<p>请安装开发版本的Wine以便获得更好的兼容性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew cask install wine-devel</span><br><span class="line">brew install winetricks</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装Mental-Omega-3-3"><a href="#安装Mental-Omega-3-3" class="headerlink" title="安装Mental Omega 3.3"></a>安装Mental Omega 3.3</h2><p>请安装3.3.2版本，最早的MentalOmega 3.3.0版本的clientxna.exe无法正常启动，需要后续更新才行，该问题可以参考(<a href="https://github.com/CnCNet/xna-cncnet-client/issues/29" target="_blank" rel="noopener">https://github.com/CnCNet/xna-cncnet-client/issues/29</a>)</p>
-<p>选择一个心灵终结的懒人包，解压之后运行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">winetricks xna40</span><br></pre></td></tr></table></figure>
-
-<p>会自动安装依赖.net40和xna40，安装完毕后如果直接运行<code>wine MentalOmegaClient.exe</code>仍然会提示缺少.NET组件，但是可以通过<code>wine Resources/clientxna.exe</code>来开启程序绕过检查。</p>
-<p><img src="/img/wine-MentalOmega.png" alt="Wine"></p>
-<h2 id="其他优化"><a href="#其他优化" class="headerlink" title="其他优化"></a>其他优化</h2><p>关于Wine的字体优化，可以参考<a href="https://www.lulinux.com/archives/362" target="_blank" rel="noopener">WINE界面与字体美化全攻略，及我的常用WINE程序截图展示</a></p>
-<h2 id="目前遇到的Bug"><a href="#目前遇到的Bug" class="headerlink" title="目前遇到的Bug"></a>目前遇到的Bug</h2><ul>
-<li>1.会经常性的在命令行窗口弹出错误信息：</li>
-</ul>
-<blockquote>
-<p> winedevice.exe(18227,0xb0004000) malloc: *** error for object 0x40203bb2: pointer being freed was not allocated</p>
-</blockquote>
-<ul>
-<li>2.在长时间运行红警后，会出现闪退现象</li>
-</ul>
-<h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><p>2019.06.22 更新最新的 Wine 使用情况。</p>
-<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="https://blog.csdn.net/wr132/article/details/76093911" target="_blank" rel="noopener">【WineHQ】解决UTF8乱码问题</a></p>
+        <h1 id="ROP攻击-使用-Return-to-libc-绕过-DEP-防护"><a href="#ROP攻击-使用-Return-to-libc-绕过-DEP-防护" class="headerlink" title="ROP攻击: 使用 Return-to-libc 绕过 DEP 防护"></a>ROP攻击: 使用 Return-to-libc 绕过 DEP 防护</h1><h2 id="使用-Ubuntu-cloud-image-构建基本测试环境"><a href="#使用-Ubuntu-cloud-image-构建基本测试环境" class="headerlink" title="使用 Ubuntu cloud image 构建基本测试环境"></a>使用 Ubuntu cloud image 构建基本测试环境</h2><p>这时我遇到了一个坑，发现基于 Alpine Linux 测试始终不通过，因此不得不再次改用了 Ubuntu 进行测试。猜测应该是因为 Alpine Linux 不再基于 glibc，利用方法可能有所改变。</p>
+<p>本来想选择的镜像是 Ubuntu Cloud Image，具体的版本是 Ubuntu xenial 16.04 LTS。Ubuntu Cloud Image 所提供的镜像比较精简，一般大小只有 200MB 多，适合快速下载，同时也提供了 Vmware 的 vmdk 文件下载，比较方便部署，但是具体使用的时候仍然无法支持使用 VirtualBox 启动通过，因此此处仅作一个想法记录下来。具体的安装方法不再叙述，同样给虚拟机分配了两个网卡，以方便联网和联入测试。</p>
+<h2 id="DEP-防护原理"><a href="#DEP-防护原理" class="headerlink" title="DEP 防护原理"></a>DEP 防护原理</h2><p>前一攻击方法使用的是直接将 Shellcode 写到栈然后执行，通过在编译的时候增加 stack-protector 参数，使得程序栈无法直接执行代码来实现防护。</p>
+<h2 id="调用-System-函数的原理"><a href="#调用-System-函数的原理" class="headerlink" title="调用 System 函数的原理"></a>调用 System 函数的原理</h2><p>伪造堆栈调用 system 函数之前所需要的内容，使得 vulnerable_function 返回时的 jump 变成了实际对 system 函数的调用。这边最理想的情况是调用完 system 函数后，如果 system 函数返回，则能够正常返回到 vulnerable_function 之前的返回地址，程序运行不会出现任何异常。</p>
+<p>首先再次回顾下此时的堆栈:</p>
+<p><img src="/img/rop_stack_2.png" alt="调用read函数前的堆栈"></p>
+<p>实际上我们现在能做的是从 0xbffffc30 开始来操纵栈中的数据内容，本来函数是通过 jmp eip 来返回到 main 函数的，但是通过更改 0xbffffcbc 处的地址为 system 函数的地址，使得这个返回变成了跳转入指定的函数调用中，并且此时 0xbffffcc4 处地址作为了改函数的调用参数，而 0xbffffcc0 处则是 system 函数的返回地址，通过修改此处地址的内容，可以确保 system 函数退出时程序不崩溃出现异常。</p>
+<p><img src="/img/rop_stack_4.png" alt="调用 system 函数前的堆栈"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>由此可见，Return to libc 技术，就是在栈区域无法直接执行代码的时候，通过返回到 glibc 中的函数，并传入 glibc 中的参数来执行指定函数。由此也可以看到，这种方法的前提是 glibc 中存在想要执行的函数与对应的参数。</p>
+<h1 id="ROP攻击-绕过-DEP-和-ASLR-保护"><a href="#ROP攻击-绕过-DEP-和-ASLR-保护" class="headerlink" title="ROP攻击: 绕过 DEP 和 ASLR 保护"></a>ROP攻击: 绕过 DEP 和 ASLR 保护</h1><p>增加了 ASLR 保护后，最明显的改变是不再有固定地址的函数。所有系统函数的地址均是未知的，不再能够直接调用到这些函数了。但是对应仍然存在一定的绕过方法。其基本思想是找到（泄露）一个已知函数的实际地址，然后通过这个函数和我们需要执行函数的偏移计算出所需要实际调用的函数地址，那么这个问题就转换为如何找到（泄露）一个已知函数的实际地址了。</p>
+<p>关于 Linux 的 PLT 和 GOT，本来想写一篇相关的文章，但是看到了 <a href="https://blog.csdn.net/linyt" target="_blank" rel="noopener">海枫</a> 写的相关文章之后，顿时觉得完全没有必要了，他已经将相关的知识点讲解的非常清楚。</p>
+<p>这里具体使用的方法是依据程序中的 write@plt 函数泄露了 write 函数的地址，为了达到这个目标，需要在栈上伪造了对 write@plt 函数的调用，栈布局如下图所示，这里面通过 write 将 write.got 中存储 write 函数地址的内容写入到 stdout 中，然后解析返回结果，就成功获取了 write 函数的地址。后续的利用过程则和前文中的 Return-to-libc 一致，这里不再赘述。</p>
+<p><img src="/img/rop_stack_5.png" alt="调用 write 函数前的堆栈"></p>
+<h1 id="参考列表"><a href="#参考列表" class="headerlink" title="参考列表"></a>参考列表</h1><p><a href="https://www.jianshu.com/p/594357dff57e" target="_blank" rel="noopener">压栈， 跳转，执行，返回：从汇编看函数调用</a><br><a href="https://xz.aliyun.com/t/1803" target="_blank" rel="noopener">Linux下pwn从入门到放弃</a><br><a href="https://0x00sec.org/t/exploit-mitigation-techniques-data-execution-prevention-dep/4634" target="_blank" rel="noopener">Exploit Mitigation Techniques - Data Execution Prevention (DEP)</a><br>[<a href="https://www.jianshu.com/p/ef58e6b0ebef?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation]" target="_blank" rel="noopener">https://www.jianshu.com/p/ef58e6b0ebef?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation]</a>(Linux (x86) Exploit 开发系列教程之八 绕过 ASLR – 第三部分)<br><a href="https://introspelliam.github.io/2017/08/03/pwn/got%E3%80%81plt%E8%A1%A8%E4%BB%8B%E7%BB%8D/" target="_blank" rel="noopener">got、plt表介绍</a><br><a href="https://blog.csdn.net/linyt/article/details/51635768" target="_blank" rel="noopener">聊聊Linux动态链接中的PLT和GOT（１）——何谓PLT与GOT</a></p>
 
       
     </div>
@@ -514,7 +506,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="http://S0urceC0der.github.io/2017/10/21/Wine-Mental-Omega/" title="Mac下Wine运行心灵终结Mental Omega 3.3">http://S0urceC0der.github.io/2017/10/21/Wine-Mental-Omega/</a>
+    <a href="http://S0urceC0der.github.io/2018/02/12/ROP-part2/" title="从0开始学习Linux ROP利用-part2">http://S0urceC0der.github.io/2018/02/12/ROP-part2/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -530,9 +522,9 @@
         
         <div class="post-tags">
           
-            <a href="/tags/Mac/" rel="tag"># Mac</a>
-          
             <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/Exploit/" rel="tag"># Exploit</a>
           
         </div>
       
@@ -545,8 +537,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/02/Crack-M3U8/" rel="next" title="破解某网站m3u8视频资源">
-                <i class="fa fa-chevron-left"></i> 破解某网站m3u8视频资源
+              <a href="/2018/01/28/Website/" rel="next" title="域名注册经历">
+                <i class="fa fa-chevron-left"></i> 域名注册经历
               </a>
             
           </div>
@@ -555,8 +547,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/22/ROP-part1/" rel="prev" title="从0开始学习Linux ROP利用-part1">
-                从0开始学习Linux ROP利用-part1 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/02/25/Install-Mactex/" rel="prev" title="在Mac上配置Mactex">
+                在Mac上配置Mactex <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -728,7 +720,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mac下Wine运行心灵终结Mental-Omega-3-3"><span class="nav-number">1.</span> <span class="nav-text">Mac下Wine运行心灵终结Mental Omega 3.3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Wine"><span class="nav-number">1.2.</span> <span class="nav-text">安装Wine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Mental-Omega-3-3"><span class="nav-number">1.3.</span> <span class="nav-text">安装Mental Omega 3.3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他优化"><span class="nav-number">1.4.</span> <span class="nav-text">其他优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目前遇到的Bug"><span class="nav-number">1.5.</span> <span class="nav-text">目前遇到的Bug</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更新日志"><span class="nav-number">2.</span> <span class="nav-text">更新日志</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文档"><span class="nav-number">3.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ROP攻击-使用-Return-to-libc-绕过-DEP-防护"><span class="nav-number">1.</span> <span class="nav-text">ROP攻击: 使用 Return-to-libc 绕过 DEP 防护</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Ubuntu-cloud-image-构建基本测试环境"><span class="nav-number">1.1.</span> <span class="nav-text">使用 Ubuntu cloud image 构建基本测试环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DEP-防护原理"><span class="nav-number">1.2.</span> <span class="nav-text">DEP 防护原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用-System-函数的原理"><span class="nav-number">1.3.</span> <span class="nav-text">调用 System 函数的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.4.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ROP攻击-绕过-DEP-和-ASLR-保护"><span class="nav-number">2.</span> <span class="nav-text">ROP攻击: 绕过 DEP 和 ASLR 保护</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考列表"><span class="nav-number">3.</span> <span class="nav-text">参考列表</span></a></li></ol></div>
             
 
           </div>
@@ -895,9 +887,9 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://S0urceC0der.github.io/2017/10/21/Wine-Mental-Omega/";
-    this.page.identifier = "2017/10/21/Wine-Mental-Omega/";
-    this.page.title = 'Mac下Wine运行心灵终结Mental Omega 3.3';
+    this.page.url = "http://S0urceC0der.github.io/2018/02/12/ROP-part2/";
+    this.page.identifier = "2018/02/12/ROP-part2/";
+    this.page.title = '从0开始学习Linux ROP利用-part2';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');

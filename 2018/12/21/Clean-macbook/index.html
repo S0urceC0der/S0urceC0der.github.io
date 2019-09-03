@@ -15,7 +15,7 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -462,12 +462,16 @@
 <p><img src="/img/cleanmac.png" alt="清理 Homebrew 的效果"></p>
 <p>为了能够自动清理，我编写了如下的脚本，以后定期执行即可。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">cd &quot;$(brew --repo)&quot; &amp;&amp; git gc --prune=now</span><br><span class="line"></span><br><span class="line">root=&quot;$(brew --repo)/Library/Taps/homebrew/&quot;</span><br><span class="line"></span><br><span class="line">echo $root</span><br><span class="line">for d in `ls $root`</span><br><span class="line">do</span><br><span class="line">    echo &quot; clean $root$d ...&quot;</span><br><span class="line">    cd $root$d &amp;&amp; git gc --prune=now</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">root=&quot;$(brew --repo)/Library/Taps/caskroom/&quot;</span><br><span class="line">echo $root</span><br><span class="line">for d in `ls $root`</span><br><span class="line">do</span><br><span class="line">    echo &quot; clean $root$d ...&quot;</span><br><span class="line">    cd $root$d &amp;&amp; git gc --prune=now</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
 <h2 id="Xcode-清理"><a href="#Xcode-清理" class="headerlink" title="Xcode 清理"></a>Xcode 清理</h2><p>Xcode 会下载大量的文件，但是过了一段时间后，仍然会有旧版本设备的支持，所以需要清理如下文件夹：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">~/Library/Developer/Xcode/DerivedData</span><br><span class="line">~/Library/Developer/Xcode/Archives</span><br><span class="line">~/Library/Developer/Xcode/iOS DeviceSupport</span><br><span class="line">~/Library/Developer/Xcode/watchOS DeviceSupport</span><br><span class="line">~/Library/Developer/CoreSimulator</span><br></pre></td></tr></table></figure>
+
 <h2 id="MongoDB-清理"><a href="#MongoDB-清理" class="headerlink" title="MongoDB 清理"></a>MongoDB 清理</h2><p>长久未使用 MongoDB，发现随着版本升级，对应的数据库文件没有升级，因此已经无法正常使用了，而 journal 日志则占用了将近 1G 空间，因此不得不先对数据库文件进行升级。通过 MongoDB 的启动日志可以知道，需要先从 3.4 升级到 3.6 再升级到 4.0。具体的脚本内容如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">brew install mongodb@3.4</span><br><span class="line">brew services start mongodb@3.4</span><br><span class="line">/usr/local/opt/mongodb@3.4/bin/mongo</span><br><span class="line">&gt; db.adminCommand( &#123; setFeatureCompatibilityVersion: &quot;3.4&quot; &#125; )</span><br><span class="line">brew uninstall mongodb@3.4</span><br><span class="line"></span><br><span class="line">// 安装 MongoDB 3.6</span><br><span class="line">brew services start mongodb@3.6</span><br><span class="line">/usr/local/opt/mongodb@3.6/bin/mongo</span><br><span class="line">&gt; db.adminCommand( &#123; setFeatureCompatibilityVersion: &quot;3.6&quot; &#125; )</span><br><span class="line">brew services stop mongodb@3.6</span><br><span class="line">brew uninstall mongodb@3.6</span><br><span class="line"></span><br><span class="line">// 安装 MongoDB 4</span><br><span class="line">brew install mongodb</span><br><span class="line">brew services start mongodb</span><br></pre></td></tr></table></figure>
+
 <p>升级完毕后，发现存储引擎仍然为 MMAPV1，需要升级为 wiredTiger，因此我在导出数据库后，删除数据库文件夹后又重装了 MongoDB 再导入数据，数据库占用空间也瞬时缩减了一大半。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mongodump --out mongodb</span><br><span class="line">brew uninstall mongodb</span><br><span class="line">rm -rf /usr/local/var/mongodb</span><br><span class="line">brew install mongodb</span><br><span class="line">brew services start mongodb</span><br><span class="line">mongorestore mongodb</span><br></pre></td></tr></table></figure>
+
 <h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p><a href="https://www.jianshu.com/p/7231b509c279" target="_blank" rel="noopener">为什么你的 Git 仓库变得如此臃肿</a><br><a href="https://stackoverflow.com/questions/29930198/can-i-delete-data-from-ios-devicesupport/29931912" target="_blank" rel="noopener">Can I delete data from iOS DeviceSupport?</a></p>
 
       
@@ -613,7 +617,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -800,22 +804,11 @@
 
 
 
-  
-    
-    
-      
-    
-  
-  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
 
 
 
 
 
-
-
-  
-  
 
 
 
@@ -831,12 +824,6 @@
 
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/three/three.min.js"></script>
-
-  
-  <script src="/lib/three/canvas_sphere.min.js"></script>
 
 
   

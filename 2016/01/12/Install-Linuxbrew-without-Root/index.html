@@ -15,7 +15,7 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -476,9 +476,11 @@
 </blockquote>
 <p>后得知是缺乏libcurl相关库，但是最初并不知道，因此选择重新编译git，官网提示需要如下库</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install curl-devel expat-devel gettext-devel openssl-devel perl-devel zlib-devel</span><br></pre></td></tr></table></figure>
+
 <p>自然是按照对应的依赖，然后下载解压对应的包，增加到include路径中，然后进行编译，但是事实证明这个过程非常艰难，最终没有编译成功，有兴趣的同学可以尝试下看看。</p>
 <p>幸运的从网上找到了一个<a href="http://vault.centos.org/5.4/os/x86_64/CentOS/" target="_blank" rel="noopener">Centos rpm包库</a>，然后根据需要的包名选择下载，s使用命令<code>rpm2cpio *.rpm | cpio -div</code>释放rpm包文件到了本地的~/usr目录下，并确认这些文件及so能够正常在环境变量里面</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:~/usr/bin</span><br><span class="line">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/usr/lib</span><br><span class="line">export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/usr/include</span><br><span class="line">export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/usr/include</span><br></pre></td></tr></table></figure>
+
 <p>随后编译git，并放入~/usr/bin下，能够正常运行git。</p>
 <h3 id="Standalone模式安装Linuxbrew"><a href="#Standalone模式安装Linuxbrew" class="headerlink" title="Standalone模式安装Linuxbrew"></a>Standalone模式安装Linuxbrew</h3><p>在Standalone模式下，Linuxbrew会搭建一个完全脱离现有系统的编译环境和运行环境，运行Linuxbrew的软件时不再依赖系统原有的的编译器和库。</p>
 <p>虽然说是Standalone模式，仍然需要一个编译器来首先编译出一个gcc，但是CentOS5.4的默认gcc版本过旧，必须要求最低4.4版本才行。依然尝试下载对应的rpm包，然后需要注意的是，这些包可能存在依赖，所以需要运行命令<code>rpm -Uvh --test *.rpm</code>来查看是否已经安装，否则仍然需要手动安装。我正是因为libstdc++44-devel-4.4.0没有安装导致耽误了两天的时间。具体的包如下：</p>
@@ -510,6 +512,7 @@
 <p>下载不稳定，所以经常无法下载，可以手动下载然后把文件放到<code>~/.cache/Homebrew</code>下，如果没有正常识别出缓存的话，可以本地搭个简单的http服务器（<code>python -m SimpleHTTPServer</code>)，然后<code>brew edit package</code>去修改下载链接</p>
 <h3 id="使用zsh"><a href="#使用zsh" class="headerlink" title="使用zsh"></a>使用zsh</h3><p>安装zsh后，自动安装oh-my-zsh会出现检测不到zsh的问题（当然是因为不在默认的shell路径中了），需要手动下载这个安装脚本，并且设置其中的<code>CHECK_ZSH_INSTALLED</code>为1。因为没有权限切换默认的shell，所以基本是不能用zsh的，不过有个曲线救国的方法，就是安装tmux并且让tmux启动时自动调用zsh，以后每次启动tmux就启动调用zsh。设置方法为在文件<code>.tmux.conf</code>中写入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set-option -g default-shell ~/.linuxbrew/bin/zsh</span><br></pre></td></tr></table></figure>
+
 <h2 id="后续更新记录"><a href="#后续更新记录" class="headerlink" title="后续更新记录"></a>后续更新记录</h2><h3 id="Linuxbrew更新情况"><a href="#Linuxbrew更新情况" class="headerlink" title="Linuxbrew更新情况"></a>Linuxbrew更新情况</h3><p>2016年四月Homebrew和Linuxbrew都进行了目录结构的更改，将原有的包分割成了brew和Homebrew-core两个包，需要进行重新调整。</p>
 <h3 id="新的安装方法"><a href="#新的安装方法" class="headerlink" title="新的安装方法"></a>新的安装方法</h3><p>最新的Homebrew已经不再需要上述如此复杂的方法了，可以参考最新的安装方法(<a href="https://github.com/Linuxbrew/brew/wiki/CentOS6" target="_blank" rel="noopener">https://github.com/Linuxbrew/brew/wiki/CentOS6</a>) ，通过<code>HOMEBREW_NO_AUTO_UPDATE=1 HOMEBREW_BUILD_FROM_SOURCE=1 brew install gcc --without-glibc</code> 进行安装编译，但是其他的依赖安装仍然需要同样的方法进行设置。</p>
 <h3 id="不在支持CentOS5旧版本"><a href="#不在支持CentOS5旧版本" class="headerlink" title="不在支持CentOS5旧版本"></a>不在支持CentOS5旧版本</h3><p>最新的glibc-2.23要求linux内核至少为2.6.16，因此最新的Linuxbrew已经无法安装再CentOS5的旧版本。如果硬要安装，个人感觉可以搜索homebrew-core的glibc为2.19历史版本覆盖最新的homebrew-core来进行安装，但是我因为gmp编译问题，并未安装成功。</p>
@@ -667,7 +670,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -854,22 +857,11 @@
 
 
 
-  
-    
-    
-      
-    
-  
-  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
 
 
 
 
 
-
-
-  
-  
 
 
 
@@ -885,12 +877,6 @@
 
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/three/three.min.js"></script>
-
-  
-  <script src="/lib/three/canvas_sphere.min.js"></script>
 
 
   

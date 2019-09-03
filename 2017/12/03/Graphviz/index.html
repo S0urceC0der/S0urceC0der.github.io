@@ -15,7 +15,7 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -460,6 +460,7 @@
 <p><code>Graph</code> 定义了整个图片</p>
 <h1 id="工具教程"><a href="#工具教程" class="headerlink" title="工具教程"></a>工具教程</h1><p>用过 NodeJS 的都了解，有一个 <code>supervisor</code> 命令能够监听目录，一旦发现文件发生改变后自动重启程序。发现 <code>dot</code> 命令并不存在自动监听生成图片的功能，因此改造了下，安装第三方工具 nodemon 来实现文件监听。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g nodemon</span><br></pre></td></tr></table></figure>
+
 <p>然后运行命令 <code>nodemon -e .gv -x &quot;dot -Tpng -o test.png stack.gv&quot;</code> ，便实现了 nodemon 监听指定后缀名的功能，然后执行指定的命令。可惜的是暂时没有找到将发生文件变化的文件名作为变量传入到命令中的方法。</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://graphviz.gitlab.io/_pages/pdf/dotguide.pdf" target="_blank" rel="noopener">Guide</a></p>
 
@@ -606,7 +607,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -793,22 +794,11 @@
 
 
 
-  
-    
-    
-      
-    
-  
-  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
 
 
 
 
 
-
-
-  
-  
 
 
 
@@ -824,12 +814,6 @@
 
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/three/three.min.js"></script>
-
-  
-  <script src="/lib/three/canvas_sphere.min.js"></script>
 
 
   

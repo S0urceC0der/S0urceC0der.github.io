@@ -15,7 +15,7 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -458,9 +458,13 @@
 <p>Homebrew可以自动安装多个Mac相关软件，以命令行程序为主，而Homebrew Cask包负责安装Mac上的App应用，安装时可以直接搜索，不必去各个网站单独下载，并且可以通过<code>brew upgrade</code>进行统一更新，免去了逐一手动更新的痛苦，目前大部分开发相关的应用都可以直接安装，基本能够达到替换App Store。</p>
 <h3 id="配置基本android开发环境包"><a href="#配置基本android开发环境包" class="headerlink" title="配置基本android开发环境包"></a>配置基本android开发环境包</h3><p>正如上文所述，使用Homebrew进行软件管理的目的，所有软件均不会从官网下载，而只通过命令行安装。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">brew install ant</span><br><span class="line">brew install maven</span><br><span class="line">brew install gradle</span><br><span class="line">brew install android-sdk</span><br><span class="line">brew install android-ndk</span><br></pre></td></tr></table></figure>
+
 <p>允许android命令来安装Android开发环境，关于所需的包，可以参考<a href="https://www.zhihu.com/question/31935836" target="_blank" rel="noopener">知乎-Android SDk Manager里面到底哪些东西是必须下载的？</a></p>
-<h4 id="安装HAXM"><a href="#安装HAXM" class="headerlink" title="安装HAXM"></a>安装HAXM</h4><p>这是唯一一步需要sudo操作的安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install intel-haxm</span><br></pre></td></tr></table></figure></p>
+<h4 id="安装HAXM"><a href="#安装HAXM" class="headerlink" title="安装HAXM"></a>安装HAXM</h4><p>这是唯一一步需要sudo操作的安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install intel-haxm</span><br></pre></td></tr></table></figure>
+
 <h3 id="安装Android-Studio"><a href="#安装Android-Studio" class="headerlink" title="安装Android Studio"></a>安装Android Studio</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install android-studio</span><br></pre></td></tr></table></figure>
+
 <p>允许Android Studio后，记得配置Android SDK路径为/usr/local/opt/android-sdk</p>
 <p>###</p>
 
@@ -618,7 +622,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -805,22 +809,11 @@
 
 
 
-  
-    
-    
-      
-    
-  
-  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
 
 
 
 
 
-
-
-  
-  
 
 
 
@@ -836,12 +829,6 @@
 
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/three/three.min.js"></script>
-
-  
-  <script src="/lib/three/canvas_sphere.min.js"></script>
 
 
   

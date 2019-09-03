@@ -15,7 +15,7 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -461,7 +461,7 @@
 <p><img src="/img/vmware-lock.png" alt="Vmware Account Locked"></p>
 <p><a href="http://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-10.0.0-1295980.i386.bundle" target="_blank" rel="noopener">http://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-10.0.0-1295980.i386.bundle</a></p>
 <p>虽然离最新可用32位版10.0.4稍微差点，但仍然是可用的。不过仔细观察这个链接，中间不包含任何随机字符串，因此怀疑可以构造出10.0.4的下载地址。在这个链接中最关键的就是bundle的文件名：VMware-Workstation-Full-10.0.0-1295980.i386.bundle，于是便想直接修改为VMware-Workstation-Full-10.0.4-1295980.i386.bundle，显然这种做法是错误的，因为文件名中含有一个内部版本号1295980，因此必须找到这个内部版本号才能够构造出实际的10.0.4下载地址。</p>
-<p>仔细观察<a href="https://my.vmware.com/group/vmware/details?downloadGroup=WKST-1004-LX&amp;productId=362&amp;rPId=7049#errorCheckDiv" target="_blank" rel="noopener">官网下载页面内容</a>，发现真实文件名（内部版本号）在官网上就有，据此构造出实际的10.0.4的下载地址为：</p>
+<p>仔细观察<a href="https://my.vmware.com/group/vmware/details?downloadGroup=WKST-1004-LX&productId=362&rPId=7049#errorCheckDiv" target="_blank" rel="noopener">官网下载页面内容</a>，发现真实文件名（内部版本号）在官网上就有，据此构造出实际的10.0.4的下载地址为：</p>
 <p><a href="http://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-10.0.4-2249910.i386.bundle" target="_blank" rel="noopener">http://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-10.0.4-2249910</a></p>
 <p><img src="/img/vmware-list.png" alt="Vmware List"></p>
 <h2 id="其他的话"><a href="#其他的话" class="headerlink" title="其他的话"></a>其他的话</h2><p>这也不是我第一次干这种事了，基本情况就是下载网址A被大家所知道，但是下载网址B需要通过一定权限才能获取的，然后最关键的是，网址A能够推理出网址B，通常情况下网址里面包含了固定的信息，例如日期，可以直接修改得到。当然，如果有一点随机字符串，就没法获得了。</p>
@@ -631,7 +631,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -818,22 +818,11 @@
 
 
 
-  
-    
-    
-      
-    
-  
-  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
 
 
 
 
 
-
-
-  
-  
 
 
 
@@ -849,12 +838,6 @@
 
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/three/three.min.js"></script>
-
-  
-  <script src="/lib/three/canvas_sphere.min.js"></script>
 
 
   
