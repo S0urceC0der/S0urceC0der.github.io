@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"s0urcec0der.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="简介Onedrive 是微软提供的一个共享网盘服务。随着 360 云盘的下线和百度云盘的下载限速，国内好用的网盘越来越少。之前也找过不少的软件实现百度云盘的高速下载，但是最近已经被屏蔽的差不多了，唯一的方法是购买 SVIP 帐号了，评估之下觉得还是需要将自己搜集的大部分公用数据分散转移，因此选择了 Onedrive 进行存储。 最初的 Onedrive 国内下载速度较慢，但是目前经过网络优化，下载">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置安装 Onedrive 相关工具">
+<meta property="og:url" content="https://s0urcec0der.github.io/2019/09/18/Install-Onedrive-Tools/index.html">
+<meta property="og:site_name" content="S0urceC0der">
+<meta property="og:description" content="简介Onedrive 是微软提供的一个共享网盘服务。随着 360 云盘的下线和百度云盘的下载限速，国内好用的网盘越来越少。之前也找过不少的软件实现百度云盘的高速下载，但是最近已经被屏蔽的差不多了，唯一的方法是购买 SVIP 帐号了，评估之下觉得还是需要将自己搜集的大部分公用数据分散转移，因此选择了 Onedrive 进行存储。 最初的 Onedrive 国内下载速度较慢，但是目前经过网络优化，下载">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-09-18T11:57:09.000Z">
+<meta property="article:modified_time" content="2020-09-07T02:31:06.567Z">
+<meta property="article:author" content="S0urceC0der">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://s0urcec0der.github.io/2019/09/18/Install-Onedrive-Tools/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://s0urcec0der.github.io/2019/09/18/Install-Onedrive-Tools/","path":"2019/09/18/Install-Onedrive-Tools/","title":"配置安装 Onedrive 相关工具"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>配置安装 Onedrive 相关工具 | S0urceC0der</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="S0urceC0der" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">S0urceC0der</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%B3%E8%AF%B7%E5%B8%90%E5%8F%B7%E7%9B%B8%E5%85%B3"><span class="nav-number">2.</span> <span class="nav-text">申请帐号相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%B8%AA%E4%BA%BA-%E5%AE%B6%E5%BA%AD%E8%AE%A2%E9%98%85-Office-365"><span class="nav-number">2.0.1.</span> <span class="nav-text">1. 个人&#x2F;家庭订阅 Office 365</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Office-365-%E6%95%99%E8%82%B2%E7%89%88"><span class="nav-number">2.0.2.</span> <span class="nav-text">2. Office 365 教育版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Office-365-E5-%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E8%AE%A2%E9%98%85"><span class="nav-number">2.0.3.</span> <span class="nav-text">3. Office 365 E5 开发人员订阅</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%AC%AC%E4%B8%89%E6%96%B9%E4%B9%B0%E5%AE%B6%E8%B4%AD%E4%B9%B0"><span class="nav-number">2.0.4.</span> <span class="nav-text">4. 第三方买家购买</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OnedriveCMD"><span class="nav-number">3.</span> <span class="nav-text">OnedriveCMD</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OlaIndex"><span class="nav-number">4.</span> <span class="nav-text">OlaIndex</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9"><span class="nav-number">4.1.</span> <span class="nav-text">版本选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B"><span class="nav-number">4.2.</span> <span class="nav-text">部署过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%9D%E5%AD%98%E8%AE%BE%E7%BD%AE"><span class="nav-number">4.3.</span> <span class="nav-text">保存设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE"><span class="nav-number">4.4.</span> <span class="nav-text">其他配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="nav-number">5.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">S0urceC0der</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://s0urcec0der.github.io/2019/09/18/Install-Onedrive-Tools/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="配置安装 Onedrive 相关工具 | S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          配置安装 Onedrive 相关工具
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-09-18 11:57:09" itemprop="dateCreated datePublished" datetime="2019-09-18T11:57:09+00:00">2019-09-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2020-09-07 02:31:06" itemprop="dateModified" datetime="2020-09-07T02:31:06+00:00">2020-09-07</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Onedrive 是微软提供的一个共享网盘服务。随着 360 云盘的下线和百度云盘的下载限速，国内好用的网盘越来越少。之前也找过不少的软件实现百度云盘的高速下载，但是最近已经被屏蔽的差不多了，唯一的方法是购买 SVIP 帐号了，评估之下觉得还是需要将自己搜集的大部分公用数据分散转移，因此选择了 Onedrive 进行存储。</p>
+<p>最初的 Onedrive 国内下载速度较慢，但是目前经过网络优化，下载速度提高了很多，大文件的下载速度能够接受，甚至看到有些人直接利用 Onedrive 做视频点播。最主要的一点是很多人基于 Office 的开放 API 实现了很多基于 Onedrive 的程序，大大提高了可用性，使得我这样不经常使用 Windows 的人也能够受益其中。</p>
+<h1 id="申请帐号相关"><a href="#申请帐号相关" class="headerlink" title="申请帐号相关"></a>申请帐号相关</h1><p>注册 Onedrive 的，按照安全与可持久性的原则列出如下：</p>
+<h3 id="1-个人-家庭订阅-Office-365"><a href="#1-个人-家庭订阅-Office-365" class="headerlink" title="1. 个人&#x2F;家庭订阅 Office 365"></a>1. 个人&#x2F;家庭订阅 Office 365</h3><p>最可靠的渠道，个人版 398元&#x2F;年一个用户，家庭版 498元&#x2F;年六个用户，有一定的经济成本。</p>
+<h3 id="2-Office-365-教育版"><a href="#2-Office-365-教育版" class="headerlink" title="2. Office 365 教育版"></a>2. Office 365 教育版</h3><p>使用与微软合作的大学的edu邮箱可以注册。这个限制在于并不是所有的学校都在范围内，因此需要你查看学校的具体情况。此外根据微软的条款，虽然毕业后可以继续使用，但是微软官方的说明是<em>我们可能会随时验证您是否符合条件</em>。注意可以选择注册为教职员工来规避这一点，此外学校管理员可以看到个人存储的数据。</p>
+<h3 id="3-Office-365-E5-开发人员订阅"><a href="#3-Office-365-E5-开发人员订阅" class="headerlink" title="3. Office 365 E5 开发人员订阅"></a>3. Office 365 E5 开发人员订阅</h3><p>针对开发人员的优惠订阅，缺点是<em>你的订阅可使用 90 天，并且基于有效开发人员活动续订。 如果正在将订阅用于开发，订阅将每 3 个月续订一次，可以无限期延期</em>。而且网上目前也没有<em>有效开发人员活动</em>的具体定义，因此存在被突然停用的风险。</p>
+<h3 id="4-第三方买家购买"><a href="#4-第三方买家购买" class="headerlink" title="4. 第三方买家购买"></a>4. 第三方买家购买</h3><p>价格不会很高，但是这种帐号的来源乱七八糟，需要自己辨别。最重要的这种帐号的管理员肯定能够浏览你个人存储的数据，有一定的数据泄露风险。</p>
+<h1 id="OnedriveCMD"><a href="#OnedriveCMD" class="headerlink" title="OnedriveCMD"></a>OnedriveCMD</h1><p>OneDriveCMD 是一个 Onedrive 的命令行版本，可以通过命令行进行文件的上传和下载。</p>
+<p>推荐安装 Python 3.x 版本的 OnedriveCMD，能够有效的处理中文字符串，避免一些问题。</p>
+<p>如果存在多个账户，可以利用 <code>onedrive -conf config.json</code> 来指定所使用的配置文件，实现多个账户。</p>
+<p>如果觉得命令行使用局限性太多，可以使用 rclone 将 Onedrive 挂载到本地目录上，深度整合如操作系统。</p>
+<h1 id="OlaIndex"><a href="#OlaIndex" class="headerlink" title="OlaIndex"></a>OlaIndex</h1><p>OlaIndex 是一个提供 Onedrive 在线文件目录访问的服务，能够直接下载上传文件，并在线观看视频。</p>
+<p>之前网络上最常用教程的是使用 Now.sh 在线搭建 OneIndex，但是随着 Now.sh 逐渐下线对 Docker 容器的支持，架构切换到 Serverless，并且免费用户只能部署不超过32个文件，因此基于 OneIndex 的部署方式不再可行。另外一种方法是在 Heroku 上搭建，当然也可以使用 OneIndex，但是这时发现更好的程序是 OlaIndex，加密等功能更加强大，因此切换到了这个界面是。</p>
+<h2 id="版本选择"><a href="#版本选择" class="headerlink" title="版本选择"></a>版本选择</h2><p>在写本文的时候，发现直接 OlaIndex 上的 master 分支代码存在一些问题，直接安装后遇到了 <a target="_blank" rel="noopener" href="https://github.com/WangNingkai/OLAINDEX/issues/171">issue-171</a> 的问题，而 release 页面下的 <a target="_blank" rel="noopener" href="https://github.com/WangNingkai/OLAINDEX/releases/tag/v3.2.1">3.2.1</a> 版本却缺乏密码设置，并不是 3.x 的最新版，最后发现 <a target="_blank" rel="noopener" href="https://github.com/WangNingkai/OLAINDEX/tree/release">release 分支</a> 才是 3.x 版本的可用分支，这里不得不吐槽下作者的混乱管理。</p>
+<p>4.x 版本有较大更改，因此下文一些信息可能就不适用。</p>
+<h2 id="部署过程"><a href="#部署过程" class="headerlink" title="部署过程"></a>部署过程</h2><p>网上也有一些相关的部署文档，但是试用下来却发现仍然有一定的错误，所以再详细记录下安装过程:</p>
+<ol>
+<li>构建本地环境</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 -b release https://github.com/WangNingkai/OLAINDEX.git</span><br><span class="line">cd OLAINDEX</span><br><span class="line">rm -rf .git</span><br><span class="line">composer install -vvv</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>配置 heroku 环境</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">echo web: vendor/bin/heroku-php-apache2 public/ &gt; Procfile</span><br><span class="line">git add -f composer.lock</span><br><span class="line">heroku create</span><br><span class="line">heroku buildpacks:set heroku/php</span><br><span class="line">git push heroku master</span><br><span class="line">heroku config:set APP_KEY=xxx</span><br><span class="line">heroku config:set APP_URL=xxx</span><br><span class="line">cp .env.example .env</span><br></pre></td></tr></table></figure>
+
+<p>修改 <code>.env</code> 文件中的环境变量，URL、KEY 信息，注释掉文件中的 redis 配置。</p>
+<blockquote>
+<p>APP_ENV&#x3D;production<br>APP_KEY&#x3D;XXX<br>APP_DEBUG&#x3D;false<br>APP_URL&#x3D;<a target="_blank" rel="noopener" href="https://xxx.herokuapp.com/">https://XXX.herokuapp.com</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add -f .env</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;init&quot;</span><br><span class="line">git push heroku master</span><br></pre></td></tr></table></figure>
+
+<p>执行 <code>heroku create</code> 后就能够看到自动分配的网址了，如果不满意可以执行 <code>heroku rename XXX</code> 来修改这个网址。</p>
+<h2 id="保存设置"><a href="#保存设置" class="headerlink" title="保存设置"></a>保存设置</h2><p>heroku 的应用策略是默认是隔一段时间会自动休眠，这样一段时间没有访问后，应用会重新打开并需要重新初始化，网上有一个方法是运行命令：</p>
+<p><code>heroku run bash</code></p>
+<p>然后进入运行环境后，保存 <code>storage/app/config.json</code> 文件。但是我实际进入后，没有发现有什么保存的文件，因此失败。</p>
+<p>因此我选择的方法是先在本地跑了一个 Docker 服务（避免搭建环境），然后初始化网站，注意因为是本地 Docker，所以没有 HTTPS 域名，需要利用中转 HTTPS 域名进行中转才行，这也是这种方法的一个小隐患。初始化完成后进入 Docker 后保存 <code>storage/app/config.json</code> 到项目目录中，再次提交。这样就算每次重置了应用，也可以利用保存的会话信息跳过初始化过程。</p>
+<h2 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h2><p>部署完成后，发现虽然首页是 HTTPS 的，但是里面的链接都是 HTTP 链接，只不过打开后会自动跳转到对应的 HTTPS 链接而已，在密码框输入时 Firefox 也会提醒流量未加密。这是因为在使用负载均衡器的情况下，Laravel 接收到的来源是非加密流量，所以需要修改文件 <code>app\Http\Middleware\TrustProxies.php</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">namespace App\Http\Middleware;</span><br><span class="line">use Illuminate\Http\Request;</span><br><span class="line">use Fideloper\Proxy\TrustProxies as Middleware;</span><br><span class="line">class TrustProxies extends Middleware</span><br><span class="line">&#123;</span><br><span class="line">    protected $proxies = &#x27;*&#x27;;</span><br><span class="line">    protected $headers = Request:: HEADER_X_FORWARDED_AWS_ELB;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/education/products/office">Office 365 教育版</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/office/developer-program/subscription-expiration-and-renewal">Office 365 开发人员计划订阅到期和续订</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.ouyangsong.com/posts/43735/">now.sh 免费部署 oneindex</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/WangNingkai/OLAINDEX/issues/63">关于在 Heroku 部署时 HTTPS 的跳转</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://devcenter.heroku.com/articles/getting-started-with-laravel#trusting-the-load-balancer">getting-started-with-laravel#trusting-the-load-balancer</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.abbeyok.com/archives/266">【sharepoint】解读onedrive每天流量限制</a></p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/06/08/Chromium-for-Mac/" rel="prev" title="Mac 上安装 Chromium">
+                  <i class="fa fa-angle-left"></i> Mac 上安装 Chromium
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/11/12/Install-Nas/" rel="next" title="Openmediavalut 配置">
+                  Openmediavalut 配置 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">S0urceC0der</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

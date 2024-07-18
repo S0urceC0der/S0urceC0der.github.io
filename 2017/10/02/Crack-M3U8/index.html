@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"s0urcec0der.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="破解某网站m3u8视频资源背景某个视频教学网站资源即将超过有效期，因此尝试将网页上的视频下载到本地。 过程1. 登录验证这部分非常简单，模拟提交登录表单，并及时保存对应的Cookie即可 2. 视频播放流程这个网页上使用了一个Flash播放器，然后通过该Flash文件读取m3u8文件进行播放。 HTTP Live Streaming（HLS）是苹果公司(Apple Inc.)实现的基于HTTP的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="破解某网站m3u8视频资源">
+<meta property="og:url" content="https://s0urcec0der.github.io/2017/10/02/Crack-M3U8/index.html">
+<meta property="og:site_name" content="S0urceC0der">
+<meta property="og:description" content="破解某网站m3u8视频资源背景某个视频教学网站资源即将超过有效期，因此尝试将网页上的视频下载到本地。 过程1. 登录验证这部分非常简单，模拟提交登录表单，并及时保存对应的Cookie即可 2. 视频播放流程这个网页上使用了一个Flash播放器，然后通过该Flash文件读取m3u8文件进行播放。 HTTP Live Streaming（HLS）是苹果公司(Apple Inc.)实现的基于HTTP的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-10-02T10:37:29.000Z">
+<meta property="article:modified_time" content="2020-09-07T02:31:06.564Z">
+<meta property="article:author" content="S0urceC0der">
+<meta property="article:tag" content="Flash">
+<meta property="article:tag" content="Web">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://s0urcec0der.github.io/2017/10/02/Crack-M3U8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://s0urcec0der.github.io/2017/10/02/Crack-M3U8/","path":"2017/10/02/Crack-M3U8/","title":"破解某网站m3u8视频资源"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>破解某网站m3u8视频资源 | S0urceC0der</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="S0urceC0der" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">S0urceC0der</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A0%B4%E8%A7%A3%E6%9F%90%E7%BD%91%E7%AB%99m3u8%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90"><span class="nav-number">1.</span> <span class="nav-text">破解某网站m3u8视频资源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 登录验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 视频播放流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%8F%98%E7%A7%8D"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 变种</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">S0urceC0der</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://s0urcec0der.github.io/2017/10/02/Crack-M3U8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="破解某网站m3u8视频资源 | S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          破解某网站m3u8视频资源
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-10-02 10:37:29" itemprop="dateCreated datePublished" datetime="2017-10-02T10:37:29+00:00">2017-10-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2020-09-07 02:31:06" itemprop="dateModified" datetime="2020-09-07T02:31:06+00:00">2020-09-07</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><hr>
+<h1 id="破解某网站m3u8视频资源"><a href="#破解某网站m3u8视频资源" class="headerlink" title="破解某网站m3u8视频资源"></a>破解某网站m3u8视频资源</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>某个视频教学网站资源即将超过有效期，因此尝试将网页上的视频下载到本地。</p>
+<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><h3 id="1-登录验证"><a href="#1-登录验证" class="headerlink" title="1. 登录验证"></a>1. 登录验证</h3><p>这部分非常简单，模拟提交登录表单，并及时保存对应的Cookie即可</p>
+<h3 id="2-视频播放流程"><a href="#2-视频播放流程" class="headerlink" title="2. 视频播放流程"></a>2. 视频播放流程</h3><p>这个网页上使用了一个Flash播放器，然后通过该Flash文件读取m3u8文件进行播放。</p>
+<p>HTTP Live Streaming（HLS）是苹果公司(Apple Inc.)实现的基于HTTP的流媒体传输协议，m3u8，是HTTP Live Streaming直播的索引文件。该文件包含了这个视频的一系列视频分片，Flash播放器或者</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#EXTM3U</span><br><span class="line">#EXT-X-VERSION:3</span><br><span class="line">#EXT-X-MEDIA-SEQUENCE:0</span><br><span class="line">#EXT-X-ALLOW-CACHE:YES</span><br><span class="line">#EXT-X-TARGETDURATION:11</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0xe532855feb3e18366b8e7ea0c11f3116</span><br><span class="line">#EXTINF:10.066667,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg0</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0x48586a2ac8397fbce9565480259c1b94</span><br><span class="line">#EXTINF:10.000000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg1</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0x928f18982f6ee1a7e36cfa8f36979c3a</span><br><span class="line">#EXTINF:10.000000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg2</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0x6651941d56de8af0c7d4bee9ae33a8de</span><br><span class="line">#EXTINF:10.000000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg3</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0x90df003d61ba2ef9413fdaf521cfce15</span><br><span class="line">#EXTINF:10.000000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg4</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0xc7773183806b8d3d7e44811076ed5b66</span><br><span class="line">#EXTINF:2.200000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg5</span><br><span class="line">#EXT-X-ENDLIST</span><br></pre></td></tr></table></figure>
+
+<p>m3u8内容如上所示，解析时一般是根据<code>EXT-X-KEY</code>中的<code>METHOD</code>的加密方法和<code>URI</code>链接下载密钥内容，最终结合<code>IV</code>解密后续的分片url。</p>
+<h3 id="3-变种"><a href="#3-变种" class="headerlink" title="3. 变种"></a>3. 变种</h3><p>上述是正常的播放过程，但是对该网站解析时却失败了，解密出来的结果却不是正常的视频，多次尝试后，唯一的剩下的可能性便是这个Flash播放器采用了变种HLS协议。</p>
+<p>使用<a target="_blank" rel="noopener" href="https://www.free-decompiler.com/flash/download/">ffdec</a>打开下载得到的Flash播放文件，阅读其中的代码，果然并非标准的HLS协议。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Flash/" rel="tag"># Flash</a>
+              <a href="/tags/Web/" rel="tag"># Web</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/01/21/Install-Android-with-Homebrew/" rel="prev" title="Mac上配置Android开发环境">
+                  <i class="fa fa-angle-left"></i> Mac上配置Android开发环境
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/10/21/Wine-Mental-Omega/" rel="next" title="Mac下Wine运行心灵终结Mental Omega 3.3">
+                  Mac下Wine运行心灵终结Mental Omega 3.3 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">S0urceC0der</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

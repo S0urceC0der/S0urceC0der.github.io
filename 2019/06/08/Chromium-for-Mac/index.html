@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"s0urcec0der.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="最开始我一直是 Firefox 党，也简单写过了几篇关于 Firefox 使用的文章，例如《Firefox57新版试用》，但是后来发现 Firefox 在 Mac 上经常性的出现风扇狂转的现象，因此不得不转移到了 Chrome 上，所幸两者的丰富插件使得使用体验上基本一致。但是近几年 Chrome 的隐私问题越来越严重，我也不得不对持续使用 Chrome 打上了问号。因此想着能否使用 Chromi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac 上安装 Chromium">
+<meta property="og:url" content="https://s0urcec0der.github.io/2019/06/08/Chromium-for-Mac/index.html">
+<meta property="og:site_name" content="S0urceC0der">
+<meta property="og:description" content="最开始我一直是 Firefox 党，也简单写过了几篇关于 Firefox 使用的文章，例如《Firefox57新版试用》，但是后来发现 Firefox 在 Mac 上经常性的出现风扇狂转的现象，因此不得不转移到了 Chrome 上，所幸两者的丰富插件使得使用体验上基本一致。但是近几年 Chrome 的隐私问题越来越严重，我也不得不对持续使用 Chrome 打上了问号。因此想着能否使用 Chromi">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-06-08T16:35:13.000Z">
+<meta property="article:modified_time" content="2019-06-10T23:04:26.000Z">
+<meta property="article:author" content="S0urceC0der">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://s0urcec0der.github.io/2019/06/08/Chromium-for-Mac/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://s0urcec0der.github.io/2019/06/08/Chromium-for-Mac/","path":"2019/06/08/Chromium-for-Mac/","title":"Mac 上安装 Chromium"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Mac 上安装 Chromium | S0urceC0der</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="S0urceC0der" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">S0urceC0der</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chromium-%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">Chromium 介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E6%8C%81%E7%BB%AD%E5%88%97%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">扩展持续列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-cVim"><span class="nav-number">2.1.</span> <span class="nav-text">1. cVim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-HTTPS-Everywhere"><span class="nav-number">2.2.</span> <span class="nav-text">2. HTTPS Everywhere</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-LastPass"><span class="nav-number">2.3.</span> <span class="nav-text">3. LastPass</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Proxy-SwitchyOmega"><span class="nav-number">2.4.</span> <span class="nav-text">4. Proxy SwitchyOmega</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Save-to-Pocket"><span class="nav-number">2.5.</span> <span class="nav-text">5. Save to Pocket</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Tampermonkey"><span class="nav-number">2.6.</span> <span class="nav-text">6. Tampermonkey</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-uBlock-Origin"><span class="nav-number">2.7.</span> <span class="nav-text">7. uBlock Origin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-uMatrix"><span class="nav-number">2.8.</span> <span class="nav-text">8. uMatrix</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">S0urceC0der</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://s0urcec0der.github.io/2019/06/08/Chromium-for-Mac/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Mac 上安装 Chromium | S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Mac 上安装 Chromium
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-06-08 16:35:13" itemprop="dateCreated datePublished" datetime="2019-06-08T16:35:13+00:00">2019-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2019-06-10 23:04:26" itemprop="dateModified" datetime="2019-06-10T23:04:26+00:00">2019-06-10</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>最开始我一直是 Firefox 党，也简单写过了几篇关于 Firefox 使用的文章，例如<a href="/2017/11/26/Firefox57/">《Firefox57新版试用》</a>，但是后来发现 Firefox 在 Mac 上经常性的出现风扇狂转的现象，因此不得不转移到了 Chrome 上，所幸两者的丰富插件使得使用体验上基本一致。但是近几年 Chrome 的隐私问题越来越严重，我也不得不对持续使用 Chrome 打上了问号。因此想着能否使用 Chromium 来替代。</p>
+<h1 id="Chromium-介绍"><a href="#Chromium-介绍" class="headerlink" title="Chromium 介绍"></a>Chromium 介绍</h1><p>众所周知，Chrome 是谷歌开发的一个网页浏览器，但是这个浏览器也不是完全从零开始的，而是采用了大量的开源代码，最重要的部分就是苹果的 Webkit，谷歌也开源了大量 Chrome 相关的源码回馈到开源社区，著名的 NodeJS 就是基于谷歌开源的 V8 Javascript 解释引擎实现的的。基于谷歌的 Chrome 开源代码内容，编译得到的就是 Chromium。</p>
+<p>相比 Chrome，Chromium 缺少了某些闭源的二进制代码，比如 Flash 插件，商业解码器等，也不会有任何谷歌的标识，因此国内的浏览器厂商也都选择基于 Chromium 来作为他们自己浏览器的内核。</p>
+<p>正如上文所说，Chromium 中缺乏了部分闭源代码，对此主要是有两方面的影响，第一是很多 Chrome 自带的服务都无法使用，这个恰恰是我们所希望的，缺乏谷歌的服务能够大幅提升隐私性；第二个影响则是缺乏视频解码，这个则会对我们平时的网页浏览带来非常大的影响。因此默认 Chromium 官网提供的并不能实际使用，而我选择的是开发者 marmaduke 编译的带有解码器的版本。关于 Chromium 可用版本的列表可以参考网页 <a target="_blank" rel="noopener" href="https://chromium.woolyss.com/%EF%BC%8C%E8%AF%A5%E9%A1%B5%E9%9D%A2%E6%8F%90%E4%BE%9B%E4%BA%86%E8%87%B4%E5%91%BD%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E7%BC%96%E8%AF%91">https://chromium.woolyss.com/，该页面提供了致命的第三方编译</a> Chromium 列表，可以自行选用。</p>
+<p>最终，我选择了自带解码器的 marmaduke 编译的 Chromium，值得注意的是，该作者提供了三个版本的 Chromium 分别是。</p>
+<ul>
+<li>marmaduke-chromium 最基础的版本，猜测应该是标准 Chromium 外加视频解码器</li>
+<li>marmaduke-chromium-nosync 去除了 Chromium 中的 Google Sync 和 Widevine（一种加密视频协议）。</li>
+<li>marmaduke-chromium-ungoogled 更为激进的一个版本，去除了谷歌的同步，各种服务，以及相关的二进制文件，同时也带来了一些安全上的改进，具体的内容可以参考 <a target="_blank" rel="noopener" href="https://github.com/Eloston/ungoogled-chromium/blob/master/README.md">UNGOOGLED Chromium</a>，注意这个版本无法从 Chrome Webstore 下载和更新扩展程序。</li>
+</ul>
+<p>唯一要注意的是上述三个不可以同时安装，简单挑选一个即可，在 Mac 上的具体安装步骤如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">brew tap cpbotha/marmaduke-chromium</span><br><span class="line">brew cask install marmaduke-chromium</span><br><span class="line">brew cask install marmaduke-chromium-nosync</span><br><span class="line">brew cask install marmaduke-chromium-ungoogled</span><br></pre></td></tr></table></figure>
+
+<p>至于我的个人选择，本来是想优先选用 marmaduke-chromium-ungoogled，但是因为扩展程序更新不方便，还是退而求其次选择 marmaduke-chromium 吧。</p>
+<h1 id="扩展持续列表"><a href="#扩展持续列表" class="headerlink" title="扩展持续列表"></a>扩展持续列表</h1><p>最后，仍然仿照 Firefox 列出我所使用的扩展列表（按照字母排序）：</p>
+<h2 id="1-cVim"><a href="#1-cVim" class="headerlink" title="1. cVim"></a>1. cVim</h2><p>可以仿照 Vim 的快捷键来进行网页浏览。</p>
+<h2 id="2-HTTPS-Everywhere"><a href="#2-HTTPS-Everywhere" class="headerlink" title="2. HTTPS Everywhere"></a>2. HTTPS Everywhere</h2><p>自动访问加密版本的网址。</p>
+<h2 id="3-LastPass"><a href="#3-LastPass" class="headerlink" title="3. LastPass"></a>3. LastPass</h2><p>密码管理。</p>
+<h2 id="4-Proxy-SwitchyOmega"><a href="#4-Proxy-SwitchyOmega" class="headerlink" title="4. Proxy SwitchyOmega"></a>4. Proxy SwitchyOmega</h2><p>自动翻墙代理。</p>
+<h2 id="5-Save-to-Pocket"><a href="#5-Save-to-Pocket" class="headerlink" title="5. Save to Pocket"></a>5. Save to Pocket</h2><p>保存网页到 Pocket。</p>
+<h2 id="6-Tampermonkey"><a href="#6-Tampermonkey" class="headerlink" title="6. Tampermonkey"></a>6. Tampermonkey</h2><p>油猴子脚本插件。</p>
+<h2 id="7-uBlock-Origin"><a href="#7-uBlock-Origin" class="headerlink" title="7. uBlock Origin"></a>7. uBlock Origin</h2><p>屏蔽广告。</p>
+<h2 id="8-uMatrix"><a href="#8-uMatrix" class="headerlink" title="8. uMatrix"></a>8. uMatrix</h2><p>屏蔽网页内容和脚本。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/12/21/Clean-macbook/" rel="prev" title="清理 Macbook 磁盘空间">
+                  <i class="fa fa-angle-left"></i> 清理 Macbook 磁盘空间
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/09/18/Install-Onedrive-Tools/" rel="next" title="配置安装 Onedrive 相关工具">
+                  配置安装 Onedrive 相关工具 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">S0urceC0der</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

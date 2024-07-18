@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>S0urceC0der</title>
+  
+  
+  <link href="https://s0urcec0der.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://s0urcec0der.github.io/"/>
+  <updated>2020-09-14T08:38:56.727Z</updated>
+  <id>https://s0urcec0der.github.io/</id>
+  
+  <author>
+    <name>S0urceC0der</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue入门：搭建在线视频播放</title>
+    <link href="https://s0urcec0der.github.io/2020/09/06/Learn-Vue/"/>
+    <id>https://s0urcec0der.github.io/2020/09/06/Learn-Vue/</id>
+    <published>2020-09-06T14:39:48.000Z</published>
+    <updated>2020-09-14T08:38:56.727Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>一些常看的视频 APP 或者网站广告太多，逐一写广告屏蔽规则过于麻烦，但是播放地址却很好发现，能够直接爬取下来，因此想着直接做一个简单的视频播放网页，顺带学习一下 Vue。</p><h2 id="搭建基础开发环境"><a href="#搭建基础开发环境" class="headerlink" title="搭建基础开发环境"></a>搭建基础开发环境</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">brew install node        // Mac 下使用 Homebrew 安装 node</span><br><span class="line">npm install -g crm       // 安装源管理工具，加速下载</span><br><span class="line">npm install -g @vue/cli  // 安装 vue-cli</span><br><span class="line">vue create video-sea     // 创建项目</span><br><span class="line">cd video-sea</span><br><span class="line">npm run serve            // 启动服务</span><br></pre></td></tr></table></figure><h2 id="内容开发"><a href="#内容开发" class="headerlink" title="内容开发"></a>内容开发</h2><p>为了减少开发工作量，使用 ElementUI</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vue add element         // 添加 Element UI </span><br><span class="line">vue add route           // 添加 vue route</span><br></pre></td></tr></table></figure><p>因为我选择的是按需加载模式，所以在使用每个组件前需要手动加载</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Button, Radio &#125; from &#x27;element-ui&#x27;</span><br><span class="line"></span><br><span class="line">Vue.use(Button)</span><br><span class="line">Vue.use(Radio)</span><br></pre></td></tr></table></figure><p>注意：已经不需要写分号了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;起因&quot;&gt;&lt;a href=&quot;#起因&quot; class=&quot;headerlink&quot; title=&quot;起因&quot;&gt;&lt;/a&gt;起因&lt;/h2&gt;&lt;p&gt;一些常看的视频 APP 或者网站广告太多，逐一写广告屏蔽规则过于麻烦，但是播放地址却很好发现，能够直接爬取下来，因此想着直接做一个简单的视频</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ShadowBox 一个加密的容器</title>
+    <link href="https://s0urcec0der.github.io/2020/09/05/Shadow-Box/"/>
+    <id>https://s0urcec0der.github.io/2020/09/05/Shadow-Box/</id>
+    <published>2020-09-05T22:19:49.000Z</published>
+    <updated>2020-09-07T02:35:07.144Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Openmediavalut 配置</title>
+    <link href="https://s0urcec0der.github.io/2019/11/12/Install-Nas/"/>
+    <id>https://s0urcec0der.github.io/2019/11/12/Install-Nas/</id>
+    <published>2019-11-12T18:10:48.000Z</published>
+    <updated>2020-09-07T02:31:06.567Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="NextCloud-配置"><a href="#NextCloud-配置" class="headerlink" title="NextCloud 配置"></a>NextCloud 配置</h1><p>遇到问题</p><p>通过对 php-fpm 实例设置代理实例，可以实现</p><p><a href="https://medium.com/@tomahock/passing-system-environment-variables-to-php-fpm-when-using-nginx-a70045370fad">Passing system environment variables to PHP-FPM when using NGINX</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;NextCloud-配置&quot;&gt;&lt;a href=&quot;#NextCloud-配置&quot; class=&quot;headerlink&quot; title=&quot;NextCloud 配置&quot;&gt;&lt;/a&gt;NextCloud 配置&lt;/h1&gt;&lt;p&gt;遇到问题&lt;/p&gt;
+&lt;p&gt;通过对 php-fpm 实例设置代理</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>配置安装 Onedrive 相关工具</title>
+    <link href="https://s0urcec0der.github.io/2019/09/18/Install-Onedrive-Tools/"/>
+    <id>https://s0urcec0der.github.io/2019/09/18/Install-Onedrive-Tools/</id>
+    <published>2019-09-18T11:57:09.000Z</published>
+    <updated>2020-09-07T02:31:06.567Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Onedrive 是微软提供的一个共享网盘服务。随着 360 云盘的下线和百度云盘的下载限速，国内好用的网盘越来越少。之前也找过不少的软件实现百度云盘的高速下载，但是最近已经被屏蔽的差不多了，唯一的方法是购买 SVIP 帐号了，评估之下觉得还是需要将自己搜集的大部分公用数据分散转移，因此选择了 Onedrive 进行存储。</p><p>最初的 Onedrive 国内下载速度较慢，但是目前经过网络优化，下载速度提高了很多，大文件的下载速度能够接受，甚至看到有些人直接利用 Onedrive 做视频点播。最主要的一点是很多人基于 Office 的开放 API 实现了很多基于 Onedrive 的程序，大大提高了可用性，使得我这样不经常使用 Windows 的人也能够受益其中。</p><h1 id="申请帐号相关"><a href="#申请帐号相关" class="headerlink" title="申请帐号相关"></a>申请帐号相关</h1><p>注册 Onedrive 的，按照安全与可持久性的原则列出如下：</p><h3 id="1-个人-家庭订阅-Office-365"><a href="#1-个人-家庭订阅-Office-365" class="headerlink" title="1. 个人&#x2F;家庭订阅 Office 365"></a>1. 个人&#x2F;家庭订阅 Office 365</h3><p>最可靠的渠道，个人版 398元&#x2F;年一个用户，家庭版 498元&#x2F;年六个用户，有一定的经济成本。</p><h3 id="2-Office-365-教育版"><a href="#2-Office-365-教育版" class="headerlink" title="2. Office 365 教育版"></a>2. Office 365 教育版</h3><p>使用与微软合作的大学的edu邮箱可以注册。这个限制在于并不是所有的学校都在范围内，因此需要你查看学校的具体情况。此外根据微软的条款，虽然毕业后可以继续使用，但是微软官方的说明是<em>我们可能会随时验证您是否符合条件</em>。注意可以选择注册为教职员工来规避这一点，此外学校管理员可以看到个人存储的数据。</p><h3 id="3-Office-365-E5-开发人员订阅"><a href="#3-Office-365-E5-开发人员订阅" class="headerlink" title="3. Office 365 E5 开发人员订阅"></a>3. Office 365 E5 开发人员订阅</h3><p>针对开发人员的优惠订阅，缺点是<em>你的订阅可使用 90 天，并且基于有效开发人员活动续订。 如果正在将订阅用于开发，订阅将每 3 个月续订一次，可以无限期延期</em>。而且网上目前也没有<em>有效开发人员活动</em>的具体定义，因此存在被突然停用的风险。</p><h3 id="4-第三方买家购买"><a href="#4-第三方买家购买" class="headerlink" title="4. 第三方买家购买"></a>4. 第三方买家购买</h3><p>价格不会很高，但是这种帐号的来源乱七八糟，需要自己辨别。最重要的这种帐号的管理员肯定能够浏览你个人存储的数据，有一定的数据泄露风险。</p><h1 id="OnedriveCMD"><a href="#OnedriveCMD" class="headerlink" title="OnedriveCMD"></a>OnedriveCMD</h1><p>OneDriveCMD 是一个 Onedrive 的命令行版本，可以通过命令行进行文件的上传和下载。</p><p>推荐安装 Python 3.x 版本的 OnedriveCMD，能够有效的处理中文字符串，避免一些问题。</p><p>如果存在多个账户，可以利用 <code>onedrive -conf config.json</code> 来指定所使用的配置文件，实现多个账户。</p><p>如果觉得命令行使用局限性太多，可以使用 rclone 将 Onedrive 挂载到本地目录上，深度整合如操作系统。</p><h1 id="OlaIndex"><a href="#OlaIndex" class="headerlink" title="OlaIndex"></a>OlaIndex</h1><p>OlaIndex 是一个提供 Onedrive 在线文件目录访问的服务，能够直接下载上传文件，并在线观看视频。</p><p>之前网络上最常用教程的是使用 Now.sh 在线搭建 OneIndex，但是随着 Now.sh 逐渐下线对 Docker 容器的支持，架构切换到 Serverless，并且免费用户只能部署不超过32个文件，因此基于 OneIndex 的部署方式不再可行。另外一种方法是在 Heroku 上搭建，当然也可以使用 OneIndex，但是这时发现更好的程序是 OlaIndex，加密等功能更加强大，因此切换到了这个界面是。</p><h2 id="版本选择"><a href="#版本选择" class="headerlink" title="版本选择"></a>版本选择</h2><p>在写本文的时候，发现直接 OlaIndex 上的 master 分支代码存在一些问题，直接安装后遇到了 <a href="https://github.com/WangNingkai/OLAINDEX/issues/171">issue-171</a> 的问题，而 release 页面下的 <a href="https://github.com/WangNingkai/OLAINDEX/releases/tag/v3.2.1">3.2.1</a> 版本却缺乏密码设置，并不是 3.x 的最新版，最后发现 <a href="https://github.com/WangNingkai/OLAINDEX/tree/release">release 分支</a> 才是 3.x 版本的可用分支，这里不得不吐槽下作者的混乱管理。</p><p>4.x 版本有较大更改，因此下文一些信息可能就不适用。</p><h2 id="部署过程"><a href="#部署过程" class="headerlink" title="部署过程"></a>部署过程</h2><p>网上也有一些相关的部署文档，但是试用下来却发现仍然有一定的错误，所以再详细记录下安装过程:</p><ol><li>构建本地环境</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 -b release https://github.com/WangNingkai/OLAINDEX.git</span><br><span class="line">cd OLAINDEX</span><br><span class="line">rm -rf .git</span><br><span class="line">composer install -vvv</span><br></pre></td></tr></table></figure><ol start="2"><li>配置 heroku 环境</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">echo web: vendor/bin/heroku-php-apache2 public/ &gt; Procfile</span><br><span class="line">git add -f composer.lock</span><br><span class="line">heroku create</span><br><span class="line">heroku buildpacks:set heroku/php</span><br><span class="line">git push heroku master</span><br><span class="line">heroku config:set APP_KEY=xxx</span><br><span class="line">heroku config:set APP_URL=xxx</span><br><span class="line">cp .env.example .env</span><br></pre></td></tr></table></figure><p>修改 <code>.env</code> 文件中的环境变量，URL、KEY 信息，注释掉文件中的 redis 配置。</p><blockquote><p>APP_ENV&#x3D;production<br>APP_KEY&#x3D;XXX<br>APP_DEBUG&#x3D;false<br>APP_URL&#x3D;<a href="https://xxx.herokuapp.com/">https://XXX.herokuapp.com</a></p></blockquote><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add -f .env</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;init&quot;</span><br><span class="line">git push heroku master</span><br></pre></td></tr></table></figure><p>执行 <code>heroku create</code> 后就能够看到自动分配的网址了，如果不满意可以执行 <code>heroku rename XXX</code> 来修改这个网址。</p><h2 id="保存设置"><a href="#保存设置" class="headerlink" title="保存设置"></a>保存设置</h2><p>heroku 的应用策略是默认是隔一段时间会自动休眠，这样一段时间没有访问后，应用会重新打开并需要重新初始化，网上有一个方法是运行命令：</p><p><code>heroku run bash</code></p><p>然后进入运行环境后，保存 <code>storage/app/config.json</code> 文件。但是我实际进入后，没有发现有什么保存的文件，因此失败。</p><p>因此我选择的方法是先在本地跑了一个 Docker 服务（避免搭建环境），然后初始化网站，注意因为是本地 Docker，所以没有 HTTPS 域名，需要利用中转 HTTPS 域名进行中转才行，这也是这种方法的一个小隐患。初始化完成后进入 Docker 后保存 <code>storage/app/config.json</code> 到项目目录中，再次提交。这样就算每次重置了应用，也可以利用保存的会话信息跳过初始化过程。</p><h2 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h2><p>部署完成后，发现虽然首页是 HTTPS 的，但是里面的链接都是 HTTP 链接，只不过打开后会自动跳转到对应的 HTTPS 链接而已，在密码框输入时 Firefox 也会提醒流量未加密。这是因为在使用负载均衡器的情况下，Laravel 接收到的来源是非加密流量，所以需要修改文件 <code>app\Http\Middleware\TrustProxies.php</code>：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">namespace App\Http\Middleware;</span><br><span class="line">use Illuminate\Http\Request;</span><br><span class="line">use Fideloper\Proxy\TrustProxies as Middleware;</span><br><span class="line">class TrustProxies extends Middleware</span><br><span class="line">&#123;</span><br><span class="line">    protected $proxies = &#x27;*&#x27;;</span><br><span class="line">    protected $headers = Request:: HEADER_X_FORWARDED_AWS_ELB;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><ul><li><p><a href="https://www.microsoft.com/zh-cn/education/products/office">Office 365 教育版</a></p></li><li><p><a href="https://docs.microsoft.com/zh-cn/office/developer-program/subscription-expiration-and-renewal">Office 365 开发人员计划订阅到期和续订</a></p></li><li><p><a href="https://www.ouyangsong.com/posts/43735/">now.sh 免费部署 oneindex</a></p></li><li><p><a href="https://github.com/WangNingkai/OLAINDEX/issues/63">关于在 Heroku 部署时 HTTPS 的跳转</a></p></li><li><p><a href="https://devcenter.heroku.com/articles/getting-started-with-laravel#trusting-the-load-balancer">getting-started-with-laravel#trusting-the-load-balancer</a></p></li><li><p><a href="https://www.abbeyok.com/archives/266">【sharepoint】解读onedrive每天流量限制</a></p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;Onedrive 是微软提供的一个共享网盘服务。随着 360 云盘的下线和百度云盘的下载限速，国内好用的网盘越来越少。之前也找过不少的软件实</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mac 上安装 Chromium</title>
+    <link href="https://s0urcec0der.github.io/2019/06/08/Chromium-for-Mac/"/>
+    <id>https://s0urcec0der.github.io/2019/06/08/Chromium-for-Mac/</id>
+    <published>2019-06-08T16:35:13.000Z</published>
+    <updated>2019-06-10T23:04:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最开始我一直是 Firefox 党，也简单写过了几篇关于 Firefox 使用的文章，例如<a href="/2017/11/26/Firefox57/">《Firefox57新版试用》</a>，但是后来发现 Firefox 在 Mac 上经常性的出现风扇狂转的现象，因此不得不转移到了 Chrome 上，所幸两者的丰富插件使得使用体验上基本一致。但是近几年 Chrome 的隐私问题越来越严重，我也不得不对持续使用 Chrome 打上了问号。因此想着能否使用 Chromium 来替代。</p><h1 id="Chromium-介绍"><a href="#Chromium-介绍" class="headerlink" title="Chromium 介绍"></a>Chromium 介绍</h1><p>众所周知，Chrome 是谷歌开发的一个网页浏览器，但是这个浏览器也不是完全从零开始的，而是采用了大量的开源代码，最重要的部分就是苹果的 Webkit，谷歌也开源了大量 Chrome 相关的源码回馈到开源社区，著名的 NodeJS 就是基于谷歌开源的 V8 Javascript 解释引擎实现的的。基于谷歌的 Chrome 开源代码内容，编译得到的就是 Chromium。</p><p>相比 Chrome，Chromium 缺少了某些闭源的二进制代码，比如 Flash 插件，商业解码器等，也不会有任何谷歌的标识，因此国内的浏览器厂商也都选择基于 Chromium 来作为他们自己浏览器的内核。</p><p>正如上文所说，Chromium 中缺乏了部分闭源代码，对此主要是有两方面的影响，第一是很多 Chrome 自带的服务都无法使用，这个恰恰是我们所希望的，缺乏谷歌的服务能够大幅提升隐私性；第二个影响则是缺乏视频解码，这个则会对我们平时的网页浏览带来非常大的影响。因此默认 Chromium 官网提供的并不能实际使用，而我选择的是开发者 marmaduke 编译的带有解码器的版本。关于 Chromium 可用版本的列表可以参考网页 <a href="https://chromium.woolyss.com/%EF%BC%8C%E8%AF%A5%E9%A1%B5%E9%9D%A2%E6%8F%90%E4%BE%9B%E4%BA%86%E8%87%B4%E5%91%BD%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E7%BC%96%E8%AF%91">https://chromium.woolyss.com/，该页面提供了致命的第三方编译</a> Chromium 列表，可以自行选用。</p><p>最终，我选择了自带解码器的 marmaduke 编译的 Chromium，值得注意的是，该作者提供了三个版本的 Chromium 分别是。</p><ul><li>marmaduke-chromium 最基础的版本，猜测应该是标准 Chromium 外加视频解码器</li><li>marmaduke-chromium-nosync 去除了 Chromium 中的 Google Sync 和 Widevine（一种加密视频协议）。</li><li>marmaduke-chromium-ungoogled 更为激进的一个版本，去除了谷歌的同步，各种服务，以及相关的二进制文件，同时也带来了一些安全上的改进，具体的内容可以参考 <a href="https://github.com/Eloston/ungoogled-chromium/blob/master/README.md">UNGOOGLED Chromium</a>，注意这个版本无法从 Chrome Webstore 下载和更新扩展程序。</li></ul><p>唯一要注意的是上述三个不可以同时安装，简单挑选一个即可，在 Mac 上的具体安装步骤如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">brew tap cpbotha/marmaduke-chromium</span><br><span class="line">brew cask install marmaduke-chromium</span><br><span class="line">brew cask install marmaduke-chromium-nosync</span><br><span class="line">brew cask install marmaduke-chromium-ungoogled</span><br></pre></td></tr></table></figure><p>至于我的个人选择，本来是想优先选用 marmaduke-chromium-ungoogled，但是因为扩展程序更新不方便，还是退而求其次选择 marmaduke-chromium 吧。</p><h1 id="扩展持续列表"><a href="#扩展持续列表" class="headerlink" title="扩展持续列表"></a>扩展持续列表</h1><p>最后，仍然仿照 Firefox 列出我所使用的扩展列表（按照字母排序）：</p><h2 id="1-cVim"><a href="#1-cVim" class="headerlink" title="1. cVim"></a>1. cVim</h2><p>可以仿照 Vim 的快捷键来进行网页浏览。</p><h2 id="2-HTTPS-Everywhere"><a href="#2-HTTPS-Everywhere" class="headerlink" title="2. HTTPS Everywhere"></a>2. HTTPS Everywhere</h2><p>自动访问加密版本的网址。</p><h2 id="3-LastPass"><a href="#3-LastPass" class="headerlink" title="3. LastPass"></a>3. LastPass</h2><p>密码管理。</p><h2 id="4-Proxy-SwitchyOmega"><a href="#4-Proxy-SwitchyOmega" class="headerlink" title="4. Proxy SwitchyOmega"></a>4. Proxy SwitchyOmega</h2><p>自动翻墙代理。</p><h2 id="5-Save-to-Pocket"><a href="#5-Save-to-Pocket" class="headerlink" title="5. Save to Pocket"></a>5. Save to Pocket</h2><p>保存网页到 Pocket。</p><h2 id="6-Tampermonkey"><a href="#6-Tampermonkey" class="headerlink" title="6. Tampermonkey"></a>6. Tampermonkey</h2><p>油猴子脚本插件。</p><h2 id="7-uBlock-Origin"><a href="#7-uBlock-Origin" class="headerlink" title="7. uBlock Origin"></a>7. uBlock Origin</h2><p>屏蔽广告。</p><h2 id="8-uMatrix"><a href="#8-uMatrix" class="headerlink" title="8. uMatrix"></a>8. uMatrix</h2><p>屏蔽网页内容和脚本。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;最开始我一直是 Firefox 党，也简单写过了几篇关于 Firefox 使用的文章，例如&lt;a href=&quot;/2017/11/26/Firefox57/&quot;&gt;《Firefox57新版试用》&lt;/a&gt;，但是后来发现 Firefox 在 Mac 上经常性的出现风扇狂转的现象，因此不</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>清理 Macbook 磁盘空间</title>
+    <link href="https://s0urcec0der.github.io/2018/12/21/Clean-macbook/"/>
+    <id>https://s0urcec0der.github.io/2018/12/21/Clean-macbook/</id>
+    <published>2018-12-21T21:44:23.000Z</published>
+    <updated>2018-12-22T21:52:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="清理-Macbook-磁盘空间"><a href="#清理-Macbook-磁盘空间" class="headerlink" title="清理 Macbook 磁盘空间"></a>清理 Macbook 磁盘空间</h1><p>因为当初买的是丐版 Macbook，因此经常面临磁盘空间告警的情况，所以</p><h2 id="查看目录大小"><a href="#查看目录大小" class="headerlink" title="查看目录大小"></a>查看目录大小</h2><p>推荐使用 OmniDiskSweeper，<code>brew cask install omnidisksweeper</code>。打开后点击当前磁盘，进入后等待一段时间就能看到各个目录的占用空间大小，也可以逐一点进去看到子目录的大小。</p><h2 id="Homebrew-的清理"><a href="#Homebrew-的清理" class="headerlink" title="Homebrew 的清理"></a>Homebrew 的清理</h2><p>平时更新 Homebrew 时，及时进行 cleanup 操作，或者直接使用命令 <code>brew update &amp;&amp; brew upgrade &amp;&amp; brew cleanup</code>，这样就能够及时清理掉旧的软件版本。</p><p>此外，随着使用时间的增长，Homebrew 的 git 文件夹也会变的越来越大，因此可以通过 <code>git gc</code> 指令来整理 git 文件夹。这个原理是平时每次更新 git 都会下载各种更新文件，而这些文件会在磁盘保存为一种称作松散对象 (loose object) 格式，通过运行 <code>gc</code> 指令，git 会将这些平时零散存储的文件对象打包至一个叫 packfile 的二进制文件以节省空间并提高效率。如果时间长了，则有可能缩减几十万个文件。</p><p><img src="/img/cleanmac.png" alt="清理 Homebrew 的效果"></p><p>为了能够自动清理，我编写了如下的脚本，以后定期执行即可。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">cd &quot;$(brew --repo)&quot; &amp;&amp; git gc --prune=now</span><br><span class="line"></span><br><span class="line">root=&quot;$(brew --repo)/Library/Taps/homebrew/&quot;</span><br><span class="line"></span><br><span class="line">echo $root</span><br><span class="line">for d in `ls $root`</span><br><span class="line">do</span><br><span class="line">    echo &quot; clean $root$d ...&quot;</span><br><span class="line">    cd $root$d &amp;&amp; git gc --prune=now</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">root=&quot;$(brew --repo)/Library/Taps/caskroom/&quot;</span><br><span class="line">echo $root</span><br><span class="line">for d in `ls $root`</span><br><span class="line">do</span><br><span class="line">    echo &quot; clean $root$d ...&quot;</span><br><span class="line">    cd $root$d &amp;&amp; git gc --prune=now</span><br><span class="line">done</span><br></pre></td></tr></table></figure><h2 id="Xcode-清理"><a href="#Xcode-清理" class="headerlink" title="Xcode 清理"></a>Xcode 清理</h2><p>Xcode 会下载大量的文件，但是过了一段时间后，仍然会有旧版本设备的支持，所以需要清理如下文件夹：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">~/Library/Developer/Xcode/DerivedData</span><br><span class="line">~/Library/Developer/Xcode/Archives</span><br><span class="line">~/Library/Developer/Xcode/iOS DeviceSupport</span><br><span class="line">~/Library/Developer/Xcode/watchOS DeviceSupport</span><br><span class="line">~/Library/Developer/CoreSimulator </span><br></pre></td></tr></table></figure><h2 id="MongoDB-清理"><a href="#MongoDB-清理" class="headerlink" title="MongoDB 清理"></a>MongoDB 清理</h2><p>长久未使用 MongoDB，发现随着版本升级，对应的数据库文件没有升级，因此已经无法正常使用了，而 journal 日志则占用了将近 1G 空间，因此不得不先对数据库文件进行升级。通过 MongoDB 的启动日志可以知道，需要先从 3.4 升级到 3.6 再升级到 4.0。具体的脚本内容如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">brew install mongodb@3.4</span><br><span class="line">brew services start mongodb@3.4</span><br><span class="line">/usr/local/opt/mongodb@3.4/bin/mongo</span><br><span class="line">&gt; db.adminCommand( &#123; setFeatureCompatibilityVersion: &quot;3.4&quot; &#125; )</span><br><span class="line">brew uninstall mongodb@3.4</span><br><span class="line"></span><br><span class="line">// 安装 MongoDB 3.6</span><br><span class="line">brew services start mongodb@3.6</span><br><span class="line">/usr/local/opt/mongodb@3.6/bin/mongo</span><br><span class="line">&gt; db.adminCommand( &#123; setFeatureCompatibilityVersion: &quot;3.6&quot; &#125; )</span><br><span class="line">brew services stop mongodb@3.6</span><br><span class="line">brew uninstall mongodb@3.6</span><br><span class="line"></span><br><span class="line">// 安装 MongoDB 4</span><br><span class="line">brew install mongodb</span><br><span class="line">brew services start mongodb</span><br></pre></td></tr></table></figure><p>升级完毕后，发现存储引擎仍然为 MMAPV1，需要升级为 wiredTiger，因此我在导出数据库后，删除数据库文件夹后又重装了 MongoDB 再导入数据，数据库占用空间也瞬时缩减了一大半。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mongodump --out mongodb</span><br><span class="line">brew uninstall mongodb</span><br><span class="line">rm -rf /usr/local/var/mongodb</span><br><span class="line">brew install mongodb</span><br><span class="line">brew services start mongodb</span><br><span class="line">mongorestore mongodb</span><br></pre></td></tr></table></figure><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p><a href="https://www.jianshu.com/p/7231b509c279">为什么你的 Git 仓库变得如此臃肿</a><br><a href="https://stackoverflow.com/questions/29930198/can-i-delete-data-from-ios-devicesupport/29931912">Can I delete data from iOS DeviceSupport?</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;清理-Macbook-磁盘空间&quot;&gt;&lt;a href=&quot;#清理-Macbook-磁盘空间&quot; class=&quot;headerlink&quot; title=&quot;清理 Macbook 磁盘空间&quot;&gt;&lt;/a&gt;清理 Macbook 磁盘空间&lt;/h1&gt;&lt;p&gt;因为当初买的是丐版 Macbook，</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>在Mac上配置Mactex</title>
+    <link href="https://s0urcec0der.github.io/2018/02/25/Install-Mactex/"/>
+    <id>https://s0urcec0der.github.io/2018/02/25/Install-Mactex/</id>
+    <published>2018-02-25T22:14:39.000Z</published>
+    <updated>2020-09-07T02:31:06.567Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Mactex"><a href="#Mactex" class="headerlink" title="Mactex"></a>Mactex</h1><p>Mac下使用Latex推荐使用的是Mactex</p><p>安装命令</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install mactex</span><br></pre></td></tr></table></figure><p>其中mactex软件包大小达到了</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install basictex</span><br></pre></td></tr></table></figure><p>当然，即使安装了mactex，有时候仍然存在部分依赖的包会不存在，此时需要使用tlgmgr来进行下载软件包</p><p>首先更新tlgmgr</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tlmgr update --self</span><br></pre></td></tr></table></figure><p>然后更新软件包</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tlmgr update --all</span><br></pre></td></tr></table></figure><p>为了加快下载速度，可以配置国内的镜像，例如<a href="https://mirrors.tuna.tsinghua.edu.cn/help/CTAN/">清华的镜像</a>，但是主要需要将里面的https地址更改为http。</p><p>如果出现错误</p><blockquote><p>! LaTeX Error: File &#96;nth.sty’ not found.</p><p>Type X to quit or <RETURN> to proceed,<br>or enter new name. (Default extension: sty)</p></blockquote><p>则可以针对文件名安装对应的包</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tlmgr install nth</span><br></pre></td></tr></table></figure><h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><p>tlgmgr 如果使用https的镜像时，会发生错误，错误信息如下，但是</p><blockquote><p> tlmgr update –self –repository <a href="https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/">https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/</a><br> &#x2F;Library&#x2F;TeX&#x2F;texbin&#x2F;tlmgr: open tlpdb(<a href="https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet//tlpkg/texlive.tlpdb">https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet//tlpkg/texlive.tlpdb</a>) failed: Inappropriate ioctl for device at &#x2F;usr&#x2F;local&#x2F;texlive&#x2F;2017basic&#x2F;tlpkg&#x2F;TeXLive&#x2F;TLPDB.pm line 362.</p></blockquote><p>暂时可以通过将https修改为http的方法绕过</p><p>有些软件包名字并不一致，例如nth.sty，通过<a href="https://tex.stackexchange.com/questions/135402/package-nth-is-in-ctan-but-tlmgr-doesnt-find-it">搜索</a>可以得知包含该文件的包名为gen­misc，可以首先在ctan上搜索，然后找到对应的包名</p><h1 id="卸载Mactex"><a href="#卸载Mactex" class="headerlink" title="卸载Mactex"></a>卸载Mactex</h1><p>Mactex不同版本会安装到不同的目录下，不会覆盖，会占用比较多的空间，有时候需要删除旧版本。可以受限参考<a href="https://www.tug.org/mactex/uninstalling.html">官网的卸载教程</a>，但是个人删除经验如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /Library/TeX/Distributions/TeXLive-2017-Basic.texdist</span><br><span class="line">sudo rm -rf /Library/TeX/Distributions/.FactoryDefaults/TeXLive-2017-Basic</span><br><span class="line">sudo rm -rf /usr/local/texlive/2017basic</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Mactex&quot;&gt;&lt;a href=&quot;#Mactex&quot; class=&quot;headerlink&quot; title=&quot;Mactex&quot;&gt;&lt;/a&gt;Mactex&lt;/h1&gt;&lt;p&gt;Mac下使用Latex推荐使用的是Mactex&lt;/p&gt;
+&lt;p&gt;安装命令&lt;/p&gt;
+&lt;figure class=</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>从0开始学习Linux ROP利用-part2</title>
+    <link href="https://s0urcec0der.github.io/2018/02/12/ROP-part2/"/>
+    <id>https://s0urcec0der.github.io/2018/02/12/ROP-part2/</id>
+    <published>2018-02-12T20:13:31.000Z</published>
+    <updated>2018-03-09T23:18:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="ROP攻击-使用-Return-to-libc-绕过-DEP-防护"><a href="#ROP攻击-使用-Return-to-libc-绕过-DEP-防护" class="headerlink" title="ROP攻击: 使用 Return-to-libc 绕过 DEP 防护"></a>ROP攻击: 使用 Return-to-libc 绕过 DEP 防护</h1><h2 id="使用-Ubuntu-cloud-image-构建基本测试环境"><a href="#使用-Ubuntu-cloud-image-构建基本测试环境" class="headerlink" title="使用 Ubuntu cloud image 构建基本测试环境"></a>使用 Ubuntu cloud image 构建基本测试环境</h2><p>这时我遇到了一个坑，发现基于 Alpine Linux 测试始终不通过，因此不得不再次改用了 Ubuntu 进行测试。猜测应该是因为 Alpine Linux 不再基于 glibc，利用方法可能有所改变。</p><p>本来想选择的镜像是 Ubuntu Cloud Image，具体的版本是 Ubuntu xenial 16.04 LTS。Ubuntu Cloud Image 所提供的镜像比较精简，一般大小只有 200MB 多，适合快速下载，同时也提供了 Vmware 的 vmdk 文件下载，比较方便部署，但是具体使用的时候仍然无法支持使用 VirtualBox 启动通过，因此此处仅作一个想法记录下来。具体的安装方法不再叙述，同样给虚拟机分配了两个网卡，以方便联网和联入测试。</p><h2 id="DEP-防护原理"><a href="#DEP-防护原理" class="headerlink" title="DEP 防护原理"></a>DEP 防护原理</h2><p>前一攻击方法使用的是直接将 Shellcode 写到栈然后执行，通过在编译的时候增加 stack-protector 参数，使得程序栈无法直接执行代码来实现防护。</p><h2 id="调用-System-函数的原理"><a href="#调用-System-函数的原理" class="headerlink" title="调用 System 函数的原理"></a>调用 System 函数的原理</h2><p>伪造堆栈调用 system 函数之前所需要的内容，使得 vulnerable_function 返回时的 jump 变成了实际对 system 函数的调用。这边最理想的情况是调用完 system 函数后，如果 system 函数返回，则能够正常返回到 vulnerable_function 之前的返回地址，程序运行不会出现任何异常。</p><p>首先再次回顾下此时的堆栈:</p><p><img src="/img/rop_stack_2.png" alt="调用read函数前的堆栈"></p><p>实际上我们现在能做的是从 0xbffffc30 开始来操纵栈中的数据内容，本来函数是通过 jmp eip 来返回到 main 函数的，但是通过更改 0xbffffcbc 处的地址为 system 函数的地址，使得这个返回变成了跳转入指定的函数调用中，并且此时 0xbffffcc4 处地址作为了改函数的调用参数，而 0xbffffcc0 处则是 system 函数的返回地址，通过修改此处地址的内容，可以确保 system 函数退出时程序不崩溃出现异常。</p><p><img src="/img/rop_stack_4.png" alt="调用 system 函数前的堆栈"></p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>由此可见，Return to libc 技术，就是在栈区域无法直接执行代码的时候，通过返回到 glibc 中的函数，并传入 glibc 中的参数来执行指定函数。由此也可以看到，这种方法的前提是 glibc 中存在想要执行的函数与对应的参数。</p><h1 id="ROP攻击-绕过-DEP-和-ASLR-保护"><a href="#ROP攻击-绕过-DEP-和-ASLR-保护" class="headerlink" title="ROP攻击: 绕过 DEP 和 ASLR 保护"></a>ROP攻击: 绕过 DEP 和 ASLR 保护</h1><p>增加了 ASLR 保护后，最明显的改变是不再有固定地址的函数。所有系统函数的地址均是未知的，不再能够直接调用到这些函数了。但是对应仍然存在一定的绕过方法。其基本思想是找到（泄露）一个已知函数的实际地址，然后通过这个函数和我们需要执行函数的偏移计算出所需要实际调用的函数地址，那么这个问题就转换为如何找到（泄露）一个已知函数的实际地址了。</p><p>关于 Linux 的 PLT 和 GOT，本来想写一篇相关的文章，但是看到了 <a href="https://blog.csdn.net/linyt">海枫</a> 写的相关文章之后，顿时觉得完全没有必要了，他已经将相关的知识点讲解的非常清楚。</p><p>这里具体使用的方法是依据程序中的 write@plt 函数泄露了 write 函数的地址，为了达到这个目标，需要在栈上伪造了对 write@plt 函数的调用，栈布局如下图所示，这里面通过 write 将 write.got 中存储 write 函数地址的内容写入到 stdout 中，然后解析返回结果，就成功获取了 write 函数的地址。后续的利用过程则和前文中的 Return-to-libc 一致，这里不再赘述。</p><p><img src="/img/rop_stack_5.png" alt="调用 write 函数前的堆栈"></p><h1 id="参考列表"><a href="#参考列表" class="headerlink" title="参考列表"></a>参考列表</h1><p><a href="https://www.jianshu.com/p/594357dff57e">压栈， 跳转，执行，返回：从汇编看函数调用</a><br><a href="https://xz.aliyun.com/t/1803">Linux下pwn从入门到放弃</a><br><a href="https://0x00sec.org/t/exploit-mitigation-techniques-data-execution-prevention-dep/4634">Exploit Mitigation Techniques - Data Execution Prevention (DEP)</a><br>[<a href="https://www.jianshu.com/p/ef58e6b0ebef?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation%5D">https://www.jianshu.com/p/ef58e6b0ebef?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation]</a>(Linux (x86) Exploit 开发系列教程之八 绕过 ASLR – 第三部分)<br><a href="https://introspelliam.github.io/2017/08/03/pwn/got%E3%80%81plt%E8%A1%A8%E4%BB%8B%E7%BB%8D/">got、plt表介绍</a><br><a href="https://blog.csdn.net/linyt/article/details/51635768">聊聊Linux动态链接中的PLT和GOT（１）——何谓PLT与GOT</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;ROP攻击-使用-Return-to-libc-绕过-DEP-防护&quot;&gt;&lt;a href=&quot;#ROP攻击-使用-Return-to-libc-绕过-DEP-防护&quot; class=&quot;headerlink&quot; title=&quot;ROP攻击: 使用 Return-to-libc 绕</summary>
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://s0urcec0der.github.io/tags/Linux/"/>
+    
+    <category term="Exploit" scheme="https://s0urcec0der.github.io/tags/Exploit/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>域名注册经历</title>
+    <link href="https://s0urcec0der.github.io/2018/01/28/Website/"/>
+    <id>https://s0urcec0der.github.io/2018/01/28/Website/</id>
+    <published>2018-01-28T17:13:50.000Z</published>
+    <updated>2020-09-07T02:31:06.570Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="注册域名"><a href="#注册域名" class="headerlink" title="注册域名"></a>注册域名</h2><p>首先要挑选一个域名后缀，然后从域名比价网站<a href="https://www.domcomp.com/">domcomp</a>挑选一个合适的供应商进行注册。一般站点首次购买较为便宜，但是续费就有点贵，可以在到期前转移到续费便宜的站点再进行续费。此外，挑选的时候我特意选择了一家免费赠送隐私保护功能的供应商，但是即时这样仍然建议使用假的地址，配置Google Voice 作为联系方式，并单独注册一个邮箱接受相关信息。Whois信息现在已经被用于追踪用户的重要信息，因此一定要进行保密。</p><h2 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h2><p>目前国内的域名解析都需要实名认证，因此选择CloudFlare进行解析，具体的修改流程比较简单，注册后按照提示输入域名，然后再返回域名供应商修改对应的解析服务器到CloudFlare，一旦CloudFlare确认后就能够直接进行修改了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;注册域名&quot;&gt;&lt;a href=&quot;#注册域名&quot; class=&quot;headerlink&quot; title=&quot;注册域名&quot;&gt;&lt;/a&gt;注册域名&lt;/h2&gt;&lt;p&gt;首先要挑选一个域名后缀，然后从域名比价网站&lt;a href=&quot;https://www.domcomp.com/&quot;&gt;domcom</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ROP 学习之 Shellcode</title>
+    <link href="https://s0urcec0der.github.io/2018/01/23/ROP-Shellcode/"/>
+    <id>https://s0urcec0der.github.io/2018/01/23/ROP-Shellcode/</id>
+    <published>2018-01-23T21:42:52.000Z</published>
+    <updated>2018-01-27T17:32:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="0"><a href="#0" class="headerlink" title="0"></a>0</h1><p>上一篇学习 ROP 的文章中提到原文的 Shellcode 调用失败了，这次就尝试分析下该 Shellcode 看看能不能找出原因。</p><h1 id="1-对-Shellcode-反汇编"><a href="#1-对-Shellcode-反汇编" class="headerlink" title="1. 对 Shellcode 反汇编"></a>1. 对 Shellcode 反汇编</h1><p>拿到一段 Shellcode，第一步就是尝试反汇编，参考文章《使用 Python 将 Shellcode 转换成汇编》文章教程，基于 capstone 使用如下代码即可。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python2</span><br><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">from capstone import *</span><br><span class="line"></span><br><span class="line">for code in shellcode:</span><br><span class="line">    md = Cs(CS_ARCH_X86, CS_MODE_32)</span><br><span class="line">    for i in md.disasm(code, 0x00):</span><br><span class="line">        print(&quot;0x%x:\t%s\t%s&quot; %(i.address, i.mnemonic, i.op_str))</span><br></pre></td></tr></table></figure><p>从这段源码可以看到，这是利用 capstone 的反汇编功能来实现的，但是需要指定对应汇编的处理器架构和字长信息。</p><h1 id="2-分析-Shellcode-原理"><a href="#2-分析-Shellcode-原理" class="headerlink" title="2. 分析 Shellcode 原理"></a>2. 分析 Shellcode 原理</h1><p>Linu 下 Shellcode 的原理参考<a href="https://xz.aliyun.com/t/2052">《Linux下shellcode的编写》</a>一文，关键是调用系统调用函数 execve。这个函数的参数如下：</p><ul><li>参数 1：file 文件名</li><li>参数 2：NULL 即 0</li><li>参数 3：NULL 即 0</li></ul><p>实现调用时，需要将系统调用号码 11 放入 eax 中，最终调用<code>int 0x80</code>实现函数调用。</p><h2 id="ROP-教程中的-Shellcode-分析"><a href="#ROP-教程中的-Shellcode-分析" class="headerlink" title="ROP 教程中的 Shellcode 分析"></a>ROP 教程中的 Shellcode 分析</h2><p>下面针对第一次调用失败的 Shellcode 反汇编得到的代码分析下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">0x0:   xor ecx, ecx     \x31\xc9  // 清空 ecx，即 ecx = 0</span><br><span class="line">0x2:   mul ecx          \xf7\xe1  // 貌似是无意义的 ecx清零指令</span><br><span class="line">0x4:   push ecx         \x51      // 压入参数 0</span><br><span class="line">0x5:   push 0x68732f2f  \x68\x2f\x2f\x73\x68  // 压入字符串</span><br><span class="line">0xa:   push 0x6e69622f  \x68\x2f\x62\x69\x6e  // 压入字符串</span><br><span class="line">0xf:   mov ebx, esp     \x89\xe3  // 将字符串的地址传给 ebx</span><br><span class="line">0x11:  mov al, 0xb      \xb0\x0b  // 调用号 0xb == 11</span><br><span class="line">0x13:  int 0x80         \xcd\x80  // 0x80中 断调用系统调用</span><br></pre></td></tr></table></figure><p>由此可见，从反汇编角度这段 Shellcode 应该是有问题的，参数没有正常的传入。</p><h2 id="测试-Shellcode"><a href="#测试-Shellcode" class="headerlink" title="测试 Shellcode"></a>测试 Shellcode</h2><p>同样我们可以将这段 Shellcode 拷贝到测试程序中进行测试。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">char shellcode[] = &quot;\x31\xc9\xf7\xe1\x51\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\xb0\x0b\xcd\x80&quot;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int (*ret)() = (int(*)()) shellcode;</span><br><span class="line">    ret();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>然后使用 <code>gcc -fno-stack-protector -z execstack shellcode.c -o shellcode</code> 进行编译，预期之内，直接报出 <code>Segmentation fault</code> 错误。说明这段 Shellcode 的确是有问题的。</p><p>更换为</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">char shellcode[] =  &quot;\x31\xc0\x50\x68\x6e\x2f\x73\x68\x68\x2f\x2f\x62\x69\x89\xe3\x50\x89\xe2\x53\x89\xe1\xb0\x0b\xcd\x80&quot;;</span><br></pre></td></tr></table></figure><p>测试正常，该段 Shellcode 可以参考文2来查看详细含义。</p><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://bbs.pediy.com/thread-222965.htm">1.【Python】使用Python将Shellcode转换成汇编</a></p><p><a href="https://xz.aliyun.com/t/2052">2. Linux下shellcode的编写</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;0&quot;&gt;&lt;a href=&quot;#0&quot; class=&quot;headerlink&quot; title=&quot;0&quot;&gt;&lt;/a&gt;0&lt;/h1&gt;&lt;p&gt;上一篇学习 ROP 的文章中提到原文的 Shellcode 调用失败了，这次就尝试分析下该 Shellcode 看看能不能找出原因。&lt;/p&gt;
+&lt;h1</summary>
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://s0urcec0der.github.io/tags/Linux/"/>
+    
+    <category term="Exploit" scheme="https://s0urcec0der.github.io/tags/Exploit/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 Graphviz 来画图</title>
+    <link href="https://s0urcec0der.github.io/2017/12/03/Graphviz/"/>
+    <id>https://s0urcec0der.github.io/2017/12/03/Graphviz/</id>
+    <published>2017-12-03T20:27:45.000Z</published>
+    <updated>2020-09-07T02:31:06.565Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Graphviz-简介"><a href="#Graphviz-简介" class="headerlink" title="Graphviz 简介"></a>Graphviz 简介</h1><p>符合程序员的以代码生成一切事物的思想，并且类似 HTML ，只定义结构，样式则可以通过第三方工具来进行美化。</p><p>例如 <a href="https://jeasonstudio.github.io/oxygen-demo/">oxygen</a> 就是一个可以通过 Graphviz 代码来生成手绘风格图表的网站。</p><h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p><code>Node</code> 就是图的一个结点。</p><p><code>Edge</code> 连接两个结点之前</p><p><code>Graph</code> 定义了整个图片</p><h1 id="工具教程"><a href="#工具教程" class="headerlink" title="工具教程"></a>工具教程</h1><p>用过 NodeJS 的都了解，有一个 <code>supervisor</code> 命令能够监听目录，一旦发现文件发生改变后自动重启程序。发现 <code>dot</code> 命令并不存在自动监听生成图片的功能，因此改造了下，安装第三方工具 nodemon 来实现文件监听。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g nodemon</span><br></pre></td></tr></table></figure><p>然后运行命令 <code>nodemon -e .gv -x &quot;dot -Tpng -o test.png stack.gv&quot;</code> ，便实现了 nodemon 监听指定后缀名的功能，然后执行指定的命令。可惜的是暂时没有找到将发生文件变化的文件名作为变量传入到命令中的方法。</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://graphviz.gitlab.io/_pages/pdf/dotguide.pdf">Guide</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Graphviz-简介&quot;&gt;&lt;a href=&quot;#Graphviz-简介&quot; class=&quot;headerlink&quot; title=&quot;Graphviz 简介&quot;&gt;&lt;/a&gt;Graphviz 简介&lt;/h1&gt;&lt;p&gt;符合程序员的以代码生成一切事物的思想，并且类似 HTML ，只定义结</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Firefox57新版试用</title>
+    <link href="https://s0urcec0der.github.io/2017/11/26/Firefox57/"/>
+    <id>https://s0urcec0der.github.io/2017/11/26/Firefox57/</id>
+    <published>2017-11-26T17:18:30.000Z</published>
+    <updated>2020-09-07T02:31:06.565Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="浏览器使用历史"><a href="#浏览器使用历史" class="headerlink" title="浏览器使用历史"></a>浏览器使用历史</h1><h2 id="早期试用"><a href="#早期试用" class="headerlink" title="早期试用"></a>早期试用</h2><p>记得最早使用的浏览器是傲游，后来短暂使用了一段时间的搜狗之后就一直改用Firefox，即使Chrome出来后，短暂使用过，但是后面还是继续选择使用Firefox。</p><p>Firefox给我的第一印象就是丰富的插件，相比早期的IE和国内一众基于IE内核的浏览器，插件功能更加强大，特别是那会惊为天人的Adblock Plus让我摆脱了页面上各种眼花缭乱的广告。而另外一个插件Downthem All则让我在大多数情况下不需要启动迅雷来多线程下载一个本来就不会花费太多下载时间的文件链接，尤其。</p><h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><p>虽然后来出现了速度更加快的Chrome，但是一开始的某些插件（例如Adblock）并不完善，并且处于对隐私方面的考虑，仍然坚持使用Firefox。</p><p>Chrome也在不停的进步，各种功能不断完善，所以目前我主要会在调试网页的时候试用Chrome。</p><h2 id="Firefox缺点"><a href="#Firefox缺点" class="headerlink" title="Firefox缺点"></a>Firefox缺点</h2><p>目前使用的感觉主要是实在是太慢了，标签一多经常性的会出现卡死。在Windows下仍然是32位，所以都会单独下载第三方编译版本（例如pcxfirefox），而在Linux&#x2F;Mac下使用时，则要经常性的重启下。</p><p>为了应对Chrome的竞争，近两年来Firefox的采取了更加激进的更新策略，但是随之而来的却是每个版本一旦更新，一些插件就会失效，特别是Autoproxy这个插件，一度让我想放弃Firefox。而近期，则完全抛弃了原有的插件支持，引入了基于WebExtension的插件，增加了插件的通用性，提高了安全性。</p><h1 id="Firefox-57试用体验"><a href="#Firefox-57试用体验" class="headerlink" title="Firefox 57试用体验"></a>Firefox 57试用体验</h1><p>第一次装上Firefox57后，的确觉得其速度变快很多，但是仔细观察下来，更多的感觉快是显示在了页面加载到完成渲染的过程中，</p><h2 id="新版附加组件列表"><a href="#新版附加组件列表" class="headerlink" title="新版附加组件列表"></a>新版附加组件列表</h2><p>因为大量的插件不再可用，所有需要重新选择浏览器插件，这是我在Firefox 57上所使用的新版插件列表，基本能够满足我的日常需求。</p><h3 id="Evernote-Web-Clipper"><a href="#Evernote-Web-Clipper" class="headerlink" title="Evernote Web Clipper"></a>Evernote Web Clipper</h3><h3 id="Greasemonkey"><a href="#Greasemonkey" class="headerlink" title="Greasemonkey"></a>Greasemonkey</h3><p>虽然有人推荐试用Tampermonkey替代，但是目前为止Greasemonkey对于我仍然能够满足需求。</p><h3 id="HTTPS-Everywhere"><a href="#HTTPS-Everywhere" class="headerlink" title="HTTPS Everywhere"></a>HTTPS Everywhere</h3><p>自动跳转到该网站的HTTPS版本，随着HTTPS的不断普及，相信这个插件会逐渐失去其功能。</p><h3 id="LastPass"><a href="#LastPass" class="headerlink" title="LastPass"></a>LastPass</h3><p>密码管理，类似的还有其他几款管理软件。</p><h3 id="Proxy-SwitchyMmega"><a href="#Proxy-SwitchyMmega" class="headerlink" title="Proxy SwitchyMmega"></a>Proxy SwitchyMmega</h3><p>以前的代理插件AutoProxy及后续的第三方更改版本基本每次Firefox一升级就要死一大片然后重新找，现在这个插件是Chrome上的对应移植版本，不用再担心一升级就失效了。目前试用国产中仍然感觉有一些bug。</p><h3 id="uBlock-Origin"><a href="#uBlock-Origin" class="headerlink" title="uBlock Origin"></a>uBlock Origin</h3><p>新一代的广告过滤插件，对于Adblock Plus有着较大的优势。目前Adblock Plus已经堕落了，在社区内引起了几次争论，使得大家都对其持怀疑态度。</p><h3 id="uMatrix"><a href="#uMatrix" class="headerlink" title="uMatrix"></a>uMatrix</h3><p>用于屏蔽网页无关脚本，可以辅助屏蔽第三方追踪脚本，是NoScript的替代品。</p><h3 id="Vimium"><a href="#Vimium" class="headerlink" title="Vimium"></a>Vimium</h3><p>Vim快捷键插件，但是比原来的Vimperator权限小了很多，页面加载完成后才有效果。</p><h3 id="Open-Tabs-Next-to-Current"><a href="#Open-Tabs-Next-to-Current" class="headerlink" title="Open Tabs Next to Current"></a>Open Tabs Next to Current</h3><p>新版插件功能不再有对标签外观和标签位置的更改能力，为此这个插件好像使用了一种方法绕过了限制，能够紧接当前标签新建一个新标签，此外在设置里面可以针对从当前页面打开的链接的标签位置进行配置。</p><blockquote><p>  about:config 设置browser.tabs.insertRelatedAfterCurrent 为true</p></blockquote><h2 id="缺少的插件"><a href="#缺少的插件" class="headerlink" title="缺少的插件"></a>缺少的插件</h2><h3 id="Down-Them-All"><a href="#Down-Them-All" class="headerlink" title="Down Them All"></a>Down Them All</h3><p>不再有类似的多线程轻量级下载工具，需要自己额外配置第三方下载软件。</p><h2 id="Firefox57不足"><a href="#Firefox57不足" class="headerlink" title="Firefox57不足"></a>Firefox57不足</h2><p>目前的问题主要如下：</p><ol><li><p>Firefox57的SwitchyOmega会经常性的出现菜单显示不正常，参考[<a href="https://github.com/FelisCatus/SwitchyOmega/issues/1315]">https://github.com/FelisCatus/SwitchyOmega/issues/1315]</a></p></li><li><p>在Mac下，Firefox57经常性的会出现高CPU占用情况，然后风扇狂转，最终我更换成了Firefox Nightly。</p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;浏览器使用历史&quot;&gt;&lt;a href=&quot;#浏览器使用历史&quot; class=&quot;headerlink&quot; title=&quot;浏览器使用历史&quot;&gt;&lt;/a&gt;浏览器使用历史&lt;/h1&gt;&lt;h2 id=&quot;早期试用&quot;&gt;&lt;a href=&quot;#早期试用&quot; class=&quot;headerlink&quot; titl</summary>
+      
+    
+    
+    
+    
+    <category term="Web" scheme="https://s0urcec0der.github.io/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从0开始学习Linux ROP利用-part1</title>
+    <link href="https://s0urcec0der.github.io/2017/11/22/ROP-part1/"/>
+    <id>https://s0urcec0der.github.io/2017/11/22/ROP-part1/</id>
+    <published>2017-11-22T21:19:23.000Z</published>
+    <updated>2018-01-19T22:58:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><p>ROP(Return-oriented programming) 是一种通过覆盖堆栈 (Stack) 内容来实现控制返回地址实现执行自定义代码的漏洞利用手段。目前比较流行的教程是蒸米写的Linux ROP系列，本文以此为基础，综合其他文章来详细的讲解Linux ROP利用国产。</p><h1 id="构造虚拟机环境"><a href="#构造虚拟机环境" class="headerlink" title="构造虚拟机环境"></a>构造虚拟机环境</h1><p>测试过程中需要x86&#x2F;x64两个环境的Linux系统，因此一般物理机测试起来比较麻烦，可以通过安装虚拟机来构造对应的测试环境。这里我使用 VirtualBox 来安装不同的测试环境，此外我选择基于 Alpine Linux 搭建测试环境，原因是 Alpine Linux 的镜像相对比较小，而且里面是基于 musl libc 实现了系统调用，意味着网上教程中的很多地方需要自己进行针对性的修改，这也是一个挑战。</p><h2 id="虚拟机网络配置"><a href="#虚拟机网络配置" class="headerlink" title="虚拟机网络配置"></a>虚拟机网络配置</h2><p>为了方便测试，我选择使用 SSH 连接 Linux 主机执行命令，而不是从 VirtualBox 的界面，无法快捷的复制粘贴内外内容。使用 SSH 时需要有一个条件是物理机主动连接到虚拟机，但是默认的虚拟机环境采用 NAT 模式，虚拟机能够访问外网但是物理机无法访问虚拟机，这时可以额外添加一个 Host Only 网络来连接虚拟机。</p><h2 id="Alpine-Linux-基础环境搭建"><a href="#Alpine-Linux-基础环境搭建" class="headerlink" title="Alpine Linux 基础环境搭建"></a>Alpine Linux 基础环境搭建</h2><p>需要手动安装 gcc 和 libc-dev 库提供基础编译环境，安装 gdb 提供调试功能。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apk add libc-dev gcc gdb</span><br></pre></td></tr></table></figure><h1 id="静态分析代码"><a href="#静态分析代码" class="headerlink" title="静态分析代码"></a>静态分析代码</h1><h2 id="反汇编程序"><a href="#反汇编程序" class="headerlink" title="反汇编程序"></a>反汇编程序</h2><p>为了方便反汇编，可以将 gdb 的语法设置默认为 AT&amp;T 语法改为 Intel 语法，具体方法如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;set disassembly-flavor intel&quot; &gt; ~/.gdbinit</span><br></pre></td></tr></table></figure><h2 id="GDB-指令简介"><a href="#GDB-指令简介" class="headerlink" title="GDB 指令简介"></a>GDB 指令简介</h2><ul><li><p><code>b[reak] &lt;行号|函数名|代码地址&gt;</code> 下断点</p></li><li><p><code>r[un]</code> 运行代码</p></li><li><p><code>c[continue]</code> 继续运行</p></li><li><p><code>s/n</code> Step into 单步跟踪进入&#x2F;Step Over 单步跟踪</p></li><li><p><code>si/ni</code> 汇编指令集 <code>s/n</code> </p></li><li><p><code>p [varialbe/register]</code> 打印变量&#x2F;寄存器</p></li></ul><h2 id="Debug-教程"><a href="#Debug-教程" class="headerlink" title="Debug 教程"></a>Debug 教程</h2><p>使用 <code>gdb level1</code> 来加载程序，然后调用 <code>disas vulnerable_function</code> 来反汇编存在漏洞的函数。输入 <code>layout asm</code> 分屏显示汇编代码， <code>b  vulnerable_function</code> 下断点，然后 <code>r</code> 开始运行程序，<code>p $eip</code> 打印当前 EIP 寄存器地址。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">0x00001220 &lt;+0&gt;:    push   ebp</span><br><span class="line">0x00001221 &lt;+1&gt;:    mov    ebp,esp</span><br><span class="line">0x00001223 &lt;+3&gt;:    push   ebx</span><br><span class="line">0x00001224 &lt;+4&gt;:    sub    esp,0x84</span><br><span class="line"></span><br><span class="line">0x0000122a &lt;+10&gt;:call   0x1218 &lt;__x86.get_pc_thunk.ax&gt;</span><br><span class="line">0x0000122f &lt;+15&gt;:add    eax,0x2d99</span><br><span class="line">0x00001234 &lt;+20&gt;:sub    esp,0x4          // &lt;----a</span><br><span class="line"></span><br><span class="line">0x00001237 &lt;+23&gt;:push   0x100             // 256</span><br><span class="line">0x0000123c &lt;+28&gt;:lea    edx,[ebp-0x88]    // -+</span><br><span class="line">0x00001242 &lt;+34&gt;:push   edx               // -+--  ebp-0x88为buf地址</span><br><span class="line">0x00001243 &lt;+35&gt;:push   0x0               // STDIN_FILENO</span><br><span class="line">0x00001245 &lt;+37&gt;:mov    ebx,eax</span><br><span class="line">0x00001247 &lt;+39&gt;:call   0x1040 &lt;read@plt&gt; // 调用read函数</span><br><span class="line"></span><br><span class="line">0x0000124c &lt;+44&gt;:add    esp,0x10</span><br><span class="line">0x0000124f &lt;+47&gt;:nop</span><br><span class="line">0x00001250 &lt;+48&gt;:mov    ebx,DWORD PTR [ebp-0x4]</span><br><span class="line">0x00001253 &lt;+51&gt;:leave                    // mov esp,ebp; pop ebp;</span><br><span class="line">0x00001254 &lt;+52&gt;:ret                      // pop eip; jump eip;</span><br><span class="line"></span><br><span class="line">-----------------------</span><br><span class="line"></span><br><span class="line">0x0000126f &lt;+26&gt;:call   0x1220 &lt;vulnerable_function&gt; // push eip; jump XX;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>汇编代码中有一个函数 <code>__x86.get_pc_thunk.ax</code> 的调用，在此可以暂时忽略这段代码，与 EOP 利用无关，没有任何影响。关于这个函数的详细解释，参考 <a href="https://cloud.tencent.com/developer/ask/91473">《什么是__i686.get_pc_thunk.bx？我们为什么需要调用这个？》</a> 一文。</p><h2 id="堆栈分析"><a href="#堆栈分析" class="headerlink" title="堆栈分析"></a>堆栈分析</h2><p>下面先从理论上对堆栈情况分析一下。首先要注意的是，esp 指针是指向栈顶，即当前已经使用的空间。执行汇编指令到 a 处，堆栈如下：</p><p><img src="/img/rop_stack_1.png" alt="初始堆栈"></p><p>通过<code>si</code>和<code>ni</code>指令执行到read函数之前，此时的堆栈如下图2：</p><p><img src="/img/rop_stack_2.png" alt="调用read函数前的堆栈"></p><p>通过调试发现此时堆栈中有两个空位 0xbffffcb0 和 0xbffffc2c，猜测可能是多余的代码导致的。调用完 read 函数，输入内容后，进行堆栈平衡，此时堆栈变成下图：</p><p><img src="/img/rop_stack_3.png" alt="调用read函数后的堆栈"></p><p>调用指令 <code>x /8cb 0xbffffc30</code>  可以显示出输入的前 8 个字符。继续往下执行，这时候会返回，会调用 <code>leave</code> 指令再次堆栈平衡，释放函数中的临时变量，并恢复原有函数栈帧的 esp 。最后执行 <code>ret</code> 指令，至此整个执行流完毕。</p><h2 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h2><p>很明显，read 函数没有对输入的内容校验长度，导致可以输入超长字符串，利用字符串覆盖 eip(0xbffffcbc) ，则我们就可以控制这个函数的返回地址，实现漏洞利用。通过计算可以得到 0xbffffcbc - 0xbffffc30 &#x3D; 0x8c，即使用 0x8c + 0x04 长度的字符串覆盖，最后的四字节就可以覆盖成功。对比原文中提供的通过脚本获取覆盖长度脚本，可以发现与我们分析的一致。</p><h2 id="生成-Shellcode"><a href="#生成-Shellcode" class="headerlink" title="生成 Shellcode"></a>生成 Shellcode</h2><p>很可惜，使用教程中所提供的 shellcode 时存在问题，进程仍然 crash，不过使用 Metasploit 生成要的 Shellcode 却能够正常执行。生成 Shellcode 的具体做法如下，进入 msfconsole，使用 <code>show payloads</code> 可以看到所有支持的 payload。然后 <code>use linux/x86/exec</code> 来选用当前环境的 payload ，输入 <code>info</code> 查看当前 payload 的参数，用 <code>set CMD /bin/s</code> 来生成执行 <code>sh</code> 的 shellcode，最后使用 <code>generate</code> 命令来生成。</p><h2 id="执行-Shellcode"><a href="#执行-Shellcode" class="headerlink" title="执行 Shellcode"></a>执行 Shellcode</h2><p>最初的想法是在 Alpine 中安装 pwntools 工具本地执行，但是发现安装了一系列软件后，最终因为某个库不支持 x86 环境而安装失败，相关需要安装的库如下，有需要的可以参考下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apk add --no-cache -X https://mirrors.tuna.tsinghua.edu.cn/alpine/edge/community/ capstone-dev</span><br><span class="line">apk add python3 python3-dev alpine-sdk libffi-dev openssl-dev</span><br><span class="line">pip install pwntools</span><br></pre></td></tr></table></figure><p>因为 pwntools 安装失败，所以使用 socat 命令来起服务，<code>socat TCP4-LISTEN:5001,fork EXEC:./level1</code>，这里同样要重新寻找对应的返回地址，因此第一次可以输入一个错误的 Shellcode，然后同样使用<code>gdb level1 core.xxxxx</code> 命令来调试 coredump 文件，显示具体的返回地址，再重新修改 shellcode 中的返回内容。</p><p><img src="/img/rop_execute.png" alt="执行成功"></p><h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>虽然这个教程篇幅不长，但是自己复现整个过程却充满了坎坷，断断续续花了两个月的时间，所幸第一次总是艰难的，后续会应该轻松很多吧，加油！</p><h1 id="参考文章列表"><a href="#参考文章列表" class="headerlink" title="参考文章列表"></a>参考文章列表</h1><p><a href="https://segmentfault.com/a/1190000012756506">VirtualBox虚拟机和Mac或Win主机之间网络相互通信</a></p><p><a href="https://github.com/zhengmin1989/MyArticles/tree/master/%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E5%AD%A6ROP">一步一步学ROP</a></p><p><a href="http://drops.2xss.cc/?chamd5#!/drops/595.%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E5%AD%A6ROP%E4%B9%8Blinux_x86%E7%AF%87">一步一步学ROP 镜像文 </a></p><p><a href="https://ketansingh.net/Introduction-to-Return-Oriented-Programming-ROP/">Introduction to Return Oriented Programming (ROP)</a></p><p><a href="https://www.cnblogs.com/pannengzhi/p/exploit-the-stack.html">栈溢出漏洞的利用和缓解</a></p><p><a href="https://www.freebuf.com/vuls/179724.html">StackOverFlow之Ret2ShellCode详解</a></p><p><a href="https://www.jianshu.com/p/b7896e9afeb7">常用GDB指令</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;基础&quot;&gt;&lt;a href=&quot;#基础&quot; class=&quot;headerlink&quot; title=&quot;基础&quot;&gt;&lt;/a&gt;基础&lt;/h1&gt;&lt;p&gt;ROP(Return-oriented programming) 是一种通过覆盖堆栈 (Stack) 内容来实现控制返回地址实现执行自定义代</summary>
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://s0urcec0der.github.io/tags/Linux/"/>
+    
+    <category term="Exploit" scheme="https://s0urcec0der.github.io/tags/Exploit/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac下Wine运行心灵终结Mental Omega 3.3</title>
+    <link href="https://s0urcec0der.github.io/2017/10/21/Wine-Mental-Omega/"/>
+    <id>https://s0urcec0der.github.io/2017/10/21/Wine-Mental-Omega/</id>
+    <published>2017-10-21T17:53:12.000Z</published>
+    <updated>2020-09-07T02:31:06.572Z</updated>
+    
+    <content type="html"><![CDATA[<hr><h1 id="Mac下Wine运行心灵终结Mental-Omega-3-3"><a href="#Mac下Wine运行心灵终结Mental-Omega-3-3" class="headerlink" title="Mac下Wine运行心灵终结Mental Omega 3.3"></a>Mac下Wine运行心灵终结Mental Omega 3.3</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>红色警戒(Command &amp; Conquer: Red Alert 2)是经典的游戏，心灵终结是基于尤里的复仇的一个Mod，被称为”几乎完美的尤里的复仇”，2016年底该Mod发布3.3版本。相比原版的红警，阵营间的兵种区分更大，兵种相克更加合理，增加了多种对战模式，玩起来更加有意思。</p><h2 id="安装Wine"><a href="#安装Wine" class="headerlink" title="安装Wine"></a>安装Wine</h2><p>Wine可以在Linux&#x2F;Mac平台下模拟执行Window程序</p><p>请安装开发版本的Wine以便获得更好的兼容性</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew cask install wine-devel</span><br><span class="line">brew install winetricks</span><br></pre></td></tr></table></figure><h2 id="安装Mental-Omega-3-3"><a href="#安装Mental-Omega-3-3" class="headerlink" title="安装Mental Omega 3.3"></a>安装Mental Omega 3.3</h2><p>请安装3.3.2版本，最早的MentalOmega 3.3.0版本的clientxna.exe无法正常启动，需要后续更新才行，该问题可以参考(<a href="https://github.com/CnCNet/xna-cncnet-client/issues/29">https://github.com/CnCNet/xna-cncnet-client/issues/29</a>)</p><p>选择一个心灵终结的懒人包，解压之后运行</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">winetricks xna40</span><br></pre></td></tr></table></figure><p>会自动安装依赖.net40和xna40，安装完毕后如果直接运行<code>wine MentalOmegaClient.exe</code>仍然会提示缺少.NET组件，但是可以通过<code>wine Resources/clientxna.exe</code>来开启程序绕过检查。</p><p><img src="/img/wine-MentalOmega.png" alt="Wine"></p><h2 id="其他优化"><a href="#其他优化" class="headerlink" title="其他优化"></a>其他优化</h2><p>关于Wine的字体优化，可以参考<a href="https://www.lulinux.com/archives/362">WINE界面与字体美化全攻略，及我的常用WINE程序截图展示</a></p><h2 id="目前遇到的Bug"><a href="#目前遇到的Bug" class="headerlink" title="目前遇到的Bug"></a>目前遇到的Bug</h2><ul><li>1.会经常性的在命令行窗口弹出错误信息：</li></ul><blockquote><p> winedevice.exe(18227,0xb0004000) malloc: *** error for object 0x40203bb2: pointer being freed was not allocated</p></blockquote><ul><li>2.在长时间运行红警后，会出现闪退现象</li></ul><h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><p>2019.06.22 更新最新的 Wine 使用情况。</p><h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="https://blog.csdn.net/wr132/article/details/76093911">【WineHQ】解决UTF8乱码问题</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;hr&gt;
+&lt;h1 id=&quot;Mac下Wine运行心灵终结Mental-Omega-3-3&quot;&gt;&lt;a href=&quot;#Mac下Wine运行心灵终结Mental-Omega-3-3&quot; class=&quot;headerlink&quot; title=&quot;Mac下Wine运行心灵终结Mental Omega </summary>
+      
+    
+    
+    
+    
+    <category term="Mac" scheme="https://s0urcec0der.github.io/tags/Mac/"/>
+    
+    <category term="Linux" scheme="https://s0urcec0der.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>破解某网站m3u8视频资源</title>
+    <link href="https://s0urcec0der.github.io/2017/10/02/Crack-M3U8/"/>
+    <id>https://s0urcec0der.github.io/2017/10/02/Crack-M3U8/</id>
+    <published>2017-10-02T10:37:29.000Z</published>
+    <updated>2020-09-07T02:31:06.564Z</updated>
+    
+    <content type="html"><![CDATA[<hr><h1 id="破解某网站m3u8视频资源"><a href="#破解某网站m3u8视频资源" class="headerlink" title="破解某网站m3u8视频资源"></a>破解某网站m3u8视频资源</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>某个视频教学网站资源即将超过有效期，因此尝试将网页上的视频下载到本地。</p><h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><h3 id="1-登录验证"><a href="#1-登录验证" class="headerlink" title="1. 登录验证"></a>1. 登录验证</h3><p>这部分非常简单，模拟提交登录表单，并及时保存对应的Cookie即可</p><h3 id="2-视频播放流程"><a href="#2-视频播放流程" class="headerlink" title="2. 视频播放流程"></a>2. 视频播放流程</h3><p>这个网页上使用了一个Flash播放器，然后通过该Flash文件读取m3u8文件进行播放。</p><p>HTTP Live Streaming（HLS）是苹果公司(Apple Inc.)实现的基于HTTP的流媒体传输协议，m3u8，是HTTP Live Streaming直播的索引文件。该文件包含了这个视频的一系列视频分片，Flash播放器或者</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#EXTM3U</span><br><span class="line">#EXT-X-VERSION:3</span><br><span class="line">#EXT-X-MEDIA-SEQUENCE:0</span><br><span class="line">#EXT-X-ALLOW-CACHE:YES</span><br><span class="line">#EXT-X-TARGETDURATION:11</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0xe532855feb3e18366b8e7ea0c11f3116</span><br><span class="line">#EXTINF:10.066667,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg0</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0x48586a2ac8397fbce9565480259c1b94</span><br><span class="line">#EXTINF:10.000000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg1</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0x928f18982f6ee1a7e36cfa8f36979c3a</span><br><span class="line">#EXTINF:10.000000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg2</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0x6651941d56de8af0c7d4bee9ae33a8de</span><br><span class="line">#EXTINF:10.000000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg3</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0x90df003d61ba2ef9413fdaf521cfce15</span><br><span class="line">#EXTINF:10.000000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg4</span><br><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;http://ztest.qiniudn.com/crypt0.key&quot;,IV=0xc7773183806b8d3d7e44811076ed5b66</span><br><span class="line">#EXTINF:2.200000,</span><br><span class="line">http://ztest.qiniudn.com/Fr88-3sZu8HqPFot_BapyYtuz3k=/FgCBc3IlydY6CFIA8jhe7jIxCt1y/seg5</span><br><span class="line">#EXT-X-ENDLIST</span><br></pre></td></tr></table></figure><p>m3u8内容如上所示，解析时一般是根据<code>EXT-X-KEY</code>中的<code>METHOD</code>的加密方法和<code>URI</code>链接下载密钥内容，最终结合<code>IV</code>解密后续的分片url。</p><h3 id="3-变种"><a href="#3-变种" class="headerlink" title="3. 变种"></a>3. 变种</h3><p>上述是正常的播放过程，但是对该网站解析时却失败了，解密出来的结果却不是正常的视频，多次尝试后，唯一的剩下的可能性便是这个Flash播放器采用了变种HLS协议。</p><p>使用<a href="https://www.free-decompiler.com/flash/download/">ffdec</a>打开下载得到的Flash播放文件，阅读其中的代码，果然并非标准的HLS协议。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;hr&gt;
+&lt;h1 id=&quot;破解某网站m3u8视频资源&quot;&gt;&lt;a href=&quot;#破解某网站m3u8视频资源&quot; class=&quot;headerlink&quot; title=&quot;破解某网站m3u8视频资源&quot;&gt;&lt;/a&gt;破解某网站m3u8视频资源&lt;/h1&gt;&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景</summary>
+      
+    
+    
+    
+    
+    <category term="Flash" scheme="https://s0urcec0der.github.io/tags/Flash/"/>
+    
+    <category term="Web" scheme="https://s0urcec0der.github.io/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac上配置Android开发环境</title>
+    <link href="https://s0urcec0der.github.io/2017/01/21/Install-Android-with-Homebrew/"/>
+    <id>https://s0urcec0der.github.io/2017/01/21/Install-Android-with-Homebrew/</id>
+    <published>2017-01-21T19:42:02.000Z</published>
+    <updated>2020-09-07T02:31:06.565Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="在Mac上配置Android开发环境"><a href="#在Mac上配置Android开发环境" class="headerlink" title="在Mac上配置Android开发环境"></a>在Mac上配置Android开发环境</h2><p>在Mac上配置Android开发环境，通常是直接下载安装Android Studio并运行其中的配置，有太多的手工操作，需要多次确认。因此我选择使用Homebrew来安装对应的软件。</p><p>Homebrew可以自动安装多个Mac相关软件，以命令行程序为主，而Homebrew Cask包负责安装Mac上的App应用，安装时可以直接搜索，不必去各个网站单独下载，并且可以通过<code>brew upgrade</code>进行统一更新，免去了逐一手动更新的痛苦，目前大部分开发相关的应用都可以直接安装，基本能够达到替换App Store。</p><h3 id="配置基本android开发环境包"><a href="#配置基本android开发环境包" class="headerlink" title="配置基本android开发环境包"></a>配置基本android开发环境包</h3><p>正如上文所述，使用Homebrew进行软件管理的目的，所有软件均不会从官网下载，而只通过命令行安装。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">brew install ant</span><br><span class="line">brew install maven</span><br><span class="line">brew install gradle</span><br><span class="line">brew install android-sdk</span><br><span class="line">brew install android-ndk</span><br></pre></td></tr></table></figure><p>允许android命令来安装Android开发环境，关于所需的包，可以参考<a href="https://www.zhihu.com/question/31935836">知乎-Android SDk Manager里面到底哪些东西是必须下载的？</a></p><h4 id="安装HAXM"><a href="#安装HAXM" class="headerlink" title="安装HAXM"></a>安装HAXM</h4><p>这是唯一一步需要sudo操作的安装</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install intel-haxm</span><br></pre></td></tr></table></figure><h3 id="安装Android-Studio"><a href="#安装Android-Studio" class="headerlink" title="安装Android Studio"></a>安装Android Studio</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install android-studio</span><br></pre></td></tr></table></figure><p>允许Android Studio后，记得配置Android SDK路径为&#x2F;usr&#x2F;local&#x2F;opt&#x2F;android-sdk</p><h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;在Mac上配置Android开发环境&quot;&gt;&lt;a href=&quot;#在Mac上配置Android开发环境&quot; class=&quot;headerlink&quot; title=&quot;在Mac上配置Android开发环境&quot;&gt;&lt;/a&gt;在Mac上配置Android开发环境&lt;/h2&gt;&lt;p&gt;在Mac上配</summary>
+      
+    
+    
+    
+    
+    <category term="Mac" scheme="https://s0urcec0der.github.io/tags/Mac/"/>
+    
+    <category term="Android" scheme="https://s0urcec0der.github.io/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在无Root权限系统中安装Linuxbrew</title>
+    <link href="https://s0urcec0der.github.io/2016/01/12/Install-Linuxbrew-without-Root/"/>
+    <id>https://s0urcec0der.github.io/2016/01/12/Install-Linuxbrew-without-Root/</id>
+    <published>2016-01-12T02:37:25.000Z</published>
+    <updated>2020-09-07T02:31:06.567Z</updated>
+    
+    <content type="html"><![CDATA[<hr><h1 id="在无Root权限系统中安装Linuxbrew"><a href="#在无Root权限系统中安装Linuxbrew" class="headerlink" title="在无Root权限系统中安装Linuxbrew"></a>在无Root权限系统中安装Linuxbrew</h1><h2 id="Linuxbrew"><a href="#Linuxbrew" class="headerlink" title="Linuxbrew"></a>Linuxbrew</h2><p>Homebrew是Mac系统下著名的软件安装管理系统，其特点是不需要root权限即可编译安装Linux下的各种软件，通过修改路径来优先使用安装的软件包。而Linuxbrew则是其Linux移植版本，同样可以在不需要root权限的情况下，在.linuxbrew下完整建立一个运行环境，并在环境变量里面优先使用。</p><p>因为目前我使用的一个系统是Centos5.4版本，无root权限，gcc、python等版本均非常旧，而且无法自由安装软件提供工作效率，所以选择Linuxbrew来安装需要的软件。但是实际上整个安装过程也是非常艰难的。</p><h2 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h2><p>虽然Linuxbrew号称不需要root权限，但是实际安装的时候还是需要满足一定的条件，目前主要条件如下：</p><blockquote><ul><li>Ruby 1.8.6 or newer</li><li>GCC 4.2 or newer</li><li>Linux 2.6.16 or newer</li><li>64-bit x86 or 32-bit ARM platform</li></ul></blockquote><p>可惜现有的系统不满足前两个条件，意味着需要在没有root权限下实现这亮点。</p><h3 id="Ruby依赖"><a href="#Ruby依赖" class="headerlink" title="Ruby依赖"></a>Ruby依赖</h3><p>Linuxbrew是基于ruby的，而Centos5.7的ruby版本是1.8.5，仅仅相差了一个小版本号，却无法运行。因为没有root权限，所以选择采用<a href="https://rvm.io/">rvm</a>升级安装ruby。</p><p>默认rvm是编译安装的，但是显然当前版本没有安装必要的devel包，所以是无法编译成功的，看到安装过程中会首先去搜索precompiled binary，猜测可能有不需要编译的ruby版本提供，经过一番搜索，果然是可以的，运行<code>rvm list remote</code>可以看到支持当前系统的ruby预编译版本，就选择了一个最低版本ruby-1.9.3-p551，但是很不幸，应该是网络问题无法直接下载，需要手动从<a href="https://rvm_io.global.ssl.fastly.net/binaries/centos/5/x86_64/">下载链接</a>进行下载。</p><p>对于下载的包，运行<code>rvm mount -r ruby-1.9.3-p551.tar.bz2 --binary</code>加载，会自动把包内的文件释放出来，此时会提醒运行缺少libyaml，但是发现好像并不会引起其他问题。</p><h3 id="Git依赖"><a href="#Git依赖" class="headerlink" title="Git依赖"></a>Git依赖</h3><p>坑爹的是git也没有安装，第一想法当然是直接释放git的rpm包，但是运行的时候一直有错误提醒：</p><blockquote><p>   $ git clone <a href="https://github.com/nvie/gitflow.git">https://github.com/nvie/gitflow.git</a><br>   Cloning into gitflow…<br>   fatal: Unable to find remote helper for ‘https’</p></blockquote><p>后得知是缺乏libcurl相关库，但是最初并不知道，因此选择重新编译git，官网提示需要如下库</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install curl-devel expat-devel gettext-devel openssl-devel perl-devel zlib-devel</span><br></pre></td></tr></table></figure><p>自然是按照对应的依赖，然后下载解压对应的包，增加到include路径中，然后进行编译，但是事实证明这个过程非常艰难，最终没有编译成功，有兴趣的同学可以尝试下看看。</p><p>幸运的从网上找到了一个<a href="http://vault.centos.org/5.4/os/x86_64/CentOS/">Centos rpm包库</a>，然后根据需要的包名选择下载，s使用命令<code>rpm2cpio *.rpm | cpio -div</code>释放rpm包文件到了本地的~&#x2F;usr目录下，并确认这些文件及so能够正常在环境变量里面</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:~/usr/bin</span><br><span class="line">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/usr/lib</span><br><span class="line">export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/usr/include</span><br><span class="line">export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/usr/include</span><br></pre></td></tr></table></figure><p>随后编译git，并放入~&#x2F;usr&#x2F;bin下，能够正常运行git。</p><h3 id="Standalone模式安装Linuxbrew"><a href="#Standalone模式安装Linuxbrew" class="headerlink" title="Standalone模式安装Linuxbrew"></a>Standalone模式安装Linuxbrew</h3><p>在Standalone模式下，Linuxbrew会搭建一个完全脱离现有系统的编译环境和运行环境，运行Linuxbrew的软件时不再依赖系统原有的的编译器和库。</p><p>虽然说是Standalone模式，仍然需要一个编译器来首先编译出一个gcc，但是CentOS5.4的默认gcc版本过旧，必须要求最低4.4版本才行。依然尝试下载对应的rpm包，然后需要注意的是，这些包可能存在依赖，所以需要运行命令<code>rpm -Uvh --test *.rpm</code>来查看是否已经安装，否则仍然需要手动安装。我正是因为libstdc++44-devel-4.4.0没有安装导致耽误了两天的时间。具体的包如下：</p><blockquote><p>   libstdc++44-devel-4.4.0 gcc44-4.4.0 gcc44-gfortran-4.4.0 gcc44-c++-4.4.0</p></blockquote><p>安装glibc的时候，官方指南有一句提示：</p><blockquote><p>   before this, you may want to <code>brew edit glibc</code> to produce compatibility for your particular kernel, for example:<br>   “–enable-version&#x3D;2.6.18”</p></blockquote><p>我并未搞懂<code>--enable-version</code>参数的作用，只是在查找glibc编译选项时，看到需要开启对应内核的支持<code>--enable-kernel=</code></p><p>剩下的安装过程可以参考<a href="https://github.com/Homebrew/linuxbrew/wiki/Standalone-Installation">官方指南</a>，大体流程就是先编译出gcc，再编译glibc，然后重新编译依赖这个glibc的gcc，完成整个编译工具链，最终安装基础的软件包，安装ruby、git替换原有的库。</p><p>此外安装Git的依赖选项homebrew&#x2F;dupes&#x2F;tcl-tk过程中还有有一个小意外，参考(<a href="https://github.com/Homebrew/linuxbrew/issues/369">https://github.com/Homebrew/linuxbrew/issues/369</a>) ，<code>brew install tcl-tk --without-tk</code></p><p>最后ruby安装的时候报错，就先凑合着用rvm吧，可能后面再过一阵子fixbug就好了</p><h2 id="其他小问题"><a href="#其他小问题" class="headerlink" title="其他小问题"></a>其他小问题</h2><ol><li>旧版git会遇到各种HTTPS的问题，例如提示git 证书问题</li></ol><p>git config –global http.sslVerify false</p><ol start="2"><li>安装时候提示tmp目录问题</li></ol><blockquote><p>  Error: parent directory is world writable, FileUtils#remove_entry_secure does not work; &gt;    abort: “&#x2F;tmp&#x2F;homebrew20160101-27874-8ry2dn” (parent directory mode 40777)</p></blockquote><p>参考链接 (<a href="https://github.com/Homebrew/homebrew/issues/39475">https://github.com/Homebrew/homebrew/issues/39475</a>) 设置<code>export HOMEBREW_TEMP=~/.tmp/</code>，或者修改文件<code>~/.linuxbrew/Library/Homebrew/config.rb</code>内的temp内容</p><ol start="3"><li>下载问题</li></ol><p>下载不稳定，所以经常无法下载，可以手动下载然后把文件放到<code>~/.cache/Homebrew</code>下，如果没有正常识别出缓存的话，可以本地搭个简单的http服务器（<code>python -m SimpleHTTPServer</code>)，然后<code>brew edit package</code>去修改下载链接</p><h3 id="使用zsh"><a href="#使用zsh" class="headerlink" title="使用zsh"></a>使用zsh</h3><p>安装zsh后，自动安装oh-my-zsh会出现检测不到zsh的问题（当然是因为不在默认的shell路径中了），需要手动下载这个安装脚本，并且设置其中的<code>CHECK_ZSH_INSTALLED</code>为1。因为没有权限切换默认的shell，所以基本是不能用zsh的，不过有个曲线救国的方法，就是安装tmux并且让tmux启动时自动调用zsh，以后每次启动tmux就启动调用zsh。设置方法为在文件<code>.tmux.conf</code>中写入：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set-option -g default-shell ~/.linuxbrew/bin/zsh</span><br></pre></td></tr></table></figure><h2 id="后续更新记录"><a href="#后续更新记录" class="headerlink" title="后续更新记录"></a>后续更新记录</h2><h3 id="Linuxbrew更新情况"><a href="#Linuxbrew更新情况" class="headerlink" title="Linuxbrew更新情况"></a>Linuxbrew更新情况</h3><p>2016年四月Homebrew和Linuxbrew都进行了目录结构的更改，将原有的包分割成了brew和Homebrew-core两个包，需要进行重新调整。</p><h3 id="新的安装方法"><a href="#新的安装方法" class="headerlink" title="新的安装方法"></a>新的安装方法</h3><p>最新的Homebrew已经不再需要上述如此复杂的方法了，可以参考最新的安装方法(<a href="https://github.com/Linuxbrew/brew/wiki/CentOS6">https://github.com/Linuxbrew/brew/wiki/CentOS6</a>) ，通过<code>HOMEBREW_NO_AUTO_UPDATE=1 HOMEBREW_BUILD_FROM_SOURCE=1 brew install gcc --without-glibc</code> 进行安装编译，但是其他的依赖安装仍然需要同样的方法进行设置。</p><h3 id="不在支持CentOS5旧版本"><a href="#不在支持CentOS5旧版本" class="headerlink" title="不在支持CentOS5旧版本"></a>不在支持CentOS5旧版本</h3><p>最新的glibc-2.23要求linux内核至少为2.6.16，因此最新的Linuxbrew已经无法安装再CentOS5的旧版本。如果硬要安装，个人感觉可以搜索homebrew-core的glibc为2.19历史版本覆盖最新的homebrew-core来进行安装，但是我因为gmp编译问题，并未安装成功。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>为了能够在自由安装软件也是醉了，折腾了好久，不过安装完毕后，也是非常舒服的。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;hr&gt;
+&lt;h1 id=&quot;在无Root权限系统中安装Linuxbrew&quot;&gt;&lt;a href=&quot;#在无Root权限系统中安装Linuxbrew&quot; class=&quot;headerlink&quot; title=&quot;在无Root权限系统中安装Linuxbrew&quot;&gt;&lt;/a&gt;在无Root权限系统中安装Li</summary>
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://s0urcec0der.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常见软件包的国内镜像</title>
+    <link href="https://s0urcec0der.github.io/2016/01/10/mirror/"/>
+    <id>https://s0urcec0der.github.io/2016/01/10/mirror/</id>
+    <published>2016-01-10T23:45:19.000Z</published>
+    <updated>2020-09-07T02:31:06.572Z</updated>
+    
+    <content type="html"><![CDATA[<p>在Linux&#x2F;Mac上经常要使用各种软件库来下载资源，但是这些资源链接经常被墙，或者速度较慢，因此需要改用国内的镜像站点来加快速度。</p><h3 id="常见开源镜像站点"><a href="#常见开源镜像站点" class="headerlink" title="常见开源镜像站点"></a>常见开源镜像站点</h3><p>这些站点包含常见各种的Linux软件源。</p><p><a href="https://mirrors.ustc.edu.cn/">中国科技大学开源镜像</a><br><a href="http://mirrors.tuna.tsinghua.edu.cn/">清华大学开源镜像</a><br><a href="http://mirrors.aliyun.com/">阿里云开源镜像</a></p><p>其中中国科技大学使用的是https，因此在大多数情况下推荐使用（2016年底科大源曾长期处于不稳定状态，目前已经恢复），阿里云镜像适合阿里云的服务器使用，可以免流量且速度快。</p><h3 id="具体一些推荐配置"><a href="#具体一些推荐配置" class="headerlink" title="具体一些推荐配置"></a>具体一些推荐配置</h3><h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p>网上大多推荐豆瓣的源，但是豆瓣的源仍然是http协议，新版pip会提示警告，所以还是换成科大源吧（除非是低版本Linux不支持https链接）。此外，使用阿里源还遇到过几次同步不及时的问题。</p><h4 id="node"><a href="#node" class="headerlink" title="node"></a>node</h4><p>推荐使用阿里源，主要是提供额外的cnpm命令，可以方便的安装。</p><h4 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h4><p>淘宝的Ruby镜像已经改由Ruby-China维护，所以请使用<a href="https://gems.ruby-china.org/">Ruby-China的镜像</a></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/</span><br><span class="line">$ gem sources -l</span><br><span class="line">https://gems.ruby-china.org</span><br><span class="line"># 确保只有 gems.ruby-china.org</span><br></pre></td></tr></table></figure><h4 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h4><p>使用腾讯Bugly镜像，<a href="http://android-mirror.bugly.qq.com:8080/include/usage.html">将Android SDK Manager的代理设置为android-mirror.bugly.qq.com:8080</a></p><h4 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a>homebrew</h4><p>homebrew自身内容是放在github上的，如果更新速度慢，可以换成<a href="http://mirrors.tuna.tsinghua.edu.cn/help/#homebrew">清华的镜像</a>：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/local</span><br><span class="line">$ git remote set-url origin git://mirrors.tuna.tsinghua.edu.cn/homebrew.git</span><br></pre></td></tr></table></figure><p>homebrew-science或者homebrew-python也可以参考其页面进行修改。不过如果不是处于极其艰难的情况，不建议改这个，因为无法确保各个的软件包的hash未被篡改。</p><p>homebrew大多数的软件源都是在homebrew.bintray.com上的，速度同样非常慢，<a href="http://ban.ninja/">有人</a>也做了份国内镜像。</p><p>设置环境变量:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export HOMEBREW_BOTTLE_DOMAIN=http://7xkcej.dl1.z0.glb.clouddn.com</span><br></pre></td></tr></table></figure><h4 id="Docker-Hub"><a href="#Docker-Hub" class="headerlink" title="Docker Hub"></a>Docker Hub</h4><p>国内基本斗士要注册的，科大源有个反向代理，因为Docker配置比较麻烦，请具体参考<a href="https://lug.ustc.edu.cn/wiki/mirrors/help/docker">Docker镜像使用帮助</a></p><h4 id="pyenv"><a href="#pyenv" class="headerlink" title="pyenv"></a>pyenv</h4><p>同样设置环境变量</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PYTHON_BUILD_MIRROR_URL=&quot;http://pyenv.qiniudn.com/pythons/&quot;</span><br></pre></td></tr></table></figure><h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>对于这些第三方源，并不能完全保重其安全性，所以会存在一定的风险下载到经过篡改的软件包。</p><h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><p>2017.01.21 更新多条源记录</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在Linux&amp;#x2F;Mac上经常要使用各种软件库来下载资源，但是这些资源链接经常被墙，或者速度较慢，因此需要改用国内的镜像站点来加快速度。&lt;/p&gt;
+&lt;h3 id=&quot;常见开源镜像站点&quot;&gt;&lt;a href=&quot;#常见开源镜像站点&quot; class=&quot;headerlink&quot; titl</summary>
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://s0urcec0der.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cuckoo代码学习一</title>
+    <link href="https://s0urcec0der.github.io/2015/06/13/Cuckoo-1/"/>
+    <id>https://s0urcec0der.github.io/2015/06/13/Cuckoo-1/</id>
+    <published>2015-06-13T20:18:40.000Z</published>
+    <updated>2020-09-07T02:31:06.565Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="虚拟机监控部分"><a href="#虚拟机监控部分" class="headerlink" title="虚拟机监控部分"></a>虚拟机监控部分</h2><p>Agent</p><p>主要功能：</p><p>使用SimpleXMLRPCServer建立一个服务器监听Cuckoo发送的数据。</p><p>dll注入</p><p>使用了远程DLL注入技术，</p><p>参考文档<a href="http://www.programlife.net/remote-thread-dll-injection.html">远程DLL注入技术</a></p><p>监控</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;虚拟机监控部分&quot;&gt;&lt;a href=&quot;#虚拟机监控部分&quot; class=&quot;headerlink&quot; title=&quot;虚拟机监控部分&quot;&gt;&lt;/a&gt;虚拟机监控部分&lt;/h2&gt;&lt;p&gt;Agent&lt;/p&gt;
+&lt;p&gt;主要功能：&lt;/p&gt;
+&lt;p&gt;使用SimpleXMLRPCServer建立一个</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>个人通用设置</title>
+    <link href="https://s0urcec0der.github.io/2015/05/24/Common/"/>
+    <id>https://s0urcec0der.github.io/2015/05/24/Common/</id>
+    <published>2015-05-24T18:17:25.000Z</published>
+    <updated>2020-09-07T02:31:06.564Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="系统基础设置"><a href="#系统基础设置" class="headerlink" title="系统基础设置"></a>系统基础设置</h2><h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><p>利用MacType渲染字体，一直比较喜欢使用系统默认的雅黑字体，有人对雅黑字体进行了修改，将其和Consolas结合优化。作者时RobertLee，原文链接是<a href="http://www.cnblogs.com/RobertLee/archive/2006/12/25/602646.html">雅黑-Consolas混合字体，2008年5月22日更新~</a>，貌似很少有贴作者信息的。</p><h2 id="常用软件"><a href="#常用软件" class="headerlink" title="常用软件"></a>常用软件</h2><h3 id="Total-Commander"><a href="#Total-Commander" class="headerlink" title="Total Commander"></a>Total Commander</h3><p>文件夹命名使用”数字+中文拼音首字母+中文描述”，Ctrl+Q快速预览文件</p><h3 id="CCleaner"><a href="#CCleaner" class="headerlink" title="CCleaner"></a>CCleaner</h3><h3 id="Altrun-ALMRun"><a href="#Altrun-ALMRun" class="headerlink" title="Altrun&#x2F;ALMRun"></a>Altrun&#x2F;ALMRun</h3><p>快速启动软件，前者好长时间没有更新了，可以使用后者替代</p><h3 id="Everything"><a href="#Everything" class="headerlink" title="Everything"></a>Everything</h3><p>不解释</p><h3 id="KeyTweak"><a href="#KeyTweak" class="headerlink" title="KeyTweak"></a>KeyTweak</h3><p>用于将CapsLock键和右Ctrl键交换，将Ctrl键放到更加容易接触到的位置。</p><h2 id="编辑工具"><a href="#编辑工具" class="headerlink" title="编辑工具"></a>编辑工具</h2><h3 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h3><p>使用spf-13配置，比较方便，虽然同时也会有很多坑，需要自己慢慢修改。但是插件无法后台运行，因此速度比较慢。</p><h3 id="Notepad"><a href="#Notepad" class="headerlink" title="Notepad++"></a>Notepad++</h3><p>用于替代记事本的轻量级编辑器</p><h3 id="Sublime-Text"><a href="#Sublime-Text" class="headerlink" title="Sublime Text"></a>Sublime Text</h3><p>有Vim模式，运行速度相对VIM快，但是编码比较头疼，在Windows下面我会用来替代Vim</p><h2 id="编程工具"><a href="#编程工具" class="headerlink" title="编程工具"></a>编程工具</h2><h3 id="Visual-Studio-2013"><a href="#Visual-Studio-2013" class="headerlink" title="Visual Studio 2013"></a>Visual Studio 2013</h3><p>基本设置：选择深色主题，开启多处理器编译，开启行号</p><p>常用插件：</p><ul><li>Visual Assist X: 不解释</li></ul><p>注：Visual Assist X最新版无法直接搜索到VC6的安装路径，需要在注册表中<code>HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\App Paths\msdev.exe</code>指定实际路径。这有可能是绿色版导致的。</p><p>参考<a href="http://tunps.com/newest-vax-support-on-vc-6">http://tunps.com/newest-vax-support-on-vc-6</a></p><ul><li><p>VsVim: 我是VIM党</p></li><li><p>Disable Mouse Wheel Zoom: 禁用滚轮缩放代码</p></li><li><p>TroutZoom: 固定代码缩放比率</p></li></ul><h3 id="Eclipse设置"><a href="#Eclipse设置" class="headerlink" title="Eclipse设置"></a>Eclipse设置</h3><p>基本设置：开启行号</p><p>常用插件：</p><ul><li><p>Eclipse Color Theme: 配色很重要</p></li><li><p>viPlugin: 我是Vim党</p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;系统基础设置&quot;&gt;&lt;a href=&quot;#系统基础设置&quot; class=&quot;headerlink&quot; title=&quot;系统基础设置&quot;&gt;&lt;/a&gt;系统基础设置&lt;/h2&gt;&lt;h3 id=&quot;字体&quot;&gt;&lt;a href=&quot;#字体&quot; class=&quot;headerlink&quot; title=&quot;字体&quot;&gt;&lt;</summary>
+      
+    
+    
+    
+    
+    <category term="Windows" scheme="https://s0urcec0der.github.io/tags/Windows/"/>
+    
+  </entry>
+  
+</feed>

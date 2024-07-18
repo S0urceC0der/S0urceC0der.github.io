@@ -1,0 +1,22 @@
+digraph level1_stack{
+    graph [
+        rankdir = "LR"
+    ];
+    edge [
+    ];
+    "stack0" [
+        label = "{
+            <f1> 0xbffffc20|0}|{<f2> 0xbffffc24|  }|{<f3> 0xbffffc28 |  }|
+            {0xbffffc2c | }|{0xbffffc30 | }| | ... | |{0xbffffcb0 | }|
+            {0xbffffcb4 ebx | }|{<ebp> 0xbffffcb8 | }"
+        width="3"
+        shape = "record"
+    ];
+    "ebp" [
+        shape = "plaintext"
+    ];
+    "ebp" -> "stack0":ebp;
+    "eap" [
+        shape = "plaintext"
+    ];
+}

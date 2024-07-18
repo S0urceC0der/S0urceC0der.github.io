@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"s0urcec0der.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="基础ROP(Return-oriented programming) 是一种通过覆盖堆栈 (Stack) 内容来实现控制返回地址实现执行自定义代码的漏洞利用手段。目前比较流行的教程是蒸米写的Linux ROP系列，本文以此为基础，综合其他文章来详细的讲解Linux ROP利用国产。 构造虚拟机环境测试过程中需要x86&#x2F;x64两个环境的Linux系统，因此一般物理机测试起来比较麻烦，可以通">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从0开始学习Linux ROP利用-part1">
+<meta property="og:url" content="https://s0urcec0der.github.io/2017/11/22/ROP-part1/index.html">
+<meta property="og:site_name" content="S0urceC0der">
+<meta property="og:description" content="基础ROP(Return-oriented programming) 是一种通过覆盖堆栈 (Stack) 内容来实现控制返回地址实现执行自定义代码的漏洞利用手段。目前比较流行的教程是蒸米写的Linux ROP系列，本文以此为基础，综合其他文章来详细的讲解Linux ROP利用国产。 构造虚拟机环境测试过程中需要x86&#x2F;x64两个环境的Linux系统，因此一般物理机测试起来比较麻烦，可以通">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s0urcec0der.github.io/img/rop_stack_1.png">
+<meta property="og:image" content="https://s0urcec0der.github.io/img/rop_stack_2.png">
+<meta property="og:image" content="https://s0urcec0der.github.io/img/rop_stack_3.png">
+<meta property="og:image" content="https://s0urcec0der.github.io/img/rop_execute.png">
+<meta property="article:published_time" content="2017-11-22T21:19:23.000Z">
+<meta property="article:modified_time" content="2018-01-19T22:58:03.000Z">
+<meta property="article:author" content="S0urceC0der">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Exploit">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s0urcec0der.github.io/img/rop_stack_1.png">
+
+
+<link rel="canonical" href="https://s0urcec0der.github.io/2017/11/22/ROP-part1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://s0urcec0der.github.io/2017/11/22/ROP-part1/","path":"2017/11/22/ROP-part1/","title":"从0开始学习Linux ROP利用-part1"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>从0开始学习Linux ROP利用-part1 | S0urceC0der</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="S0urceC0der" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">S0urceC0der</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">构造虚拟机环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE"><span class="nav-number">2.1.</span> <span class="nav-text">虚拟机网络配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Alpine-Linux-%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">2.2.</span> <span class="nav-text">Alpine Linux 基础环境搭建</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">静态分析代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E6%B1%87%E7%BC%96%E7%A8%8B%E5%BA%8F"><span class="nav-number">3.1.</span> <span class="nav-text">反汇编程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GDB-%E6%8C%87%E4%BB%A4%E7%AE%80%E4%BB%8B"><span class="nav-number">3.2.</span> <span class="nav-text">GDB 指令简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debug-%E6%95%99%E7%A8%8B"><span class="nav-number">3.3.</span> <span class="nav-text">Debug 教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86%E6%A0%88%E5%88%86%E6%9E%90"><span class="nav-number">3.4.</span> <span class="nav-text">堆栈分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86"><span class="nav-number">3.5.</span> <span class="nav-text">漏洞原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90-Shellcode"><span class="nav-number">3.6.</span> <span class="nav-text">生成 Shellcode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C-Shellcode"><span class="nav-number">3.7.</span> <span class="nav-text">执行 Shellcode</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0%E5%88%97%E8%A1%A8"><span class="nav-number">5.</span> <span class="nav-text">参考文章列表</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">S0urceC0der</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://s0urcec0der.github.io/2017/11/22/ROP-part1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="从0开始学习Linux ROP利用-part1 | S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          从0开始学习Linux ROP利用-part1
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-11-22 21:19:23" itemprop="dateCreated datePublished" datetime="2017-11-22T21:19:23+00:00">2017-11-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2018-01-19 22:58:03" itemprop="dateModified" datetime="2018-01-19T22:58:03+00:00">2018-01-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><p>ROP(Return-oriented programming) 是一种通过覆盖堆栈 (Stack) 内容来实现控制返回地址实现执行自定义代码的漏洞利用手段。目前比较流行的教程是蒸米写的Linux ROP系列，本文以此为基础，综合其他文章来详细的讲解Linux ROP利用国产。</p>
+<h1 id="构造虚拟机环境"><a href="#构造虚拟机环境" class="headerlink" title="构造虚拟机环境"></a>构造虚拟机环境</h1><p>测试过程中需要x86&#x2F;x64两个环境的Linux系统，因此一般物理机测试起来比较麻烦，可以通过安装虚拟机来构造对应的测试环境。这里我使用 VirtualBox 来安装不同的测试环境，此外我选择基于 Alpine Linux 搭建测试环境，原因是 Alpine Linux 的镜像相对比较小，而且里面是基于 musl libc 实现了系统调用，意味着网上教程中的很多地方需要自己进行针对性的修改，这也是一个挑战。</p>
+<h2 id="虚拟机网络配置"><a href="#虚拟机网络配置" class="headerlink" title="虚拟机网络配置"></a>虚拟机网络配置</h2><p>为了方便测试，我选择使用 SSH 连接 Linux 主机执行命令，而不是从 VirtualBox 的界面，无法快捷的复制粘贴内外内容。使用 SSH 时需要有一个条件是物理机主动连接到虚拟机，但是默认的虚拟机环境采用 NAT 模式，虚拟机能够访问外网但是物理机无法访问虚拟机，这时可以额外添加一个 Host Only 网络来连接虚拟机。</p>
+<h2 id="Alpine-Linux-基础环境搭建"><a href="#Alpine-Linux-基础环境搭建" class="headerlink" title="Alpine Linux 基础环境搭建"></a>Alpine Linux 基础环境搭建</h2><p>需要手动安装 gcc 和 libc-dev 库提供基础编译环境，安装 gdb 提供调试功能。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apk add libc-dev gcc gdb</span><br></pre></td></tr></table></figure>
+
+<h1 id="静态分析代码"><a href="#静态分析代码" class="headerlink" title="静态分析代码"></a>静态分析代码</h1><h2 id="反汇编程序"><a href="#反汇编程序" class="headerlink" title="反汇编程序"></a>反汇编程序</h2><p>为了方便反汇编，可以将 gdb 的语法设置默认为 AT&amp;T 语法改为 Intel 语法，具体方法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;set disassembly-flavor intel&quot; &gt; ~/.gdbinit</span><br></pre></td></tr></table></figure>
+
+<h2 id="GDB-指令简介"><a href="#GDB-指令简介" class="headerlink" title="GDB 指令简介"></a>GDB 指令简介</h2><ul>
+<li><p><code>b[reak] &lt;行号|函数名|代码地址&gt;</code> 下断点</p>
+</li>
+<li><p><code>r[un]</code> 运行代码</p>
+</li>
+<li><p><code>c[continue]</code> 继续运行</p>
+</li>
+<li><p><code>s/n</code> Step into 单步跟踪进入&#x2F;Step Over 单步跟踪</p>
+</li>
+<li><p><code>si/ni</code> 汇编指令集 <code>s/n</code> </p>
+</li>
+<li><p><code>p [varialbe/register]</code> 打印变量&#x2F;寄存器</p>
+</li>
+</ul>
+<h2 id="Debug-教程"><a href="#Debug-教程" class="headerlink" title="Debug 教程"></a>Debug 教程</h2><p>使用 <code>gdb level1</code> 来加载程序，然后调用 <code>disas vulnerable_function</code> 来反汇编存在漏洞的函数。输入 <code>layout asm</code> 分屏显示汇编代码， <code>b  vulnerable_function</code> 下断点，然后 <code>r</code> 开始运行程序，<code>p $eip</code> 打印当前 EIP 寄存器地址。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">0x00001220 &lt;+0&gt;:	    push   ebp</span><br><span class="line">0x00001221 &lt;+1&gt;:	    mov    ebp,esp</span><br><span class="line">0x00001223 &lt;+3&gt;:	    push   ebx</span><br><span class="line">0x00001224 &lt;+4&gt;:	    sub    esp,0x84</span><br><span class="line"></span><br><span class="line">0x0000122a &lt;+10&gt;:	call   0x1218 &lt;__x86.get_pc_thunk.ax&gt;</span><br><span class="line">0x0000122f &lt;+15&gt;:	add    eax,0x2d99</span><br><span class="line">0x00001234 &lt;+20&gt;:	sub    esp,0x4          // &lt;----a</span><br><span class="line"></span><br><span class="line">0x00001237 &lt;+23&gt;:	push   0x100             // 256</span><br><span class="line">0x0000123c &lt;+28&gt;:	lea    edx,[ebp-0x88]    // -+</span><br><span class="line">0x00001242 &lt;+34&gt;:	push   edx               // -+--  ebp-0x88为buf地址</span><br><span class="line">0x00001243 &lt;+35&gt;:	push   0x0               // STDIN_FILENO</span><br><span class="line">0x00001245 &lt;+37&gt;:	mov    ebx,eax</span><br><span class="line">0x00001247 &lt;+39&gt;:	call   0x1040 &lt;read@plt&gt; // 调用read函数</span><br><span class="line"></span><br><span class="line">0x0000124c &lt;+44&gt;:	add    esp,0x10</span><br><span class="line">0x0000124f &lt;+47&gt;:	nop</span><br><span class="line">0x00001250 &lt;+48&gt;:	mov    ebx,DWORD PTR [ebp-0x4]</span><br><span class="line">0x00001253 &lt;+51&gt;:	leave                    // mov esp,ebp; pop ebp;</span><br><span class="line">0x00001254 &lt;+52&gt;:	ret                      // pop eip; jump eip;</span><br><span class="line"></span><br><span class="line">-----------------------</span><br><span class="line"></span><br><span class="line">0x0000126f &lt;+26&gt;:	call   0x1220 &lt;vulnerable_function&gt; // push eip; jump XX;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>汇编代码中有一个函数 <code>__x86.get_pc_thunk.ax</code> 的调用，在此可以暂时忽略这段代码，与 EOP 利用无关，没有任何影响。关于这个函数的详细解释，参考 <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/ask/91473">《什么是__i686.get_pc_thunk.bx？我们为什么需要调用这个？》</a> 一文。</p>
+<h2 id="堆栈分析"><a href="#堆栈分析" class="headerlink" title="堆栈分析"></a>堆栈分析</h2><p>下面先从理论上对堆栈情况分析一下。首先要注意的是，esp 指针是指向栈顶，即当前已经使用的空间。执行汇编指令到 a 处，堆栈如下：</p>
+<p><img src="/img/rop_stack_1.png" alt="初始堆栈"></p>
+<p>通过<code>si</code>和<code>ni</code>指令执行到read函数之前，此时的堆栈如下图2：</p>
+<p><img src="/img/rop_stack_2.png" alt="调用read函数前的堆栈"></p>
+<p>通过调试发现此时堆栈中有两个空位 0xbffffcb0 和 0xbffffc2c，猜测可能是多余的代码导致的。调用完 read 函数，输入内容后，进行堆栈平衡，此时堆栈变成下图：</p>
+<p><img src="/img/rop_stack_3.png" alt="调用read函数后的堆栈"></p>
+<p>调用指令 <code>x /8cb 0xbffffc30</code>  可以显示出输入的前 8 个字符。继续往下执行，这时候会返回，会调用 <code>leave</code> 指令再次堆栈平衡，释放函数中的临时变量，并恢复原有函数栈帧的 esp 。最后执行 <code>ret</code> 指令，至此整个执行流完毕。</p>
+<h2 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h2><p>很明显，read 函数没有对输入的内容校验长度，导致可以输入超长字符串，利用字符串覆盖 eip(0xbffffcbc) ，则我们就可以控制这个函数的返回地址，实现漏洞利用。通过计算可以得到 0xbffffcbc - 0xbffffc30 &#x3D; 0x8c，即使用 0x8c + 0x04 长度的字符串覆盖，最后的四字节就可以覆盖成功。对比原文中提供的通过脚本获取覆盖长度脚本，可以发现与我们分析的一致。</p>
+<h2 id="生成-Shellcode"><a href="#生成-Shellcode" class="headerlink" title="生成 Shellcode"></a>生成 Shellcode</h2><p>很可惜，使用教程中所提供的 shellcode 时存在问题，进程仍然 crash，不过使用 Metasploit 生成要的 Shellcode 却能够正常执行。生成 Shellcode 的具体做法如下，进入 msfconsole，使用 <code>show payloads</code> 可以看到所有支持的 payload。然后 <code>use linux/x86/exec</code> 来选用当前环境的 payload ，输入 <code>info</code> 查看当前 payload 的参数，用 <code>set CMD /bin/s</code> 来生成执行 <code>sh</code> 的 shellcode，最后使用 <code>generate</code> 命令来生成。</p>
+<h2 id="执行-Shellcode"><a href="#执行-Shellcode" class="headerlink" title="执行 Shellcode"></a>执行 Shellcode</h2><p>最初的想法是在 Alpine 中安装 pwntools 工具本地执行，但是发现安装了一系列软件后，最终因为某个库不支持 x86 环境而安装失败，相关需要安装的库如下，有需要的可以参考下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apk add --no-cache -X https://mirrors.tuna.tsinghua.edu.cn/alpine/edge/community/ capstone-dev</span><br><span class="line">apk add python3 python3-dev alpine-sdk libffi-dev openssl-dev</span><br><span class="line">pip install pwntools</span><br></pre></td></tr></table></figure>
+
+<p>因为 pwntools 安装失败，所以使用 socat 命令来起服务，<code>socat TCP4-LISTEN:5001,fork EXEC:./level1</code>，这里同样要重新寻找对应的返回地址，因此第一次可以输入一个错误的 Shellcode，然后同样使用<code>gdb level1 core.xxxxx</code> 命令来调试 coredump 文件，显示具体的返回地址，再重新修改 shellcode 中的返回内容。</p>
+<p><img src="/img/rop_execute.png" alt="执行成功"></p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>虽然这个教程篇幅不长，但是自己复现整个过程却充满了坎坷，断断续续花了两个月的时间，所幸第一次总是艰难的，后续会应该轻松很多吧，加油！</p>
+<h1 id="参考文章列表"><a href="#参考文章列表" class="headerlink" title="参考文章列表"></a>参考文章列表</h1><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000012756506">VirtualBox虚拟机和Mac或Win主机之间网络相互通信</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zhengmin1989/MyArticles/tree/master/%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E5%AD%A6ROP">一步一步学ROP</a></p>
+<p><a target="_blank" rel="noopener" href="http://drops.2xss.cc/?chamd5#!/drops/595.%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E5%AD%A6ROP%E4%B9%8Blinux_x86%E7%AF%87">一步一步学ROP 镜像文 </a></p>
+<p><a target="_blank" rel="noopener" href="https://ketansingh.net/Introduction-to-Return-Oriented-Programming-ROP/">Introduction to Return Oriented Programming (ROP)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/pannengzhi/p/exploit-the-stack.html">栈溢出漏洞的利用和缓解</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.freebuf.com/vuls/179724.html">StackOverFlow之Ret2ShellCode详解</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b7896e9afeb7">常用GDB指令</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/Exploit/" rel="tag"># Exploit</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/10/21/Wine-Mental-Omega/" rel="prev" title="Mac下Wine运行心灵终结Mental Omega 3.3">
+                  <i class="fa fa-angle-left"></i> Mac下Wine运行心灵终结Mental Omega 3.3
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/11/26/Firefox57/" rel="next" title="Firefox57新版试用">
+                  Firefox57新版试用 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">S0urceC0der</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

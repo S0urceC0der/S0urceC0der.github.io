@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"s0urcec0der.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Scrapy简介Scrapy是使用Python编写的一个通用的爬虫框架。 基于Twisted的异步编程框架，大幅提高了爬取效率。 Scrapy想来目前应该是我阅读源代码最多的开源项目了。在这个项目上，我学习到了yeild关键词，各种类的应用，接触到了一直想学习的Twisted框架。 代码看起来挺简洁的，因此。 Scrapy 0.24.0版本的包结构有大幅改变，与之前的旧版本完全不兼容。 Scrap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scrapy">
+<meta property="og:url" content="https://s0urcec0der.github.io/2015/01/25/Scrapy/index.html">
+<meta property="og:site_name" content="S0urceC0der">
+<meta property="og:description" content="Scrapy简介Scrapy是使用Python编写的一个通用的爬虫框架。 基于Twisted的异步编程框架，大幅提高了爬取效率。 Scrapy想来目前应该是我阅读源代码最多的开源项目了。在这个项目上，我学习到了yeild关键词，各种类的应用，接触到了一直想学习的Twisted框架。 代码看起来挺简洁的，因此。 Scrapy 0.24.0版本的包结构有大幅改变，与之前的旧版本完全不兼容。 Scrap">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2015-01-25T17:16:25.000Z">
+<meta property="article:modified_time" content="2020-09-07T02:31:06.570Z">
+<meta property="article:author" content="S0urceC0der">
+<meta property="article:tag" content="Web">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://s0urcec0der.github.io/2015/01/25/Scrapy/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://s0urcec0der.github.io/2015/01/25/Scrapy/","path":"2015/01/25/Scrapy/","title":"Scrapy"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Scrapy | S0urceC0der</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="S0urceC0der" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">S0urceC0der</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Scrapy%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">Scrapy简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scrapy%E6%A1%86%E6%9E%B6"><span class="nav-number">1.1.</span> <span class="nav-text">Scrapy框架</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scrapy%E6%94%B9%E8%BF%9B"><span class="nav-number">2.</span> <span class="nav-text">Scrapy改进</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Html%E8%A7%A3%E6%9E%90"><span class="nav-number">2.1.</span> <span class="nav-text">Html解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Bloom%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="nav-number">2.2.</span> <span class="nav-text">使用Bloom过滤器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A9%E7%94%A8redis%E6%9E%84%E5%BB%BA%E5%88%86%E5%B8%83%E5%BC%8F%E7%88%AC%E8%99%AB"><span class="nav-number">2.3.</span> <span class="nav-text">利用redis构建分布式爬虫</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">S0urceC0der</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://s0urcec0der.github.io/2015/01/25/Scrapy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Scrapy | S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Scrapy
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2015-01-25 17:16:25" itemprop="dateCreated datePublished" datetime="2015-01-25T17:16:25+00:00">2015-01-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2020-09-07 02:31:06" itemprop="dateModified" datetime="2020-09-07T02:31:06+00:00">2020-09-07</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="Scrapy简介"><a href="#Scrapy简介" class="headerlink" title="Scrapy简介"></a>Scrapy简介</h3><p>Scrapy是使用Python编写的一个通用的爬虫框架。</p>
+<p>基于Twisted的异步编程框架，大幅提高了爬取效率。</p>
+<p>Scrapy想来目前应该是我阅读源代码最多的开源项目了。在这个项目上，我学习到了yeild关键词，各种类的应用，接触到了一直想学习的Twisted框架。</p>
+<p>代码看起来挺简洁的，因此。</p>
+<p>Scrapy 0.24.0版本的包结构有大幅改变，与之前的旧版本完全不兼容。</p>
+<h4 id="Scrapy框架"><a href="#Scrapy框架" class="headerlink" title="Scrapy框架"></a>Scrapy框架</h4><p>Scrapy的框架比较难以理解，这跟</p>
+<h3 id="Scrapy改进"><a href="#Scrapy改进" class="headerlink" title="Scrapy改进"></a>Scrapy改进</h3><h4 id="Html解析"><a href="#Html解析" class="headerlink" title="Html解析"></a>Html解析</h4><p>Scrapy提供了lxml的相关解析器。但是使用更好的是BeautifulSoup，虽然解析速度会便慢。</p>
+<h4 id="使用Bloom过滤器"><a href="#使用Bloom过滤器" class="headerlink" title="使用Bloom过滤器"></a>使用Bloom过滤器</h4><p>默认的网址过滤器(爬虫中的Visited表)是将一个url映射到MD5实现的。使用场景</p>
+<h4 id="利用redis构建分布式爬虫"><a href="#利用redis构建分布式爬虫" class="headerlink" title="利用redis构建分布式爬虫"></a>利用redis构建分布式爬虫</h4><p>目前还没有使用过这个技术，但是其实原理非常简单，把爬虫队列存储到Redis的列表中，利用Redis的分布式数据存储功能来实现分布式队列，这样就能够在不大动Scrapy的情况下进行分布式爬取。说句实话这个思路真得很赞！</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Web/" rel="tag"># Web</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2015/01/03/Url-Leak/" rel="prev" title="网址泄漏">
+                  <i class="fa fa-angle-left"></i> 网址泄漏
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2015/02/15/Mac/" rel="next" title="Mac">
+                  Mac <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">S0urceC0der</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

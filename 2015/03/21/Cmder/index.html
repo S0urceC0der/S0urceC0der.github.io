@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"s0urcec0der.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Cmder简介Cmder是一款Windows下面的终端模拟器，有了它终于能够抛弃默认的垃圾cmd界面了！  特点个人很简单的使用了下，觉得有以下优点：  可自定义字体，配色非常好看。  路径补全有所提高。   使用配置乱码ls的乱码主要是参数问题，修改文件cmder&#x2F;config&#x2F;aliases： 1234l&#x3D;ls --show-control-charsla&#x3D;ls -aF -">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cmder">
+<meta property="og:url" content="https://s0urcec0der.github.io/2015/03/21/Cmder/index.html">
+<meta property="og:site_name" content="S0urceC0der">
+<meta property="og:description" content="Cmder简介Cmder是一款Windows下面的终端模拟器，有了它终于能够抛弃默认的垃圾cmd界面了！  特点个人很简单的使用了下，觉得有以下优点：  可自定义字体，配色非常好看。  路径补全有所提高。   使用配置乱码ls的乱码主要是参数问题，修改文件cmder&#x2F;config&#x2F;aliases： 1234l&#x3D;ls --show-control-charsla&#x3D;ls -aF -">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s0urcec0der.github.io/img/cmder.png">
+<meta property="article:published_time" content="2015-03-21T15:34:12.000Z">
+<meta property="article:modified_time" content="2020-09-07T02:31:06.564Z">
+<meta property="article:author" content="S0urceC0der">
+<meta property="article:tag" content="Windows">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s0urcec0der.github.io/img/cmder.png">
+
+
+<link rel="canonical" href="https://s0urcec0der.github.io/2015/03/21/Cmder/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://s0urcec0der.github.io/2015/03/21/Cmder/","path":"2015/03/21/Cmder/","title":"Cmder"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Cmder | S0urceC0der</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="S0urceC0der" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">S0urceC0der</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cmder%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">Cmder简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">使用配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%B1%E7%A0%81"><span class="nav-number">2.1.</span> <span class="nav-text">乱码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E9%87%8D%E5%8F%A0"><span class="nav-number">2.2.</span> <span class="nav-text">中文重叠</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%B3%E9%94%AE%E6%89%93%E5%BC%80Cmder"><span class="nav-number">2.3.</span> <span class="nav-text">右键打开Cmder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%80%E6%A0%BC%E5%90%8E%E9%94%99%E4%BD%8D"><span class="nav-number">2.4.</span> <span class="nav-text">退格后错位</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E8%B6%B3"><span class="nav-number">3.</span> <span class="nav-text">不足</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%90%8E"><span class="nav-number">4.</span> <span class="nav-text">最后</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">S0urceC0der</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://s0urcec0der.github.io/2015/03/21/Cmder/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Cmder | S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Cmder
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2015-03-21 15:34:12" itemprop="dateCreated datePublished" datetime="2015-03-21T15:34:12+00:00">2015-03-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2020-09-07 02:31:06" itemprop="dateModified" datetime="2020-09-07T02:31:06+00:00">2020-09-07</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="Cmder简介"><a href="#Cmder简介" class="headerlink" title="Cmder简介"></a>Cmder简介</h2><p>Cmder是一款Windows下面的终端模拟器，有了它终于能够抛弃默认的垃圾cmd界面了！</p>
+<p><img src="/img/cmder.png" alt="Cmder"></p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>个人很简单的使用了下，觉得有以下优点：</p>
+<ol>
+<li><p>可自定义字体，配色非常好看。</p>
+</li>
+<li><p>路径补全有所提高。</p>
+</li>
+</ol>
+<h2 id="使用配置"><a href="#使用配置" class="headerlink" title="使用配置"></a>使用配置</h2><h3 id="乱码"><a href="#乱码" class="headerlink" title="乱码"></a>乱码</h3><p>ls的乱码主要是参数问题，修改文件cmder&#x2F;config&#x2F;aliases：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">l=ls --show-control-chars</span><br><span class="line">la=ls -aF --show-control-chars</span><br><span class="line">ll=ls -alF --show-control-chars</span><br><span class="line">ls=ls --show-control-chars -F</span><br></pre></td></tr></table></figure>
+
+<h3 id="中文重叠"><a href="#中文重叠" class="headerlink" title="中文重叠"></a>中文重叠</h3><p>在设置中，取消<code>Main console font</code>下的Monospace勾，这样中文字符（占用两个英文字符空间）就得到的了足够的空间了。</p>
+<h3 id="右键打开Cmder"><a href="#右键打开Cmder" class="headerlink" title="右键打开Cmder"></a>右键打开Cmder</h3><p>以管理员权限运行，输入命令<code>.\cmder.exe /REGISTER ALL</code>，在任意目录下右击就会出现<code>Cmder Here</code>，可以打开并默认切换到该目录。</p>
+<h3 id="退格后错位"><a href="#退格后错位" class="headerlink" title="退格后错位"></a>退格后错位</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.v2ex.com/member/lgh">lgh</a>:<br>cmder 功能强大，但是反应较慢，经常卡住半天才反应；默认的命令提示符 λ 还会导致在用 TAB 还是 BACKSPACE 之后字符错位（自己改配置换成 $ 后就不会）。<br>现在干脆直接用 ConEmu 了。<br>来源：<a target="_blank" rel="noopener" href="https://www.v2ex.com/t/155058">https://www.v2ex.com/t/155058</a></p>
+</blockquote>
+<p>lgh针对问题1提出解决方法是修改提示符为$。修改方法是</p>
+<p>打开文件config&#x2F;prompt.lua，将第二行中的λ修改为Linux下常用的$</p>
+<h2 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h2><p>当然，可能这些问题只是因为我没有找到对应的解决方法。</p>
+<ol>
+<li><p><del>有时候会出现无法删除第一个字符的情况（实际已经删除了）。</del></p>
+</li>
+<li><p>路径补全还是没有达到zsh的效果。</p>
+</li>
+<li><p>没有快速进入某个目录的功能。</p>
+</li>
+<li><p>Cmder1.2开始需要VS<strong>2015</strong>运行库支持（丧心病狂！）</p>
+</li>
+</ol>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>现在只是刚开始使用，很多功能还是在摸索中，如果有更多的体会，会继续更新。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Windows/" rel="tag"># Windows</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2015/03/15/Mactype/" rel="prev" title="使用Mactype渲染字体">
+                  <i class="fa fa-angle-left"></i> 使用Mactype渲染字体
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2015/04/12/KaliLinux/" rel="next" title="KaliLinux使用心得">
+                  KaliLinux使用心得 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">S0urceC0der</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

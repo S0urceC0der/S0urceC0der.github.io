@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"s0urcec0der.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="在Linux&#x2F;Mac上经常要使用各种软件库来下载资源，但是这些资源链接经常被墙，或者速度较慢，因此需要改用国内的镜像站点来加快速度。 常见开源镜像站点这些站点包含常见各种的Linux软件源。 中国科技大学开源镜像清华大学开源镜像阿里云开源镜像 其中中国科技大学使用的是https，因此在大多数情况下推荐使用（2016年底科大源曾长期处于不稳定状态，目前已经恢复），阿里云镜像适合阿里云的服务">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见软件包的国内镜像">
+<meta property="og:url" content="https://s0urcec0der.github.io/2016/01/10/mirror/index.html">
+<meta property="og:site_name" content="S0urceC0der">
+<meta property="og:description" content="在Linux&#x2F;Mac上经常要使用各种软件库来下载资源，但是这些资源链接经常被墙，或者速度较慢，因此需要改用国内的镜像站点来加快速度。 常见开源镜像站点这些站点包含常见各种的Linux软件源。 中国科技大学开源镜像清华大学开源镜像阿里云开源镜像 其中中国科技大学使用的是https，因此在大多数情况下推荐使用（2016年底科大源曾长期处于不稳定状态，目前已经恢复），阿里云镜像适合阿里云的服务">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-01-10T23:45:19.000Z">
+<meta property="article:modified_time" content="2020-09-07T02:31:06.572Z">
+<meta property="article:author" content="S0urceC0der">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://s0urcec0der.github.io/2016/01/10/mirror/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://s0urcec0der.github.io/2016/01/10/mirror/","path":"2016/01/10/mirror/","title":"常见软件包的国内镜像"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>常见软件包的国内镜像 | S0urceC0der</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="S0urceC0der" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">S0urceC0der</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E5%BC%80%E6%BA%90%E9%95%9C%E5%83%8F%E7%AB%99%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">常见开源镜像站点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E4%B8%80%E4%BA%9B%E6%8E%A8%E8%8D%90%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">具体一些推荐配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#python"><span class="nav-number">2.1.</span> <span class="nav-text">python</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#node"><span class="nav-number">2.2.</span> <span class="nav-text">node</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ruby"><span class="nav-number">2.3.</span> <span class="nav-text">Ruby</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Android"><span class="nav-number">2.4.</span> <span class="nav-text">Android</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#homebrew"><span class="nav-number">2.5.</span> <span class="nav-text">homebrew</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker-Hub"><span class="nav-number">2.6.</span> <span class="nav-text">Docker Hub</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pyenv"><span class="nav-number">2.7.</span> <span class="nav-text">pyenv</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">2.8.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0"><span class="nav-number">3.</span> <span class="nav-text">更新</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">S0urceC0der</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://s0urcec0der.github.io/2016/01/10/mirror/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="常见软件包的国内镜像 | S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          常见软件包的国内镜像
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2016-01-10 23:45:19" itemprop="dateCreated datePublished" datetime="2016-01-10T23:45:19+00:00">2016-01-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2020-09-07 02:31:06" itemprop="dateModified" datetime="2020-09-07T02:31:06+00:00">2020-09-07</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>在Linux&#x2F;Mac上经常要使用各种软件库来下载资源，但是这些资源链接经常被墙，或者速度较慢，因此需要改用国内的镜像站点来加快速度。</p>
+<h3 id="常见开源镜像站点"><a href="#常见开源镜像站点" class="headerlink" title="常见开源镜像站点"></a>常见开源镜像站点</h3><p>这些站点包含常见各种的Linux软件源。</p>
+<p><a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/">中国科技大学开源镜像</a><br><a target="_blank" rel="noopener" href="http://mirrors.tuna.tsinghua.edu.cn/">清华大学开源镜像</a><br><a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/">阿里云开源镜像</a></p>
+<p>其中中国科技大学使用的是https，因此在大多数情况下推荐使用（2016年底科大源曾长期处于不稳定状态，目前已经恢复），阿里云镜像适合阿里云的服务器使用，可以免流量且速度快。</p>
+<h3 id="具体一些推荐配置"><a href="#具体一些推荐配置" class="headerlink" title="具体一些推荐配置"></a>具体一些推荐配置</h3><h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p>网上大多推荐豆瓣的源，但是豆瓣的源仍然是http协议，新版pip会提示警告，所以还是换成科大源吧（除非是低版本Linux不支持https链接）。此外，使用阿里源还遇到过几次同步不及时的问题。</p>
+<h4 id="node"><a href="#node" class="headerlink" title="node"></a>node</h4><p>推荐使用阿里源，主要是提供额外的cnpm命令，可以方便的安装。</p>
+<h4 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h4><p>淘宝的Ruby镜像已经改由Ruby-China维护，所以请使用<a target="_blank" rel="noopener" href="https://gems.ruby-china.org/">Ruby-China的镜像</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/</span><br><span class="line">$ gem sources -l</span><br><span class="line">https://gems.ruby-china.org</span><br><span class="line"># 确保只有 gems.ruby-china.org</span><br></pre></td></tr></table></figure>
+
+<h4 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h4><p>使用腾讯Bugly镜像，<a target="_blank" rel="noopener" href="http://android-mirror.bugly.qq.com:8080/include/usage.html">将Android SDK Manager的代理设置为android-mirror.bugly.qq.com:8080</a></p>
+<h4 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a>homebrew</h4><p>homebrew自身内容是放在github上的，如果更新速度慢，可以换成<a target="_blank" rel="noopener" href="http://mirrors.tuna.tsinghua.edu.cn/help/#homebrew">清华的镜像</a>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/local</span><br><span class="line">$ git remote set-url origin git://mirrors.tuna.tsinghua.edu.cn/homebrew.git</span><br></pre></td></tr></table></figure>
+
+<p>homebrew-science或者homebrew-python也可以参考其页面进行修改。不过如果不是处于极其艰难的情况，不建议改这个，因为无法确保各个的软件包的hash未被篡改。</p>
+<p>homebrew大多数的软件源都是在homebrew.bintray.com上的，速度同样非常慢，<a target="_blank" rel="noopener" href="http://ban.ninja/">有人</a>也做了份国内镜像。</p>
+<p>设置环境变量:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export HOMEBREW_BOTTLE_DOMAIN=http://7xkcej.dl1.z0.glb.clouddn.com</span><br></pre></td></tr></table></figure>
+
+<h4 id="Docker-Hub"><a href="#Docker-Hub" class="headerlink" title="Docker Hub"></a>Docker Hub</h4><p>国内基本斗士要注册的，科大源有个反向代理，因为Docker配置比较麻烦，请具体参考<a target="_blank" rel="noopener" href="https://lug.ustc.edu.cn/wiki/mirrors/help/docker">Docker镜像使用帮助</a></p>
+<h4 id="pyenv"><a href="#pyenv" class="headerlink" title="pyenv"></a>pyenv</h4><p>同样设置环境变量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PYTHON_BUILD_MIRROR_URL=&quot;http://pyenv.qiniudn.com/pythons/&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>对于这些第三方源，并不能完全保重其安全性，所以会存在一定的风险下载到经过篡改的软件包。</p>
+<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><p>2017.01.21 更新多条源记录</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2015/06/13/Cuckoo-1/" rel="prev" title="Cuckoo代码学习一">
+                  <i class="fa fa-angle-left"></i> Cuckoo代码学习一
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/01/12/Install-Linuxbrew-without-Root/" rel="next" title="在无Root权限系统中安装Linuxbrew">
+                  在无Root权限系统中安装Linuxbrew <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">S0urceC0der</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"s0urcec0der.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Mactype是在Windows下实现类似Mac下字体渲染效果的程序。长期以来，我一直都使用这个软件替代系统自带的ClearType渲染功能。渲染得到的字体相当不错。 但是， 字体Windows下面自带的雅黑字体效果还是挺不错的，但是还是建议使用其他修改过的字体。字体可以去极限社区下载。该论坛也是重要的讨论字体修改和Mactype的网站。 之前用的比较多的是XHei，貌似现在出了新的字体，以后下载">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Mactype渲染字体">
+<meta property="og:url" content="https://s0urcec0der.github.io/2015/03/15/Mactype/index.html">
+<meta property="og:site_name" content="S0urceC0der">
+<meta property="og:description" content="Mactype是在Windows下实现类似Mac下字体渲染效果的程序。长期以来，我一直都使用这个软件替代系统自带的ClearType渲染功能。渲染得到的字体相当不错。 但是， 字体Windows下面自带的雅黑字体效果还是挺不错的，但是还是建议使用其他修改过的字体。字体可以去极限社区下载。该论坛也是重要的讨论字体修改和Mactype的网站。 之前用的比较多的是XHei，貌似现在出了新的字体，以后下载">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2015-03-15T13:27:48.000Z">
+<meta property="article:modified_time" content="2020-09-07T02:31:06.568Z">
+<meta property="article:author" content="S0urceC0der">
+<meta property="article:tag" content="Windows">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://s0urcec0der.github.io/2015/03/15/Mactype/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://s0urcec0der.github.io/2015/03/15/Mactype/","path":"2015/03/15/Mactype/","title":"使用Mactype渲染字体"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>使用Mactype渲染字体 | S0urceC0der</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="S0urceC0der" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">S0urceC0der</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E4%BD%93"><span class="nav-number">1.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E4%BC%98%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">程序优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Firefox"><span class="nav-number">2.1.</span> <span class="nav-text">Firefox</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VisualStudio"><span class="nav-number">2.2.</span> <span class="nav-text">VisualStudio</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">S0urceC0der</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://s0urcec0der.github.io/2015/03/15/Mactype/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="使用Mactype渲染字体 | S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          使用Mactype渲染字体
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2015-03-15 13:27:48" itemprop="dateCreated datePublished" datetime="2015-03-15T13:27:48+00:00">2015-03-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2020-09-07 02:31:06" itemprop="dateModified" datetime="2020-09-07T02:31:06+00:00">2020-09-07</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>Mactype是在Windows下实现类似Mac下字体渲染效果的程序。长期以来，我一直都使用这个软件替代系统自带的ClearType渲染功能。渲染得到的字体相当不错。</p>
+<p>但是，</p>
+<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p>Windows下面自带的雅黑字体效果还是挺不错的，但是还是建议使用其他修改过的字体。字体可以去<a target="_blank" rel="noopener" href="http://bbs.themex.net/forumdisplay.php?f=90">极限社区</a>下载。该论坛也是重要的讨论字体修改和Mactype的网站。</p>
+<p>之前用的比较多的是XHei，貌似现在出了新的字体，以后下载看下效果。</p>
+<h2 id="程序优化"><a href="#程序优化" class="headerlink" title="程序优化"></a>程序优化</h2><h3 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h3><p>Firefox默认开启的硬件加速，因此无法直接使用Mactype字体渲染。关于具体的设置，参考文档<a target="_blank" rel="noopener" href="https://github.com/renkun-ken/MacType.Source">MacType.Source</a></p>
+<p>打开<code>about:config</code>，修改设置如下</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>gfx.direct2d.disabled</td>
+<td>true</td>
+</tr>
+<tr>
+<td>gfx.font_loader.delay</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>gfx.font_rendering.cleartype.always_use_for_content;true</td>
+<td>true</td>
+</tr>
+<tr>
+<td>gfx.font_rendering.cleartype_params.cleartype_level</td>
+<td>100</td>
+</tr>
+<tr>
+<td>gfx.font_rendering.cleartype_params.enhanced_contrast</td>
+<td>100</td>
+</tr>
+<tr>
+<td>gfx.font_rendering.cleartype_params.gamma</td>
+<td>1400</td>
+</tr>
+<tr>
+<td>gfx.font_rendering.cleartype_params.pixel_structure</td>
+<td>1</td>
+</tr>
+<tr>
+<td>gfx.font_rendering.cleartype_params.rendering_mode</td>
+<td>5</td>
+</tr>
+<tr>
+<td>gfx.font_rendering.fallback.always_use_cmaps</td>
+<td>true</td>
+</tr>
+<tr>
+<td>gfx.use_text_smoothing_setting</td>
+<td>true</td>
+</tr>
+</tbody></table>
+<h3 id="VisualStudio"><a href="#VisualStudio" class="headerlink" title="VisualStudio"></a>VisualStudio</h3><p>与Firefox一样，同样使用了硬件加速，而且偏偏没有任何设置。</p>
+<p>在<a target="_blank" rel="noopener" href="http://www.zhihu.com/question/24251313">VS 怎么使用 MacType 的字体渲染？</a>中提出了解决方案：对于ClearType设置为Smoothing的字体，且Visualstudio在显示比例不为100%时可以直接通过Mactype进行渲染。</p>
+<p>所以需要使用这样特别制作的字体，从<a target="_blank" rel="noopener" href="http://tieba.baidu.com/p/3366845989">自制FantasqueSansMono字体+VS缩放插件,完美解决VS2013+Mactype</a>下载特别制作过的字体FantasqueSansMono字体。</p>
+<p>但是默认VS都会在新开一个窗口的时候重置缩放比例，因此需要使用插件让VS保持显示比较为99%。插件可以参考帖子<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/4771750/visual-studio-2010-default-zoom-level">Visual Studio 2010 default zoom level</a>，固定了显示比例之后，防止不小心按了<code>Ctrl+滚轮</code>而改变了缩放，可以安装插件<a target="_blank" rel="noopener" href="https://visualstudiogallery.msdn.microsoft.com/d088791c-150a-4834-8f28-462696a82bb8">Disable Mouse Wheel Zoom</a>，装上了这几个插件，基本可以欣赏漂亮的字体渲染了。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Windows/" rel="tag"># Windows</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2015/02/15/Mac/" rel="prev" title="Mac">
+                  <i class="fa fa-angle-left"></i> Mac
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2015/03/21/Cmder/" rel="next" title="Cmder">
+                  Cmder <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">S0urceC0der</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

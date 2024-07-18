@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"s0urcec0der.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="0上一篇学习 ROP 的文章中提到原文的 Shellcode 调用失败了，这次就尝试分析下该 Shellcode 看看能不能找出原因。 1. 对 Shellcode 反汇编拿到一段 Shellcode，第一步就是尝试反汇编，参考文章《使用 Python 将 Shellcode 转换成汇编》文章教程，基于 capstone 使用如下代码即可。 123456789#!&#x2F;usr&#x2F;bin&#x2F;env pyth">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ROP 学习之 Shellcode">
+<meta property="og:url" content="https://s0urcec0der.github.io/2018/01/23/ROP-Shellcode/index.html">
+<meta property="og:site_name" content="S0urceC0der">
+<meta property="og:description" content="0上一篇学习 ROP 的文章中提到原文的 Shellcode 调用失败了，这次就尝试分析下该 Shellcode 看看能不能找出原因。 1. 对 Shellcode 反汇编拿到一段 Shellcode，第一步就是尝试反汇编，参考文章《使用 Python 将 Shellcode 转换成汇编》文章教程，基于 capstone 使用如下代码即可。 123456789#!&#x2F;usr&#x2F;bin&#x2F;env pyth">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-01-23T21:42:52.000Z">
+<meta property="article:modified_time" content="2018-01-27T17:32:12.000Z">
+<meta property="article:author" content="S0urceC0der">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Exploit">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://s0urcec0der.github.io/2018/01/23/ROP-Shellcode/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://s0urcec0der.github.io/2018/01/23/ROP-Shellcode/","path":"2018/01/23/ROP-Shellcode/","title":"ROP 学习之 Shellcode"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>ROP 学习之 Shellcode | S0urceC0der</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="S0urceC0der" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">S0urceC0der</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0"><span class="nav-number">1.</span> <span class="nav-text">0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%AF%B9-Shellcode-%E5%8F%8D%E6%B1%87%E7%BC%96"><span class="nav-number">2.</span> <span class="nav-text">1. 对 Shellcode 反汇编</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%88%86%E6%9E%90-Shellcode-%E5%8E%9F%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">2. 分析 Shellcode 原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ROP-%E6%95%99%E7%A8%8B%E4%B8%AD%E7%9A%84-Shellcode-%E5%88%86%E6%9E%90"><span class="nav-number">3.1.</span> <span class="nav-text">ROP 教程中的 Shellcode 分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95-Shellcode"><span class="nav-number">3.2.</span> <span class="nav-text">测试 Shellcode</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">4.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">S0urceC0der</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://s0urcec0der.github.io/2018/01/23/ROP-Shellcode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="ROP 学习之 Shellcode | S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ROP 学习之 Shellcode
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-01-23 21:42:52" itemprop="dateCreated datePublished" datetime="2018-01-23T21:42:52+00:00">2018-01-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2018-01-27 17:32:12" itemprop="dateModified" datetime="2018-01-27T17:32:12+00:00">2018-01-27</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="0"><a href="#0" class="headerlink" title="0"></a>0</h1><p>上一篇学习 ROP 的文章中提到原文的 Shellcode 调用失败了，这次就尝试分析下该 Shellcode 看看能不能找出原因。</p>
+<h1 id="1-对-Shellcode-反汇编"><a href="#1-对-Shellcode-反汇编" class="headerlink" title="1. 对 Shellcode 反汇编"></a>1. 对 Shellcode 反汇编</h1><p>拿到一段 Shellcode，第一步就是尝试反汇编，参考文章《使用 Python 将 Shellcode 转换成汇编》文章教程，基于 capstone 使用如下代码即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python2</span><br><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">from capstone import *</span><br><span class="line"></span><br><span class="line">for code in shellcode:</span><br><span class="line">    md = Cs(CS_ARCH_X86, CS_MODE_32)</span><br><span class="line">    for i in md.disasm(code, 0x00):</span><br><span class="line">        print(&quot;0x%x:\t%s\t%s&quot; %(i.address, i.mnemonic, i.op_str))</span><br></pre></td></tr></table></figure>
+
+<p>从这段源码可以看到，这是利用 capstone 的反汇编功能来实现的，但是需要指定对应汇编的处理器架构和字长信息。</p>
+<h1 id="2-分析-Shellcode-原理"><a href="#2-分析-Shellcode-原理" class="headerlink" title="2. 分析 Shellcode 原理"></a>2. 分析 Shellcode 原理</h1><p>Linu 下 Shellcode 的原理参考<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/2052">《Linux下shellcode的编写》</a>一文，关键是调用系统调用函数 execve。这个函数的参数如下：</p>
+<ul>
+<li>参数 1：file 文件名</li>
+<li>参数 2：NULL 即 0</li>
+<li>参数 3：NULL 即 0</li>
+</ul>
+<p>实现调用时，需要将系统调用号码 11 放入 eax 中，最终调用<code>int 0x80</code>实现函数调用。</p>
+<h2 id="ROP-教程中的-Shellcode-分析"><a href="#ROP-教程中的-Shellcode-分析" class="headerlink" title="ROP 教程中的 Shellcode 分析"></a>ROP 教程中的 Shellcode 分析</h2><p>下面针对第一次调用失败的 Shellcode 反汇编得到的代码分析下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">0x0:   xor ecx, ecx     \x31\xc9  // 清空 ecx，即 ecx = 0</span><br><span class="line">0x2:   mul ecx          \xf7\xe1  // 貌似是无意义的 ecx清零指令</span><br><span class="line">0x4:   push ecx         \x51      // 压入参数 0</span><br><span class="line">0x5:   push 0x68732f2f  \x68\x2f\x2f\x73\x68  // 压入字符串</span><br><span class="line">0xa:   push 0x6e69622f  \x68\x2f\x62\x69\x6e  // 压入字符串</span><br><span class="line">0xf:   mov ebx, esp     \x89\xe3  // 将字符串的地址传给 ebx</span><br><span class="line">0x11:  mov al, 0xb      \xb0\x0b  // 调用号 0xb == 11</span><br><span class="line">0x13:  int 0x80         \xcd\x80  // 0x80中 断调用系统调用</span><br></pre></td></tr></table></figure>
+
+<p>由此可见，从反汇编角度这段 Shellcode 应该是有问题的，参数没有正常的传入。</p>
+<h2 id="测试-Shellcode"><a href="#测试-Shellcode" class="headerlink" title="测试 Shellcode"></a>测试 Shellcode</h2><p>同样我们可以将这段 Shellcode 拷贝到测试程序中进行测试。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">char shellcode[] = &quot;\x31\xc9\xf7\xe1\x51\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\xb0\x0b\xcd\x80&quot;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int (*ret)() = (int(*)()) shellcode;</span><br><span class="line">    ret();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后使用 <code>gcc -fno-stack-protector -z execstack shellcode.c -o shellcode</code> 进行编译，预期之内，直接报出 <code>Segmentation fault</code> 错误。说明这段 Shellcode 的确是有问题的。</p>
+<p>更换为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">char shellcode[] =  &quot;\x31\xc0\x50\x68\x6e\x2f\x73\x68\x68\x2f\x2f\x62\x69\x89\xe3\x50\x89\xe2\x53\x89\xe1\xb0\x0b\xcd\x80&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>测试正常，该段 Shellcode 可以参考文2来查看详细含义。</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a target="_blank" rel="noopener" href="https://bbs.pediy.com/thread-222965.htm">1.【Python】使用Python将Shellcode转换成汇编</a></p>
+<p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/2052">2. Linux下shellcode的编写</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/Exploit/" rel="tag"># Exploit</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/12/03/Graphviz/" rel="prev" title="使用 Graphviz 来画图">
+                  <i class="fa fa-angle-left"></i> 使用 Graphviz 来画图
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/01/28/Website/" rel="next" title="域名注册经历">
+                  域名注册经历 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">S0urceC0der</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

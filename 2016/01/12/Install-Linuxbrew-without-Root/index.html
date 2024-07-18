@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"s0urcec0der.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="在无Root权限系统中安装LinuxbrewLinuxbrewHomebrew是Mac系统下著名的软件安装管理系统，其特点是不需要root权限即可编译安装Linux下的各种软件，通过修改路径来优先使用安装的软件包。而Linuxbrew则是其Linux移植版本，同样可以在不需要root权限的情况下，在.linuxbrew下完整建立一个运行环境，并在环境变量里面优先使用。 因为目前我使用的一个系统是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在无Root权限系统中安装Linuxbrew">
+<meta property="og:url" content="https://s0urcec0der.github.io/2016/01/12/Install-Linuxbrew-without-Root/index.html">
+<meta property="og:site_name" content="S0urceC0der">
+<meta property="og:description" content="在无Root权限系统中安装LinuxbrewLinuxbrewHomebrew是Mac系统下著名的软件安装管理系统，其特点是不需要root权限即可编译安装Linux下的各种软件，通过修改路径来优先使用安装的软件包。而Linuxbrew则是其Linux移植版本，同样可以在不需要root权限的情况下，在.linuxbrew下完整建立一个运行环境，并在环境变量里面优先使用。 因为目前我使用的一个系统是">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-01-12T02:37:25.000Z">
+<meta property="article:modified_time" content="2020-09-07T02:31:06.567Z">
+<meta property="article:author" content="S0urceC0der">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://s0urcec0der.github.io/2016/01/12/Install-Linuxbrew-without-Root/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://s0urcec0der.github.io/2016/01/12/Install-Linuxbrew-without-Root/","path":"2016/01/12/Install-Linuxbrew-without-Root/","title":"在无Root权限系统中安装Linuxbrew"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>在无Root权限系统中安装Linuxbrew | S0urceC0der</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="S0urceC0der" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">S0urceC0der</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8%E6%97%A0Root%E6%9D%83%E9%99%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%AE%89%E8%A3%85Linuxbrew"><span class="nav-number">1.</span> <span class="nav-text">在无Root权限系统中安装Linuxbrew</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linuxbrew"><span class="nav-number">1.1.</span> <span class="nav-text">Linuxbrew</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">安装过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ruby%E4%BE%9D%E8%B5%96"><span class="nav-number">1.2.1.</span> <span class="nav-text">Ruby依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git%E4%BE%9D%E8%B5%96"><span class="nav-number">1.2.2.</span> <span class="nav-text">Git依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Standalone%E6%A8%A1%E5%BC%8F%E5%AE%89%E8%A3%85Linuxbrew"><span class="nav-number">1.2.3.</span> <span class="nav-text">Standalone模式安装Linuxbrew</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%B0%8F%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.</span> <span class="nav-text">其他小问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8zsh"><span class="nav-number">1.3.1.</span> <span class="nav-text">使用zsh</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E7%BB%AD%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95"><span class="nav-number">1.4.</span> <span class="nav-text">后续更新记录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linuxbrew%E6%9B%B4%E6%96%B0%E6%83%85%E5%86%B5"><span class="nav-number">1.4.1.</span> <span class="nav-text">Linuxbrew更新情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E7%9A%84%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95"><span class="nav-number">1.4.2.</span> <span class="nav-text">新的安装方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%9C%A8%E6%94%AF%E6%8C%81CentOS5%E6%97%A7%E7%89%88%E6%9C%AC"><span class="nav-number">1.4.3.</span> <span class="nav-text">不在支持CentOS5旧版本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">S0urceC0der</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://s0urcec0der.github.io/2016/01/12/Install-Linuxbrew-without-Root/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="在无Root权限系统中安装Linuxbrew | S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          在无Root权限系统中安装Linuxbrew
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2016-01-12 02:37:25" itemprop="dateCreated datePublished" datetime="2016-01-12T02:37:25+00:00">2016-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2020-09-07 02:31:06" itemprop="dateModified" datetime="2020-09-07T02:31:06+00:00">2020-09-07</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><hr>
+<h1 id="在无Root权限系统中安装Linuxbrew"><a href="#在无Root权限系统中安装Linuxbrew" class="headerlink" title="在无Root权限系统中安装Linuxbrew"></a>在无Root权限系统中安装Linuxbrew</h1><h2 id="Linuxbrew"><a href="#Linuxbrew" class="headerlink" title="Linuxbrew"></a>Linuxbrew</h2><p>Homebrew是Mac系统下著名的软件安装管理系统，其特点是不需要root权限即可编译安装Linux下的各种软件，通过修改路径来优先使用安装的软件包。而Linuxbrew则是其Linux移植版本，同样可以在不需要root权限的情况下，在.linuxbrew下完整建立一个运行环境，并在环境变量里面优先使用。</p>
+<p>因为目前我使用的一个系统是Centos5.4版本，无root权限，gcc、python等版本均非常旧，而且无法自由安装软件提供工作效率，所以选择Linuxbrew来安装需要的软件。但是实际上整个安装过程也是非常艰难的。</p>
+<h2 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h2><p>虽然Linuxbrew号称不需要root权限，但是实际安装的时候还是需要满足一定的条件，目前主要条件如下：</p>
+<blockquote>
+<ul>
+<li>Ruby 1.8.6 or newer</li>
+<li>GCC 4.2 or newer</li>
+<li>Linux 2.6.16 or newer</li>
+<li>64-bit x86 or 32-bit ARM platform</li>
+</ul>
+</blockquote>
+<p>可惜现有的系统不满足前两个条件，意味着需要在没有root权限下实现这亮点。</p>
+<h3 id="Ruby依赖"><a href="#Ruby依赖" class="headerlink" title="Ruby依赖"></a>Ruby依赖</h3><p>Linuxbrew是基于ruby的，而Centos5.7的ruby版本是1.8.5，仅仅相差了一个小版本号，却无法运行。因为没有root权限，所以选择采用<a target="_blank" rel="noopener" href="https://rvm.io/">rvm</a>升级安装ruby。</p>
+<p>默认rvm是编译安装的，但是显然当前版本没有安装必要的devel包，所以是无法编译成功的，看到安装过程中会首先去搜索precompiled binary，猜测可能有不需要编译的ruby版本提供，经过一番搜索，果然是可以的，运行<code>rvm list remote</code>可以看到支持当前系统的ruby预编译版本，就选择了一个最低版本ruby-1.9.3-p551，但是很不幸，应该是网络问题无法直接下载，需要手动从<a target="_blank" rel="noopener" href="https://rvm_io.global.ssl.fastly.net/binaries/centos/5/x86_64/">下载链接</a>进行下载。</p>
+<p>对于下载的包，运行<code>rvm mount -r ruby-1.9.3-p551.tar.bz2 --binary</code>加载，会自动把包内的文件释放出来，此时会提醒运行缺少libyaml，但是发现好像并不会引起其他问题。</p>
+<h3 id="Git依赖"><a href="#Git依赖" class="headerlink" title="Git依赖"></a>Git依赖</h3><p>坑爹的是git也没有安装，第一想法当然是直接释放git的rpm包，但是运行的时候一直有错误提醒：</p>
+<blockquote>
+<p>   $ git clone <a target="_blank" rel="noopener" href="https://github.com/nvie/gitflow.git">https://github.com/nvie/gitflow.git</a><br>   Cloning into gitflow…<br>   fatal: Unable to find remote helper for ‘https’</p>
+</blockquote>
+<p>后得知是缺乏libcurl相关库，但是最初并不知道，因此选择重新编译git，官网提示需要如下库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install curl-devel expat-devel gettext-devel openssl-devel perl-devel zlib-devel</span><br></pre></td></tr></table></figure>
+
+<p>自然是按照对应的依赖，然后下载解压对应的包，增加到include路径中，然后进行编译，但是事实证明这个过程非常艰难，最终没有编译成功，有兴趣的同学可以尝试下看看。</p>
+<p>幸运的从网上找到了一个<a target="_blank" rel="noopener" href="http://vault.centos.org/5.4/os/x86_64/CentOS/">Centos rpm包库</a>，然后根据需要的包名选择下载，s使用命令<code>rpm2cpio *.rpm | cpio -div</code>释放rpm包文件到了本地的~&#x2F;usr目录下，并确认这些文件及so能够正常在环境变量里面</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:~/usr/bin</span><br><span class="line">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/usr/lib</span><br><span class="line">export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/usr/include</span><br><span class="line">export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/usr/include</span><br></pre></td></tr></table></figure>
+
+<p>随后编译git，并放入~&#x2F;usr&#x2F;bin下，能够正常运行git。</p>
+<h3 id="Standalone模式安装Linuxbrew"><a href="#Standalone模式安装Linuxbrew" class="headerlink" title="Standalone模式安装Linuxbrew"></a>Standalone模式安装Linuxbrew</h3><p>在Standalone模式下，Linuxbrew会搭建一个完全脱离现有系统的编译环境和运行环境，运行Linuxbrew的软件时不再依赖系统原有的的编译器和库。</p>
+<p>虽然说是Standalone模式，仍然需要一个编译器来首先编译出一个gcc，但是CentOS5.4的默认gcc版本过旧，必须要求最低4.4版本才行。依然尝试下载对应的rpm包，然后需要注意的是，这些包可能存在依赖，所以需要运行命令<code>rpm -Uvh --test *.rpm</code>来查看是否已经安装，否则仍然需要手动安装。我正是因为libstdc++44-devel-4.4.0没有安装导致耽误了两天的时间。具体的包如下：</p>
+<blockquote>
+<p>   libstdc++44-devel-4.4.0 gcc44-4.4.0 gcc44-gfortran-4.4.0 gcc44-c++-4.4.0</p>
+</blockquote>
+<p>安装glibc的时候，官方指南有一句提示：</p>
+<blockquote>
+<p>   before this, you may want to <code>brew edit glibc</code> to produce compatibility for your particular kernel, for example:<br>   “–enable-version&#x3D;2.6.18”</p>
+</blockquote>
+<p>我并未搞懂<code>--enable-version</code>参数的作用，只是在查找glibc编译选项时，看到需要开启对应内核的支持<code>--enable-kernel=</code></p>
+<p>剩下的安装过程可以参考<a target="_blank" rel="noopener" href="https://github.com/Homebrew/linuxbrew/wiki/Standalone-Installation">官方指南</a>，大体流程就是先编译出gcc，再编译glibc，然后重新编译依赖这个glibc的gcc，完成整个编译工具链，最终安装基础的软件包，安装ruby、git替换原有的库。</p>
+<p>此外安装Git的依赖选项homebrew&#x2F;dupes&#x2F;tcl-tk过程中还有有一个小意外，参考(<a target="_blank" rel="noopener" href="https://github.com/Homebrew/linuxbrew/issues/369">https://github.com/Homebrew/linuxbrew/issues/369</a>) ，<code>brew install tcl-tk --without-tk</code></p>
+<p>最后ruby安装的时候报错，就先凑合着用rvm吧，可能后面再过一阵子fixbug就好了</p>
+<h2 id="其他小问题"><a href="#其他小问题" class="headerlink" title="其他小问题"></a>其他小问题</h2><ol>
+<li>旧版git会遇到各种HTTPS的问题，例如提示git 证书问题</li>
+</ol>
+<p>git config –global http.sslVerify false</p>
+<ol start="2">
+<li>安装时候提示tmp目录问题</li>
+</ol>
+<blockquote>
+<p>  Error: parent directory is world writable, FileUtils#remove_entry_secure does not work; &gt;    abort: “&#x2F;tmp&#x2F;homebrew20160101-27874-8ry2dn” (parent directory mode 40777)</p>
+</blockquote>
+<p>参考链接 (<a target="_blank" rel="noopener" href="https://github.com/Homebrew/homebrew/issues/39475">https://github.com/Homebrew/homebrew/issues/39475</a>) 设置<code>export HOMEBREW_TEMP=~/.tmp/</code>，或者修改文件<code>~/.linuxbrew/Library/Homebrew/config.rb</code>内的temp内容</p>
+<ol start="3">
+<li>下载问题</li>
+</ol>
+<p>下载不稳定，所以经常无法下载，可以手动下载然后把文件放到<code>~/.cache/Homebrew</code>下，如果没有正常识别出缓存的话，可以本地搭个简单的http服务器（<code>python -m SimpleHTTPServer</code>)，然后<code>brew edit package</code>去修改下载链接</p>
+<h3 id="使用zsh"><a href="#使用zsh" class="headerlink" title="使用zsh"></a>使用zsh</h3><p>安装zsh后，自动安装oh-my-zsh会出现检测不到zsh的问题（当然是因为不在默认的shell路径中了），需要手动下载这个安装脚本，并且设置其中的<code>CHECK_ZSH_INSTALLED</code>为1。因为没有权限切换默认的shell，所以基本是不能用zsh的，不过有个曲线救国的方法，就是安装tmux并且让tmux启动时自动调用zsh，以后每次启动tmux就启动调用zsh。设置方法为在文件<code>.tmux.conf</code>中写入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set-option -g default-shell ~/.linuxbrew/bin/zsh</span><br></pre></td></tr></table></figure>
+
+<h2 id="后续更新记录"><a href="#后续更新记录" class="headerlink" title="后续更新记录"></a>后续更新记录</h2><h3 id="Linuxbrew更新情况"><a href="#Linuxbrew更新情况" class="headerlink" title="Linuxbrew更新情况"></a>Linuxbrew更新情况</h3><p>2016年四月Homebrew和Linuxbrew都进行了目录结构的更改，将原有的包分割成了brew和Homebrew-core两个包，需要进行重新调整。</p>
+<h3 id="新的安装方法"><a href="#新的安装方法" class="headerlink" title="新的安装方法"></a>新的安装方法</h3><p>最新的Homebrew已经不再需要上述如此复杂的方法了，可以参考最新的安装方法(<a target="_blank" rel="noopener" href="https://github.com/Linuxbrew/brew/wiki/CentOS6">https://github.com/Linuxbrew/brew/wiki/CentOS6</a>) ，通过<code>HOMEBREW_NO_AUTO_UPDATE=1 HOMEBREW_BUILD_FROM_SOURCE=1 brew install gcc --without-glibc</code> 进行安装编译，但是其他的依赖安装仍然需要同样的方法进行设置。</p>
+<h3 id="不在支持CentOS5旧版本"><a href="#不在支持CentOS5旧版本" class="headerlink" title="不在支持CentOS5旧版本"></a>不在支持CentOS5旧版本</h3><p>最新的glibc-2.23要求linux内核至少为2.6.16，因此最新的Linuxbrew已经无法安装再CentOS5的旧版本。如果硬要安装，个人感觉可以搜索homebrew-core的glibc为2.19历史版本覆盖最新的homebrew-core来进行安装，但是我因为gmp编译问题，并未安装成功。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>为了能够在自由安装软件也是醉了，折腾了好久，不过安装完毕后，也是非常舒服的。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/01/10/mirror/" rel="prev" title="常见软件包的国内镜像">
+                  <i class="fa fa-angle-left"></i> 常见软件包的国内镜像
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/01/21/Install-Android-with-Homebrew/" rel="next" title="Mac上配置Android开发环境">
+                  Mac上配置Android开发环境 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">S0urceC0der</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

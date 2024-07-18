@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"s0urcec0der.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Mac下Wine运行心灵终结Mental Omega 3.3简介红色警戒(Command &amp; Conquer: Red Alert 2)是经典的游戏，心灵终结是基于尤里的复仇的一个Mod，被称为”几乎完美的尤里的复仇”，2016年底该Mod发布3.3版本。相比原版的红警，阵营间的兵种区分更大，兵种相克更加合理，增加了多种对战模式，玩起来更加有意思。 安装WineWine可以在Linux&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac下Wine运行心灵终结Mental Omega 3.3">
+<meta property="og:url" content="https://s0urcec0der.github.io/2017/10/21/Wine-Mental-Omega/index.html">
+<meta property="og:site_name" content="S0urceC0der">
+<meta property="og:description" content="Mac下Wine运行心灵终结Mental Omega 3.3简介红色警戒(Command &amp; Conquer: Red Alert 2)是经典的游戏，心灵终结是基于尤里的复仇的一个Mod，被称为”几乎完美的尤里的复仇”，2016年底该Mod发布3.3版本。相比原版的红警，阵营间的兵种区分更大，兵种相克更加合理，增加了多种对战模式，玩起来更加有意思。 安装WineWine可以在Linux&amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s0urcec0der.github.io/img/wine-MentalOmega.png">
+<meta property="article:published_time" content="2017-10-21T17:53:12.000Z">
+<meta property="article:modified_time" content="2020-09-07T02:31:06.572Z">
+<meta property="article:author" content="S0urceC0der">
+<meta property="article:tag" content="Mac">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s0urcec0der.github.io/img/wine-MentalOmega.png">
+
+
+<link rel="canonical" href="https://s0urcec0der.github.io/2017/10/21/Wine-Mental-Omega/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://s0urcec0der.github.io/2017/10/21/Wine-Mental-Omega/","path":"2017/10/21/Wine-Mental-Omega/","title":"Mac下Wine运行心灵终结Mental Omega 3.3"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Mac下Wine运行心灵终结Mental Omega 3.3 | S0urceC0der</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="S0urceC0der" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">S0urceC0der</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mac%E4%B8%8BWine%E8%BF%90%E8%A1%8C%E5%BF%83%E7%81%B5%E7%BB%88%E7%BB%93Mental-Omega-3-3"><span class="nav-number">1.</span> <span class="nav-text">Mac下Wine运行心灵终结Mental Omega 3.3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Wine"><span class="nav-number">1.2.</span> <span class="nav-text">安装Wine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Mental-Omega-3-3"><span class="nav-number">1.3.</span> <span class="nav-text">安装Mental Omega 3.3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E4%BC%98%E5%8C%96"><span class="nav-number">1.4.</span> <span class="nav-text">其他优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E9%81%87%E5%88%B0%E7%9A%84Bug"><span class="nav-number">1.5.</span> <span class="nav-text">目前遇到的Bug</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97"><span class="nav-number">2.</span> <span class="nav-text">更新日志</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="nav-number">3.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">S0urceC0der</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://s0urcec0der.github.io/2017/10/21/Wine-Mental-Omega/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="S0urceC0der">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Mac下Wine运行心灵终结Mental Omega 3.3 | S0urceC0der">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Mac下Wine运行心灵终结Mental Omega 3.3
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-10-21 17:53:12" itemprop="dateCreated datePublished" datetime="2017-10-21T17:53:12+00:00">2017-10-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2020-09-07 02:31:06" itemprop="dateModified" datetime="2020-09-07T02:31:06+00:00">2020-09-07</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><hr>
+<h1 id="Mac下Wine运行心灵终结Mental-Omega-3-3"><a href="#Mac下Wine运行心灵终结Mental-Omega-3-3" class="headerlink" title="Mac下Wine运行心灵终结Mental Omega 3.3"></a>Mac下Wine运行心灵终结Mental Omega 3.3</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>红色警戒(Command &amp; Conquer: Red Alert 2)是经典的游戏，心灵终结是基于尤里的复仇的一个Mod，被称为”几乎完美的尤里的复仇”，2016年底该Mod发布3.3版本。相比原版的红警，阵营间的兵种区分更大，兵种相克更加合理，增加了多种对战模式，玩起来更加有意思。</p>
+<h2 id="安装Wine"><a href="#安装Wine" class="headerlink" title="安装Wine"></a>安装Wine</h2><p>Wine可以在Linux&#x2F;Mac平台下模拟执行Window程序</p>
+<p>请安装开发版本的Wine以便获得更好的兼容性</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew cask install wine-devel</span><br><span class="line">brew install winetricks</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装Mental-Omega-3-3"><a href="#安装Mental-Omega-3-3" class="headerlink" title="安装Mental Omega 3.3"></a>安装Mental Omega 3.3</h2><p>请安装3.3.2版本，最早的MentalOmega 3.3.0版本的clientxna.exe无法正常启动，需要后续更新才行，该问题可以参考(<a target="_blank" rel="noopener" href="https://github.com/CnCNet/xna-cncnet-client/issues/29">https://github.com/CnCNet/xna-cncnet-client/issues/29</a>)</p>
+<p>选择一个心灵终结的懒人包，解压之后运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">winetricks xna40</span><br></pre></td></tr></table></figure>
+
+<p>会自动安装依赖.net40和xna40，安装完毕后如果直接运行<code>wine MentalOmegaClient.exe</code>仍然会提示缺少.NET组件，但是可以通过<code>wine Resources/clientxna.exe</code>来开启程序绕过检查。</p>
+<p><img src="/img/wine-MentalOmega.png" alt="Wine"></p>
+<h2 id="其他优化"><a href="#其他优化" class="headerlink" title="其他优化"></a>其他优化</h2><p>关于Wine的字体优化，可以参考<a target="_blank" rel="noopener" href="https://www.lulinux.com/archives/362">WINE界面与字体美化全攻略，及我的常用WINE程序截图展示</a></p>
+<h2 id="目前遇到的Bug"><a href="#目前遇到的Bug" class="headerlink" title="目前遇到的Bug"></a>目前遇到的Bug</h2><ul>
+<li>1.会经常性的在命令行窗口弹出错误信息：</li>
+</ul>
+<blockquote>
+<p> winedevice.exe(18227,0xb0004000) malloc: *** error for object 0x40203bb2: pointer being freed was not allocated</p>
+</blockquote>
+<ul>
+<li>2.在长时间运行红警后，会出现闪退现象</li>
+</ul>
+<h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><p>2019.06.22 更新最新的 Wine 使用情况。</p>
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wr132/article/details/76093911">【WineHQ】解决UTF8乱码问题</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Mac/" rel="tag"># Mac</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/10/02/Crack-M3U8/" rel="prev" title="破解某网站m3u8视频资源">
+                  <i class="fa fa-angle-left"></i> 破解某网站m3u8视频资源
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/11/22/ROP-part1/" rel="next" title="从0开始学习Linux ROP利用-part1">
+                  从0开始学习Linux ROP利用-part1 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">S0urceC0der</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
