@@ -102,5 +102,5 @@ theme: next
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: 'git'
-  repository: git@github.com:S0urceC0der/SourceC0der.github.io.git
+  repository: git@github.com:S0urceC0der/S0urceC0der.github.io.git
   branch: master
